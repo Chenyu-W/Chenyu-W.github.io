@@ -16,15 +16,15 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目传送门 前言看到这题是个蓝题还以为要写最短路，做完以后感觉这题最多是个黄。 分析我们用序列 $A$ 记录 $1-n$ 中站点的开放情况，用序列 $B$ 记录 $n - 1$ 中站点开放的情况。 这题其实就是一个分类讨论的题目，我们来思考一下什么情况能到，什么情况到不了。  当 $A[1] &#x3D;&#x3D; 0$，也就是连车都上不了，肯定到不了。 当 $A[1]&amp;&amp;A[s">
+    <meta name="description" content="【题解】CF1055A Metro题目传送门 前言看到这题是个蓝题还以为要写最短路，做完以后感觉这题最多是个黄。 分析我们用序列 $A$ 记录 $1-n$ 中站点的开放情况，用序列 $B$ 记录 $n - 1$ 中站点开放的情况。 这题其实就是一个分类讨论的题目，我们来思考一下什么情况能到，什么情况到不了。  当 $A[1] &#x3D;&#x3D; 0$，也就是连车都上不了，肯定到不了。 当 $">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wcy的博客">
-<meta property="og:url" content="http://example.com/2022/04/04/CF1055A/index.html">
+<meta property="og:url" content="http://example.com/2022/04/04/CF1055A%20Metro/index.html">
 <meta property="og:site_name" content="wcy的博客">
-<meta property="og:description" content="题目传送门 前言看到这题是个蓝题还以为要写最短路，做完以后感觉这题最多是个黄。 分析我们用序列 $A$ 记录 $1-n$ 中站点的开放情况，用序列 $B$ 记录 $n - 1$ 中站点开放的情况。 这题其实就是一个分类讨论的题目，我们来思考一下什么情况能到，什么情况到不了。  当 $A[1] &#x3D;&#x3D; 0$，也就是连车都上不了，肯定到不了。 当 $A[1]&amp;&amp;A[s">
+<meta property="og:description" content="【题解】CF1055A Metro题目传送门 前言看到这题是个蓝题还以为要写最短路，做完以后感觉这题最多是个黄。 分析我们用序列 $A$ 记录 $1-n$ 中站点的开放情况，用序列 $B$ 记录 $n - 1$ 中站点开放的情况。 这题其实就是一个分类讨论的题目，我们来思考一下什么情况能到，什么情况到不了。  当 $A[1] &#x3D;&#x3D; 0$，也就是连车都上不了，肯定到不了。 当 $">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-04T14:04:29.320Z">
-<meta property="article:modified_time" content="2022-04-03T12:03:27.794Z">
+<meta property="article:published_time" content="2022-04-04T14:20:09.131Z">
+<meta property="article:modified_time" content="2022-04-04T14:09:58.718Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -185,7 +185,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-04 22:04" pubdate>
+      <time datetime="2022-04-04 22:20" pubdate>
         2022年4月4日 晚上
       </time>
     </span>
@@ -196,7 +196,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      901 字
+      917 字
     </span>
   
 
@@ -237,7 +237,7 @@
             <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1055A">题目传送门</a></p>
+              <h1 id="【题解】CF1055A-Metro"><a href="#【题解】CF1055A-Metro" class="headerlink" title="【题解】CF1055A Metro"></a>【题解】CF1055A Metro</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1055A">题目传送门</a></p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>看到这题是个蓝题还以为要写最短路，做完以后感觉这题<del>最多是个黄</del>。</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>我们用序列 $A$ 记录 $1-n$ 中站点的开放情况，用序列 $B$ 记录 $n - 1$ 中站点开放的情况。</p>
 <p>这题其实就是一个分类讨论的题目，我们来思考一下什么情况能到，什么情况到不了。</p>

@@ -16,16 +16,16 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目传送门 1.建图看完这个题目的第一时间就想到了一个建图方式：将每个字符串看成一个点，如果字符串 $A$ 与 $B$ 相连，那么就连一条从 $A$ 到 $B$ 长度为 $A.length()$ 的有向边，但是仔细一想，在最坏情况下，我们的图中会有 $10^5$ 个点，$10^{10}$ 条边，这显然是我们不能接受的。 但是我们观察到每个字符串中其实只有前两个字符和后两个字符是有用的，所以我们可以">
+    <meta name="description" content="【题解】SP2885 WORDRING题目传送门 1.建图看完这个题目的第一时间就想到了一个建图方式：将每个字符串看成一个点，如果字符串 $A$ 与 $B$ 相连，那么就连一条从 $A$ 到 $B$ 长度为 $A.length()$ 的有向边，但是仔细一想，在最坏情况下，我们的图中会有 $10^5$ 个点，$10^{10}$ 条边，这显然是我们不能接受的。 但是我们观察到每个字符串中其实只有前两个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wcy的博客">
 <meta property="og:url" content="http://example.com/2022/04/04/SP2885%20WORDRING/index.html">
 <meta property="og:site_name" content="wcy的博客">
-<meta property="og:description" content="题目传送门 1.建图看完这个题目的第一时间就想到了一个建图方式：将每个字符串看成一个点，如果字符串 $A$ 与 $B$ 相连，那么就连一条从 $A$ 到 $B$ 长度为 $A.length()$ 的有向边，但是仔细一想，在最坏情况下，我们的图中会有 $10^5$ 个点，$10^{10}$ 条边，这显然是我们不能接受的。 但是我们观察到每个字符串中其实只有前两个字符和后两个字符是有用的，所以我们可以">
+<meta property="og:description" content="【题解】SP2885 WORDRING题目传送门 1.建图看完这个题目的第一时间就想到了一个建图方式：将每个字符串看成一个点，如果字符串 $A$ 与 $B$ 相连，那么就连一条从 $A$ 到 $B$ 长度为 $A.length()$ 的有向边，但是仔细一想，在最坏情况下，我们的图中会有 $10^5$ 个点，$10^{10}$ 条边，这显然是我们不能接受的。 但是我们观察到每个字符串中其实只有前两个">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2022/03/24/wBClfXQpRvWLt3y.png">
-<meta property="article:published_time" content="2022-04-04T14:04:29.230Z">
-<meta property="article:modified_time" content="2022-04-02T00:55:24.491Z">
+<meta property="article:published_time" content="2022-04-04T14:20:09.130Z">
+<meta property="article:modified_time" content="2022-04-04T14:12:10.372Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://s2.loli.net/2022/03/24/wBClfXQpRvWLt3y.png">
@@ -187,7 +187,7 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-04 22:04" pubdate>
+      <time datetime="2022-04-04 22:20" pubdate>
         2022年4月4日 晚上
       </time>
     </span>
@@ -239,7 +239,7 @@
             <h1 style="display: none"></h1>
             
             <div class="markdown-body">
-              <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP2885">题目传送门</a></p>
+              <h1 id="【题解】SP2885-WORDRING"><a href="#【题解】SP2885-WORDRING" class="headerlink" title="【题解】SP2885 WORDRING"></a>【题解】SP2885 WORDRING</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP2885">题目传送门</a></p>
 <h2 id="1-建图"><a href="#1-建图" class="headerlink" title="1.建图"></a>1.建图</h2><p>看完这个题目的第一时间就想到了一个建图方式：将每个字符串看成一个点，如果字符串 $A$ 与 $B$ 相连，那么就连一条从 $A$ 到 $B$ 长度为 $A.length()$ 的有向边，但是仔细一想，在最坏情况下，我们的图中会有 $10^5$ 个点，$10^{10}$ 条边，这显然是我们不能接受的。</p>
 <p>但是我们观察到每个字符串中其实只有前两个字符和后两个字符是有用的，所以我们可以只取每个字符串的前两个字符和后两个字符，在它们之间连一条长度为这个字符串长度的有向边，这样做其实是和第一种建图方式等价的，但是我们最多只要 $26 \times 26 &#x3D; 676$ 个点，$10^5$ 条边，这样的时空复杂度是我们能够接受的。</p>
 <p>样例建的图如下:</p>
@@ -269,7 +269,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/04/CF1055A/">
+                      <a href="/2022/04/04/CF1055A%20Metro/">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
@@ -278,6 +278,12 @@
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2022/04/04/P4011%E5%AD%A4%E5%B2%9B%E8%90%A5%E6%95%91%E9%97%AE%E9%A2%98/">
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
