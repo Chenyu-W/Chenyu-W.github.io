@@ -191,15 +191,15 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
-        <a href="/2022/04/04/hello-world/" target="_self">
-          Hello World
+        <a href="/2022/04/04/P4011%E5%AD%A4%E5%B2%9B%E8%90%A5%E6%95%91%E9%97%AE%E9%A2%98/" target="_self">
+          
         </a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2022/04/04/hello-world/" target="_self">
+        <a href="/2022/04/04/P4011%E5%AD%A4%E5%B2%9B%E8%90%A5%E6%95%91%E9%97%AE%E9%A2%98/" target="_self">
           
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
+          题目传送门 注意到数据范围$1\le P\le 10$,很容易想到二进制状压(一开始做题以为钥匙是一次性的，没想到状压) 所以我们可以自然而然地想到设$d[i][state]$表示走到点$i$且钥匙状态为$state$的最短步数(我把二维点压成了一维，代码中会有体现)，分类讨论一下如何转移$d[i][state]$这个状态 1.如果点$i$处有若干把钥匙，那么我们的最优方案就是将这些钥匙捡起(捡钥
         </a>
       </p>
 
@@ -207,7 +207,106 @@
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2022-04-04 11:35" pubdate>
+            <time datetime="2022-04-04 22:04" pubdate>
+              2022-04-04
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/04/P2122%E8%BF%98%E6%95%99%E5%AE%A4/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/04/P2122%E8%BF%98%E6%95%99%E5%AE%A4/" target="_self">
+          
+          题目传送门 题目大意:给定一个序列，支持区间加法，查询平均数和方差。 区间问题，最喜欢用线段树来解决。 首先我们由查询平均数知道肯定要维护区间和，但是我们还要支持查询方差，所以我们还需要维护一些其它的东西，把方差公式展开得到( $A_i$ 表示序列第 $i$ 项，$\overline A$ 表示序列 $A$ 的平均数)。 $$s^2&#x3D;\frac{1}{n}\sum_{i&#x3D;1}^
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-04 22:04" pubdate>
+              2022-04-04
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/04/CF1055A/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/04/CF1055A/" target="_self">
+          
+          题目传送门 前言看到这题是个蓝题还以为要写最短路，做完以后感觉这题最多是个黄。 分析我们用序列 $A$ 记录 $1-n$ 中站点的开放情况，用序列 $B$ 记录 $n - 1$ 中站点开放的情况。 这题其实就是一个分类讨论的题目，我们来思考一下什么情况能到，什么情况到不了。  当 $A[1] &#x3D;&#x3D; 0$，也就是连车都上不了，肯定到不了。 当 $A[1]&amp;&amp;A[s
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-04 22:04" pubdate>
+              2022-04-04
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/04/04/SP2885%20WORDRING/" target="_self">
+          
+        </a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2022/04/04/SP2885%20WORDRING/" target="_self">
+          
+          题目传送门 1.建图看完这个题目的第一时间就想到了一个建图方式：将每个字符串看成一个点，如果字符串 $A$ 与 $B$ 相连，那么就连一条从 $A$ 到 $B$ 长度为 $A.length()$ 的有向边，但是仔细一想，在最坏情况下，我们的图中会有 $10^5$ 个点，$10^{10}$ 条边，这显然是我们不能接受的。 但是我们观察到每个字符串中其实只有前两个字符和后两个字符是有用的，所以我们可以
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-04-04 22:04" pubdate>
               2022-04-04
             </time>
           </div>
