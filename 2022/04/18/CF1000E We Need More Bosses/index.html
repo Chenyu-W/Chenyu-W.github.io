@@ -16,15 +16,15 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目传送门 前言 这是一道双连通分量的板子题 前置芝士 双连通分量，割点 分析 看到题目中封锁一个点的说法，我们很容易想到无向图中割点的概念，所以我们对每一个点进行分类讨论  如果这个点不是割点，那么这个点被封锁后其他点依旧可以互相到达，只是到达不了这个被封锁的点，所以我们不能互相到达的点对数量就为 \(2(n - 1)\) (注意题目中求的是有序点对)。 如果这个点是割点，">
+    <meta name="description" content="题目传送门 前言 这题本来是寒假听fls大佬讲课的时候课上讲的例题，但是当时由于太菜，没写出来，最近把这题给补了。 前置芝士 tarjan 算法，e-DCC 的缩点，树的直径 分析 看到题目中必须经过这几个字，就想起了 e-DCC 的一个重要性质: 同一个 e-DCC 中的任意两点都有两条及以上相离的路径(在冗余路径这一题中也有所体现)，我们来简单证明一下。 如果同一个 e-DCC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【题解】SP15577 STC10">
-<meta property="og:url" content="http://example.com/2022/04/10/SP15577%20STC10/index.html">
+<meta property="og:title" content="【题解】CF1000E We Need More Bosses">
+<meta property="og:url" content="http://example.com/2022/04/18/CF1000E%20We%20Need%20More%20Bosses/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="题目传送门 前言 这是一道双连通分量的板子题 前置芝士 双连通分量，割点 分析 看到题目中封锁一个点的说法，我们很容易想到无向图中割点的概念，所以我们对每一个点进行分类讨论  如果这个点不是割点，那么这个点被封锁后其他点依旧可以互相到达，只是到达不了这个被封锁的点，所以我们不能互相到达的点对数量就为 \(2(n - 1)\) (注意题目中求的是有序点对)。 如果这个点是割点，">
+<meta property="og:description" content="题目传送门 前言 这题本来是寒假听fls大佬讲课的时候课上讲的例题，但是当时由于太菜，没写出来，最近把这题给补了。 前置芝士 tarjan 算法，e-DCC 的缩点，树的直径 分析 看到题目中必须经过这几个字，就想起了 e-DCC 的一个重要性质: 同一个 e-DCC 中的任意两点都有两条及以上相离的路径(在冗余路径这一题中也有所体现)，我们来简单证明一下。 如果同一个 e-DCC">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-10T01:50:41.000Z">
-<meta property="article:modified_time" content="2022-04-10T09:05:17.649Z">
+<meta property="article:published_time" content="2022-04-18T11:14:45.000Z">
+<meta property="article:modified_time" content="2022-04-18T11:27:37.304Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="图论">
@@ -32,7 +32,7 @@
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>【题解】SP15577 STC10 - wcy&#39;s blog</title>
+  <title>【题解】CF1000E We Need More Bosses - wcy&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -173,7 +173,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="【题解】SP15577 STC10">
+            <span class="h2" id="subtitle" title="【题解】CF1000E We Need More Bosses">
               
             </span>
 
@@ -183,8 +183,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-04-10 09:50" pubdate>
-        2022年4月10日 上午
+      <time datetime="2022-04-18 19:14" pubdate>
+        2022年4月18日 晚上
       </time>
     </span>
   
@@ -194,7 +194,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.5k 字
+      1.8k 字
     </span>
   
 
@@ -203,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      13 分钟
+      16 分钟
     </span>
   
 
@@ -232,38 +232,28 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【题解】SP15577 STC10</h1>
+            <h1 style="display: none">【题解】CF1000E We Need More Bosses</h1>
             
             <div class="markdown-body">
-              <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP15577">题目传送门</a></p>
+              <p><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/solution/CF1000E">题目传送门</a></p>
 <h2 id="前言">前言</h2>
-<p>这是一道双连通分量的<del>板子</del>题</p>
+<p>这题本来是寒假听fls大佬讲课的时候课上讲的例题，但是当时由于太菜，没写出来，最近把这题给补了。</p>
 <h3 id="前置芝士">前置芝士</h3>
-<p>双连通分量，割点</p>
+<p>tarjan 算法，e-DCC 的缩点，树的直径</p>
 <h2 id="分析">分析</h2>
-<p>看到题目中<strong>封锁一个点</strong>的说法，我们很容易想到无向图中割点的概念，所以我们对每一个点进行分类讨论</p>
-<ol type="1">
-<li>如果这个点不是割点，那么这个点被封锁后其他点依旧可以互相到达，只是到达不了这个被封锁的点，所以我们不能互相到达的点对数量就为
-<span class="math inline">\(2(n - 1)\)</span>
-(注意题目中求的是有序点对)。</li>
-<li>如果这个点是割点，那么这个点被封锁之后我们的图后被分为若干个连通块，我们设节点
-<span class="math inline">\(i\)</span> 的子节点中点集 <span
-class="math inline">\(V\)</span> 满足 <span class="math inline">\(dfn[i]
-&lt;= low[v \in V]\)</span> 也就是这些子节点可以判定 <span
-class="math inline">\(i\)</span> 为割点。我们设 <span
-class="math inline">\(size[i]\)</span> 表示以 <span
-class="math inline">\(i\)</span>
-为根的子树的大小，那我们的方案数就可以用以下式子表示</li>
-</ol>
-<p><span class="math display">\[
-\sum_{v\in V}size[v] \times (n - size[v]) +\left(\sum_{v \in V}size[v] +
-1\right) \times \left( n - 1-\sum_{v\in V}size[v]\right) + (n - 1)
-\]</span></p>
-<p>(建议没看懂这个式子的朋友自行画图思考)</p>
-<p>我们发现我们可以在 dfs 的过程中记录一下 <span
-class="math inline">\(\sum_{v\in V}size[v]\)</span>,来方便我们的计算</p>
+<p>看到题目中<strong>必须经过</strong>这几个字，就想起了 e-DCC
+的一个重要性质: 同一个 e-DCC 中的任意两点都有两条及以上相离的路径(在<a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2860">冗余路径</a>这一题中也有所体现)，我们来简单证明一下。</p>
+<p>如果同一个 e-DCC 中的两个点 <span class="math inline">\(u,v\)</span>
+不存在相离的路径，那么就意味着，它们之间必定存在着一些必经边，如果把边删去，那么
+<span class="math inline">\(u,v\)</span>
+两点就不连通，也就是说这些边是这个图中的割边，与 e-DCC
+的性质相矛盾。</p>
+<p>那么我们就可以考虑 e-DCC
+缩点，缩完点后建一张新图。显然，新图是一个<strong>森林</strong>，同一个连通块中每一条边都是必经边，那么我们就直接找一下树的直径就可以了。</p>
 <h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ll long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>, M = <span class="hljs-number">1e6</span> + <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> h[N], e[M], ne[M], idx;<br><span class="hljs-type">int</span> dfn[N], low[N], cut[N], sz[N];<br><span class="hljs-type">int</span> t;<br>ll res[N];<br><span class="hljs-type">int</span> n, m;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123;<br>    e[idx] = b;<br>    ne[idx] = h[a];<br>    h[a] = idx++;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> u)</span> </span>&#123;<br>    dfn[u] = low[u] = ++t;<br>    sz[u] = <span class="hljs-number">1</span>;<br>    <span class="hljs-type">int</span> cnt = <span class="hljs-number">0</span>, sum = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = h[u]; ~i; i = ne[i])<br>    &#123;<br>        <span class="hljs-type">int</span> v = e[i];<br>        <span class="hljs-keyword">if</span> (!dfn[v])<br>        &#123;<br>            <span class="hljs-built_in">tarjan</span>(v);<br>            sz[u] += sz[v]; <span class="hljs-comment">// 累加子树大小</span><br>            low[u] = <span class="hljs-built_in">min</span>(low[u], low[v]);<br>            <span class="hljs-keyword">if</span> (dfn[u] &lt;= low[v])<br>            &#123;<br>                res[u] += (ll)sz[v] * (n - sz[v]);<br>                sum += sz[v]; <span class="hljs-comment">// 记录子节点子树大小之和</span><br>                cnt++;<br>                <span class="hljs-keyword">if</span> (u != <span class="hljs-number">1</span> || cnt &gt; <span class="hljs-number">1</span>)<br>                    cut[u] = <span class="hljs-literal">true</span>; <br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>            low[u] = <span class="hljs-built_in">min</span>(low[u], dfn[v]);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!cut[u]) res[u] = (n - <span class="hljs-number">1</span>) * <span class="hljs-number">2</span>; <span class="hljs-comment">// 非割点情况</span><br>    <span class="hljs-keyword">else</span> res[u] += (ll)(n - sum - <span class="hljs-number">1</span>) * (sum + <span class="hljs-number">1</span>) + (n - <span class="hljs-number">1</span>); <span class="hljs-comment">// 前半部分答案已经在dfs过程中记录完成</span><br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);<br>    <span class="hljs-built_in">memset</span>(h, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> h);<br>    <span class="hljs-keyword">while</span> (m--) &#123;<br>        <span class="hljs-type">int</span> a, b;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);<br>        <span class="hljs-built_in">add</span>(a, b);<br>        <span class="hljs-built_in">add</span>(b, a);<br>    &#125;<br>    <span class="hljs-built_in">tarjan</span>(<span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%lld\n&quot;</span>, res[i]);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">3e5</span> + <span class="hljs-number">10</span>, M = N &lt;&lt; <span class="hljs-number">1</span>;<br><span class="hljs-type">int</span> h[N], e[M], ne[M], idx;<br><span class="hljs-type">int</span> H[N], E[M], NE[M];<br><span class="hljs-type">int</span> dfn[N], low[N], id[N], stk[N];<br><span class="hljs-type">bool</span> vis[N];<br><span class="hljs-type">int</span> res;<br><span class="hljs-type">int</span> cnt, tt, t;<br><span class="hljs-type">int</span> d1[N], d2[N];<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> h[], <span class="hljs-type">int</span> e[], <span class="hljs-type">int</span> ne[], <span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>    e[idx] = b;<br>    ne[idx] = h[a];<br>    h[a] = idx++;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> p)</span> <span class="hljs-comment">// e-DCC 缩点板子</span></span><br><span class="hljs-function"></span>&#123;<br>    dfn[u] = low[u] = ++t;<br>    stk[++tt] = u;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = h[u]; ~i; i = ne[i])<br>    &#123;<br>        <span class="hljs-type">int</span> v = e[i];<br>        <span class="hljs-keyword">if</span> (!dfn[v])<br>        &#123;<br>            <span class="hljs-built_in">tarjan</span>(v, i);<br>            low[u] = <span class="hljs-built_in">min</span>(low[u], low[v]);<br>        &#125;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (i != (p ^ <span class="hljs-number">1</span>))<br>            low[u] = <span class="hljs-built_in">min</span>(low[u], dfn[v]);<br>    &#125;<br>    <span class="hljs-keyword">if</span> (dfn[u] == low[u])<br>    &#123;<br>        <span class="hljs-type">int</span> v;<br>        cnt++;<br>        <span class="hljs-keyword">do</span> &#123;<br>            v = stk[tt--];<br>            id[v] = cnt;<br>        &#125; <span class="hljs-keyword">while</span> (u != v);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> p)</span> <span class="hljs-comment">// 求一个连通块中树的直径</span></span><br><span class="hljs-function"></span>&#123;<br>    vis[u] = <span class="hljs-literal">true</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = H[u]; ~i; i = NE[i])<br>    &#123;<br>        <span class="hljs-type">int</span> v = E[i];<br>        <span class="hljs-keyword">if</span> (v == p) <span class="hljs-keyword">continue</span>;<br>        <span class="hljs-built_in">dfs</span>(v, u);<br>        <span class="hljs-type">int</span> d = d1[v] + <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (d &gt; d1[u]) d2[u] = d1[u], d1[u] = d;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (d &gt; d2[u]) d2[u] = d;<br>    &#125;<br>    res = <span class="hljs-built_in">max</span>(res, d1[u] + d2[u]);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n, m;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);<br>    <span class="hljs-built_in">memset</span>(h, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> h);<br>    <span class="hljs-built_in">memset</span>(H, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> H);<br>    <span class="hljs-keyword">while</span> (m--)<br>    &#123;<br>        <span class="hljs-type">int</span> x, y;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;x, &amp;y);<br>        <span class="hljs-built_in">add</span>(h, e, ne, x, y);<br>        <span class="hljs-built_in">add</span>(h, e, ne, y, x);<br>    &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-keyword">if</span> (!id[i])<br>            <span class="hljs-built_in">tarjan</span>(i, <span class="hljs-number">-1</span>);<br>    idx = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = h[i]; ~j; j = ne[j])<br>        &#123;<br>            <span class="hljs-type">int</span> k = e[j];<br>            <span class="hljs-keyword">if</span> (id[i] != id[k])<br>                <span class="hljs-built_in">add</span>(H, E, NE, id[i], id[k]); <span class="hljs-comment">// 建新图</span><br>        &#125;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= cnt; i++)<br>        <span class="hljs-keyword">if</span> (!vis[i]) <span class="hljs-comment">// 注意原图不一定连通</span><br>            <span class="hljs-built_in">dfs</span>(i, <span class="hljs-number">-1</span>);<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, res);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -302,18 +292,12 @@ class="math inline">\(\sum_{v\in V}size[v]\)</span>,来方便我们的计算</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/04/18/CF1000E%20We%20Need%20More%20Bosses/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【题解】CF1000E We Need More Bosses</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/09/SP16185%20BUSINESS/">
-                        <span class="hidden-mobile">【题解】SP16185 BUSINESS</span>
+                      <a href="/2022/04/10/SP15577%20STC10/">
+                        <span class="hidden-mobile">【题解】SP15577 STC10</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
