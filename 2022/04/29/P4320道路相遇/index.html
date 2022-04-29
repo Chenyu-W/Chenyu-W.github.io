@@ -1,0 +1,540 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chenyu Wu">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言 一眼出思路 tarjan+LCA，感觉可以切掉，但是最后调了两天 前置芝士 tarjan, v-DCC缩点, 圆方树，LCA 分析 首先，我们可以发现，如果两个点在同一个 v-DCC 中，那么它们之间就没有任何必经点，所以我们直接进行 v-DCC 缩点。 因为题目给的图是连通的，所以我们缩完点后的图是一棵树，也就是常说的圆方树，那么我们要求的点数就是圆方树上两点之间圆点的个数，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【题解】P4320道路相遇">
+<meta property="og:url" content="http://example.com/2022/04/29/P4320%E9%81%93%E8%B7%AF%E7%9B%B8%E9%81%87/index.html">
+<meta property="og:site_name" content="wcy&#39;s blog">
+<meta property="og:description" content="前言 一眼出思路 tarjan+LCA，感觉可以切掉，但是最后调了两天 前置芝士 tarjan, v-DCC缩点, 圆方树，LCA 分析 首先，我们可以发现，如果两个点在同一个 v-DCC 中，那么它们之间就没有任何必经点，所以我们直接进行 v-DCC 缩点。 因为题目给的图是连通的，所以我们缩完点后的图是一棵树，也就是常说的圆方树，那么我们要求的点数就是圆方树上两点之间圆点的个数，">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-04-29T12:44:45.000Z">
+<meta property="article:modified_time" content="2022-04-29T13:10:11.622Z">
+<meta property="article:author" content="Chenyu Wu">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="图论">
+<meta property="article:tag" content="tarjan">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>【题解】P4320道路相遇 - wcy&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WuChenyu&#39;s blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【题解】P4320道路相遇">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-04-29 20:44" pubdate>
+        2022年4月29日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【题解】P4320道路相遇</h1>
+            
+            <div class="markdown-body">
+              <h2 id="前言">前言</h2>
+<p>一眼出思路 tarjan+LCA，感觉可以切掉，但是最后调了两天</p>
+<h3 id="前置芝士">前置芝士</h3>
+<p>tarjan, v-DCC缩点, 圆方树，LCA</p>
+<h2 id="分析">分析</h2>
+<p>首先，我们可以发现，如果两个点在同一个 v-DCC
+中，那么它们之间就没有任何必经点，所以我们直接进行 v-DCC 缩点。</p>
+<p>因为题目给的图是连通的，所以我们缩完点后的图是一棵树，也就是常说的<strong>圆方树</strong>，那么我们要求的点数就是圆方树上两点之间圆点的个数，我们就可以对这两个点的类型进行分类讨论，我们设这两个点之间的距离为
+<span class="math inline">\(dist\)</span> ( <span
+class="math inline">\(dist\)</span>用 LCA 求 )，两点间圆点个数为 <span
+class="math inline">\(x\)</span> 。</p>
+<ol type="1">
+<li>若这两个点都是方点，我们可以得到 <span class="math inline">\(x =
+dist / 2\)</span></li>
+<li>若这两个点一个是圆点，一个点是方点，则 <span class="math inline">\(x
+= (dist - 1) / 2\)</span></li>
+<li>若这两个点都是圆点，则 <span class="math inline">\(x = (dist - 2) /
+2\)</span></li>
+</ol>
+<p>我们发现，上述式子可以总结为一个式子 <span class="math display">\[
+x = (dist - k)/2
+\]</span> 其中 <span class="math inline">\(k\)</span>
+表示这两个点中圆点的数量。</p>
+<p>但是题目中有说把这两个点算进去，所以我们最终的答案为 <span
+class="math inline">\(x + 2\)</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e6</span> + <span class="hljs-number">10</span>, M = <span class="hljs-number">2e6</span> + <span class="hljs-number">10</span>; <span class="hljs-comment">// 注意N要开两倍，要不然RE</span><br><span class="hljs-type">int</span> h[N], e[M], ne[M], idx;<br><span class="hljs-type">int</span> H[N], E[M], NE[M];<br><span class="hljs-type">int</span> dep[N], f[N][<span class="hljs-number">21</span>];<br><span class="hljs-type">int</span> dfn[N], low[N], stk[N];<br><span class="hljs-type">int</span> id[N];<br><span class="hljs-type">bool</span> cut[N]; <span class="hljs-comment">// 表示每个点是否为割点(圆点)</span><br><span class="hljs-type">int</span> t, tt, cnt;<br><span class="hljs-type">int</span> root;<br><span class="hljs-type">int</span> n, m, q;<br>vector&lt;<span class="hljs-type">int</span>&gt; dcc[N];<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">tarjan</span><span class="hljs-params">(<span class="hljs-type">int</span> u)</span> <span class="hljs-comment">// v-DCC 缩点板子</span></span><br><span class="hljs-function"></span>&#123;<br>    dfn[u] = low[u] = ++t;<br>    stk[++tt] = u;<br>    <span class="hljs-keyword">if</span> (h[u] == <span class="hljs-number">-1</span>)<br>    &#123;<br>        dcc[++cnt].<span class="hljs-built_in">push_back</span>(u);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> kid = <span class="hljs-number">0</span>; <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = h[u]; ~i; i = ne[i])<br>    &#123;<br>        <span class="hljs-type">int</span> v = e[i];<br>        <span class="hljs-keyword">if</span> (!dfn[v])<br>        &#123;<br>            <span class="hljs-built_in">tarjan</span>(v);<br>            low[u] = <span class="hljs-built_in">min</span>(low[u], low[v]);<br>            <span class="hljs-keyword">if</span> (dfn[u] &lt;= low[v])<br>            &#123;<br>                <span class="hljs-keyword">if</span> (u != root || ++kid &gt; <span class="hljs-number">1</span>) cut[u] = <span class="hljs-literal">true</span>;<br>                cnt++;<br>                <span class="hljs-type">int</span> j;<br>                <span class="hljs-keyword">do</span> &#123;<br>                    j = stk[tt--];<br>                    dcc[cnt].<span class="hljs-built_in">push_back</span>(j);<br>                &#125; <span class="hljs-keyword">while</span> (v != j);<br>                dcc[cnt].<span class="hljs-built_in">push_back</span>(u);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>            low[u] = <span class="hljs-built_in">min</span>(low[u], dfn[v]);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> h[], <span class="hljs-type">int</span> e[], <span class="hljs-type">int</span> ne[], <span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span></span><br><span class="hljs-function"></span>&#123;<br>    e[idx] = b;<br>    ne[idx] = h[a];<br>    h[a] = idx++;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> u, <span class="hljs-type">int</span> p)</span> <span class="hljs-comment">// LCA 板子</span></span><br><span class="hljs-function"></span>&#123;<br>    dep[u] = dep[p] + <span class="hljs-number">1</span>, f[u][<span class="hljs-number">0</span>] = p;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; (<span class="hljs-number">1</span> &lt;&lt; i) &lt;= dep[u]; i++)<br>        f[u][i] = f[f[u][i - <span class="hljs-number">1</span>]][i - <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = H[u]; ~i; i = NE[i])<br>    &#123;<br>        <span class="hljs-type">int</span> v = E[i];<br>        <span class="hljs-keyword">if</span> (v == p) <span class="hljs-keyword">continue</span>;<br>        <span class="hljs-built_in">dfs</span>(v, u);<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">lca</span><span class="hljs-params">(<span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (dep[x] &lt; dep[y]) <span class="hljs-built_in">swap</span>(x, y);<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-built_in">log2</span>(n); i &gt;= <span class="hljs-number">0</span>; i--)<br>        <span class="hljs-keyword">if</span> (dep[f[x][i]] &gt;= dep[y])<br>            x = f[x][i];<br>    <span class="hljs-keyword">if</span> (x == y) <span class="hljs-keyword">return</span> x;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-built_in">log2</span>(n); i &gt;= <span class="hljs-number">0</span>; i--)<br>        <span class="hljs-keyword">if</span> (f[x][i] != f[y][i])<br>            x = f[x][i], y = f[y][i];<br>    <span class="hljs-keyword">return</span> f[x][<span class="hljs-number">0</span>];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);<br>    <span class="hljs-built_in">memset</span>(h, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> h);<br>    <span class="hljs-built_in">memset</span>(H, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> H);<br>    <span class="hljs-keyword">while</span> (m--)<br>    &#123;<br>        <span class="hljs-type">int</span> a, b;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);<br>        <span class="hljs-built_in">add</span>(h ,e, ne, a, b);<br>        <span class="hljs-built_in">add</span>(h, e, ne, b, a);<br>    &#125;<br>    root = <span class="hljs-number">1</span>;<br>    <span class="hljs-built_in">tarjan</span>(<span class="hljs-number">1</span>);<br>    <span class="hljs-type">int</span> num = cnt;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        <span class="hljs-keyword">if</span> (cut[i])<br>            id[i] = ++num;<br>    idx = <span class="hljs-number">0</span>;<br>    <span class="hljs-comment">// 建立圆方树</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= cnt; i++)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; dcc[i].<span class="hljs-built_in">size</span>(); j++)<br>        &#123;<br>            <span class="hljs-type">int</span> k = dcc[i][j];<br>            <span class="hljs-keyword">if</span> (cut[k])<br>            &#123;<br>                <span class="hljs-built_in">add</span>(H, E, NE, i, id[k]);<br>                <span class="hljs-built_in">add</span>(H, E, NE, id[k], i);<br>            &#125;<br>            <span class="hljs-keyword">else</span> id[k] = i;<br>        &#125;<br>    cnt = num;<br>    <span class="hljs-built_in">dfs</span>(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>);<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;q);<br>    <span class="hljs-keyword">while</span> (q--)<br>    &#123;<br>        <span class="hljs-type">int</span> s, t;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d%d&quot;</span>, &amp;s, &amp;t);<br>        <span class="hljs-type">int</span> a = cut[s], b = cut[t];<br>        s = id[s], t = id[t];<br>        <span class="hljs-type">int</span> p = <span class="hljs-built_in">lca</span>(s, t);<br>        <span class="hljs-type">int</span> dist = dep[s] + dep[t] - <span class="hljs-number">2</span> * dep[p];<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, (dist - (a + b)) / <span class="hljs-number">2</span> + <span class="hljs-number">2</span>);<br>    &#125;<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%A2%98%E8%A7%A3/">题解</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E9%A2%98%E8%A7%A3/">题解</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%9B%BE%E8%AE%BA/">图论</a>
+                    
+                      <a class="hover-with-bg" href="/tags/tarjan/">tarjan</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/18/CF1000E%20We%20Need%20More%20Bosses/">
+                        <span class="hidden-mobile">【题解】CF1000E We Need More Bosses</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"t245Q4YItEYBqdExI2GfUndq-gzGzoHsz","appKey":"D8HNtH7dDtivbfU4E2ltCD6y","path":"window.location.pathname","placeholder":"来说点什么吧...","avatar":"mp","meta":["nick","mail"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          Fluid.plugins.initFancyBox('#valine .vcontent img:not(.vemoji)');
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        loader: {
+          load: ['ui/lazy']
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" ></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
