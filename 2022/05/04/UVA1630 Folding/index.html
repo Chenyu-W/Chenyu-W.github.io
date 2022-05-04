@@ -16,22 +16,23 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目传送门 前言 一道输出dp方案的题目，如果你不会输出dp的方案，那么这题是一道很好的练手题 前置芝士 LCS 分析 求 LCS 长度的话应该不用多说了，这里具体说一下如何把所有 LCS 找出来。(用 \(f[i][j]\) 表示 LCS 长度) 我们用 \(recordA[i][j]\), 来表示 \(s1\) 中前 \(i\) 个字符中字符 \(j\) 出现的最后一个下标">
+    <meta name="description" content="题目传送门 前言 双倍经验 前置芝士 区间DP 分析 这是一道DP输出方案的题目，遇到这种题目不要慌，DP输出方案大致分为两个步骤: 1.找答案 2. 记录步骤。 题目要求我们求字符串的最短折叠，那我们不妨把字符串的最短折叠长度求出来。 我们用 \(f[l][r]\) 表示字符串 \([l, r]\) 这一段最短折叠的长度，用 \(num[i]\) 表示数字 \(i\) 的长度(">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【题解】SP33 TRIP">
-<meta property="og:url" content="http://example.com/2022/05/03/SP33%20TRIP/index.html">
+<meta property="og:title" content="【题解】UVA1630 Folding">
+<meta property="og:url" content="http://example.com/2022/05/04/UVA1630%20Folding/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="题目传送门 前言 一道输出dp方案的题目，如果你不会输出dp的方案，那么这题是一道很好的练手题 前置芝士 LCS 分析 求 LCS 长度的话应该不用多说了，这里具体说一下如何把所有 LCS 找出来。(用 \(f[i][j]\) 表示 LCS 长度) 我们用 \(recordA[i][j]\), 来表示 \(s1\) 中前 \(i\) 个字符中字符 \(j\) 出现的最后一个下标">
+<meta property="og:description" content="题目传送门 前言 双倍经验 前置芝士 区间DP 分析 这是一道DP输出方案的题目，遇到这种题目不要慌，DP输出方案大致分为两个步骤: 1.找答案 2. 记录步骤。 题目要求我们求字符串的最短折叠，那我们不妨把字符串的最短折叠长度求出来。 我们用 \(f[l][r]\) 表示字符串 \([l, r]\) 这一段最短折叠的长度，用 \(num[i]\) 表示数字 \(i\) 的长度(">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-03T13:26:56.000Z">
-<meta property="article:modified_time" content="2022-05-03T13:44:11.101Z">
+<meta property="article:published_time" content="2022-05-04T07:33:45.000Z">
+<meta property="article:modified_time" content="2022-05-04T08:11:38.366Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="动态规划DP">
+<meta property="article:tag" content="区间DP">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>【题解】SP33 TRIP - wcy&#39;s blog</title>
+  <title>【题解】UVA1630 Folding - wcy&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -172,7 +173,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="【题解】SP33 TRIP">
+            <span class="h2" id="subtitle" title="【题解】UVA1630 Folding">
               
             </span>
 
@@ -182,8 +183,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2022-05-03 21:26" pubdate>
-        2022年5月3日 晚上
+      <time datetime="2022-05-04 15:33" pubdate>
+        2022年5月4日 下午
       </time>
     </span>
   
@@ -193,7 +194,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      2.1k 字
     </span>
   
 
@@ -202,7 +203,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      16 分钟
+      18 分钟
     </span>
   
 
@@ -231,35 +232,57 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【题解】SP33 TRIP</h1>
+            <h1 style="display: none">【题解】UVA1630 Folding</h1>
             
             <div class="markdown-body">
-              <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP33">题目传送门</a></p>
+              <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA1630">题目传送门</a></p>
 <h2 id="前言">前言</h2>
-<p>一道输出dp方案的题目，如果你不会输出dp的方案，那么这题是一道很好的练手题</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4302">双倍经验</a></p>
 <h3 id="前置芝士">前置芝士</h3>
-<p>LCS</p>
+<p>区间DP</p>
 <h2 id="分析">分析</h2>
-<p>求 LCS 长度的话应该不用多说了，这里具体说一下如何把所有 LCS
-找出来。(用 <span class="math inline">\(f[i][j]\)</span> 表示 LCS
-长度)</p>
-<p>我们用 <span class="math inline">\(recordA[i][j]\)</span>, 来表示
-<span class="math inline">\(s1\)</span> 中前 <span
-class="math inline">\(i\)</span> 个字符中字符 <span
-class="math inline">\(j\)</span> 出现的最后一个下标, <span
-class="math inline">\(recordB[i][j]\)</span>同理，只不过是表示 <span
-class="math inline">\(s2\)</span>中的字符。</p>
-<p>然后在找方案的过程中，我们选择倒序遍历，每次用 <span
-class="math inline">\(len\)</span> 表示 LCS 取的剩下的长度，一旦有 <span
-class="math inline">\(f[recordA[i][k]][recordB[j][k]] == len\)</span>
-我们就把字符 <span class="math inline">\(k\)</span>
-加入我们的答案字符串，并以 <span
-class="math inline">\(recordA[i][k]-1\)</span> 和 <span
-class="math inline">\(recordB[j][k]-1\)</span>为起点继续搜索，直至 <span
-class="math inline">\(len == 0\)</span> 将当前字符串加入答案数组中。</p>
-<p>具体实现看代码。</p>
+<p>这是一道DP输出方案的题目，遇到这种题目不要慌，DP输出方案大致分为两个步骤:
+1.找答案 2. 记录步骤。</p>
+<p>题目要求我们求字符串的最短折叠，那我们不妨把字符串的最短折叠长度求出来。</p>
+<p>我们用 <span class="math inline">\(f[l][r]\)</span> 表示字符串 <span
+class="math inline">\([l, r]\)</span> 这一段最短折叠的长度，用 <span
+class="math inline">\(num[i]\)</span> 表示数字 <span
+class="math inline">\(i\)</span> 的长度(如 <span
+class="math inline">\(num[10]=2\)</span> )，然后我们可以得出方程。</p>
+<ol type="1">
+<li>如果我们不折叠，那么我们有 <span class="math inline">\(f[l][r] =
+min(f[l][r] + f[l][k] + f[k + 1][r]) (l \le k &lt;r)\)</span> 。</li>
+<li>如果我们折叠，我们设折叠的一段为 <span class="math inline">\([l,
+k]\)</span> , 然后我们判断一下 <span class="math inline">\([l,
+r]\)</span> 能否由 <span class="math inline">\([l,k]\)</span>
+折叠得到，如果可以，我们有<span class="math inline">\(f[l][r] =
+min(f[l][r], f[l][k] +num[(r - l +1) / (r - k +1)] + 2)\)</span>
+最后加的 <span class="math inline">\(2\)</span>
+表示一对括号的长度。</li>
+</ol>
+<p>因为我们要输出方案，所以我们在 DP 的过程中记录一下取到 <span
+class="math inline">\(f[l][r]\)</span> 最小值的中转点 <span
+class="math inline">\(k\)</span> , 并用 <span
+class="math inline">\(p[l][r]\)</span> 表示，并用 <span
+class="math inline">\(fold[l][r]\)</span> 表示 <span
+class="math inline">\([l, r]\)</span> 是否折叠。</p>
+<p>然后我们递归输出最短折叠，用 <code>print(l, r)</code> 来输出 <span
+class="math inline">\([l, r]\)</span>
+的最短折叠，下面我们来分类讨论一下</p>
+<ol type="1">
+<li>如果 <span class="math inline">\(l == r\)</span> 那么我们直接输出
+<span class="math inline">\(a[l]\)</span> ( <span
+class="math inline">\(a\)</span> 表示原字符串)</li>
+<li>如果 <span class="math inline">\(fold[l][r] == 0\)</span>
+那么说明这一段没有折叠，直接执行 <code>print(l, p[l][r])</code> 和
+<code>print(p[l][r] + 1, r)</code></li>
+<li>如果 <span class="math inline">\(fold[l][r] == 1\)</span>
+那么说明这一段有折叠，我们先把左括号和折叠次数打出来，然后把折叠的一段输出出来，也就是
+<code>print(l, p[l][r])</code>, 最后再把右括号打印出来。</li>
+</ol>
+<p>注意我们是多组数据，所以在输出完毕后要加一个换行符。</p>
 <h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">110</span>, M = <span class="hljs-number">30</span>;<br><span class="hljs-type">int</span> f[N][N];<br><span class="hljs-type">int</span> recordA[N][M], recordB[N][M];<br>vector&lt;string&gt; res;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">init</span><span class="hljs-params">(string s1, string s2)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">// 求LCS长度</span><br>    <span class="hljs-type">int</span> l1 = s1.<span class="hljs-built_in">size</span>(), l2 = s2.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= l1; i++)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">1</span>; j &lt;= l2; j++)<br>        &#123;<br>            f[i][j] = <span class="hljs-built_in">max</span>(f[i][j - <span class="hljs-number">1</span>], f[i - <span class="hljs-number">1</span>][j]);<br>            <span class="hljs-keyword">if</span> (s1[i - <span class="hljs-number">1</span>] == s2[j - <span class="hljs-number">1</span>]) f[i][j] = f[i - <span class="hljs-number">1</span>][j - <span class="hljs-number">1</span>] + <span class="hljs-number">1</span>;<br>        &#125;<br>    <span class="hljs-comment">// 预处理两个数组</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= l1; i++)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">26</span>; j++)<br>            <span class="hljs-keyword">if</span> (s1[i - <span class="hljs-number">1</span>] == <span class="hljs-built_in">char</span>(<span class="hljs-string">&#x27;a&#x27;</span> + j)) recordA[i][j] = i;<br>            <span class="hljs-keyword">else</span> recordA[i][j] = recordA[i - <span class="hljs-number">1</span>][j];<br>    <br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= l2; i++)<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">26</span>; j++)<br>            <span class="hljs-keyword">if</span> (s2[i - <span class="hljs-number">1</span>] == <span class="hljs-built_in">char</span>(<span class="hljs-string">&#x27;a&#x27;</span> + j)) recordB[i][j] = i;<br>            <span class="hljs-keyword">else</span> recordB[i][j] = recordB[i - <span class="hljs-number">1</span>][j];<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j, <span class="hljs-type">int</span> len, string str)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (len == <span class="hljs-number">0</span>)<br>    &#123;<br>		<span class="hljs-comment">// 剩余长度为0，此时的str为一个LCS</span><br>        res.<span class="hljs-built_in">push_back</span>(str);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (i == <span class="hljs-number">0</span> || j == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span>; <span class="hljs-comment">// 任意一个搜完了，剪枝</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = <span class="hljs-number">0</span>; k &lt; <span class="hljs-number">26</span>; k++)<br>    &#123;<br>        <span class="hljs-type">int</span> ki = recordA[i][k], kj = recordB[j][k];<br>        <span class="hljs-keyword">if</span> (f[ki][kj] == len) <span class="hljs-comment">// 以ki-1和kj-1为起点搜索</span><br>            <span class="hljs-built_in">print</span>(ki - <span class="hljs-number">1</span>, kj - <span class="hljs-number">1</span>, len - <span class="hljs-number">1</span>, <span class="hljs-built_in">char</span>(<span class="hljs-string">&#x27;a&#x27;</span> + k) + str); <span class="hljs-comment">// 注意倒序添加</span><br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> t;<br>    cin &gt;&gt; t;<br>    <span class="hljs-keyword">while</span> (t--)<br>    &#123;<br>        <span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> f);<br>        <span class="hljs-built_in">memset</span>(recordA, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> recordA);<br>        <span class="hljs-built_in">memset</span>(recordB, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> recordB);<br>        res.<span class="hljs-built_in">clear</span>();<br>        string s1, s2;<br>        cin &gt;&gt; s1 &gt;&gt; s2;<br>        <span class="hljs-built_in">init</span>(s1, s2);<br>        <span class="hljs-type">int</span> l1 = s1.<span class="hljs-built_in">size</span>(), l2 = s2.<span class="hljs-built_in">size</span>();<br>        <span class="hljs-built_in">print</span>(l1, l2, f[l1][l2], <span class="hljs-string">&quot;&quot;</span>);<br>        <span class="hljs-built_in">sort</span>(res.<span class="hljs-built_in">begin</span>(), res.<span class="hljs-built_in">end</span>());<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; res.<span class="hljs-built_in">size</span>(); i++)<br>            cout &lt;&lt; res[i] &lt;&lt; endl;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">110</span>;<br><span class="hljs-type">char</span> a[N];<br><span class="hljs-type">int</span> num[N];<br><span class="hljs-type">int</span> f[N][N];<br><span class="hljs-type">int</span> p[N][N];<br><span class="hljs-type">bool</span> fold[N][N];<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">bool</span> <span class="hljs-title">check</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> len)</span> <span class="hljs-comment">// 判断 [l,r] 能否折成每段 len 个字符</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = l; i &lt;= r - len; i++)<br>        <span class="hljs-keyword">if</span> (a[i] != a[i + len]) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (l == r)<br>    &#123;<br>        <span class="hljs-built_in">putchar</span>(a[l]);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!fold[l][r])<br>    &#123;<br>        <span class="hljs-built_in">print</span>(l, p[l][r]);<br>        <span class="hljs-built_in">print</span>(p[l][r] + <span class="hljs-number">1</span>, r);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-keyword">else</span><br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d(&quot;</span>, (r - l + <span class="hljs-number">1</span>) / (p[l][r] - l + <span class="hljs-number">1</span>));<br>        <span class="hljs-built_in">print</span>(l, p[l][r]);<br>        <span class="hljs-built_in">putchar</span>(<span class="hljs-string">&#x27;)&#x27;</span>);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span>; i++)<br>        num[i] = num[i / <span class="hljs-number">10</span>] + <span class="hljs-number">1</span>; <span class="hljs-comment">// 预处理num[i]</span><br>    <span class="hljs-keyword">while</span> (cin &gt;&gt; a + <span class="hljs-number">1</span>)<br>    &#123;<br>        <span class="hljs-type">int</span> n = <span class="hljs-built_in">strlen</span>(a + <span class="hljs-number">1</span>);<br>        <span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0x3f</span>, <span class="hljs-keyword">sizeof</span> f);<br>        <span class="hljs-built_in">memset</span>(p, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> p);<br>        <span class="hljs-built_in">memset</span>(fold, <span class="hljs-number">0</span>, <span class="hljs-keyword">sizeof</span> fold);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>            f[i][i] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> len = <span class="hljs-number">2</span>; len &lt;= n; len++)<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> l = <span class="hljs-number">1</span>; l + len - <span class="hljs-number">1</span> &lt;= n; l++)<br>            &#123;<br>                <span class="hljs-type">int</span> r = l + len - <span class="hljs-number">1</span>;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = l; k &lt; r; k++)<br>                &#123;<br>                    <span class="hljs-keyword">if</span> (f[l][r] &gt; f[l][k] + f[k + <span class="hljs-number">1</span>][r])<br>                    &#123;<br>                        f[l][r] = f[l][k] + f[k + <span class="hljs-number">1</span>][r];<br>                        p[l][r] = k;<br>                    &#125;<br>                &#125;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = l; k &lt;= r; k++)<br>                &#123;<br>                    <span class="hljs-type">int</span> a = k - l + <span class="hljs-number">1</span>;<br>                    <span class="hljs-keyword">if</span> (len % a) <span class="hljs-keyword">continue</span>;<br>                    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">check</span>(l, r, a) &amp;&amp; f[l][r] &gt; f[l][k] + num[len / a] + <span class="hljs-number">2</span>)<br>                    &#123;<br>                        f[l][r] = f[l][k] + num[len / a] + <span class="hljs-number">2</span>;<br>                        fold[l][r] = <span class="hljs-literal">true</span>;<br>                        p[l][r] = k;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        <span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>, n);<br>        <span class="hljs-built_in">puts</span>(<span class="hljs-string">&quot;&quot;</span>);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
             </div>
             <hr>
@@ -281,6 +304,8 @@ class="math inline">\(len == 0\)</span> 将当前字符串加入答案数组中�
                     
                       <a class="hover-with-bg" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/">动态规划DP</a>
                     
+                      <a class="hover-with-bg" href="/tags/%E5%8C%BA%E9%97%B4DP/">区间DP</a>
+                    
                   </div>
                 
               </div>
@@ -296,18 +321,12 @@ class="math inline">\(len == 0\)</span> 将当前字符串加入答案数组中�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/04/UVA1630%20Folding/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【题解】UVA1630 Folding</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/30/SP19568%20PRMQUER/">
-                        <span class="hidden-mobile">【题解】SP19568 PRMQUER</span>
+                      <a href="/2022/05/03/SP33%20TRIP/">
+                        <span class="hidden-mobile">【题解】SP33 TRIP</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
