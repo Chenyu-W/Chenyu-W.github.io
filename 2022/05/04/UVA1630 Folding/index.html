@@ -16,15 +16,15 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目传送门 前言 双倍经验 前置芝士 区间DP 分析 这是一道DP输出方案的题目，遇到这种题目不要慌，DP输出方案大致分为两个步骤: 1.找答案 2. 记录步骤。 题目要求我们求字符串的最短折叠，那我们不妨把字符串的最短折叠长度求出来。 我们用 \(f[l][r]\) 表示字符串 \([l, r]\) 这一段最短折叠的长度，用 \(num[i]\) 表示数字 \(i\) 的长度(">
+    <meta name="description" content="题目传送门 前言 双倍经验 前置芝士 区间DP 分析 这是一道 DP 输出方案的题目，遇到这种题目不要慌，DP 输出方案大致分为两个步骤: 1.找答案 2. 记录步骤。 题目要求我们求字符串的最短折叠，那我们不妨把字符串的最短折叠长度求出来。 我们用 \(f[l][r]\) 表示字符串 \([l, r]\) 这一段最短折叠的长度，用 \(num[i]\) 表示数字 \(i\) 的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【题解】UVA1630 Folding">
 <meta property="og:url" content="http://example.com/2022/05/04/UVA1630%20Folding/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="题目传送门 前言 双倍经验 前置芝士 区间DP 分析 这是一道DP输出方案的题目，遇到这种题目不要慌，DP输出方案大致分为两个步骤: 1.找答案 2. 记录步骤。 题目要求我们求字符串的最短折叠，那我们不妨把字符串的最短折叠长度求出来。 我们用 \(f[l][r]\) 表示字符串 \([l, r]\) 这一段最短折叠的长度，用 \(num[i]\) 表示数字 \(i\) 的长度(">
+<meta property="og:description" content="题目传送门 前言 双倍经验 前置芝士 区间DP 分析 这是一道 DP 输出方案的题目，遇到这种题目不要慌，DP 输出方案大致分为两个步骤: 1.找答案 2. 记录步骤。 题目要求我们求字符串的最短折叠，那我们不妨把字符串的最短折叠长度求出来。 我们用 \(f[l][r]\) 表示字符串 \([l, r]\) 这一段最短折叠的长度，用 \(num[i]\) 表示数字 \(i\) 的">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-04T07:33:45.000Z">
-<meta property="article:modified_time" content="2022-05-04T08:11:38.366Z">
+<meta property="article:modified_time" content="2022-05-05T12:42:06.173Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="动态规划DP">
@@ -241,8 +241,8 @@
 <h3 id="前置芝士">前置芝士</h3>
 <p>区间DP</p>
 <h2 id="分析">分析</h2>
-<p>这是一道DP输出方案的题目，遇到这种题目不要慌，DP输出方案大致分为两个步骤:
-1.找答案 2. 记录步骤。</p>
+<p>这是一道 DP 输出方案的题目，遇到这种题目不要慌，DP
+输出方案大致分为两个步骤: 1.找答案 2. 记录步骤。</p>
 <p>题目要求我们求字符串的最短折叠，那我们不妨把字符串的最短折叠长度求出来。</p>
 <p>我们用 <span class="math inline">\(f[l][r]\)</span> 表示字符串 <span
 class="math inline">\([l, r]\)</span> 这一段最短折叠的长度，用 <span
@@ -251,12 +251,12 @@ class="math inline">\(i\)</span> 的长度(如 <span
 class="math inline">\(num[10]=2\)</span> )，然后我们可以得出方程。</p>
 <ol type="1">
 <li>如果我们不折叠，那么我们有 <span class="math inline">\(f[l][r] =
-min(f[l][r] + f[l][k] + f[k + 1][r]) (l \le k &lt;r)\)</span> 。</li>
+\min(f[l][r] + f[l][k] + f[k + 1][r]) (l \le k &lt;r)\)</span></li>
 <li>如果我们折叠，我们设折叠的一段为 <span class="math inline">\([l,
 k]\)</span> , 然后我们判断一下 <span class="math inline">\([l,
 r]\)</span> 能否由 <span class="math inline">\([l,k]\)</span>
 折叠得到，如果可以，我们有<span class="math inline">\(f[l][r] =
-min(f[l][r], f[l][k] +num[(r - l +1) / (r - k +1)] + 2)\)</span>
+\min(f[l][r], f[l][k] +num[(r - l +1) / (r - k +1)] + 2)\)</span>
 最后加的 <span class="math inline">\(2\)</span>
 表示一对括号的长度。</li>
 </ol>
@@ -268,15 +268,15 @@ class="math inline">\(fold[l][r]\)</span> 表示 <span
 class="math inline">\([l, r]\)</span> 是否折叠。</p>
 <p>然后我们递归输出最短折叠，用 <code>print(l, r)</code> 来输出 <span
 class="math inline">\([l, r]\)</span>
-的最短折叠，下面我们来分类讨论一下</p>
+的最短折叠，下面我们来分类讨论一下。</p>
 <ol type="1">
-<li>如果 <span class="math inline">\(l == r\)</span> 那么我们直接输出
-<span class="math inline">\(a[l]\)</span> ( <span
+<li>如果 <code>l == r</code> 那么我们直接输出 <span
+class="math inline">\(a[l]\)</span> ( <span
 class="math inline">\(a\)</span> 表示原字符串)</li>
-<li>如果 <span class="math inline">\(fold[l][r] == 0\)</span>
-那么说明这一段没有折叠，直接执行 <code>print(l, p[l][r])</code> 和
+<li>如果 <code>fold[l][r] == 0</code> 那么说明这一段没有折叠，直接执行
+<code>print(l, p[l][r])</code> 和
 <code>print(p[l][r] + 1, r)</code></li>
-<li>如果 <span class="math inline">\(fold[l][r] == 1\)</span>
+<li>如果 <code>fold[l][r] == 1</code>
 那么说明这一段有折叠，我们先把左括号和折叠次数打出来，然后把折叠的一段输出出来，也就是
 <code>print(l, p[l][r])</code>, 最后再把右括号打印出来。</li>
 </ol>
