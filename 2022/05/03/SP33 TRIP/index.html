@@ -24,7 +24,7 @@
 <meta property="og:description" content="题目传送门 前言 一道输出dp方案的题目，如果你不会输出dp的方案，那么这题是一道很好的练手题 前置芝士 LCS 分析 求 LCS 长度的话应该不用多说了，这里具体说一下如何把所有 LCS 找出来。(用 \(f[i][j]\) 表示 LCS 长度) 我们用 \(recordA[i][j]\), 来表示 \(s1\) 中前 \(i\) 个字符中字符 \(j\) 出现的最后一个下标">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-03T13:26:56.000Z">
-<meta property="article:modified_time" content="2022-05-05T11:18:46.706Z">
+<meta property="article:modified_time" content="2022-05-05T11:21:10.980Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="动态规划DP">
@@ -250,9 +250,9 @@ class="math inline">\(j\)</span> 出现的最后一个下标, <span
 class="math inline">\(recordB[i][j]\)</span>同理，只不过是表示 <span
 class="math inline">\(s2\)</span>中的字符。</p>
 <p>然后在找方案的过程中，我们选择倒序遍历，每次用 <span
-class="math inline">\(len\)</span> 表示 LCS 取的剩下的长度，一旦有</p>
-<p><code>f[recordA[i][k]][recordB[j][k]] == len</code> 我们就把字符
-<span class="math inline">\(k\)</span> 加入我们的答案字符串，并以 <span
+class="math inline">\(len\)</span> 表示 LCS 取的剩下的长度，一旦有
+<code>f[recordA[i][k]][recordB[j][k]] == len</code> 我们就把字符 <span
+class="math inline">\(k\)</span> 加入我们的答案字符串，并以 <span
 class="math inline">\(recordA[i][k]-1\)</span> 和 <span
 class="math inline">\(recordB[j][k]-1\)</span>为起点继续搜索，直至
 <code>len == 0</code> 将当前字符串加入答案数组中。</p>
