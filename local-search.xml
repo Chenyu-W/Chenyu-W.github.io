@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>UVA10003 Cutting Sticks</title>
+    <link href="/2022/05/16/UVA10003%20Cutting%20Sticks/"/>
+    <url>/2022/05/16/UVA10003%20Cutting%20Sticks/</url>
+    
+    <content type="html"><![CDATA[<p><ahref="https://www.luogu.com.cn/problem/UVA10003">题目传送门</a></p><h2 id="前言">前言</h2><p>从紫书上看见的，区间DP 入门题目</p><h3 id="前置芝士">前置芝士</h3><p>区间DP</p><h2 id="分析">分析</h2><p>这个题的题面很像石子合并，我们不妨考虑区间DP。</p><p>我们用 <span class="math inline">\(a[i]\)</span>表示每个断点的位置，为了方便转移，不妨设 <spanclass="math inline">\(a[0] = 0\)</span>，<span class="math inline">\(a[n+ 1] = L\)</span>。</p><p>我们用 <span class="math inline">\(f[l][r]\)</span> 表示第 <spanclass="math inline">\(l\)</span> 个断点到第 <spanclass="math inline">\(r\)</span>和断点这段区间内的最小费用，那我们按照经典做法枚举中间点 <spanclass="math inline">\(k\)</span> 可以得到转移方程 <spanclass="math display">\[f[l][r] = \min_{l&lt;k&lt;r}(f[l][r], f[l][k] + f[k][r] + a[r] - a[l])\]</span>转移方程推完了，我们考虑初始化，其中两个断点之间的木棍是不用切割的，所以初始化为<span class="math display">\[f[i][i + 1] = 0 (0 \le i \le n)\]</span> 最后的结果就是 <span class="math inline">\(f[0][n +1]\)</span> (注意有个坑点就是枚举区间长度的时候要枚举到 <spanclass="math inline">\(n + 2\)</span> )</p><h2 id="代码">代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></div></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1010</span>;<br><span class="hljs-type">int</span> a[N];<br><span class="hljs-type">int</span> f[N][N];<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> l;<br>    <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;l);<br>    <span class="hljs-keyword">while</span> (l)<br>    &#123;<br>        <span class="hljs-type">int</span> n;<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>            <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;a[i]);<br>        a[n + <span class="hljs-number">1</span>] = l; <span class="hljs-comment">// 特殊处理</span><br>        <span class="hljs-built_in">memset</span>(f, <span class="hljs-number">0x3f</span>, <span class="hljs-keyword">sizeof</span> f);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt;= n; i++)<br>            f[i][i + <span class="hljs-number">1</span>] = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> len = <span class="hljs-number">3</span>; len &lt;= n + <span class="hljs-number">2</span>; len++) <span class="hljs-comment">// 区间长度从3到n + 2</span><br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> l = <span class="hljs-number">0</span>; l + len - <span class="hljs-number">1</span> &lt;= n + <span class="hljs-number">1</span>; l++) <span class="hljs-comment">// 枚举左端点</span><br>            &#123;<br>                <span class="hljs-type">int</span> r = l + len - <span class="hljs-number">1</span>;<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> k = l + <span class="hljs-number">1</span>; k &lt; r; k++)<br>                    f[l][r] = <span class="hljs-built_in">min</span>(f[l][r], f[l][k] + f[k][r] + a[r] - a[l]);<br>            &#125;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;The minimum cutting is %d.\n&quot;</span>, f[<span class="hljs-number">0</span>][n + <span class="hljs-number">1</span>]);<br>        <span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;l);<br>    &#125;   <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>题解</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>题解</tag>
+      
+      <tag>动态规划DP</tag>
+      
+      <tag>区间DP</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>【题解】UVA1630 Folding</title>
     <link href="/2022/05/04/UVA1630%20Folding/"/>
     <url>/2022/05/04/UVA1630%20Folding/</url>
