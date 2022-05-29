@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -136,7 +136,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -165,6 +165,136 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/08/P2122%E8%BF%98%E6%95%99%E5%AE%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/05/24/yiqbSBmNRDzGPLY.jpg">
+      <meta itemprop="name" content="Chenyu Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/08/P2122%E8%BF%98%E6%95%99%E5%AE%A4/" class="post-title-link" itemprop="url">【题解】P2122还教室</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-08 21:01:02 / 修改时间：12:01:33" itemprop="dateCreated datePublished" datetime="2022-04-08T21:01:02+08:00">2022-04-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2122">题目传送门</a></p>
+<p>题目大意:给定一个序列，支持区间加法，查询平均数和方差。</p>
+<p>区间问题，最喜欢用线段树来解决。</p>
+<p>首先我们由查询平均数知道肯定要维护区间和，但是我们还要支持查询方差，所以我们还需要维护一些其它的东西，把方差公式展开得到(
+<span class="math inline">\(A_i\)</span> 表示序列第 <span
+class="math inline">\(i\)</span> 项，<span
+class="math inline">\(\overline A\)</span> 表示序列 <span
+class="math inline">\(A\)</span> 的平均数)。</p>
+<p><span class="math display">\[
+s^2=\frac{1}{n}\sum_{i=1}^n(A_i-\overline A)^2
+\]</span></p>
+<p><span class="math display">\[
+s^2=\frac{1}{n}(A_1^2-2A_1\overline A+\overline A^2+A_2^2-2A_2\overline
+A+\overline A^2+\cdots+A_n^2-2A_n\overline A+\overline A^2)
+\]</span></p>
+<p><span class="math display">\[
+s^2=\frac{\sum_{i=1}^nA_i^2}{n}-\frac{2\overline
+A\sum_{i=1}^{n}A_i-n\overline A^2}{n}
+\]</span></p>
+<p><span class="math display">\[
+s^2=\frac{\sum_{i=1}^nA_i^2}{n}-2\overline A\frac{\sum_{i=1}^{n}A_i}{n}
++ \overline A^2
+\]</span></p>
+<p><span class="math display">\[
+s^2=\frac{\sum_{i=1}^nA_i^2}{n}-2\overline A^2+\overline A^2
+\]</span></p>
+<p><span class="math display">\[
+s^2=\frac{\sum_{i=1}^nA_i^2}{n}-\overline A^2
+\]</span></p>
+<p>所以我们不难看出，我们要维护一个区间的和与平方和，那我们在区间加之后修改区间的平方和数据呢？</p>
+<p>假设我们这次把区间内的每个数加上 <span
+class="math inline">\(k\)</span> ，那么我们可以得到。 <span
+class="math display">\[
+\sum_{i=1}^{n}(A_i+k)^2=\sum_{i=1}^{n}A_i^2+2k\sum_{i=1}^{n}A_i+nk^2
+\]</span>
+所以我们就可已用上一轮的平方和与区间和数据来更新被修改后的区间平方和，这个式子也告诉我们在修改时，要先修改平方和，再修改区间和。</p>
+<p>但是这道题题目让我们输出的是最简分数的形式，所以我们还需要对平均数式子和方差式子进行进一步简化。</p>
+<p>设当前区间和为 <span class="math inline">\(sum\)</span>
+，区间平方和为 <span class="math inline">\(square\)</span> ，区间长度为
+<span class="math inline">\(n\)</span></p>
+<p>那么我们就可以把平均数式子写成这样： <span class="math display">\[
+\frac{sum}{n}
+\]</span>
+所以我们就可以通过约去上下两式的最大公因式来得到它的最简形式。</p>
+<p>再来看方差 <span class="math display">\[
+\frac{square}{n}-(\frac{sum}{n})^2
+\]</span> 化简得到 <span class="math display">\[
+\frac{n\cdot square - sum^2}{n^2}
+\]</span> 也是通过约去上下的最简公分母来得到最简形式。</p>
+<p>于是我们就做完了这道蓝题。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> l, r;</span><br><span class="line">    ll sum, square, add;</span><br><span class="line">&#125; t[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">gcd</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b ? <span class="built_in">gcd</span>(b, a % b) : a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">pushup</span><span class="params">(<span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    t[p].sum = t[p &lt;&lt; <span class="number">1</span>].sum + t[p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>].sum;</span><br><span class="line">    t[p].square = t[p &lt;&lt; <span class="number">1</span>].square + t[p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>].square;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">pushdown</span><span class="params">(<span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    node &amp;u = t[p], &amp;l = t[p &lt;&lt; <span class="number">1</span>], &amp;r = t[p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!u.add) <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    l.add += u.add;</span><br><span class="line">    r.add += u.add;</span><br><span class="line"></span><br><span class="line">    l.square += <span class="number">2</span> * u.add * l.sum + (l.r - l.l + <span class="number">1</span>) * u.add * u.add; <span class="comment">// 平方和式子</span></span><br><span class="line">    r.square += <span class="number">2</span> * u.add * r.sum + (r.r - r.l + <span class="number">1</span>) * u.add * u.add;</span><br><span class="line">    </span><br><span class="line">    l.sum += (l.r - l.l + <span class="number">1</span>) * u.add;</span><br><span class="line">    r.sum += (r.r - r.l + <span class="number">1</span>) * u.add;</span><br><span class="line">    </span><br><span class="line">    u.add = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    t[p].l = l, t[p].r = r;</span><br><span class="line">    <span class="keyword">if</span> (l == r)</span><br><span class="line">    &#123;</span><br><span class="line">        t[p].sum = a[l];</span><br><span class="line">        t[p].square = a[l] * a[l];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">build</span>(p &lt;&lt; <span class="number">1</span>, l, mid);</span><br><span class="line">    <span class="built_in">build</span>(p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r);</span><br><span class="line">    <span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">modify</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> d)</span> <span class="comment">// 区间修改，线段树板子</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= t[p].l &amp;&amp; t[p].r &lt;= r)</span><br><span class="line">    &#123;</span><br><span class="line">        t[p].add += d;</span><br><span class="line">        t[p].square += <span class="number">2</span> * d * t[p].sum + (t[p].r - t[p].l + <span class="number">1</span>) * d * d; <span class="comment">// 推平方和的式子</span></span><br><span class="line">        t[p].sum += d * (t[p].r - t[p].l + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">pushdown</span>(p);</span><br><span class="line">    <span class="type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= mid) <span class="built_in">modify</span>(p &lt;&lt; <span class="number">1</span>, l, r, d);</span><br><span class="line">    <span class="keyword">if</span> (r &gt; mid) <span class="built_in">modify</span>(p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r, d);</span><br><span class="line">    <span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">get_sum</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span> <span class="comment">// 查询区间和</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= t[p].l &amp;&amp; t[p].r &lt;= r) <span class="keyword">return</span> t[p].sum;</span><br><span class="line">    <span class="built_in">pushdown</span>(p);</span><br><span class="line">    <span class="type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    ll res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= mid) res += <span class="built_in">get_sum</span>(p &lt;&lt; <span class="number">1</span>, l, r);</span><br><span class="line">    <span class="keyword">if</span> (r &gt; mid) res += <span class="built_in">get_sum</span>(p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">get_square</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span> <span class="comment">// 查询区间平方和</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= t[p].l &amp;&amp; t[p].r &lt;= r) <span class="keyword">return</span> t[p].square;</span><br><span class="line">    <span class="built_in">pushdown</span>(p);</span><br><span class="line">    <span class="type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    ll res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= mid) res += <span class="built_in">get_square</span>(p &lt;&lt; <span class="number">1</span>, l, r);</span><br><span class="line">    <span class="keyword">if</span> (r &gt; mid) res += <span class="built_in">get_square</span>(p &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, l, r);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">    <span class="built_in">build</span>(<span class="number">1</span>, <span class="number">1</span>, n); <span class="comment">// 建树</span></span><br><span class="line">    <span class="keyword">while</span> (m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> opt, l, r;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;opt, &amp;l, &amp;r);</span><br><span class="line">        <span class="keyword">if</span> (opt == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> d;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;d);</span><br><span class="line">            <span class="built_in">modify</span>(<span class="number">1</span>, l, r, d); <span class="comment">// 区间加</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (opt == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ll sum = <span class="built_in">get_sum</span>(<span class="number">1</span>, l, r), length = r - l + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (sum == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">&quot;0/1&quot;</span>);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ll d = <span class="built_in">gcd</span>(sum, length);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%lld/%lld\n&quot;</span>, sum / d, length / d);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (opt == <span class="number">3</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            ll sum = <span class="built_in">get_sum</span>(<span class="number">1</span>, l, r), square = <span class="built_in">get_square</span>(<span class="number">1</span>, l, r), length = r - l + <span class="number">1</span>;</span><br><span class="line">            ll tmp = length * square - sum * sum; length *= length; <span class="comment">// 方差式子中的分母</span></span><br><span class="line">            <span class="keyword">if</span> (tmp == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">&quot;0/1&quot;</span>);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ll d = <span class="built_in">gcd</span>(tmp, length);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%lld/%lld\n&quot;</span>, tmp / d, length / d);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="题目传送门 前言 看见是个黑题，尝试做了一下，没想到挺水的，一遍AC 前置芝士 区间DP，海伦公式 分析 这道题目是一道经典的区间DP题目，因为我们发现这个大多边形的每一个子多边形点的排列都是连续的，我们不妨考虑一下区间D 我们设原多边形为 \(A_1A_2\ldots A_n\)，\(f[l][r]\) 表示 \(A_lA_{l+1}\ldots A_r\) 这些点组成的多边形">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【题解】UVA1331 Minimax Triangulation">
+<meta property="og:url" content="http://example.com/2022/05/29/UVA1331%20Minimax%20Triangulation/index.html">
+<meta property="og:site_name" content="wcy&#39;s blog">
+<meta property="og:description" content="题目传送门 前言 看见是个黑题，尝试做了一下，没想到挺水的，一遍AC 前置芝士 区间DP，海伦公式 分析 这道题目是一道经典的区间DP题目，因为我们发现这个大多边形的每一个子多边形点的排列都是连续的，我们不妨考虑一下区间D 我们设原多边形为 \(A_1A_2\ldots A_n\)，\(f[l][r]\) 表示 \(A_lA_{l+1}\ldots A_r\) 这些点组成的多边形">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-29T00:11:36.000Z">
+<meta property="article:modified_time" content="2022-05-29T01:13:48.479Z">
+<meta property="article:author" content="Chenyu Wu">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="动态规划DP">
+<meta property="article:tag" content="区间DP">
+<meta property="article:tag" content="计算几何">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/05/29/UVA1331%20Minimax%20Triangulation/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/05/29/UVA1331%20Minimax%20Triangulation/","path":"2022/05/29/UVA1331 Minimax Triangulation/","title":"【题解】UVA1331 Minimax Triangulation"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【题解】UVA1331 Minimax Triangulation | wcy's blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">wcy's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E8%8A%9D%E5%A3%AB"><span class="nav-number">1.1.</span> <span class="nav-text">前置芝士</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chenyu Wu"
+      src="https://s2.loli.net/2022/05/24/yiqbSBmNRDzGPLY.jpg">
+  <p class="site-author-name" itemprop="name">Chenyu Wu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/29/UVA1331%20Minimax%20Triangulation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/05/24/yiqbSBmNRDzGPLY.jpg">
+      <meta itemprop="name" content="Chenyu Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【题解】UVA1331 Minimax Triangulation | wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【题解】UVA1331 Minimax Triangulation
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-05-29 08:11:36 / 修改时间：09:13:48" itemprop="dateCreated datePublished" datetime="2022-05-29T08:11:36+08:00">2022-05-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA1331">题目传送门</a></p>
+<h2 id="前言">前言</h2>
+<p>看见是个黑题，尝试做了一下，没想到挺水的，一遍AC</p>
+<h3 id="前置芝士">前置芝士</h3>
+<p>区间DP，海伦公式</p>
+<h2 id="分析">分析</h2>
+<p>这道题目是一道经典的区间DP题目，因为我们发现这个大多边形的每一个子多边形点的排列都是连续的，我们不妨考虑一下区间D</p>
+<p>我们设原多边形为 <span class="math inline">\(A_1A_2\ldots
+A_n\)</span>，<span class="math inline">\(f[l][r]\)</span> 表示 <span
+class="math inline">\(A_lA_{l+1}\ldots A_r\)</span>
+这些点组成的多边形的最小三角剖分，我们按照区间DP的思路，枚举一下中间点，很容易得到以下转移方程:
+<span class="math display">\[
+f[l][r] = \min_{l&lt;k&lt;r}(f[l][r], \max(f[l][k],f[k][r], S_\triangle
+A_lA_kA_r))
+\]</span> 其中的 <span class="math inline">\(S_\triangle
+A_lA_kA_r\)</span> 我们可以使用海伦公式来求。</p>
+<p>做到这步，你以为这题写完了吗，题目中并没有明确给出多边形是凸多边形还是凹多边形，如果题目给的是凹多边形，那我们选定的三个点所组成的三角形可能不完全在多边形内部，也就不符合我们的条件，那我们如何判断一个三角形是否在多边形内部呢？</p>
+<p>这个问题十分简单，我们知道，如果一个点 <span
+class="math inline">\(P\)</span> 在 <span
+class="math inline">\(\triangle ABC\)</span> 的内部，则有 <span
+class="math display">\[
+S_\triangle ABC = S_\triangle ABP + S_\triangle BCP + S_\triangle CAP
+\]</span>
+所以我们只需要枚举一下多边形的所有点，判断一下每个点是否在三角形内部，就可以判断这个三角形合不合法了。</p>
+<p>最后我们考虑初始化，显然初始化为正无穷，然后 <span
+class="math inline">\(f[i][i + 1] = 0\)</span> 即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">55</span>, INF = <span class="number">1e9</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> eps = <span class="number">1e-2</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">&#125; pos[N];</span><br><span class="line"><span class="type">double</span> f[N][N];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">dist</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j)</span> <span class="comment">// 算两点之间距离</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((pos[i].x - pos[j].x) * (pos[i].x - pos[j].x) + (pos[i].y - pos[j].y) * (pos[i].y - pos[j].y));    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">double</span> <span class="title">area</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> k)</span> <span class="comment">// 海伦公式求面积</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">double</span> a = <span class="built_in">dist</span>(i, j), b = <span class="built_in">dist</span>(j, k), c = <span class="built_in">dist</span>(k, i);</span><br><span class="line">    <span class="type">double</span> p = (a + b + c) / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>(p * (p - a) * (p - b) * (p - c));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> i, <span class="type">int</span> j, <span class="type">int</span> k)</span> <span class="comment">// 判断三角形是否合法</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">1</span>; x &lt;= n; x++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (x == i || x == j || x == k) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="type">double</span> s = <span class="built_in">area</span>(i, j, x) + <span class="built_in">area</span>(i, k, x) + <span class="built_in">area</span>(j, k, x) - <span class="built_in">area</span>(i, j, k);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">fabs</span>(s) &lt; eps) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">// 注意double精度问题</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;pos[i].x, &amp;pos[i].y);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            f[i][i + <span class="number">1</span>] = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">3</span>; len &lt;= n; len++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">1</span>; l + len - <span class="number">1</span> &lt;= n; l++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> r = l + len - <span class="number">1</span>;</span><br><span class="line">                f[l][r] = INF;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> k = l + <span class="number">1</span>; k &lt; r; k++)</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">check</span>(l, r, k)) <span class="comment">// 只有合法才转移</span></span><br><span class="line">                        f[l][r] = <span class="built_in">min</span>(f[l][r], <span class="built_in">max</span>(<span class="built_in">max</span>(f[l][k], f[k][r]), <span class="built_in">area</span>(l, r, k)));</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%.1lf\n&quot;</span>, f[<span class="number">1</span>][n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"># 题解</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/" rel="tag"># 动态规划DP</a>
+              <a href="/tags/%E5%8C%BA%E9%97%B4DP/" rel="tag"># 区间DP</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" rel="tag"># 计算几何</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/18/UVA1626%20Brackets%20sequence/" rel="prev" title="【题解】UVA1626 Brackets sequence">
+                  <i class="fa fa-chevron-left"></i> 【题解】UVA1626 Brackets sequence
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenyu Wu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
