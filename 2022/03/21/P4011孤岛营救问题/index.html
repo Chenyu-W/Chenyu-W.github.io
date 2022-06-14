@@ -18,17 +18,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="题目传送门 注意到数据范围\(1\le P\le 10\),很容易想到二进制状压(一开始做题以为钥匙是一次性的，没想到状压) 所以我们可以自然而然地想到设\(d[i][state]\)表示走到点\(i\)且钥匙状态为\(state\)的最短步数(我把二维点压成了一维，代码中会有体现)，分类讨论一下如何转移\(d[i][state]\)这个状态 1.如果点\(i\)处有若干把钥匙，那么我们的">
+    <meta name="description" content="题目传送门 注意到数据范围\(1\le P\le 10\),很容易想到二进制状压(一开始做题以为钥匙是一次性的，没想到状压)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【题解】P4011孤岛营救问题">
 <meta property="og:url" content="http://example.com/2022/03/21/P4011%E5%AD%A4%E5%B2%9B%E8%90%A5%E6%95%91%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="题目传送门 注意到数据范围\(1\le P\le 10\),很容易想到二进制状压(一开始做题以为钥匙是一次性的，没想到状压) 所以我们可以自然而然地想到设\(d[i][state]\)表示走到点\(i\)且钥匙状态为\(state\)的最短步数(我把二维点压成了一维，代码中会有体现)，分类讨论一下如何转移\(d[i][state]\)这个状态 1.如果点\(i\)处有若干把钥匙，那么我们的">
+<meta property="og:description" content="题目传送门 注意到数据范围\(1\le P\le 10\),很容易想到二进制状压(一开始做题以为钥匙是一次性的，没想到状压)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-03-21T13:29:00.000Z">
-<meta property="article:modified_time" content="2022-04-05T03:00:08.110Z">
+<meta property="article:modified_time" content="2022-06-14T22:26:57.027Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="图论">
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-05 11:00:08" itemprop="dateModified" datetime="2022-04-05T11:00:08+08:00">2022-04-05</time>
+      <time title="修改时间：2022-06-15 06:26:57" itemprop="dateModified" datetime="2022-06-15T06:26:57+08:00">2022-06-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -242,6 +242,7 @@
         <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4011">题目传送门</a></p>
 <p>注意到数据范围<span class="math inline">\(1\le P\le
 10\)</span>,很容易想到二进制状压(<del>一开始做题以为钥匙是一次性的，没想到状压</del>)</p>
+<span id="more"></span>
 <p>所以我们可以自然而然地想到设<span
 class="math inline">\(d[i][state]\)</span>表示走到点<span
 class="math inline">\(i\)</span>且钥匙状态为<span
@@ -311,7 +312,7 @@ class="math inline">\(bfs\)</span>的方法去求最短路，具体细节见代�
   </span>
   <span class="author" itemprop="copyrightHolder">Chenyu Wu</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
@@ -319,7 +320,7 @@ class="math inline">\(bfs\)</span>的方法去求最短路，具体细节见代�
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
 

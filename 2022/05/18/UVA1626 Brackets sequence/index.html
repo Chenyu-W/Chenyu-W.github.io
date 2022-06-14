@@ -18,17 +18,17 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="题目传送门 前言 本来以为很水的，调了很久居然是输入输出格式不对，顺便吐槽一下样例与原题不一样。 前置芝士 区间DP 分析 看到题面，我们很容易想到区间DP，设 \(f[l][r]\) 表示 \(s[l\ldots r]\) 中最小添加的括号个数 ( \(s\) 为括号序列)。 我们可以得到以下结论:  如果 \(s[l]\) 和 \(s[r]\) 可以组成一对括号，那么 \(f">
+    <meta name="description" content="题目传送门 前言 本来以为很水的，调了很久居然是输入输出格式不对，顺便吐槽一下样例与原题不一样。 前置芝士 区间DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【题解】UVA1626 Brackets sequence">
 <meta property="og:url" content="http://example.com/2022/05/18/UVA1626%20Brackets%20sequence/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="题目传送门 前言 本来以为很水的，调了很久居然是输入输出格式不对，顺便吐槽一下样例与原题不一样。 前置芝士 区间DP 分析 看到题面，我们很容易想到区间DP，设 \(f[l][r]\) 表示 \(s[l\ldots r]\) 中最小添加的括号个数 ( \(s\) 为括号序列)。 我们可以得到以下结论:  如果 \(s[l]\) 和 \(s[r]\) 可以组成一对括号，那么 \(f">
+<meta property="og:description" content="题目传送门 前言 本来以为很水的，调了很久居然是输入输出格式不对，顺便吐槽一下样例与原题不一样。 前置芝士 区间DP">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-18T11:57:07.000Z">
-<meta property="article:modified_time" content="2022-05-18T12:08:33.532Z">
+<meta property="article:modified_time" content="2022-06-14T22:29:03.424Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="题解">
 <meta property="article:tag" content="动态规划DP">
@@ -211,9 +211,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-05-18 19:57:07 / 修改时间：20:08:33" itemprop="dateCreated datePublished" datetime="2022-05-18T19:57:07+08:00">2022-05-18</time>
+      <time title="创建时间：2022-05-18 19:57:07" itemprop="dateCreated datePublished" datetime="2022-05-18T19:57:07+08:00">2022-05-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-06-15 06:29:03" itemprop="dateModified" datetime="2022-06-15T06:29:03+08:00">2022-06-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -240,6 +246,7 @@
 <p>本来以为很水的，调了很久居然是输入输出格式不对，顺便吐槽一下样例与原题不一样。</p>
 <h3 id="前置芝士">前置芝士</h3>
 <p>区间DP</p>
+<span id="more"></span>
 <h2 id="分析">分析</h2>
 <p>看到题面，我们很容易想到区间DP，设 <span
 class="math inline">\(f[l][r]\)</span> 表示 <span
@@ -318,7 +325,7 @@ class="math inline">\(f[l][r] = 1\)</span></p>
   </span>
   <span class="author" itemprop="copyrightHolder">Chenyu Wu</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
   </div>
 
     </div>
@@ -326,7 +333,7 @@ class="math inline">\(f[l][r] = 1\)</span></p>
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
 
