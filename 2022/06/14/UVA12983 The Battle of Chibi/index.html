@@ -20,28 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="坐标FJ-FZ，初一蒟蒻OIer 2021年9月开始学OI，学了小半年，发现自己什么都不会，一如既往的菜 whk基本废了，被校内神仙whd吊打，段前五都进不去 短期目标: 集齐七科单科段一，刷dp题 期中考了段一奖励自己一个域名">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://example.com/about/index.html">
+    <meta name="description" content="前言 机房模拟赛出了这个题的弱化版，赛后找来原题做了一下 分析 首先我们可以想到一个非常简单的线性DP。 设 \(f[i][j]\) 表示以 \(a[i]\) 结尾，长度为 \(j\) 的最长上升子序列长度，那我们可以轻松得到 \[ f[i][j] &#x3D; \sum_{k&#x3D;1,a[i]&gt;a[k]} ^ {i - 1} f[k][j - 1] \] 但是这个做法是 \(O(n^2m)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【题解】UVA12983 The Battle of Chibi">
+<meta property="og:url" content="http://example.com/2022/06/14/UVA12983%20The%20Battle%20of%20Chibi/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="坐标FJ-FZ，初一蒟蒻OIer 2021年9月开始学OI，学了小半年，发现自己什么都不会，一如既往的菜 whk基本废了，被校内神仙whd吊打，段前五都进不去 短期目标: 集齐七科单科段一，刷dp题 期中考了段一奖励自己一个域名">
+<meta property="og:description" content="前言 机房模拟赛出了这个题的弱化版，赛后找来原题做了一下 分析 首先我们可以想到一个非常简单的线性DP。 设 \(f[i][j]\) 表示以 \(a[i]\) 结尾，长度为 \(j\) 的最长上升子序列长度，那我们可以轻松得到 \[ f[i][j] &#x3D; \sum_{k&#x3D;1,a[i]&gt;a[k]} ^ {i - 1} f[k][j - 1] \] 但是这个做法是 \(O(n^2m)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-05T03:17:52.000Z">
-<meta property="article:modified_time" content="2022-04-05T11:24:53.673Z">
+<meta property="article:published_time" content="2022-06-14T11:43:37.000Z">
+<meta property="article:modified_time" content="2022-06-14T12:04:52.616Z">
 <meta property="article:author" content="Chenyu Wu">
+<meta property="article:tag" content="动态规划DP">
+<meta property="article:tag" content="树状数组">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/about/">
+<link rel="canonical" href="http://example.com/2022/06/14/UVA12983%20The%20Battle%20of%20Chibi/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"http://example.com/about/index.html","path":"about/index.html","title":"about"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/06/14/UVA12983%20The%20Battle%20of%20Chibi/","path":"2022/06/14/UVA12983 The Battle of Chibi/","title":"【题解】UVA12983 The Battle of Chibi"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>about | wcy's blog
-</title>
+<title>【题解】UVA12983 The Battle of Chibi | wcy's blog</title>
   
 
 
@@ -103,7 +104,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -116,6 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -169,39 +171,122 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
 
 
-    
-    
-    
-    <div class="post-block" lang="zh-CN"><header class="post-header">
+  
 
-<h1 class="post-title" itemprop="name headline">about
-</h1>
 
-<div class="post-meta-container">
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/14/UVA12983%20The%20Battle%20of%20Chibi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/05/24/yiqbSBmNRDzGPLY.jpg">
+      <meta itemprop="name" content="Chenyu Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【题解】UVA12983 The Battle of Chibi | wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【题解】UVA12983 The Battle of Chibi
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-06-14 19:43:37 / 修改时间：20:04:52" itemprop="dateCreated datePublished" datetime="2022-06-14T19:43:37+08:00">2022-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body">
-          <p>坐标FJ-FZ，初一蒟蒻OIer</p>
-<p>2021年9月开始学OI，学了小半年，发现自己什么都不会，一如既往的菜</p>
-<p>whk基本废了，被校内神仙whd吊打，段前五都进不去</p>
-<p>短期目标: 集齐七科单科段一，<del>刷dp题</del></p>
-<p><del>期中考了段一奖励自己一个域名</del></p>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前言">前言</h2>
+<p>机房模拟赛出了这个题的弱化版，赛后找来原题做了一下</p>
+<h2 id="分析">分析</h2>
+<p>首先我们可以想到一个非常简单的线性DP。</p>
+<p>设 <span class="math inline">\(f[i][j]\)</span> 表示以 <span
+class="math inline">\(a[i]\)</span> 结尾，长度为 <span
+class="math inline">\(j\)</span>
+的最长上升子序列长度，那我们可以轻松得到 <span class="math display">\[
+f[i][j] = \sum_{k=1,a[i]&gt;a[k]} ^ {i - 1} f[k][j - 1]
+\]</span> 但是这个做法是 <span class="math inline">\(O(n^2m)\)</span>
+的，所以我们要想办法优化，我们可以发现式子右边那一坨东西很像用树状数组维护逆序对时候维护的信息，所以我们不妨用树状数组维护一下，具体操作就是先离散化一下然后每次求完插进树状数组里面。</p>
+<p>再考虑空间上的优化，原本我们要开二维数组，所以我们现在试着用 <span
+class="math inline">\(f[i]\)</span> 表示以 <span
+class="math inline">\(a[i]\)</span>
+结尾的最长上升子序列个数，我们发现，在利用树状数组维护之后第 <span
+class="math inline">\(j\)</span> 轮递推后的 <span
+class="math inline">\(f[i]\)</span> 就表示上文的 <span
+class="math inline">\(f[i][j]\)</span> 所以我们只需要先把 <span
+class="math inline">\(f[i]\)</span> 插入树状数组中再把新一轮的 <span
+class="math inline">\(f[i]\)</span> 求出来即可，这样我们的空间复杂度为
+<span class="math inline">\(O(n)\)</span></p>
+<h2 id="代码">代码</h2>
 
-      </div>
-      
-      
-      
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/" rel="tag"><i class="fa fa-tag"></i> 动态规划DP</a>
+              <a href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/" rel="tag"><i class="fa fa-tag"></i> 树状数组</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/04/20220603%E6%A8%A1%E6%8B%9F%E8%B5%9B/" rel="prev" title="【比赛】20220603模拟赛">
+                  <i class="fa fa-chevron-left"></i> 【比赛】20220603模拟赛
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
 
 
 </div>
