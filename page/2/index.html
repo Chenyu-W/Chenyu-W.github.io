@@ -978,7 +978,7 @@ class="math inline">\(10^{10}\)</span>
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-24 17:11:14" itemprop="dateModified" datetime="2022-06-24T17:11:14+08:00">2022-06-24</time>
+      <time title="修改时间：2022-06-24 17:12:38" itemprop="dateModified" datetime="2022-06-24T17:12:38+08:00">2022-06-24</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1002,111 +1002,16 @@ class="math inline">\(10^{10}\)</span>
     <div class="post-body" itemprop="articleBody">
           <h1 id="单链表">单链表</h1>
 <blockquote>
-<p>单链表是一种简单且常用的数据结构，在算法体中，我们一般使用数组模拟单链表，这样有速度上的优势</p>
+<p>单链表是一种简单且常用的数据结构，在算法竞赛中，我们一般使用数组模拟单链表，这样有速度上的优势</p>
 </blockquote>
-<h2 id="什么是单链表">1.什么是单链表</h2>
-<p>​
-单链表是一种链式存取的数据结构，对于链表中的每个节点(除了头节点),它们都有一个下标和两个属性,这2个属性分别是<code>value</code>和<code>next</code>，其中<code>value</code>表示这个节点所存储的值，<code>next</code>表示这个节点的下一个节点的下标。</p>
-<p>​
-每一个单链表都有一个头节点，我们用<code>head</code>表示，头结点的值一般为空。而链表的结尾一般指向一个空集，我们把这个节点的下标设置为<code>-1</code>，如图所示</p>
-<figure>
-<img src="https://i.loli.net/2021/08/23/4FRBKtElcmqyif1.png"
-alt="image-20210823212648764" />
-<figcaption aria-hidden="true">image-20210823212648764</figcaption>
-</figure>
-<h2
-id="数组模拟单链表的几种基本操作">2.数组模拟单链表的几种基本操作</h2>
-<blockquote>
-<p>在数组模拟单链表时，我们通常使用变量<code>idx</code>表示节点的下标(<code>idx</code>与节点在链表中的位置无关,只是用于区分不同节点),定义数组<code>e</code>与<code>ne</code>，其中<code>e[i]</code>表示下标为<code>i</code>的节点所存储的<code>value</code>值，<code>ne[i]</code>表示下标为<code>i</code>的节点所存储的<code>next</code>值，再定义<code>head</code>变量，表示头节点指向的节点的下标</p>
-</blockquote>
-<h3 id="单链表初始化">2.1单链表初始化</h3>
-<p>我们定义<code>init()</code>函数，用于初始化一个单链表，代码如下:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    head = <span class="number">-1</span>; <span class="comment">// 头节点最初指向空集</span></span><br><span class="line">    idx = <span class="number">0</span>; <span class="comment">// 节点下标从0开始</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="将一个值为x的节点插入头节点后">2.2将一个值为<code>x</code>的节点插入头节点后</h3>
-<p>我们可以把这个操作分为4步</p>
-<p>1.将<code>e[idx]</code>的值设定为<code>x</code>(<code>idx</code>为给要插入的节点分配的下标)</p>
-<p>2.将<code>ne[idx]</code>的值设定为<code>head</code></p>
-<p>3.将<code>head</code>的值设定为<code>idx</code></p>
-<p>4.将<code>idx</code>的值自增<code>1</code>(此下标已经有节点占用，给后面要操作的节点分配新的下标)</p>
-<p>如图所示:</p>
-<p>第一步:</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/jztJrwRLnFc8iM6.png"
-alt="image-20210824071616618" />
-<figcaption aria-hidden="true">image-20210824071616618</figcaption>
-</figure>
-<p>第二步:</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/YOym4fdWh6iFC5r.png"
-alt="image-20210824071833784" />
-<figcaption aria-hidden="true">image-20210824071833784</figcaption>
-</figure>
-<p>第三步:</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/83yiJ1VRrx5Snga.png"
-alt="image-20210824072011702" />
-<figcaption aria-hidden="true">image-20210824072011702</figcaption>
-</figure>
-<p>第四步：将<code>idx</code>自增<code>1</code>，是为了这个下标已经被使用，要给之后要操作的节点分配新的下标</p>
-<p>代码如下:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_to_head</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = x; <span class="comment">// 将节点的值设为x</span></span><br><span class="line">    ne[idx] = head; <span class="comment">// 将节点的next指针设定为head指向的节点</span></span><br><span class="line">    head = idx++; <span class="comment">// 将head指向的节点改为新添加的这个节点，并将idx自增1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="将一个值为x的节点插入链表中下标是k的节点后不是第k个节点">2.2将一个值为<code>x</code>的节点插入链表中下标是<code>k</code>的节点后(不是第<code>k</code>个节点)</h3>
-<p>我们也可以把这个操作分为4步</p>
-<p>1.将<code>e[idx]</code>设为<code>x</code>(<code>idx</code>是这个新节点分配到的下标)</p>
-<p>2.将<code>ne[idx]</code>的值设为<code>ne[k]</code></p>
-<p>3.将<code>ne[k]</code>的值设定为<code>idx</code></p>
-<p>4.将<code>idx</code>自增<code>1</code></p>
-<p>如图所示:</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/Vh4r6udSiDNjaTe.png"
-alt="image-20210824073933856" />
-<figcaption aria-hidden="true">image-20210824073933856</figcaption>
-</figure>
-<p>第一步:</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/VcbOBz9uMf8FgE3.png"
-alt="image-20210824074035741" />
-<figcaption aria-hidden="true">image-20210824074035741</figcaption>
-</figure>
-<p>第二步:</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/1WodNJEcVDHlzZI.png"
-alt="image-20210824074227611" />
-<figcaption aria-hidden="true">image-20210824074227611</figcaption>
-</figure>
-<p>第三步:</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/tfp3lR8AFzY4a2b.png"
-alt="image-20210824074422615" />
-<figcaption aria-hidden="true">image-20210824074422615</figcaption>
-</figure>
-<p>第四步:将<code>idx</code>自增<code>1</code>，因为这个<code>idx</code>已经被使用，给后面要添加的节点分配新的下标</p>
-<p>代码如下:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_to_k</span><span class="params">(<span class="type">int</span> k, <span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = x; <span class="comment">// 将这个节点的值设为x</span></span><br><span class="line">    ne[idx] = ne[k]; <span class="comment">// 将这个节点指向的节点改为下标是k的节点指向的节点</span></span><br><span class="line">    ne[k] = idx++; <span class="comment">// 将下标为k的节点指向的节点改为此节点，并将idx自增1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="将下标为k的节点的后一个节点删除">2.3将下标为<code>k</code>的节点的后一个节点删除</h3>
-<p>我们可以这么理解，要想删除下标为<code>k</code>的节点的后一个节点，即下标为<code>ne[k]</code>的节点，我们可以直接让下标为<code>k</code>的节点指向下标为<code>ne[ne[k]]</code>，即下标为<code>k</code>的节点后面的第二个节点</p>
-<p>如图所示：</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/XNMWPyKbIZOeY5r.png"
-alt="image-20210824075417751" />
-<figcaption aria-hidden="true">image-20210824075417751</figcaption>
-</figure>
-<p>我们只需一步操作，效果如下:</p>
-<figure>
-<img src="https://i.loli.net/2021/08/24/NvmxtQ4HWoiyzch.png"
-alt="image-20210824080133658" />
-<figcaption aria-hidden="true">image-20210824080133658</figcaption>
-</figure>
-<p>代码如下:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">remove</span><span class="params">(<span class="type">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ne[k] = ne[ne[k]]; <span class="comment">// 跳过下一个节点</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3
-id="遍历单链表每一个节点所存储的值">2.4遍历单链表每一个节点所存储的值</h3>
-<p>这一部分比较好理解，在此直接放上代码:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = head; i != <span class="number">-1</span>; i = ne[i]) cout &lt;&lt; e[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br></pre></td></tr></table></figure>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/23/single_list/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
