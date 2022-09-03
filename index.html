@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -165,6 +165,98 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/03/P3489%20WIE-Hexer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
+      <meta itemprop="name" content="Chenyu Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/09/03/P3489%20WIE-Hexer/" class="post-title-link" itemprop="url">【题解】P3489 WIE-Hexer</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-09-03 20:14:57 / 修改时间：20:49:19" itemprop="dateCreated datePublished" datetime="2022-09-03T20:14:57+08:00">2022-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3489">题目传送门</a></p>
+<h2 id="前言">前言</h2>
+<p>感觉和孤岛营救问题完全一致，建图好像还更简单一点。</p>
+<h3 id="前置芝士">前置芝士</h3>
+<p>最短路，状压</p>
+<h2 id="分析">分析</h2>
+<p>看到 <span class="math inline">\(p\)</span> 很小我们考虑状态压缩，设
+<span class="math inline">\(d[u][s]\)</span> 表示走到点 <span
+class="math inline">\(u\)</span> 时剑的状态为 <span
+class="math inline">\(s\)</span>
+时的最短路，然后我们考虑怎么在跑最短路是转移，首先，如果当前节点有宝剑，那么我们把宝剑捡起来肯定不会更劣，所以我们可以用当前最短路去更新捡到钥匙后的状态的最短路，然后就是照常按
+dijkstra 转移即可，注意要判断现有钥匙能否经过当前道路。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> pii pair<span class="string">&lt;int, pair&lt;int, int&gt;</span> &gt;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mk(a, b) make_pair(a, b)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">210</span>, M = <span class="number">6010</span>, K = <span class="number">1</span> &lt;&lt; <span class="number">15</span>;</span><br><span class="line"><span class="type">int</span> h[N], e[M], ne[M], w[M], s[N], idx;</span><br><span class="line"><span class="type">int</span> st[N];</span><br><span class="line"><span class="type">int</span> d[N][K], vis[N][K];</span><br><span class="line"><span class="type">int</span> n, m, p, k;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>, y = <span class="number">1</span>; <span class="type">char</span> c = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (c &lt; <span class="string">&#x27;0&#x27;</span> || c &gt; <span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span> (c == <span class="string">&#x27;-&#x27;</span>) y = <span class="number">-1</span>; c = <span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span> (c &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; c &lt;= <span class="string">&#x27;9&#x27;</span>) x = x * <span class="number">10</span> + c - <span class="string">&#x27;0&#x27;</span>, c = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c, <span class="type">int</span> d)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b;</span><br><span class="line">    w[idx] = c;</span><br><span class="line">    s[idx] = d;</span><br><span class="line">    ne[idx] = h[a];</span><br><span class="line">    h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> st1, <span class="type">int</span> st2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">14</span>; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">        <span class="keyword">if</span> ((st2 &gt;&gt; i &amp; <span class="number">1</span>) &amp;&amp; !(st1 &gt;&gt; i &amp; <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">dijkstra</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(d, <span class="number">0x3f</span>, <span class="keyword">sizeof</span> d);</span><br><span class="line">    d[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    priority_queue&lt;pii, vector&lt;pii&gt;, greater&lt;pii&gt; &gt; q;</span><br><span class="line">    q.<span class="built_in">push</span>(<span class="built_in">mk</span>(<span class="number">0</span>, <span class="built_in">mk</span>(<span class="number">1</span>, <span class="number">0</span>)));</span><br><span class="line">    <span class="keyword">while</span> (q.<span class="built_in">size</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        pii t = q.<span class="built_in">top</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="type">int</span> u = t.second.first, stt = t.second.second;</span><br><span class="line">        <span class="keyword">if</span> (vis[u][stt]) <span class="keyword">continue</span>;</span><br><span class="line">        vis[u][stt] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (st[u])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> sta = stt | st[u];</span><br><span class="line">            <span class="keyword">if</span> (d[u][sta] &gt; d[u][stt])</span><br><span class="line">            &#123;</span><br><span class="line">                d[u][sta] = d[u][stt];</span><br><span class="line">                q.<span class="built_in">push</span>(<span class="built_in">mk</span>(d[u][sta], <span class="built_in">mk</span>(u, sta)));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = h[u]; ~i; i = ne[i])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> v = e[i];</span><br><span class="line">                <span class="keyword">if</span> (s[i] &amp;&amp; !<span class="built_in">check</span>(stt, s[i])) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">if</span> (d[v][stt] &gt; d[u][stt] + w[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    d[v][stt] = d[u][stt] + w[i];</span><br><span class="line">                    q.<span class="built_in">push</span>(<span class="built_in">mk</span>(d[v][stt], <span class="built_in">mk</span>(v, stt)));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>(), p = <span class="built_in">read</span>(), k = <span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">while</span> (k--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> u = <span class="built_in">read</span>(), x = <span class="built_in">read</span>();</span><br><span class="line">        <span class="keyword">while</span> (x--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> y = <span class="built_in">read</span>();</span><br><span class="line">            st[u] |= <span class="number">1</span> &lt;&lt; y;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a = <span class="built_in">read</span>(), b = <span class="built_in">read</span>(),  c = <span class="built_in">read</span>(), x = <span class="built_in">read</span>();</span><br><span class="line">        <span class="type">int</span> tmp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x--)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> y = <span class="built_in">read</span>();</span><br><span class="line">            tmp |= <span class="number">1</span> &lt;&lt; y;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">add</span>(a, b, c, tmp);</span><br><span class="line">        <span class="built_in">add</span>(b, a, c, tmp);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">dijkstra</span>();</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1</span> &lt;&lt; (p + <span class="number">1</span>); i++)</span><br><span class="line">        res = <span class="built_in">min</span>(res, d[n][i]);</span><br><span class="line">    <span class="keyword">if</span> (res == <span class="number">0x3f3f3f3f</span>) <span class="built_in">puts</span>(<span class="string">&quot;-1&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -957,97 +1049,6 @@ ABC，赛后也懒得补题。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/07/29/P3701%E4%B8%BB%E4%B8%BB%E6%A0%91/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/18/CF585F%20Digits%20of%20Number%20Pi/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/18/CF585F%20Digits%20of%20Number%20Pi/" class="post-title-link" itemprop="url">【题解】CF585F Digits of Number Pi</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-18 21:23:22 / 修改时间：21:39:56" itemprop="dateCreated datePublished" datetime="2022-07-18T21:23:22+08:00">2022-07-18</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF585F">题目传送门</a></p>
-<h2 id="前言">前言</h2>
-<p>FOI2022 上 lh
-大佬课堂例题上唯一一道会打的黑题，顺便水一发记忆化搜索的题解。</p>
-<h3 id="前置芝士">前置芝士</h3>
-<p>ACAM，数位 DP</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/18/CF585F%20Digits%20of%20Number%20Pi/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
