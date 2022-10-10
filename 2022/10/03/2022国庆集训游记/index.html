@@ -20,29 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="题目传送门 前言 看到这题是个蓝题还以为要写最短路，做完以后感觉这题最多是个黄。">
+    <meta name="description" content="Day -??? whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【题解】CF1055A Metro">
-<meta property="og:url" content="http://example.com/2022/04/03/CF1055A%20Metro/index.html">
+<meta property="og:title" content="【游记】2022国庆集训游记">
+<meta property="og:url" content="http://example.com/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="题目传送门 前言 看到这题是个蓝题还以为要写最短路，做完以后感觉这题最多是个黄。">
+<meta property="og:description" content="Day -??? whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-04-03T12:04:05.000Z">
-<meta property="article:modified_time" content="2022-06-14T22:24:32.319Z">
+<meta property="article:published_time" content="2022-10-02T23:08:49.000Z">
+<meta property="article:modified_time" content="2022-10-10T11:48:04.967Z">
 <meta property="article:author" content="Chenyu Wu">
-<meta property="article:tag" content="题解">
-<meta property="article:tag" content="模拟">
+<meta property="article:tag" content="游记">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/04/03/CF1055A%20Metro/">
+<link rel="canonical" href="http://example.com/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/04/03/CF1055A%20Metro/","path":"2022/04/03/CF1055A Metro/","title":"【题解】CF1055A Metro"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/","path":"2022/10/03/2022国庆集训游记/","title":"【游记】2022国庆集训游记"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>【题解】CF1055A Metro | wcy's blog</title>
+<title>【游记】2022国庆集训游记 | wcy's blog</title>
   
 
 
@@ -117,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#day--"><span class="nav-number">1.</span> <span class="nav-text">Day -???</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-1"><span class="nav-number">2.</span> <span class="nav-text">Day 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#day1-%E9%A2%98%E8%A7%A3"><span class="nav-number">2.1.</span> <span class="nav-text">Day1 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#t1"><span class="nav-number">2.1.1.</span> <span class="nav-text">T1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#t2"><span class="nav-number">2.1.2.</span> <span class="nav-text">T2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day2-day3"><span class="nav-number">3.</span> <span class="nav-text">Day2 &amp;&amp; Day3</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,7 +181,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/03/CF1055A%20Metro/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
@@ -195,12 +194,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="【题解】CF1055A Metro | wcy's blog">
+      <meta itemprop="name" content="【游记】2022国庆集训游记 | wcy's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【题解】CF1055A Metro
+          【游记】2022国庆集训游记
         </h1>
 
         <div class="post-meta-container">
@@ -211,14 +210,14 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-04-03 20:04:05" itemprop="dateCreated datePublished" datetime="2022-04-03T20:04:05+08:00">2022-04-03</time>
+      <time title="创建时间：2022-10-03 07:08:49" itemprop="dateCreated datePublished" datetime="2022-10-03T07:08:49+08:00">2022-10-03</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-06-15 06:24:32" itemprop="dateModified" datetime="2022-06-15T06:24:32+08:00">2022-06-15</time>
+      <time title="修改时间：2022-10-10 19:48:04" itemprop="dateModified" datetime="2022-10-10T19:48:04+08:00">2022-10-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -226,7 +225,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+          <a href="/categories/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
         </span>
     </span>
 
@@ -240,37 +239,38 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1055A">题目传送门</a></p>
-<h2 id="前言">前言</h2>
-<p>看到这题是个蓝题还以为要写最短路，做完以后感觉这题<del>最多是个黄</del>。</p>
+        <h2 id="day--">Day -???</h2>
+<p>whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。</p>
 <span id="more"></span>
-<h2 id="分析">分析</h2>
-<p>我们用序列 <span class="math inline">\(A\)</span> 记录 <span
-class="math inline">\(1-n\)</span> 中站点的开放情况，用序列 <span
-class="math inline">\(B\)</span> 记录 <span class="math inline">\(n -
-1\)</span> 中站点开放的情况。</p>
-<p>这题其实就是一个分类讨论的题目，我们来思考一下什么情况能到，什么情况到不了。</p>
-<ol type="1">
-<li>当 <span class="math inline">\(A[1] ==
-0\)</span>，也就是连车都上不了，肯定到不了。</li>
-<li>当 <span
-class="math inline">\(A[1]\&amp;\&amp;A[s]\)</span>，这个时候我们可以通过
-<span class="math inline">\(1-n\)</span>
-的路线直达目的地，所以可以到达。</li>
-<li>当 <span class="math inline">\(1\)</span>, <span
-class="math inline">\(2\)</span> 两种情况均不满足，我们考虑从 <span
-class="math inline">\(s + 1 - n\)</span>
-这一段路线中转，我们可以枚举这一段路径上的所有站点，如果存在一个站点
-<span class="math inline">\(i\)</span> 使得 <span
-class="math inline">\(A[i]\&amp;\&amp;B[i]\&amp;\&amp;B[s]\)</span>
-，这个时候我们就可以从 <span class="math inline">\(1\)</span> 坐到 <span
-class="math inline">\(i\)</span> ，再从 <span
-class="math inline">\(i\)</span> 坐到 <span
-class="math inline">\(s\)</span>，我们就可以到达了，反之如果不存在这样的站点，那我们就到达不了。</li>
-</ol>
-<p>所以，我们就可以根据这些结论写出极短的代码了。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> a[N], b[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, s;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; s;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        cin &gt;&gt; b[i];</span><br><span class="line">    <span class="keyword">if</span> (!a[<span class="number">1</span>]) <span class="built_in">puts</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a[s]) <span class="built_in">puts</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = s + <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">            <span class="keyword">if</span> (a[i] &amp;&amp; b[i] &amp;&amp; b[s])</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">puts</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">                    flag = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">        <span class="keyword">if</span> (!flag) <span class="built_in">puts</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="day-1">Day 1</h2>
+<p>打的是NOIP的场，花十分钟看了一眼四题题面：T1纯数学，T2有点一眼，T3和T4不在我的能力范围，考虑T2图论题我比较擅长，于是先去推T1的式子，然后推着推着发现好像有容斥的做法，随便打了一下发现过不了样例，然后发现
+<code>k</code> 打成 <code>k + 1</code>
+了，改掉就过样例了，又拍上了小数据，感觉问题不大。然后看T2发现是个tarjan的一眼题，花了
+<span class="math inline">\(10\)</span> 分钟口胡了一个 tarjan +
+拓扑排序的做法，感觉能A，剩下的时间就在上拍了。估分 <span
+class="math inline">\(100 + 100 + 0 + 0 =
+200\)</span>，中午出分，发现只有 <span class="math inline">\(100 + 70 +
+0 + 0 = 170\)</span>，一看T2三个点T掉，原来是XJB去重边多了个 <span
+class="math inline">\(\log\)</span>，改掉就过了，wssb。</p>
+<h3 id="day1-题解">Day1 题解</h3>
+<h4 id="t1">T1</h4>
+<p>考虑容斥，全集大小 <span class="math inline">\(|U| = \binom{m - 1}{n
+- 1}\)</span>，所以我们考虑用全集大小减去至少有一个数大于 <span
+class="math inline">\(k\)</span> 的情况，不难发现求解恰有 <span
+class="math inline">\(j\)</span> 个数大于 <span
+class="math inline">\(k\)</span> 就相当于求解方程 <span
+class="math display">\[
+\sum_{i=1}^n x_i = m - jk
+\]</span> 的正整数解个数，加上容斥即可知答案为 <span
+class="math display">\[
+\sum_{i=0}^{n} (-1)^i\binom{n}{i}\binom{m - ik - 1}{n - 1}
+\]</span></p>
+<h4 id="t2">T2</h4>
+<p>考虑什么情况下会出现 <span class="math inline">\(i\)</span> 和 <span
+class="math inline">\(j\)</span>
+至少能有一方可达，不难发现用tarjan缩点过后新图中的一段链满足要求，所以直接tarjan+拓扑排序即可通过。</p>
+<h2 id="day2-day3">Day2 &amp;&amp; Day3</h2>
+<p>两天合起来挂了170分，不想写了。</p>
 
     </div>
 
@@ -280,21 +280,20 @@ class="math inline">\(s\)</span>，我们就可以到达了，反之如果不存
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i> 题解</a>
-              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"><i class="fa fa-tag"></i> 模拟</a>
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 游记</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/03/24/SP2885%20WORDRING/" rel="prev" title="【题解】SP2885 WORDRING">
-                  <i class="fa fa-chevron-left"></i> 【题解】SP2885 WORDRING
+                <a href="/2022/09/29/%E6%A0%A1%E5%86%85whk%E6%97%A5%E5%AF%84/" rel="prev" title="【随笔】校内whk日寄">
+                  <i class="fa fa-chevron-left"></i> 【随笔】校内whk日寄
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/04/08/P2122%E8%BF%98%E6%95%99%E5%AE%A4/" rel="next" title="【题解】P2122还教室">
-                  【题解】P2122还教室 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/10/10/P7834%20Peaks/" rel="next" title="【题解】P7834 Peaks">
+                  【题解】P7834 Peaks <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
