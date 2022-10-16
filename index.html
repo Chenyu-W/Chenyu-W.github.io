@@ -204,7 +204,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-10-16 21:42:38 / 修改时间：22:01:24" itemprop="dateCreated datePublished" datetime="2022-10-16T21:42:38+08:00">2022-10-16</time>
+      <time title="创建时间：2022-10-16 21:42:38 / 修改时间：22:04:57" itemprop="dateCreated datePublished" datetime="2022-10-16T21:42:38+08:00">2022-10-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -226,48 +226,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="前言">前言</h2>
-<p>由于太菜，只能在PJ组混着，估分 <span class="math inline">\(100 + 100
-+ 100 + 100 = 400\)</span>，实际 T3 写正解但写挂 <span
-class="math inline">\(100 + 100 + 81 + 100 = 381\)</span> 大寄特寄。</p>
-<h2 id="思路-题解">思路 &amp;&amp; 题解</h2>
-<p>进场开
-T1，看到题感觉要写高精，非常恐怖，思考了几秒发现不用，那就是萌萌题，略。</p>
-<p>搞完 T1 去开 T2，观察到 <span class="math inline">\(A\)</span>
-数组的顺序和最终答案无关，果断 sort
-一下，然后我们要让最终的极差最小，那么就肯定是把小的增大，大的减小，然后发现排序之后单点加和区间加没什么区别，所以我们可以枚举
-<span class="math inline">\(i\)</span> ，让 <span
-class="math inline">\([1, i]\)</span> 的数全部加 <span
-class="math inline">\(k\)</span>，<span class="math inline">\([i + 1,
-n]\)</span> 的数全部减 <span
-class="math inline">\(k\)</span>，那么极差就是 <span
-class="math inline">\(\max(a_n - k, a_i + k) - \min(a_{i +1} - k, a_1 +
-k)\)</span>，所有答案取 <span class="math inline">\(\min\)</span>
-即可，时间复杂度 <span class="math inline">\(O(n)\)</span>。</p>
-<p>T3看到数据范围感觉是个 <span class="math inline">\(O(n^3)\)</span> 的
-dp，于是我们设 <span class="math inline">\(f[i][j]\)</span>
-表示当前总和为 <span class="math inline">\(i\)</span>，有 <span
-class="math inline">\(j\)</span> 条边边权 <span
-class="math inline">\(\ge d\)</span> 的方案数，转移非常显然，这样是
-<span class="math inline">\(O(n^3)\)</span> 的，然后写的时候发现枚举
-<span class="math inline">\(j\)</span> 很傻，于是改状态为 <span
-class="math inline">\(f[i][0/1]\)</span> 表示当前总和为 <span
-class="math inline">\(i\)</span>，否/是
-合法的方案数，转移也很显然，这样就是 <span class="math inline">\(O(n ^
-2)\)</span> 的，但是写挂了，可能是取模锅了。</p>
-<p>T4看一眼觉得是国庆D1T1的弱化版加上三次二分，首先我们令 <span
-class="math inline">\(f(x)\)</span> 为方程 <span class="math inline">\(i
-+ j + k = x\ \ i,j,k\in[1,n]\)</span> 解的个数，我们不难用容斥求出 <span
-class="math inline">\(f(x)\)</span> 然后我们搞个前缀和，记 <span
-class="math inline">\(s[i] = \sum_{j = 1}^{i}
-f(j)\)</span>，然后二分一下就可以求出 <span class="math inline">\(i + j
-+ k\)</span>，第一次二分后我们同理可以二分出 <span
-class="math inline">\(i\)</span> 和 <span
-class="math inline">\(j\)</span>，然后就写完了，时间复杂度 <span
-class="math inline">\(O(n)\)</span> 。</p>
-<h2 id="总结">总结</h2>
-<p>这种比赛都 AK 不了，我是傻逼。</p>
-
+          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于太菜，只能在PJ组混着，估分 $100 + 100 + 100 + 100 = 400$，实际 T3 写正解但写挂 $100 + 100 + 81 + 100 = 381$ 大寄特寄。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/10/16/20221016%E6%A8%A1%E6%8B%9F%E8%B5%9B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
