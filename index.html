@@ -125,7 +125,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">39</span>
+          <span class="site-state-item-count">40</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -174,6 +174,128 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/20221020%E6%A8%A1%E6%8B%9F%E8%B5%9B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
+      <meta itemprop="name" content="Chenyu Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/10/20/20221020%E6%A8%A1%E6%8B%9F%E8%B5%9B/" class="post-title-link" itemprop="url">【比赛】20221020模拟赛</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-10-20 19:35:51 / 修改时间：19:55:21" itemprop="dateCreated datePublished" datetime="2022-10-20T19:35:51+08:00">2022-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%AF%94%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">比赛</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="前言">前言</h2>
+<p>一场 TG 模拟赛，VP 打的，最终 <span class="math inline">\(100 + 100 +
+0 + 0 = 200\)</span>，看 sol 发现一道正解都没有。</p>
+<h2 id="题解">题解</h2>
+<h3 id="t1">T1</h3>
+<blockquote>
+<p>想了 30min 感觉很不可做先写了 T2
+再来写的，然后发现少看一个条件，wssb。</p>
+</blockquote>
+<p>我们考虑圆上一条连接 <span class="math inline">\(l, r (l
+&lt;r)\)</span> 的线段，观察发现这条线段把圆上 <span
+class="math inline">\(2n\)</span> 个点(不包括 <span
+class="math inline">\(l, r\)</span> ) 分为两个部分，一个部分的点都在
+<span class="math inline">\((l, r)\)</span>
+中，而另外一部分则不在，因为要有交点所以肯定线段的两点分别在两个部分，所以统计区间出现次数为
+<span class="math inline">\(1\)</span>
+的数的个数即可，不难发现是个莫队板子，最后答案除以 <span
+class="math inline">\(2\)</span>。时间复杂度 <span
+class="math inline">\(O(n\sqrt{n})\)</span>，被树状数组 <span
+class="math inline">\(O(n\log n)\)</span> 吊打。</p>
+<h2 id="t2">T2</h2>
+<p>默认 <span class="math inline">\(V\)</span>
+为值域大小。思维量比较低的一道 DS 题，不难发现当 <span
+class="math inline">\(n \le 10^7\)</span>
+的时候这题差分加值域离散化再加值域分块即可以做到 <span
+class="math inline">\(O(q\sqrt{V})\)</span>，所以剩下 <span
+class="math inline">\(n \le 10^9\)</span>
+的部分肯定是加上序列上的离散化。</p>
+<p>然后我们考虑怎样进行合适的离散化，记 <span
+class="math inline">\(x_i\)</span> 表示离散化后编号为 <span
+class="math inline">\(i\)</span> 的点，那么我们不难发现在原序列中 <span
+class="math inline">\((x_i,x_{i+1})\)</span>
+中点的值都相同，所以这其实提示我们以下这一种做法：</p>
+<p>首先，我们往离散化后数组每相邻两个数之间就塞一个点，代表区间 <span
+class="math inline">\((x_i,x_{i+1})\)</span>
+的值，然后再给每个点分配一个点权 <span
+class="math inline">\(v_i\)</span>，如果这个离散化后的点代表的是原序列上的点，那么点权为
+<span class="math inline">\(1\)</span>，若代表的是区间，那么点权为 <span
+class="math inline">\(x_{i + 1} - x_i -
+1\)</span>。然后我们发现这种离散化正好把原序列上的信息映射到了新序列上，再对值域进行离散化然后按点权插入块中值域分块即可做到
+<span class="math inline">\(O(q\sqrt{V})\)</span>。正解是带 <span
+class="math inline">\(\log\)</span> 的，但我并不会。</p>
+<h2 id="总结">总结</h2>
+<p>好好看题！！！</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/20221016%E6%A8%A1%E6%8B%9F%E8%B5%9B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -210,7 +332,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-17 20:56:35" itemprop="dateModified" datetime="2022-10-17T20:56:35+08:00">2022-10-17</time>
+      <time title="修改时间：2022-10-17 21:11:19" itemprop="dateModified" datetime="2022-10-17T21:11:19+08:00">2022-10-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -232,7 +354,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于太菜，只能在PJ组混着，估分 $100 + 100 + 100 + 100 = 400$，实际 T3 写正解但写挂 $100 + 100 + 81 + 100 = 381$ 大寄特寄。</p>
+          <h2 id="前言">前言</h2>
+<p>由于太菜，只能在PJ组混着，估分 <span class="math inline">\(100 + 100
++ 100 + 100 = 400\)</span>，实际 T3 写正解但写挂 <span
+class="math inline">\(100 + 100 + 81 + 100 = 381\)</span> 大寄特寄。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/10/16/20221016%E6%A8%A1%E6%8B%9F%E8%B5%9B/#more" rel="contents">
@@ -964,97 +1089,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/08/31/CF852I%20Dating/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/30/CF277E%20Binary%20Tree%20on%20Plane/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/08/30/CF277E%20Binary%20Tree%20on%20Plane/" class="post-title-link" itemprop="url">【题解】CF277E Binary Tree on Plane</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-08-30 15:55:37 / 修改时间：16:13:41" itemprop="dateCreated datePublished" datetime="2022-08-30T15:55:37+08:00">2022-08-30</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF277E">题目传送门</a></p>
-<h2 id="前言">前言</h2>
-<p>尝试对 <code>double</code> 数组数组进行 <code>memset</code> 并 debug
-一小时。</p>
-<h3 id="前置芝士">前置芝士</h3>
-<p>网络流</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/08/30/CF277E%20Binary%20Tree%20on%20Plane/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
