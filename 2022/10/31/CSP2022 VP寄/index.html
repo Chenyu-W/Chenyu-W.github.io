@@ -20,29 +20,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言 翻盘 rk1，赢麻了。">
+    <meta name="description" content="Day -? FZ因不可抗力取消了 CSP，只能线上 VP。 Day 1 上午打 J 组，粗略看了一下四个题，T1 快速幂板子，T2 简单数学，T3 模拟，T4 应该是个 DP，然后就开始码，五分钟把 T1 和 T2 写完了，然后明智地认为 T4 比 T3 好写，就跑去写 T4。 T4 看了一眼题目发现欧几里得距离完全是晃人的，其实就是个曼哈顿距离，然后发现建个 DAG 然后 DP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【游记】期末考游记">
-<meta property="og:url" content="http://example.com/2022/07/02/%E6%9C%9F%E6%9C%AB%E8%80%83%E6%B8%B8%E8%AE%B0/index.html">
+<meta property="og:title" content="【题解】CSP2022 VP寄">
+<meta property="og:url" content="http://example.com/2022/10/31/CSP2022%20VP%E5%AF%84/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="前言 翻盘 rk1，赢麻了。">
+<meta property="og:description" content="Day -? FZ因不可抗力取消了 CSP，只能线上 VP。 Day 1 上午打 J 组，粗略看了一下四个题，T1 快速幂板子，T2 简单数学，T3 模拟，T4 应该是个 DP，然后就开始码，五分钟把 T1 和 T2 写完了，然后明智地认为 T4 比 T3 好写，就跑去写 T4。 T4 看了一眼题目发现欧几里得距离完全是晃人的，其实就是个曼哈顿距离，然后发现建个 DAG 然后 DP">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-02T00:40:45.000Z">
-<meta property="article:modified_time" content="2022-07-03T05:27:43.815Z">
+<meta property="article:published_time" content="2022-10-30T23:48:11.000Z">
+<meta property="article:modified_time" content="2022-10-31T00:50:56.049Z">
 <meta property="article:author" content="Chenyu Wu">
+<meta property="article:tag" content="trick">
 <meta property="article:tag" content="游记">
-<meta property="article:tag" content="whk">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://example.com/2022/07/02/%E6%9C%9F%E6%9C%AB%E8%80%83%E6%B8%B8%E8%AE%B0/">
+<link rel="canonical" href="http://example.com/2022/10/31/CSP2022%20VP%E5%AF%84/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/02/%E6%9C%9F%E6%9C%AB%E8%80%83%E6%B8%B8%E8%AE%B0/","path":"2022/07/02/期末考游记/","title":"【游记】期末考游记"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/10/31/CSP2022%20VP%E5%AF%84/","path":"2022/10/31/CSP2022 VP寄/","title":"【题解】CSP2022 VP寄"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>【游记】期末考游记 | wcy's blog</title>
+<title>【题解】CSP2022 VP寄 | wcy's blog</title>
   
 
 
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day--"><span class="nav-number">2.</span> <span class="nav-text">Day -???</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-0"><span class="nav-number">3.</span> <span class="nav-text">Day 0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-1"><span class="nav-number">4.</span> <span class="nav-text">Day 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-2"><span class="nav-number">5.</span> <span class="nav-text">Day 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-3"><span class="nav-number">6.</span> <span class="nav-text">Day 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-4"><span class="nav-number">7.</span> <span class="nav-text">Day 4</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#day--"><span class="nav-number">1.</span> <span class="nav-text">Day -?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#day-1"><span class="nav-number">2.</span> <span class="nav-text">Day 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,7 +182,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/02/%E6%9C%9F%E6%9C%AB%E8%80%83%E6%B8%B8%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/31/CSP2022%20VP%E5%AF%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
@@ -195,12 +195,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="【游记】期末考游记 | wcy's blog">
+      <meta itemprop="name" content="【题解】CSP2022 VP寄 | wcy's blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          【游记】期末考游记
+          【题解】CSP2022 VP寄
         </h1>
 
         <div class="post-meta-container">
@@ -210,15 +210,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-07-02 08:40:45" itemprop="dateCreated datePublished" datetime="2022-07-02T08:40:45+08:00">2022-07-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-07-03 13:27:43" itemprop="dateModified" datetime="2022-07-03T13:27:43+08:00">2022-07-03</time>
+      <time title="创建时间：2022-10-31 07:48:11 / 修改时间：08:50:56" itemprop="dateCreated datePublished" datetime="2022-10-31T07:48:11+08:00">2022-10-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -240,84 +234,62 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言">前言</h2>
-<p>翻盘 rk1，赢麻了。</p>
-<span id="more"></span>
-<h2 id="day--">Day -???</h2>
-<p>半个学期语文作业没写， 被 zm
-叫办公室处刑，说考后背《送东阳马生序》，语文没上 <span
-class="math inline">\(130\)</span>
-杀了我，感觉非常悲伤，而且掉出段前十要 AFO
-了。上数学课又在推有限微积分的式子，被 cjs
-当场点名不听课，再次被叫办公室，说低于 <span
-class="math inline">\(145\)</span> 分就拿钱请他吃饭
-<del>敲诈勒索举报了</del>。ccg 又要求英语拿段一。期末 buff
-直接叠满。</p>
-<h2 id="day-0">Day 0</h2>
-<p>不想复习，打 phigros。</p>
+        <h2 id="day--">Day -?</h2>
+<p>FZ因不可抗力取消了 CSP，只能线上 VP。</p>
 <h2 id="day-1">Day 1</h2>
-<p>上午考语文，由于 zm
-告诉我们今年语文会很水，所以考得非常放松，感觉阅读答得还行，但是作文有点小裂，略微估了一下有
-<span
-class="math inline">\(130+\)</span>，感觉状态非常好，可以冲一把段一。</p>
-<p>下午第一场地理，八班同学说今年 ly
-出卷，感觉十分不友好。果然，考了一堆没学过的东西，最后一个大题考了什么水文特征，但是
-lzy 上课完全没有讲过这个玩意，直接开始乱写，考完对了一下答案，zlt
-表示地理非常简单，周围一圈人均比我高，直接自闭。第二场道法，感觉开放题特别多，不知道是什么新型题型，反正直接乱搞，考完又去对答案，好像选择错了一道，再次自闭。</p>
-<h2 id="day-2">Day 2</h2>
-<p>上午考数学，这也是我最慌的一科，因为期末模拟的卷子压轴题基本都不会做，很少能写完，只能祈祷出题人善良。发卷子之后看了一下压轴，感觉非常不可做，又想到
-cjs
-的<del>敲诈</del>行为，感觉要人财两空，因为自己太过紧张，填空压轴题卡了好久，更加感觉要炸裂，只能想着跳过，写到第
-<span class="math inline">\(24\)</span>
-题，第三小题完全不知道在说什么，直接采用枚举法来枚举取值范围，算出了一个看起来很合理的答案，然后直接写压轴。本来想着压轴很难的，但是看
-rzr
-坐我旁边已经开始检查，感觉还是可以切掉，果然，压轴挺水的，直接作平行三次全等搞定，然后又把填空压轴补了一下，看到时间还剩半个小时，感觉超常发挥了，非常的妙。考后对了一下
-<span class="math inline">\(24\)</span>
-题第三小题，发现大家答案都不一样，有点慌。</p>
-<p>下午是历史和生物，考历史的时候发现第一个选择就不会做，感觉非常困难。果然，后面的解答题直接给我看傻了，只能完全靠着意志答题，考后和
-zrh，zlt 等人对一波答案，选择直接挂了两道，非常慌，感觉历史要下 <span
-class="math inline">\(90\)</span>。第二场生物，感觉选择题非常水，但是一看填空题一堆模棱两可的答案，感觉出得非常不严谨，考完与生物神仙
-rzr，zrh 等人继续对答案，发现 nmd 判断题是写 T 和
-F，打钩打叉的我直接傻了，感觉生物直接崩盘，甚至感觉要 AFO 了。</p>
-<h2 id="day-3">Day 3</h2>
-<p>早上 zm 通知生物打钩打叉不扣分，我直接乐了。</p>
-<p>只剩一科英语了，由于模拟考拿了个 rk1，非常自信，直接不复习，然后被
-ccg 给 D
-了。发卷子，看了一下前几道语法题，感觉非常的困难，语法题基本全部都是蒙的，感觉这次英语要炸裂，但是阅读题又很水，考完和
-zlt 对了一下语法题，答案竟然出奇的一致，我忽然感觉英语要上天了。</p>
-<p>下午讲评主课试卷。考英语直接阳寿用尽，获得了全班唯一的选择全对，但是由于自己的
-nt 错误，把 special 写成 speceil，痛失 <span
-class="math inline">\(1\)</span> 分。<del>(话说我模拟考也是这么写的，ccg
-每次都打钩)</del>。数学直接原地爆炸，那道用枚举法写的题直接错掉，问了
-cjs 分值，他说直接写出答案的题会少扣分，但是估计也 <span
-class="math inline">\(5\)</span>
-分没了，再加上一些杂七杂八的过程，我只能跟 cjs 说上不了 <span
-class="math inline">\(145\)</span>，又被骂一顿，cjs
-还发了篇文章给我妈。语文感觉语积超神了，只要作文正常 <span
-class="math inline">\(130\)</span> 应该没有问题。</p>
-<p>晚上回家路上，我妈收到 cjs
-的文章后又骂了我一顿，看来以后还是要听数学课，不要在课上搞
-OI。回到家，突然 cjs 发来了一条微信: wcy 数学 <span
-class="math inline">\(147\)</span>，年段第一！我 tm
-直接傻了，感觉期末的希望又回来了。</p>
-<h2 id="day-4">Day 4</h2>
-<p>据说今天会出分，非常紧张，早上的时候 zm
-发来了我的主课成绩：语文作文爆炸 <span
-class="math inline">\(127.5\)</span>，年段 rk50, 数学 <span
-class="math inline">\(147\)</span>，年段 rk1，英语 <span
-class="math inline">\(147.5\)</span> 年段
-rk1。看到两科段一，我直接喜极而泣，看来段前十应该没什么问题，看小四科考好一点能不能段一。几分钟后，zm
-又发来了其他成绩: 生物 <span class="math inline">\(97\)</span>，地理
-<span class="math inline">\(95\)</span>，道法 <span
-class="math inline">\(95\)</span>，历史 <span
-class="math inline">\(91\)</span>，体育 <span
-class="math inline">\(3.75\)</span>，算了一下总分足足有 $803.75 $
-感觉年段第一希望非常大，所以非常期待段排名。中午，段排出来了，果然直接
-rk1。zm 似乎比我还高兴，直接不用背课文。</p>
-<p>后来问了一下别人的成绩，rzr 好像每科都比我低一点点，只剩一个
-rk23。zzm <span
-class="math inline">\(785+\)</span>，应该有前十。不知道那个神仙语文考了
-<span class="math inline">\(138\)</span>，开学之后去膜一膜。</p>
+<p>上午打 J 组，粗略看了一下四个题，T1 快速幂板子，T2 简单数学，T3
+模拟，T4 应该是个 DP，然后就开始码，五分钟把 T1 和 T2
+写完了，然后明智地认为 T4 比 T3 好写，就跑去写 T4。</p>
+<p>T4
+看了一眼题目发现欧几里得距离完全是晃人的，其实就是个曼哈顿距离，然后发现建个
+DAG 然后 DP 似乎是 <span class="math inline">\(O(n^2k)\)</span>
+的，于是开始码，十分钟过掉了大样例。</p>
+<p>然后开始打 T3，发现 <code>|</code> 和 <code>&amp;</code>
+的优先级不会处理，然后发现不会处理这玩意也有 <span
+class="math inline">\(80\)</span>
+分，于是愉快地开始码，很快啊，码完了，写的模拟应该问题不大。</p>
+<p>估分：<span class="math inline">\(100 + 100 + 80 + 100 =
+380\)</span></p>
+<p>民间数据: <span class="math inline">\(100 + 100 + 80 + 100 =
+380\)</span></p>
+<p>下午去打了 S 组，发现似乎是图论专场，看了一眼题目，T1 神秘最短路，T2
+一眼 DS，T3 神秘东西没看，T4 我不会的链上 DP。</p>
+<p>看了四个题感觉 T2 是比 T1
+简单的，于是开始想，然后发现对答案有影响的只有最大正数，最小正数，最大负数，最小负数，再分类一个
+<span class="math inline">\(0\)</span>。于是就变成了一个 RMQ
+的板子，然后决定写两棵线段树，每棵维护 <span
+class="math inline">\(5\)</span> 个 <span
+class="math inline">\(tag\)</span>，然后发现算答案的时候最多带一个 <span
+class="math inline">\(25\)</span>
+的常数，当时没怎么管，写完发现第二个样例没过，手玩了一下发现不对劲，回去看题原来
+Q 是可以看到 L 的选择的，改了一下，过了所有样例。</p>
+<p>然后回看 T1，既然是无权图第一步显然是用 bfs 求个全源最短路，这一步是
+<span class="math inline">\(O(n^2)\)</span>
+的，然后如果最暴力枚举四个点的话肯定会炸，所以考虑枚举两个点然后 <span
+class="math inline">\(O(1)\)</span>
+算出剩下的答案，发现第一个点和第四个点都要在 <span
+class="math inline">\(1\)</span>
+号的可达范围，这个性质是很好的，然后我们考虑把所有在 <span
+class="math inline">\(1\)</span>
+号点可达范围的标记一下，预处理一下前三大，然后就是 <span
+class="math inline">\(O(n^2)\)</span> 的了，写完一发过了大样例。</p>
+<p>T3 太神秘了先跳，写了T4 <span class="math inline">\(k = 1\)</span> 的
+LCA 板子之后又跑回来看，发现条件等价于每个点的出度都为 <span
+class="math inline">\(1\)</span>，又发现 <span
+class="math inline">\(O(nq)\)</span> 的暴力有 <span
+class="math inline">\(40\)</span>，那赶紧码，然后又打了一个 <span
+class="math inline">\(t\)</span> 为奇数的分，然后就结束了。</p>
+<p>估分：<span class="math inline">\(100 + 100 + 50 + 16 =
+266\)</span></p>
+<p>民间数据：<span class="math inline">\(100 + 100 + 40 + 16 =
+256\)</span>，T3 还挂分了。</p>
+<p>打完之后发现自己被薄纱了，一车人上了 <span
+class="math inline">\(300\)</span> 甚至 AK，赛后发现 T4
+如果每次把链拿出来 DP 就有 <span class="math inline">\(68\)</span>
+分，再次证明了我是傻逼的事实。</p>
+<h2 id="总结">总结</h2>
+<p>随着 CSP 的结束，也意味着我学 OI
+也有一年了，不管考得再差，也总是这一年的成果，希望明年不要像现在这么菜。</p>
 
     </div>
 
@@ -327,22 +299,19 @@ class="math inline">\(785+\)</span>，应该有前十。不知道那个神仙语
 
     <footer class="post-footer">
           <div class="post-tags">
+              <a href="/tags/trick/" rel="tag"><i class="fa fa-tag"></i> trick</a>
               <a href="/tags/%E6%B8%B8%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 游记</a>
-              <a href="/tags/whk/" rel="tag"><i class="fa fa-tag"></i> whk</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/06/26/CF911G%20Mass%20Change%20Queries/" rel="prev" title="【题解】CF911G Mass Change Queries">
-                  <i class="fa fa-chevron-left"></i> 【题解】CF911G Mass Change Queries
+                <a href="/2022/10/27/SP26017%20GCDMAT/" rel="prev" title="【题解】SP26017 GCDMAT">
+                  <i class="fa fa-chevron-left"></i> 【题解】SP26017 GCDMAT
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/07/P3311%E6%95%B0%E6%95%B0/" rel="next" title="【题解】P3311数数">
-                  【题解】P3311数数 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
