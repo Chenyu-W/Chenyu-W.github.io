@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言 最近开始看《具体数学》，看到第一章的成套方法，感觉打开新世界大门，就来记录一下这一种美妙的方法。">
+    <meta name="description" content="前言最近开始看《具体数学》，看到第一章的成套方法，感觉打开新世界大门，就来记录一下这一种美妙的方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】成套方法">
 <meta property="og:url" content="http://example.com/2022/06/15/%E6%88%90%E5%A5%97%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="前言 最近开始看《具体数学》，看到第一章的成套方法，感觉打开新世界大门，就来记录一下这一种美妙的方法。">
+<meta property="og:description" content="前言最近开始看《具体数学》，看到第一章的成套方法，感觉打开新世界大门，就来记录一下这一种美妙的方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-15T10:55:09.000Z">
 <meta property="article:modified_time" content="2022-06-25T01:01:40.862Z">
@@ -240,165 +240,132 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言">前言</h2>
-<p>最近开始看《具体数学》，看到第一章的成套方法，感觉打开新世界大门，就来记录一下这一种美妙的方法。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近开始看《具体数学》，看到第一章的成套方法，感觉打开新世界大门，就来记录一下这一种美妙的方法。</p>
 <span id="more"></span>
-<h2 id="成套方法的概述">成套方法的概述</h2>
-<p>成套方法主要是用来解递归式的，这种方法技巧性较强，思路非常清奇，具体步骤可以用两个步骤概括</p>
-<ol type="1">
+<h2 id="成套方法的概述"><a href="#成套方法的概述" class="headerlink" title="成套方法的概述"></a>成套方法的概述</h2><p>成套方法主要是用来解递归式的，这种方法技巧性较强，思路非常清奇，具体步骤可以用两个步骤概括</p>
+<ol>
 <li>化特殊为一般</li>
 <li>化一般为特殊</li>
 </ol>
 <p>具体我们来看下面一道例题</p>
-<p>解递归式 <span class="math display">\[
+<p>解递归式</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 t_0 = 1 \\
-t_n = t_{n - 1} + 2n + 3 (n &gt; 0)\\
-\end{cases}
-\]</span> 首先我们运用化特殊为一般的思想，将原递归式转化成这个样子 <span
-class="math display">\[
+t_n = t_{n - 1} + 2n + 3 (n > 0)\\
+\end{cases}</script><p>首先我们运用化特殊为一般的思想，将原递归式转化成这个样子</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 t_0 = x \\
-t_n = t_{n - 1} + yn +z (n &gt; 0) \\
-\end{cases}
-\]</span> 显然，我我们的 <span class="math inline">\(t_n\)</span>
-肯定只由 <span class="math inline">\(x,y,z\)</span> 组成，所以我们不妨设
-<span class="math display">\[
-t_n = X(n)x + Y(n)y + Z(n)z
-\]</span> 观察到，我们 <span class="math inline">\(x, y, z\)</span>
-的取值并不影响 <span class="math inline">\(X(n),Y(n),Z(n)\)</span>
-的取值，所以我们可以使用类似特殊值法的方法来求解 <span
-class="math inline">\(X(n),Y(n),Z(n)\)</span>，不过成套方法给出了一种更巧妙的方法，那就是<strong>假设
-<span class="math inline">\(t_n\)</span> 的值，反推出 <span
-class="math inline">\(x,y,z\)</span> 的值</strong></p>
-<p>我们先令 <span class="math inline">\(t_n = 1\)</span></p>
-<p>那我们可以得到 <span class="math display">\[
+t_n = t_{n - 1} + yn +z (n > 0) \\
+\end{cases}</script><p>显然，我我们的 $t_n$ 肯定只由 $x,y,z$ 组成，所以我们不妨设</p>
+<script type="math/tex; mode=display">
+t_n = X(n)x + Y(n)y + Z(n)z</script><p>观察到，我们 $x, y, z$ 的取值并不影响 $X(n),Y(n),Z(n)$ 的取值，所以我们可以使用类似特殊值法的方法来求解 $X(n),Y(n),Z(n)$，不过成套方法给出了一种更巧妙的方法，那就是<strong>假设 $t_n$ 的值，反推出 $x,y,z$ 的值</strong></p>
+<p>我们先令 $t_n = 1$</p>
+<p>那我们可以得到</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 1 = x \\
 1 = 1 + yn + z \\
-\end{cases}
-\]</span> 那我们就得 <span class="math display">\[
+\end{cases}</script><p>那我们就得</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 x = 1 \\
 y = 0 \\
 z = 0 \\
-\end{cases}
-\]</span> 所以我们就有 <span class="math inline">\(X(n) = 1\)</span></p>
-<p>再令 <span class="math inline">\(t_n = n\)</span>，有 <span
-class="math display">\[
+\end{cases}</script><p>所以我们就有 $X(n) = 1$</p>
+<p>再令 $t_n = n$，有</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 0 = x \\
 n = n - 1 + yn +z
-\end{cases}
-\]</span> 得到 <span class="math display">\[
+\end{cases}</script><p>得到</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 x = 0 \\
 y = 0 \\
 z = 1
-\end{cases}
-\]</span> 轻松得到 <span class="math inline">\(Z(n) = n\)</span></p>
-<p>最后，我们令 <span class="math inline">\(t_n = n^2\)</span> ，得到
-<span class="math display">\[
+\end{cases}</script><p>轻松得到 $Z(n) = n$</p>
+<p>最后，我们令 $t_n = n^2$ ，得到</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 0 = x \\
 n^2 = (n - 1)^2 + yn + z
-\end{cases}
-\]</span> 得到 <span class="math display">\[
+\end{cases}</script><p>得到</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 x = 0 \\
 y = 2 \\
 z = -1
-\end{cases}
-\]</span> 带回去，得到 <span class="math display">\[
+\end{cases}</script><p>带回去，得到</p>
+<script type="math/tex; mode=display">
 n^2 = 2Y(n) - Z(n) \\
-Y(n) = \frac{n(n+ 1)}{2}
-\]</span> 所以，我们可以得到 <span class="math display">\[
-t_n = x + \frac{n(n +1)}{2}y +nz
-\]</span> 将 <span class="math inline">\(x = 1,y = 2,z = 3\)</span>
-代入原式中，得到 <span class="math display">\[
-t_n = 1 + n(n +1) +3n = n^2 +4n +1
-\]</span></p>
-<h2 id="取求值点的技巧">取求值点的技巧</h2>
-<p>在成套方法中，我们最具有技巧性的一步就是巧妙地取 <span
-class="math inline">\(t_n\)</span>
-的值，这里以一个例子来讲述一下如何取到合适的值。</p>
-<p>首先我们要记住取值的目的：消元，来看下面这个例子。 <span
-class="math display">\[
+Y(n) = \frac{n(n+ 1)}{2}</script><p>所以，我们可以得到</p>
+<script type="math/tex; mode=display">
+t_n = x + \frac{n(n +1)}{2}y +nz</script><p>将 $x = 1,y = 2,z = 3$ 代入原式中，得到</p>
+<script type="math/tex; mode=display">
+t_n = 1 + n(n +1) +3n = n^2 +4n +1</script><h2 id="取求值点的技巧"><a href="#取求值点的技巧" class="headerlink" title="取求值点的技巧"></a>取求值点的技巧</h2><p>在成套方法中，我们最具有技巧性的一步就是巧妙地取 $t_n$ 的值，这里以一个例子来讲述一下如何取到合适的值。</p>
+<p>首先我们要记住取值的目的：消元，来看下面这个例子。</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 t_1 = 1 \\
 t_{2n} = 2t_n - 1 \\
 t_{2n + 1} = 2t_n +1 \\
-\end{cases}
-\]</span>
-这个递归式其实就是约瑟夫问题的递归式，我们还是采用成套方法的思想，先转化递归式。
-<span class="math display">\[
+\end{cases}</script><p>这个递归式其实就是约瑟夫问题的递归式，我们还是采用成套方法的思想，先转化递归式。</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 t_1 = x \\
 t_{2n} = 2t_n +y \\
 t_{2n + 1} = 2t_n + z \\
-\end{cases}
-\]</span> 然后设 <span class="math display">\[
-t_n = X(n)x +Y(n)y + Z(n)z
-\]</span> 首先令 <span class="math inline">\(t_n = 1\)</span>，我们有
-<span class="math display">\[
+\end{cases}</script><p>然后设</p>
+<script type="math/tex; mode=display">
+t_n = X(n)x +Y(n)y + Z(n)z</script><p>首先令 $t_n = 1$，我们有</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 x = 1 \\
 y = -1 \\
 z = -1 \\
-\end{cases}
-\]</span> 那么也就有 <span class="math display">\[
-X(n) - Y(n) - Z(n) = 1
-\]</span> 再令 <span class="math inline">\(t_n = n\)</span>，得到 <span
-class="math display">\[
+\end{cases}</script><p> 那么也就有 </p>
+<script type="math/tex; mode=display">
+X(n) - Y(n) - Z(n) = 1</script><p>再令 $t_n = n$，得到</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 x = 1 \\
 y = 0 \\
 z = 1 \\
-\end{cases}
-\]</span> 代回去得到 <span class="math display">\[
-X(n) + Z(n) = n
-\]</span>
-但是我们现在好像陷入了瓶颈，无法求出一个具体的系数，为了解决这个问题，我们考虑取一个
-<span class="math inline">\(t_n\)</span> 使得 <span
-class="math inline">\(y = z = 0\)</span></p>
-<p>这样我们可以得出 <span class="math inline">\(x\)</span>，也就可以求出
-<span class="math inline">\(X(n)\)</span></p>
-<p>如果我们想要 <span class="math inline">\(y = z =
-0\)</span>，那么我们就有 <span class="math display">\[
+\end{cases}</script><p>代回去得到</p>
+<script type="math/tex; mode=display">
+X(n) + Z(n) = n</script><p>但是我们现在好像陷入了瓶颈，无法求出一个具体的系数，为了解决这个问题，我们考虑取一个 $t_n$ 使得 $y = z = 0$</p>
+<p>这样我们可以得出 $x$，也就可以求出 $X(n)$</p>
+<p>如果我们想要 $y = z = 0$，那么我们就有</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 t_{2n} = 2t_n \\
 t_{2n + 1} = 2t_n \\
-\end{cases}
-\]</span> 观察到函数 <span class="math inline">\(t_n = 2^m\)</span>
-满足要求，其中 <span class="math inline">\(2^m \le n &lt; 2^{m +
-1}\)</span>，也即 <span class="math inline">\(m = \lfloor \log_2^n
-\rfloor\)</span></p>
-<p>所以我们取 <span class="math inline">\(t_n = 2^m\)</span>，得 <span
-class="math display">\[
+\end{cases}</script><p>观察到函数 $t_n = 2^m$ 满足要求，其中 $2^m \le n &lt; 2^{m + 1}$，也即 $m = \lfloor \log_2^n \rfloor$</p>
+<p>所以我们取 $t_n = 2^m$，得</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 x = 1 \\
 y = 0 \\
 z = 0 \\
-\end{cases}
-\]</span> 轻松得到 <span class="math inline">\(X(n) = 2^m\)</span></p>
-<p>然后根据我们前文得到的方程组，我们可以求出 <span
-class="math display">\[
+\end{cases}</script><p>轻松得到 $X(n) = 2^m$</p>
+<p>然后根据我们前文得到的方程组，我们可以求出</p>
+<script type="math/tex; mode=display">
 \begin{cases}
 X(n) = 2^m \\
 Y(n) = 2^{m +1} - n - 1\\
 Z(n) = n - 2^m
-\end{cases}
-\]</span> 最后将 <span class="math display">\[
+\end{cases}</script><p>最后将 </p>
+<script type="math/tex; mode=display">
 \begin{cases}
 x = 1 \\
 y = -1 \\
 z = 1 \\
-\end{cases}
-\]</span> 代入，我们可以得到 <span class="math display">\[
-t_n = 2n - 2^{m + 1} +1
-\]</span> 我们也就解决了这个问题</p>
-<h2 id="总结">总结</h2>
-<p>成套方法是一种巧妙解决递归式的方法，但是我们遇到复杂的递归式，还是更加常用生成函数求解。</p>
+\end{cases}</script><p>代入，我们可以得到</p>
+<script type="math/tex; mode=display">
+t_n = 2n - 2^{m + 1} +1</script><p>我们也就解决了这个问题</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>成套方法是一种巧妙解决递归式的方法，但是我们遇到复杂的递归式，还是更加常用生成函数求解。</p>
 
     </div>
 
