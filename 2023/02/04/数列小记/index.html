@@ -24,7 +24,7 @@
 <meta property="og:description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-04T03:15:02.000Z">
-<meta property="article:modified_time" content="2023-02-04T15:00:31.775Z">
+<meta property="article:modified_time" content="2023-02-05T09:08:03.377Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="whk">
@@ -219,7 +219,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.1k 字
+          2.4k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
           <!-- compatible with older versions-->
-          18 分钟
+          20 分钟
         
       </span>
     
@@ -372,7 +372,15 @@ a_i\)</span>，这个式子不是很好直接算，于是考虑消去求和式�
 = \dfrac{a_1 - a_{n + 1}}{1 - q} = \dfrac{(1 - q^n)a_1}{1 - q}(q \neq
 1)\)</span>。</p>
 <h3 id="等比数列的性质">等比数列的性质</h3>
-<p>等比数列的单调性不像等差数列那么直接，所以我们不研究它。</p>
+<p>等比数列的单调性不像等差数列那么直接，首先当 <span
+class="math inline">\(q \in (-\infty, 0)\)</span>
+时，这个数列肯定是摆动的。接下来我们分为 <span class="math inline">\(q
+\in (0, 1)\)</span> 和 <span class="math inline">\(q \in (1,
++\infty)\)</span> 来进行讨论。首先当 <span class="math inline">\(q \in
+(0, 1)\)</span> 时，若 <span class="math inline">\(a_1 &gt;
+0\)</span>，则单调递减，反之单调递增。当 <span class="math inline">\(q
+\in (1, +\infty)\)</span> 时，若 <span class="math inline">\(a_1 &gt;
+0\)</span>，则单调递增，反之单调递减。</p>
 <p>同等差数列相似，我们也可以对等比数列的通项公式进行变形，得到 <span
 class="math inline">\(a_n = a_m \cdot q^{n - m}\)</span>。</p>
 <p>还是同等差数列相似，<span class="math inline">\(m + n = p + q
@@ -381,7 +389,10 @@ class="math inline">\(m + n = 2p \Rightarrow a_ma_n =
 a_p^2\)</span>。</p>
 <p>对于等比数列的前 <span class="math inline">\(n\)</span> 项和 <span
 class="math inline">\(S_n\)</span>
-来说，我们也有片段和为等比数列的性质，具体地，</p>
+来说，我们也有片段和为等比数列的性质，具体地，<span
+class="math inline">\(\{S_{nm} - S_{(n - 1)m}\}\)</span>
+为等比数列，其公比为 <span
+class="math inline">\(q^m\)</span>，该性质的证明与等差数列相似，读者可以自行研究。</p>
 
               
             </div>
