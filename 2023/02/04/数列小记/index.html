@@ -16,15 +16,15 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。">
+    <meta name="description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。 (该小记中没有具体例题，请谨慎服用)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】数列小记">
 <meta property="og:url" content="http://example.com/2023/02/04/%E6%95%B0%E5%88%97%E5%B0%8F%E8%AE%B0/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。">
+<meta property="og:description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。 (该小记中没有具体例题，请谨慎服用)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-04T03:15:02.000Z">
-<meta property="article:modified_time" content="2023-02-05T09:08:03.377Z">
+<meta property="article:modified_time" content="2023-02-05T14:17:20.087Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="whk">
@@ -219,7 +219,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.4k 字
+          6.5k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
           <!-- compatible with older versions-->
-          20 分钟
+          54 分钟
         
       </span>
     
@@ -274,6 +274,7 @@
             <div class="markdown-body">
               
               <p>浅谈一下数列的基础内容(笔者水平不高，轻喷)。</p>
+<p>(该小记中没有具体例题，请谨慎服用)</p>
 <span id="more"></span>
 <h2 id="等差数列">等差数列</h2>
 <h3 id="定义">定义</h3>
@@ -393,6 +394,178 @@ class="math inline">\(S_n\)</span>
 class="math inline">\(\{S_{nm} - S_{(n - 1)m}\}\)</span>
 为等比数列，其公比为 <span
 class="math inline">\(q^m\)</span>，该性质的证明与等差数列相似，读者可以自行研究。</p>
+<h2 id="数列求通项公式">数列求通项公式</h2>
+<p><del>终于到了重头戏。</del></p>
+<h3 id="叠加叠乘法">叠加/叠乘法</h3>
+<p>这两种方法属于数列求通项里面最 simple
+的，并没有涉及什么巧妙地变换。</p>
+<p>叠加法解决的是一种递推式形如 <span class="math inline">\(a_{n + 1} =
+a_n + f(n)\)</span> 的数列通项，假设我们现在要求 <span
+class="math inline">\(a_n\)</span>，那么第一步显然是变为 <span
+class="math inline">\(a_n = a_{n - 1} + f(n - 1)\)</span>
+的形式，然后我们再把 <span class="math inline">\(a_{n - 1}\)</span>
+以同样的形式拆开。以此类推，我们可以得到 <span class="math inline">\(a_n
+= a_1 + \sum_{i = 1}^{n - 1} f(i)\)</span> 的结论，所以我们只要对 <span
+class="math inline">\(f\)</span> 求和即可，大多数题目的 <span
+class="math inline">\(f\)</span>
+通常是易于求和的，如果遇到更困难的可以参考数列求和部分。</p>
+<p>当然 <span class="math inline">\(a_{n + 1} = a_n + f(n)\)</span>
+还有一种解决方式，就是构造 <span class="math inline">\(g(n + 1) - g(n) =
+f(n)\)</span>，然后我们就会得到 <span class="math inline">\(a_{n + 1} -
+g(n + 1) = a_n - g(n)\)</span>，这样我们就可以得到 <span
+class="math inline">\(\{a_n - g(n)\}\)</span> 是常数数列，根据 <span
+class="math inline">\(a_1 - g(1)\)</span> 的值进行计算，不难发现 <span
+class="math inline">\(g(n + 1) - g(n) = f(n)\)</span>
+和有限微积分中差分的定义相似，有兴趣的读者可以进行了解。</p>
+<p>叠乘法和叠加法异曲同工，解决的是形如 <span class="math inline">\(a_{n
++ 1} = a_n \cdot f(n)\)</span>
+的数列通项，不难发现它就是把变化从加法变为乘法，容易得到 <span
+class="math inline">\(a_n = a_1 \cdot \prod_{i = 1}^{n - 1}
+f(i)\)</span>，对 <span class="math inline">\(f\)</span> 求积即可。</p>
+<p>同叠加法，我们也可以构造 <span class="math inline">\(\dfrac{g(n +
+1)}{g(n)} = f(n)\)</span>，然后就可以变化为 <span
+class="math inline">\(\dfrac{a_{n + 1}}{g(n + 1)} =
+\dfrac{a_n}{g(n)}\)</span>，然后得到 <span
+class="math inline">\(\left\{\dfrac{a_n}{g(n)}\right\}\)</span>
+为常数数列，利用 <span class="math inline">\(\dfrac{a_1}{g(1)}\)</span>
+进行计算即可。</p>
+<h3 id="一阶常系数齐次线性递推形式">一阶常系数齐次线性递推形式</h3>
+<p>题目看着很长，实际上就是解决形如 <span class="math inline">\(a_{n +
+1} = pa_n + f(n)\)</span> 的问题。</p>
+<p>让我们先从最简单的 <span class="math inline">\(a_{n + 1} = pa_n +
+q\)</span>
+入手。通常在遇到数列通项问题时，我们都会想办法把原数列变换为易于处理的形式，这里也是一样，我们有两种处理方法。</p>
+<p>第一种，我们可以把式子变为 <span class="math inline">\(\dfrac{a_{n +
+1}}{p^{n + 1}} = \dfrac{a_n}{p^n} + \dfrac{q}{p^{n +
+1}}\)</span>，这样数列 <span
+class="math inline">\(\left\{\dfrac{a_n}{p^n}\right\}\)</span>
+就是一个叠加形的数列，后面的部分其实就是一个等比数列求和，可以用上面讲的方法计算。</p>
+<p>第二种，也是更普适的方法，我们想办法构造一个等比数列。具体地，设
+<span class="math inline">\(a_{n + 1} + \lambda = p(a_n +
+\lambda)\)</span>，这个方程在 <span class="math inline">\(p \neq
+1\)</span> 的时有解 <span class="math inline">\(\lambda = \dfrac{q}{p -
+1}\)</span>，然后我们就可以得到 <span class="math inline">\(\{a_n +
+\lambda\}\)</span> 是一个公比为 <span class="math inline">\(p\)</span>
+的等比数列，可以直接计算通项公式。</p>
+<p>研究完上述情况，我们来重新看最开始的 <span class="math inline">\(a_{n
++ 1} = pa_n +
+f(n)\)</span>，同第二种方法，我们也想构造出一个等比数列，于是我们设
+<span class="math inline">\(a_{n + 1} + g(n + 1) = p(a_n +
+g(n))\)</span>，这个 <span class="math inline">\(g(n)\)</span> 在 <span
+class="math inline">\(f(n)\)</span>
+是常系数多项式时是可以待定系数求出的，这样 <span
+class="math inline">\(\{a_n + g(n)\}\)</span> 就是一个公比为 <span
+class="math inline">\(p\)</span> 的等比数列，可以计算。</p>
+<p>需要注意的是并不是所有形如 <span class="math inline">\(a_{n + 1} =
+pa_n + f(n)\)</span> 的问题都是用第二个方法解决，比如 <span
+class="math inline">\(a_{n + 1} = 3a_n + 3^n\)</span>
+我们用第一种方法就可以直接变为一个等差数列的形式，所以具体用哪种方法还是看情况而定。</p>
+<h3 id="二阶常系数齐次线性递推形式">二阶常系数齐次线性递推形式</h3>
+<p>顾名思义，解决的即为 <span class="math inline">\(a_{n + 2} = pa_{n +
+1} + qa_n\)</span> 的问题，比如大名鼎鼎的 Fibonacci 数列就是如此。</p>
+<p>首先根据一阶的推导，我们肯定是想往等比数列这个方向走，所以我们不妨设
+<span class="math inline">\(a_{n + 2} - \lambda_1a_{n + 1} =
+\lambda_2(a_{n + 1} - \lambda_1a_n)\)</span>，这样我们就可以得到 <span
+class="math inline">\(\{a_{n + 1} - \lambda_1a_n\}\)</span> 是一个公比为
+<span class="math inline">\(\lambda_2\)</span>
+的等比数列，解完这个之后我们就可以得到一个一阶的结构，也就能用学过的东西进行求解。然后我们把重点放在
+<span class="math inline">\(\lambda_1, \lambda_2\)</span>
+的求解，根据上面的式子，我们有 <span class="math inline">\(\lambda_1 +
+\lambda_2 = p, \lambda_1\lambda_2 = -q\)</span>，根据韦达定理，它们正是
+<span class="math inline">\(x^2 - px - q = 0\)</span>
+的双根，有了这个结论，我们也就完成了二阶的求解。</p>
+<p>当你用上面的方法解了几道题后不免会发现一个问题——怎么这么麻烦！是的，上面的方法虽然普适，但是要经过两次转化，不免有些复杂，所以我们尝试从中探索规律。当你做了几道习题后，不妨观察一下最终得出的结果，紧接着就可以发现当
+<span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>
+时，最终的结果 <span class="math inline">\(a_n\)</span> 一定是一个 <span
+class="math inline">\(a_n = A\lambda_1^n + B\lambda_2^n\)</span>
+的形式，所以我们只需解出 <span class="math inline">\(A, B\)</span>
+即可，这可以用 <span class="math inline">\(a_1, a_2\)</span>
+的值来待定系数求解。但当 <span class="math inline">\(\lambda_1 =
+\lambda_2\)</span> 时，结论稍有变化，这时的 <span
+class="math inline">\(a_n\)</span> 满足 <span class="math inline">\(a_n
+= An\lambda_1^n + B\lambda_2^n\)</span>，我们依旧可以用 <span
+class="math inline">\(a_1, a_2\)</span>
+的值来待定系数求解。有了以上两个结论，我们就可以大大简少计算量了。</p>
+<h3 id="高阶常系数齐次线性递推形式">高阶常系数齐次线性递推形式</h3>
+<p>对于二阶式子，我们有 <span class="math inline">\(x^2 - px - q =
+0\)</span>
+这样的结构，那么推广到更高阶时是否存在这样的结构呢？答案是肯定的。</p>
+<p>具体地，我们要解决形如 <span class="math inline">\(a_n = \sum_{i =
+1}^k p_ia_{n - i}\)</span> 这样的问题，其中 <span
+class="math inline">\(p_i\)</span> 给定，那么我们就有一个这样的方程
+<span class="math inline">\(x^k = \sum_{i = 1}^k p_ix^{k - i}\)</span>
+叫做数列 <span class="math inline">\(\{a_n\}\)</span>
+的特征方程。关于特征方程，有一个十分重要的结论，假设特征方程有 <span
+class="math inline">\(m\)</span> 个互不相同的根 <span
+class="math inline">\(\lambda_1, \lambda_2, \ldots,
+\lambda_m\)</span>，它们的出现次数分别为 <span
+class="math inline">\(n_1, n_2, \ldots, n_m\)</span>，那么我们可以得到
+<span class="math inline">\(a_n\)</span> 一定满足 <span
+class="math inline">\(a_n = \sum_{i = 1}^m
+f_i(n)\lambda_i^n\)</span>，其中 <span
+class="math inline">\(f_i(n)\)</span> 是一个次数为 <span
+class="math inline">\(n_i - 1\)</span> 的多项式，所有 <span
+class="math inline">\(f_i\)</span> 的系数我们不难通过 <span
+class="math inline">\(a_1, a_2, \ldots, a_k\)</span>
+的值来待定系数解出。</p>
+<h3 id="一阶分式线性递推数列">一阶分式线性递推数列</h3>
+<p>现在我们来讨论一种全新的递推形式，即 <span class="math inline">\(a_{n
++ 1} = \dfrac{Aa_n + B}{Ca_n +D}\)</span>。</p>
+<p>对于这一类型的递推式，有一种通用的解法，就是求出 <span
+class="math inline">\(x = \dfrac{Ax + B}{Cx + D}\)</span> 的两根 <span
+class="math inline">\(x_1, x_2\)</span>，当 <span
+class="math inline">\(x_1 \neq x_2\)</span> 时，我们有结论 <span
+class="math inline">\(\left\{\dfrac{a_n - x_1}{a_n -
+x_2}\right\}\)</span> 是等比数列，当 <span class="math inline">\(x_1 =
+x_2\)</span> 时，我们有 <span class="math inline">\(\left\{\dfrac{1}{a_n
+- x_1}\right\}\)</span>
+是等差数列。这种十分精妙的解法叫做不动点法，关于不动点法，推荐一篇讲的不错的<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104544760">文章</a>。</p>
+<h2 id="数列求和">数列求和</h2>
+<h3 id="常用公式">常用公式</h3>
+<p><span class="math display">\[
+\sum_{i = 1}^n i = \dfrac{n(n + 1)}{2}
+\]</span></p>
+<p><span class="math display">\[
+\sum_{i = 1}^n i^2 = \dfrac{n(n + 1)(2n + 1)}{6}
+\]</span></p>
+<p><span class="math display">\[
+\sum_{i = 1}^n i^3 = \dfrac{n^2(n+1)^2}{4}
+\]</span></p>
+<p><del>以上结论均可以用有限微积分推，以后可能会写。</del> <span
+class="math display">\[
+\dfrac{1}{n(n + k)} = \dfrac{1}{k}\left(\dfrac{1}{n} - \dfrac{1}{n
++k}\right)
+\]</span></p>
+<h3 id="分组求和法">分组求和法</h3>
+<p>如果一个数列直接求和不好算，但是可以把这个数列分成几部分，使得这几部分的和都很好计算，那么我们就可以直接对数列进行分组，计算出每组的和然后相加，这种方法就叫分组求和法。</p>
+<p>分组求和法的常见应用是在一些带绝对值或整除符号的数列的求和，一个很典型的例子是对数列
+<span class="math inline">\(\{\lfloor \lg n\rfloor\}\)</span> 求和。</p>
+<h3 id="错位相减法">错位相减法</h3>
+<p>在推导等比数列求和公式时我们用到了这个方法，但错位相减法不只是来解决这一个问题的。它的实质实际上就在于通过错位相减来消去求和式子中的一些项或者使其更加容易计算。</p>
+<p>关于错位相减法，有一个经典的 trick，就是给定一个等差数列 <span
+class="math inline">\(\{a_n\}\)</span> 和一个等比数列 <span
+class="math inline">\(\{b_n\}\)</span>，要求对 <span
+class="math inline">\(\{a_nb_n\}\)</span> 求和。</p>
+<p>我们不妨设 <span class="math inline">\(\{a_n\}\)</span> 的公差为
+<span class="math inline">\(d\)</span>，<span
+class="math inline">\(\{b_n\}\)</span> 的公比为 <span
+class="math inline">\(q\)</span>，我们要求 <span
+class="math inline">\(S_n = \sum_{i = 1}^n a_nb_n\)</span>，我们考虑
+<span class="math inline">\(qS_n = \sum_{i = 1}^na_nb_{n +
+1}\)</span>，然后这样就变成了一个错位相减的形式，即 <span
+class="math inline">\((1 - q)S_n = \sum_{i = 1}^n a_nb_n - \sum_{i =
+1}^na_nb_{n + 1}\)</span>，把 <span class="math inline">\(b_n\)</span>
+相同的式子拉出来合并，然后就变为 <span class="math inline">\((1 - q)S_n
+= a_1b_1 - a_nb_{n + 1} + d\sum_{i = 2}^n
+b_i\)</span>，这样我们就只剩下了一个等比数列求和，可以直接计算。</p>
+<h3 id="裂项相消法">裂项相消法</h3>
+<p>裂项相消的核心是利用常用公式的第四条把一类分式求和的中间项，全部抵消，比如
+<span class="math inline">\(\sum_{i = 1}^n \dfrac{1}{i(i +1)}\)</span>
+就可以利用第四条公式化成 <span class="math inline">\(\dfrac{n}{n +
+1}\)</span>，比较容易。裂项相消经常和放缩法一起搭配使用，我们只需把握放缩尺度，将不易求和的式子转为可以裂项的式子然后求和即可，注意在放缩时如果界不够紧，可以减少一些放缩的项数。</p>
+<h2 id="后记">后记</h2>
+<p>目前大概就写这么多了，如果有实施性错误或建议加入内容，欢迎联系。</p>
 
               
             </div>
