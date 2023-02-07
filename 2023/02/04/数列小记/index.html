@@ -24,7 +24,7 @@
 <meta property="og:description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。 (该小记中没有具体例题，请谨慎服用)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-04T03:15:02.000Z">
-<meta property="article:modified_time" content="2023-02-05T14:17:20.087Z">
+<meta property="article:modified_time" content="2023-02-07T22:56:18.973Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="whk">
@@ -551,11 +551,11 @@ class="math inline">\(\{a_nb_n\}\)</span> 求和。</p>
 <span class="math inline">\(d\)</span>，<span
 class="math inline">\(\{b_n\}\)</span> 的公比为 <span
 class="math inline">\(q\)</span>，我们要求 <span
-class="math inline">\(S_n = \sum_{i = 1}^n a_nb_n\)</span>，我们考虑
-<span class="math inline">\(qS_n = \sum_{i = 1}^na_nb_{n +
+class="math inline">\(S_n = \sum_{i = 1}^n a_ib_i\)</span>，我们考虑
+<span class="math inline">\(qS_n = \sum_{i = 1}^na_ib_{i +
 1}\)</span>，然后这样就变成了一个错位相减的形式，即 <span
-class="math inline">\((1 - q)S_n = \sum_{i = 1}^n a_nb_n - \sum_{i =
-1}^na_nb_{n + 1}\)</span>，把 <span class="math inline">\(b_n\)</span>
+class="math inline">\((1 - q)S_n = \sum_{i = 1}^n a_ib_i - \sum_{i =
+1}^na_ib_{i + 1}\)</span>，把 <span class="math inline">\(b_n\)</span>
 相同的式子拉出来合并，然后就变为 <span class="math inline">\((1 - q)S_n
 = a_1b_1 - a_nb_{n + 1} + d\sum_{i = 2}^n
 b_i\)</span>，这样我们就只剩下了一个等比数列求和，可以直接计算。</p>
@@ -678,7 +678,7 @@ b_i\)</span>，这样我们就只剩下了一个等比数列求和，可以直�
     Fluid.utils.loadComments('#valine', function() {
       Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
         var options = Object.assign(
-          {"appId":"t245Q4YItEYBqdExI2GfUndq-gzGzoHsz","appKey":"D8HNtH7dDtivbfU4E2ltCD6y","path":"window.location.pathname","placeholder":"来说点什么吧...","avatar":"mp","meta":["nick","mail"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {"appId":"t245Q4YItEYBqdExI2GfUndq-gzGzoHsz","appKey":"D8HNtH7dDtivbfU4E2ltCD6y","path":"window.location.pathname","placeholder":"来说点什么吧...","avatar":"mp","meta":["mail"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
           {
             el: "#valine",
             path: window.location.pathname
