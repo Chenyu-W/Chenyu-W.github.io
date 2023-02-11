@@ -218,7 +218,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          980 字
+          1k 字
         
       </span>
     
@@ -274,28 +274,61 @@
               
               <p>什么都学不会什么都学不会什么都学不会什么都学不会什么都学不会什么都学不会什么都学不会什么都学不会什么都学不会什么都学不会。</p>
 <span id="more"></span>
-<h2 id="BZOJ4361"><a href="#BZOJ4361" class="headerlink" title="BZOJ4361"></a>BZOJ4361</h2><p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/problem/4361">题目传送门</a></p>
-<p>记 $f<em>i$ 为长度为 $i$ 的非降子序列个数，则最终剩下 $i$ 个数的答案即为 $(n - i)!f_i$，但是这样会有一种不合法情况，就是剩下 $i + 1$ 个数的时候已经结束了，这一部分的情况数为 $(n - i - 1)!(i + 1)f</em>{i + 1}$，所以答案为</p>
-<script type="math/tex; mode=display">
-\sum_{i = 1}^n (n - i)!f_i - (n - i - 1)!(i + 1)f_{i +1}</script><p>所以只需考虑求 $f<em>i$，令 $g</em>{i, j}$ 表示长度为 $i$，且以 $j$ 结尾的非降子序列个数，那么我们就有转移</p>
-<script type="math/tex; mode=display">
-g_{i, j} = \sum_{k = 1}^{j - 1} [a_k \le a_j]g_{i - 1, k}</script><p>可以使用 BIT 优化至 $O(n^2\log n)$。</p>
+<h2 id="bzoj4361">BZOJ4361</h2>
+<p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/problem/4361">题目传送门</a></p>
+<p>记 <span class="math inline">\(f_i\)</span> 为长度为 <span
+class="math inline">\(i\)</span> 的非降子序列个数，则最终剩下 <span
+class="math inline">\(i\)</span> 个数的答案即为 <span
+class="math inline">\((n -
+i)!f_i\)</span>，但是这样会有一种不合法情况，就是剩下 <span
+class="math inline">\(i + 1\)</span>
+个数的时候已经结束了，这一部分的情况数为 <span class="math inline">\((n
+- i - 1)!(i + 1)f_{i + 1}\)</span>，所以答案为 <span
+class="math display">\[
+\sum_{i = 1}^n (n - i)!f_i - (n - i - 1)!(i + 1)f_{i +1}
+\]</span> 所以只需考虑求 <span class="math inline">\(f_i\)</span>，令
+<span class="math inline">\(g_{i, j}\)</span> 表示长度为 <span
+class="math inline">\(i\)</span>，且以 <span
+class="math inline">\(j\)</span> 结尾的非降子序列个数，那么我们就有转移
+<span class="math display">\[
+g_{i, j} = \sum_{k = 1}^{j - 1} [a_k \le a_j]g_{i - 1, k}
+\]</span> 可以使用 BIT 优化至 <span class="math inline">\(O(n^2\log
+n)\)</span>。</p>
 <p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/submission/228314">Submission</a></p>
-<h2 id="HDU4609"><a href="#HDU4609" class="headerlink" title="HDU4609"></a>HDU4609</h2><p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-4609">题目传送门</a></p>
-<p>考虑容斥，计算三条边不可以组成三角形的情况数，这等价于算 $a_i + a_j \le a_k$ 的状态数。</p>
-<p>我们记 $F(x) = \sum_{i=1}^n x^{a_i}$，考虑 $[x^k]F^2(x)$ 即为 $a_i + a_j = k$ 的 $(i, j)$ 数，因为我们要算 $a_i + a_j \le a_k$ 的个数，所以我们对卷积做前缀和，注意要去掉两个的情况，又因为 $(i, j)$ 为有序数对，所以我们答案要除以 $2$。</p>
+<h2 id="hdu4609">HDU4609</h2>
+<p><a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-4609">题目传送门</a></p>
+<p>考虑容斥，计算三条边不可以组成三角形的情况数，这等价于算 <span
+class="math inline">\(a_i + a_j \le a_k\)</span> 的状态数。</p>
+<p>我们记 <span class="math inline">\(F(x) = \sum_{i=1}^n
+x^{a_i}\)</span>，考虑 <span class="math inline">\([x^k]F^2(x)\)</span>
+即为 <span class="math inline">\(a_i + a_j = k\)</span> 的 <span
+class="math inline">\((i, j)\)</span> 数，因为我们要算 <span
+class="math inline">\(a_i + a_j \le a_k\)</span>
+的个数，所以我们对卷积做前缀和，注意要去掉两个的情况，又因为 <span
+class="math inline">\((i, j)\)</span> 为有序数对，所以我们答案要除以
+<span class="math inline">\(2\)</span>。</p>
 <p><a target="_blank" rel="noopener" href="https://vjudge.net/solution/40629729">Submission</a></p>
-<h2 id="BZOJ3252"><a href="#BZOJ3252" class="headerlink" title="BZOJ3252"></a>BZOJ3252</h2><p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/problem/3252">题目传送门</a></p>
+<h2 id="bzoj3252">BZOJ3252</h2>
+<p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/problem/3252">题目传送门</a></p>
 <p>一个显然的贪心是每次取权值最大的链然后把链上权值清空。</p>
-<p>考虑长链剖分优化，将链长定义为链上点权之和，不难发现答案为前 $k$ 大链的权值。</p>
+<p>考虑长链剖分优化，将链长定义为链上点权之和，不难发现答案为前 <span
+class="math inline">\(k\)</span> 大链的权值。</p>
 <p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/submission/228559">Submission</a></p>
-<h2 id="BZOJ3509"><a href="#BZOJ3509" class="headerlink" title="BZOJ3509"></a>BZOJ3509</h2><p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/problem/3509">题目传送门</a></p>
-<p>一个不成熟的做法是我们对每一个 $a_j$ 都统计答案，把它左边的数放一个生成函数然后把它右边的数放一个生成函数，再把两个生成函数卷起来即可，这样做是 $O(nV\log V)$ 的。</p>
-<p>但是我们发现这样很傻，因为卷一次只能获得一个数的答案，于是我们考虑分块。至少有两个元素在相同块内的情况我们可以直接 $O(n)$ 暴力。然后剩下的我们只要把块左边的数加进一个生成函数，把块右边的数加进另一个生成函数再卷即可。</p>
+<h2 id="bzoj3509">BZOJ3509</h2>
+<p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/problem/3509">题目传送门</a></p>
+<p>一个不成熟的做法是我们对每一个 <span
+class="math inline">\(a_j\)</span>
+都统计答案，把它左边的数放一个生成函数然后把它右边的数放一个生成函数，再把两个生成函数卷起来即可，这样做是
+<span class="math inline">\(O(nV\log V)\)</span> 的。</p>
+<p>但是我们发现这样很傻，因为卷一次只能获得一个数的答案，于是我们考虑分块。至少有两个元素在相同块内的情况我们可以直接
+<span class="math inline">\(O(n)\)</span>
+暴力。然后剩下的我们只要把块左边的数加进一个生成函数，把块右边的数加进另一个生成函数再卷即可。</p>
 <p><a target="_blank" rel="noopener" href="https://darkbzoj.cc/submission/228985">Submission</a></p>
-<h2 id="Luogu3201"><a href="#Luogu3201" class="headerlink" title="Luogu3201"></a>Luogu3201</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3201">题目传送门</a></p>
+<h2 id="luogu3201">Luogu3201</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3201">题目传送门</a></p>
 <p>考虑对每个值都开一个线段树来维护其出现位置，这样维护一个值的段数是平凡的。答案即为所有线段树的答案之和，操作一相当于合并两棵线段树。</p>
-<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/101292091">Submission</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/101292091">Submission</a></p>
 
               
             </div>
