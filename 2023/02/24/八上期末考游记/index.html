@@ -16,23 +16,23 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目传送门 前言 线段树里开了一百多个懒标记，直接暴力艹过。 前置芝士 线段树">
+    <meta name="description" content="不是，我许愿 rk1 还真来啊？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【题解】CF911G Mass Change Queries">
-<meta property="og:url" content="http://example.com/2022/06/26/CF911G%20Mass%20Change%20Queries/index.html">
+<meta property="og:title" content="【题解】八上期末考游记">
+<meta property="og:url" content="http://example.com/2023/02/24/%E5%85%AB%E4%B8%8A%E6%9C%9F%E6%9C%AB%E8%80%83%E6%B8%B8%E8%AE%B0/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="题目传送门 前言 线段树里开了一百多个懒标记，直接暴力艹过。 前置芝士 线段树">
+<meta property="og:description" content="不是，我许愿 rk1 还真来啊？">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-26T02:43:10.000Z">
-<meta property="article:modified_time" content="2022-06-26T02:54:19.184Z">
+<meta property="article:published_time" content="2023-02-24T11:45:17.000Z">
+<meta property="article:modified_time" content="2023-02-24T12:57:47.472Z">
 <meta property="article:author" content="Chenyu Wu">
-<meta property="article:tag" content="题解">
-<meta property="article:tag" content="线段树">
+<meta property="article:tag" content="游记">
+<meta property="article:tag" content="whk">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>【题解】CF911G Mass Change Queries - wcy&#39;s blog</title>
+  <title>【题解】八上期末考游记 - wcy&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -195,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【题解】CF911G Mass Change Queries"></span>
+            <span id="subtitle" data-typed-text="【题解】八上期末考游记"></span>
           
         </div>
 
@@ -206,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-06-26 10:43" pubdate>
-          2022年6月26日 上午
+        <time datetime="2023-02-24 19:45" pubdate>
+          2023年2月24日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.9k 字
+          2k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
           <!-- compatible with older versions-->
-          17 分钟
+          18 分钟
         
       </span>
     
@@ -269,31 +269,101 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【题解】CF911G Mass Change Queries</h1>
+            <h1 style="display: none">【题解】八上期末考游记</h1>
             
             <div class="markdown-body">
               
-              <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF911G">题目传送门</a></p>
-<h2 id="前言">前言</h2>
-<p>线段树里开了一百多个懒标记，直接暴力艹过。</p>
-<h3 id="前置芝士">前置芝士</h3>
-<p>线段树</p>
+              <p>不是，我许愿 rk1 还真来啊？</p>
 <span id="more"></span>
-<h2 id="分析">分析</h2>
-<p>首先，这题最引人注目的就是这个 <span
-class="math inline">\([1,100]\)</span>
-的值域，那看到这种值域，我们考虑在线段树的每个节点开一个数组 <span
-class="math inline">\(cover\)</span>，<span
-class="math inline">\(cover[i]\)</span> 就表示数 <span
-class="math inline">\(i\)</span> 现在变成了什么数。</p>
-<p>对每个修改操作，因为值域很小，所以我们每次修改的时候直接遍历一下这个节点的
-<span class="math inline">\(cover\)</span> 数组，把其中等于 <span
-class="math inline">\(x\)</span> 的改成 <span
-class="math inline">\(y\)</span> 就可以。</p>
-<p>对于每个查询操作，我们直接从树根递归到叶子节点，把叶子结点变成的数输出即可。</p>
-<p>最后注意一下，在懒标记下传的时候直接把左右节点的值暴力赋为父节点上对应的值即可。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">2e5</span> + <span class="hljs-number">10</span>, M = <span class="hljs-number">110</span>;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">node</span><br>&#123;<br>    <span class="hljs-type">int</span> l, r;<br>    <span class="hljs-type">int</span> val;<br>    <span class="hljs-type">int</span> cover[M];<br>&#125; t[N &lt;&lt; <span class="hljs-number">2</span>];<br><span class="hljs-type">int</span> a[N];<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">read</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> x = <span class="hljs-number">0</span>, y = <span class="hljs-number">1</span>; <span class="hljs-type">char</span> c = <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">while</span> (c &lt; <span class="hljs-string">&#x27;0&#x27;</span> || c &gt; <span class="hljs-string">&#x27;9&#x27;</span>) &#123;<span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;-&#x27;</span>) y = <span class="hljs-number">-1</span>; c = <span class="hljs-built_in">getchar</span>();&#125;<br>    <span class="hljs-keyword">while</span> (c &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; c &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">&#x27;0&#x27;</span>, c = <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">return</span> x * y;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span></span><br><span class="hljs-function"></span>&#123;<br>    t[p].l = l;<br>    t[p].r = r;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span>; i++)<br>        t[p].cover[i] = i;<br>    <span class="hljs-keyword">if</span> (l == r)<br>    &#123;<br>        t[p].val = a[l];<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-type">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-built_in">build</span>(p &lt;&lt; <span class="hljs-number">1</span>, l, mid);<br>    <span class="hljs-built_in">build</span>(p &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>, mid + <span class="hljs-number">1</span>, r);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">pushdown</span><span class="hljs-params">(<span class="hljs-type">int</span> p)</span></span><br><span class="hljs-function"></span>&#123;<br>    node &amp;u = t[p], &amp;l = t[p &lt;&lt; <span class="hljs-number">1</span>], &amp;r = t[p &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span>; i++)<br>        l.cover[i] = u.cover[l.cover[i]], r.cover[i] = u.cover[r.cover[i]];<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span>; i++)<br>        u.cover[i] = i;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> y)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (l &lt;= t[p].l &amp;&amp; t[p].r &lt;= r)<br>    &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">100</span>; i++)<br>            <span class="hljs-keyword">if</span> (t[p].cover[i] == x)<br>                t[p].cover[i] = y;<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-built_in">pushdown</span>(p);<br>    <span class="hljs-type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (l &lt;= mid) <span class="hljs-built_in">modify</span>(p &lt;&lt; <span class="hljs-number">1</span>, l, r, x, y);<br>    <span class="hljs-keyword">if</span> (r &gt; mid) <span class="hljs-built_in">modify</span>(p &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>, l, r, x, y);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">(<span class="hljs-type">int</span> p)</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-keyword">if</span> (t[p].l == t[p].r)<br>    &#123;<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d &quot;</span>, t[p].cover[t[p].val]);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>    <span class="hljs-built_in">pushdown</span>(p);<br>    <span class="hljs-built_in">print</span>(p &lt;&lt; <span class="hljs-number">1</span>);<br>    <span class="hljs-built_in">print</span>(p &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> n = <span class="hljs-built_in">read</span>();<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">1</span>; i &lt;= n; i++)<br>        a[i] = <span class="hljs-built_in">read</span>();<br>    <span class="hljs-built_in">build</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n);<br>    <span class="hljs-type">int</span> m = <span class="hljs-built_in">read</span>();<br>    <span class="hljs-keyword">while</span> (m--)<br>    &#123;<br>        <span class="hljs-type">int</span> l = <span class="hljs-built_in">read</span>(), r = <span class="hljs-built_in">read</span>(), x = <span class="hljs-built_in">read</span>(), y = <span class="hljs-built_in">read</span>();<br>        <span class="hljs-built_in">modify</span>(<span class="hljs-number">1</span>, l, r, x, y);<br>    &#125;<br>    <span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="day--">Day -???</h2>
+<p>由于期中实在过于离谱，所以报名了晚自习，虽然减少了搞 OI
+的时间，但是还是有好处的，<del>比如可以多看自己喜欢的女生</del>，还可以看学校的灿烂的晚霞，晚上有朋友陪着，突然感觉挺温暖的。记得当时考完的时候是万念俱灰的，但是现在在晚自习每天认真地学习，突然感觉期末还是有希望的，心里憋着一股劲——老子要拿段一！</p>
+<h2 id="day-0">Day 0</h2>
+<p>给自己制定了一个考试策略——死都不对答案，然后看了最后一遍提纲就开始打摆搞
+OI，在学校晚自习的时间有抽空看《具体数学》，找了几道多项式写了一下，居然挺顺畅的，希望数学和压轴题一样顺利吧！</p>
+<h2 id="day-1">Day 1</h2>
+<blockquote>
+<p>不对答案心态就是好啊！</p>
+</blockquote>
+<p>上午语文，看了一眼作文《自我革命》感觉很不正常，语积写得挺顺利的，感觉不是非常难，写到作文一看时间，靠，怎么只剩
+<span class="math inline">\(40\)</span>
+分钟了，然后乱糊了一个素材赶快搞完，最后 <span
+class="math inline">\(5\)</span>
+分钟的时候回去检查了一下选择题，然后就润了。出考场一堆强神在对答案，所以赶快捂住耳朵润去撤硕，中午和同学互考了一些奇怪的地理题，很快乐。</p>
+<p>下午地理和道法，道法比较无趣，考地理的时候 ly
+传授了一些中考小寄巧，然后开考的后就不停祖安出题人，似乎最后一道题是个超纲题，然后就出现了
+“<strong>我告诉你们答案你们敢不敢要</strong>”
+的神奇场面，考完地理还是立马开润回家了。</p>
+<p>晚上 rzr 得知了一个非常离谱的事实，文博在考地理前泄了 <span
+class="math inline">\(60\%\)</span>
+的原题，我大为震撼，感觉多少有点自欺欺人了，然后最后一题又出一个超纲的玩意，文博实在有些离谱。</p>
+<h2 id="day-2">Day 2</h2>
+<p>很好，数学被区分了，讲道理其实并没有什么难题，但是我似乎有点压轴恐惧症，最后一题想了
+<span class="math inline">\(30\)</span> 分钟然后弃掉了，心想着 <span
+class="math inline">\(145\)</span> 也还可以接受，至少别像去年那样挂
+<span class="math inline">\(20\)</span>
+分，考完以为大家都不会写，但是本班就有 <span
+class="math inline">\(5\)</span>
+个切掉了这题，顿感恐慌，中午别人对完答案已经 AK 了 <span
+class="math inline">\(3\)</span> 个，很珂怕。cjs
+得知我压轴不会时狠狠地把我 D 了一顿，然后就叫我保持心态考试了。</p>
+<p>下午的历史比较离谱，周恩来写成蒋介石 <span
+class="math inline">\(-2\)</span>，其他的感觉挺水，历史应该有很多 AK
+佬，浅浅估了个 <span class="math inline">\(95\)</span> 就开润了。</p>
+<p>下午的物理比较简单，本校的卷子比较阳间，选择好像错了一道，其他<strong>好像没有什么错误</strong>，就是填空最后一题把质量当体积算寄了，也估了个
+<span class="math inline">\(95\)</span>。</p>
+<h2 id="day-3">Day 3</h2>
+<p>英语怎么这么简单啊！唯一有问题的就是一道阅读，估了一个 <span
+class="math inline">\(145+\)</span>，cc 估了个 <span
+class="math inline">\(148\)</span>，比较珂怕，英语应该也会有 AK
+佬罢！</p>
+<p>生物也很简单啊，选择唯一的问题是忘记了克隆是有性生殖还是无性生殖，然后乱填了一个交上去，全部考完赶快对了一波答案，发现生物选择应该错了一道，估个
+<span class="math inline">\(98\)</span> 问题不大。</p>
+<p>下午开始讲评主科，发现物理很糟糕啊，填空连错 <span
+class="math inline">\(6\)</span>
+个，问题非常大，一看全都是不应该错的，讲评直接给我讲到冷汗直流，怕这一时期的努力都被一时的审题失误毁于一旦，但还好实验和计算都是对的，成绩是
+<span class="math inline">\(92\)</span> 分。rzr 物理 <span
+class="math inline">\(98\)</span> 年段 rk1！Orz rzr。</p>
+<p>其他科比较普通，语文考了 <span
+class="math inline">\(126\)</span>，出乎意料的好，但是改卷似乎很松，听说外校有
+<span class="math inline">\(137\)</span> 选手，甚至黄主席考了 <span
+class="math inline">\(131\)</span>，然后 rzr 又比我高，完了，真考不过
+rzr 了！</p>
+<h2 id="day-4">Day 4</h2>
+<blockquote>
+<p>如果联考是为了乱改卷恶心强校选手自欺欺人，那么确实没必要继续了。</p>
+</blockquote>
+<p>了转反。数学的分出来了，改得非常离谱，mwj 在一道代数题上 <span
+class="math inline">\(5\)</span> 分被扣了 <span
+class="math inline">\(4\)</span> 分，导致 <span
+class="math inline">\(150 \rightarrow
+146\)</span>，更离谱的是他把过程写给 cjs 看然后发现没有问题，rzr
+更是计算被扣变成 <span
+class="math inline">\(139\)</span>，默哀。我好像比较正常，出来是 <span
+class="math inline">\(144\)</span>，那 rzr 估计是寄了，更有甚者，连 zzm
+字迹这么好看的选手，也都被扣到了 <span
+class="math inline">\(144\)</span>，政治更是扯淡，因为提纲不一样给一个学校全扣
+<span class="math inline">\(6\)</span> 分也属实罕见，所以导致政治的 rk1
+才 <span class="math inline">\(92\)</span>
+分，突然觉得在这样一场考试里拿高分，也不是什么值得激动的事。</p>
+<p>各科意外地都考得不错，没有大的挂分，cjs
+给我提出了周六翘课的条件——所有单科在年段前 <span
+class="math inline">\(80\)</span>，这次应该是满足的，希望别掉。</p>
+<h2 id="day-5">Day 5</h2>
+<p>历史重改之后 <span class="math inline">\(93 \rightarrow 97\)</span>
+了，所以现在的总分变为了 <span
+class="math inline">\(884.5\)</span>，前十应该问题不大，问了一下大概的分，隔壁班最高
+zrh 考 <span class="math inline">\(878.5\)</span>，yjw 考 <span
+class="math inline">\(879.5\)</span>，数学满分的神仙考了 <span
+class="math inline">\(877.5\)</span>，突然心头一颤——我靠，我岂不是要段一了！中午吃完饭不知道从哪里听来
+lzq 考了 <span
+class="math inline">\(905\)</span>，那这也太离谱了，岂不是科科几乎满分，感觉很慌，如果比
+lzq 高段一就应该没问题了，下午从 yjw 嘴里确切得知了 lzq 考 <span
+class="math inline">\(875\)</span>。噫，好！那我就肯定是 rk1
+了，本来以为擦边前十的分数竟然是
+rk1，十分震撼，于是答应了几个同学请喝奶茶，就赶紧润出校门了。回到家，发现我爸在早上就知道我是
+rk1 了，心想 clq 居然不告诉我排名，可恶，想起 cjs 和我说
+“总分有屁用的话”，或许是他在激励我罢。不管怎样，还是要让自己沉淀下来，别飘啦，wcy！</p>
 
               
             </div>
@@ -311,7 +381,7 @@ class="math inline">\(y\)</span> 就可以。</p>
     
       <span class="category-chain">
         
-  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  <a href="/categories/%E6%B8%B8%E8%AE%B0/" class="category-chain-item">游记</a>
   
   
 
@@ -326,9 +396,9 @@ class="math inline">\(y\)</span> 就可以。</p>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+        <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
       
-        <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">#线段树</a>
+        <a href="/tags/whk/">#whk</a>
       
     </div>
   
@@ -340,8 +410,8 @@ class="math inline">\(y\)</span> 就可以。</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【题解】CF911G Mass Change Queries</div>
-      <div>http://example.com/2022/06/26/CF911G Mass Change Queries/</div>
+      <div>【题解】八上期末考游记</div>
+      <div>http://example.com/2023/02/24/八上期末考游记/</div>
     </div>
     <div class="license-meta">
       
@@ -353,7 +423,7 @@ class="math inline">\(y\)</span> 就可以。</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年6月26日</div>
+          <div>2023年2月24日</div>
         </div>
       
       
@@ -383,18 +453,12 @@ class="math inline">\(y\)</span> 就可以。</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/02/%E6%9C%9F%E6%9C%AB%E8%80%83%E6%B8%B8%E8%AE%B0/" title="【游记】七下期末考游记">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【游记】七下期末考游记</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/06/25/SP10628%20COT/" title="【题解】SP10628 COT">
-                        <span class="hidden-mobile">【题解】SP10628 COT</span>
+                      <a href="/2023/02/22/P5351%20Ruri%20Loves%20Maschera/" title="【题解】P5351 Ruri Loves Maschera">
+                        <span class="hidden-mobile">【题解】P5351 Ruri Loves Maschera</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
