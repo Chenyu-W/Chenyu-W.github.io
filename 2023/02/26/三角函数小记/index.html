@@ -24,7 +24,7 @@
 <meta property="og:description" content="浅谈一些高中三角函数的基础内容(笔者很菜，轻喷)。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-26T13:14:36.000Z">
-<meta property="article:modified_time" content="2023-03-01T14:23:48.139Z">
+<meta property="article:modified_time" content="2023-03-05T14:26:36.484Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="whk">
@@ -219,7 +219,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.6k 字
+          4.2k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
           <!-- compatible with older versions-->
-          22 分钟
+          35 分钟
         
       </span>
     
@@ -278,26 +278,26 @@
 <h2 id="角的概念与弧度制">角的概念与弧度制</h2>
 <p>初中的时候，我们学过的角是一个静态的概念，即同端点的两条射线构成的图形，到了高中阶段，这个概念变得更加动态，我们定义角是一条射线绕其断点旋转形成的图形，如果是逆时针旋转，那么就成为<strong>正角</strong>，顺时针则称为<strong>负角</strong>，有了这个定义，我们就会出现一些初中阶段不可能出现的角，比如
 <span class="math inline">\(\angle A =
--30\degree\)</span>，这样角的定义就推广到了任意角，我们定义旋转之前的那条射线称为角的<strong>始边</strong>，而旋转之后形成的那条射线称为角的<strong>终边</strong>。</p>
+-30^\circ\)</span>，这样角的定义就推广到了任意角，我们定义旋转之前的那条射线称为角的<strong>始边</strong>，而旋转之后形成的那条射线称为角的<strong>终边</strong>。</p>
 <p>细心地你肯定发现了，不同度数的角可能终边相同，比如 <span
-class="math inline">\(330\degree, -30\degree\)</span>
+class="math inline">\(330^\circ, -30^\circ\)</span>
 的终边就是一样的。我们稍作思考，发现终边相同相当于这条射线多旋转了若干个
 <span class="math inline">\(360\degree\)</span>，所以我们容易得到与
 <span class="math inline">\(\alpha\)</span> 终边相同的角的集合为 <span
-class="math inline">\(S = \{\alpha + k \cdot360\degree | k \in \mathbb
+class="math inline">\(S = \{\alpha + k \cdot360^\circ | k \in \mathbb
 Z\}\)</span>、</p>
 <p>接下来我们引入象限角的概念，假设我们有一个平面直角坐标系，然后我们规定角的始边
 <span class="math inline">\(OA\)</span> 在 <span
 class="math inline">\(x\)</span> 轴非负半轴上，然后我们规定角的终边
 <span class="math inline">\(OB\)</span> 在哪个象限，就称 <span
 class="math inline">\(\angle AOB\)</span> 为第几象限角，比如 <span
-class="math inline">\(\alpha = 45\degree\)</span> 为第一象限角。</p>
+class="math inline">\(\alpha = 45^\circ\)</span> 为第一象限角。</p>
 <p>为了方便表示，引入<strong>弧度制</strong>的概念，我们规定 <span
-class="math inline">\(\pi\text{rad} = 180\degree\)</span>，其中 <span
+class="math inline">\(\pi\text{rad} = 180^\circ\)</span>，其中 <span
 class="math inline">\(\text{rad}\)</span>
 通常可省略不写，一些常见的转换：<span
-class="math inline">\(\dfrac{\pi}{2} = 90\degree\)</span>, <span
-class="math inline">\(\dfrac{\pi}{6} = 30\degree\)</span>
+class="math inline">\(\dfrac{\pi}{2} = 90^\circ\)</span>, <span
+class="math inline">\(\dfrac{\pi}{6} = 30^\circ\)</span>
 等。我们发现弧度制在扇形中有一些很好的结论，假设扇形的弧长为 <span
 class="math inline">\(l\)</span>，半径为 <span
 class="math inline">\(r\)</span>，那我们可以得到圆心角 <span
@@ -319,10 +319,13 @@ Z)\)</span>，<span class="math inline">\(\tan \alpha\)</span>
 不存在，不难发现这个定义和初中阶段学的大体相似。</p>
 <p>一些常见角度的三角函数 <span class="math display">\[
 \sin \dfrac{\pi}{2} = 1, \cos \dfrac{\pi}{2} = 0 \\
+\]</span> <span class="math display">\[
 \sin \dfrac{\pi}{3} = \dfrac{\sqrt 3}{2}, \cos \dfrac{\pi}{3} =
 \dfrac{1}{2}, \tan \dfrac{\pi}{3} = \sqrt 3\\
+\]</span> <span class="math display">\[
 \sin \dfrac{\pi}{4} = \dfrac{\sqrt 2}{2}，\cos \dfrac{\pi}{4} =
 \dfrac{\sqrt2}{2}, \tan \dfrac{\pi}{4} = 1 \\
+\]</span> <span class="math display">\[
 \sin \dfrac{\pi}{6} = \dfrac{1}{2}, \cos \dfrac{\pi}{6} =
 \dfrac{\sqrt3}{2}, \tan \dfrac{\pi}{6} = \dfrac{\sqrt3}{3}
 \]</span> 根据勾股定理的知识，我们可以得到 <span
@@ -362,13 +365,77 @@ class="math inline">\(\alpha \in \left(0,
 - \dfrac{\pi}{2}\)</span> 为第四象限角，<span
 class="math inline">\(\sin\)</span> 在此象限为负，所以最终的结果为 <span
 class="math inline">\(-\cos \alpha\)</span>。</p>
-<h2 id="两角和差公式">两角和差公式</h2>
-<p>这好像没啥可讲的，那就直接放公式吧。 <span class="math display">\[
+<h2 id="两角和差公式与倍角公式">两角和差公式与倍角公式</h2>
+<p>多公式预警！！！ <span class="math display">\[
 \sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta\\
+\]</span> <span class="math display">\[
 \cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta\\
+\]</span> <span class="math display">\[
 \tan(\alpha \pm \beta) = \dfrac{\tan\alpha \pm \tan\beta}{1 \mp
 \tan\alpha\tan\beta}
-\]</span> 在题目中灵活运用上述公式即可。</p>
+\]</span>
+上述是最基础的两角和差公式，经常在一些推式子题中出现，由两角和的特殊形式还可以推导出倍角公式。
+<span class="math display">\[
+\sin2\alpha = 2\sin\alpha\cos\alpha
+\]</span></p>
+<p><span class="math display">\[
+\cos2\alpha = \cos^2\alpha - \sin^2\alpha = 2\cos^2\alpha - 1 = 1 -
+2\sin^2\alpha
+\]</span></p>
+<p><span class="math display">\[
+\tan2\alpha = \dfrac{2\tan\alpha}{1 - \tan^2\alpha}
+\]</span></p>
+<p>在做题的过程中，这些公式一般有两种用法，一种是正用，也就是知道前面的，把它展开成后面那样；另一种则是逆用，通过诱导公式把式子化成上述公式的形式，使得式子易于计算，需要做题训练。</p>
+<p>倍角公式有一些重要的推论，在实际题目中有很大的作用。 <span
+class="math display">\[
+1 \pm \sin2\alpha = (\sin\alpha\pm\cos\alpha)^2
+\]</span></p>
+<p><span class="math display">\[
+\cos^2\alpha = \dfrac{1}{2}(1 + \cos2\alpha)
+\]</span></p>
+<p><span class="math display">\[
+\sin^2\alpha = \dfrac{1}{2}(1 - \cos2\alpha)
+\]</span></p>
+<p>其中第二条和第三条可以在一些需要降幂或者带根号的式子中使用。</p>
+<p>此外，倍角公式还有一个额外的 trick，就是求解 <span
+class="math inline">\(\cos\alpha\cos2\alpha\cos4\alpha\cdots\)</span>，以求解
+<span class="math inline">\(\cos\alpha\cos2\alpha\cos4\alpha\)</span>
+为例，我们先上下同乘 <span class="math inline">\(\sin\alpha\)</span>
+得到 <span
+class="math inline">\(\dfrac{\sin\alpha\cos\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}\)</span>，然后我们惊奇的发现了一个和正弦二倍角公式长得差不多的东西，于是我们把式子变成
+<span
+class="math inline">\(\dfrac{\frac{1}{2}\sin2\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}\)</span>，然后这个式子又可以同上进行转化，最终我们可以化简为
+<span
+class="math inline">\(\dfrac{1}{8}\dfrac{\sin8\alpha}{\sin\alpha}\)</span>，这样就会简单一些。</p>
+<p>倍角公式除了二倍角还有三倍角，虽然不常见，但还是看一下。 <span
+class="math display">\[
+\sin3\alpha = 3\sin\alpha - 4\sin^3\alpha =
+\sin\alpha\sin\left(\dfrac{\pi}{3} -
+\alpha\right)\sin\left(\dfrac{\pi}{3} + \alpha\right)
+\]</span></p>
+<p><span class="math display">\[
+\cos3\alpha = -3\cos\alpha + 4\cos^3\alpha =
+\cos\alpha\cos\left(\dfrac{\pi}{3} -
+\alpha\right)\cos\left(\dfrac{\pi}{3} + \alpha\right)
+\]</span></p>
+<p><span class="math display">\[
+\tan3\alpha = \dfrac{3\tan\alpha - \tan^3\alpha}{1 - 3\tan^2\alpha} =
+\tan\alpha\tan\left(\dfrac{\pi}{3} -
+\alpha\right)\tan\left(\dfrac{\pi}{3} + \alpha\right)
+\]</span></p>
+<p>这些式子从左往右推难度不大，在实际应用中更多的是从右边的形式化成三倍角形式。</p>
+<p>最后是万能公式，就是用含有 <span
+class="math inline">\(\tan\dfrac{\alpha}{2}\)</span>
+的式子表示三角函数。 <span class="math display">\[
+\sin\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 + \tan^2\dfrac{\alpha}{2}}
+\]</span></p>
+<p><span class="math display">\[
+\cos\alpha = \dfrac{1 - \tan\dfrac{\alpha}{2}}{1 +
+\tan^2\dfrac{\alpha}{2}}
+\]</span></p>
+<p><span class="math display">\[
+\tan\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 - \tan^2\dfrac{\alpha}{2}}
+\]</span></p>
 
               
             </div>
