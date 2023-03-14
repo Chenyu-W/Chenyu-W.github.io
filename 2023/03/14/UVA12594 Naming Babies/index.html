@@ -16,23 +16,22 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="浅谈一些高中三角函数的基础内容(笔者很菜，轻喷)。">
+    <meta name="description" content="题目传送门 太久没写 DP 了，于是找了一道简单的斜率优化练手题来做。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【笔记】三角函数小记">
-<meta property="og:url" content="http://example.com/2023/02/26/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%B0%8F%E8%AE%B0/index.html">
+<meta property="og:title" content="【题解】UVA12594 Naming Babies">
+<meta property="og:url" content="http://example.com/2023/03/14/UVA12594%20Naming%20Babies/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="浅谈一些高中三角函数的基础内容(笔者很菜，轻喷)。">
+<meta property="og:description" content="题目传送门 太久没写 DP 了，于是找了一道简单的斜率优化练手题来做。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-26T13:14:36.000Z">
-<meta property="article:modified_time" content="2023-03-09T14:12:20.510Z">
+<meta property="article:published_time" content="2023-03-14T13:57:11.000Z">
+<meta property="article:modified_time" content="2023-03-14T14:13:12.275Z">
 <meta property="article:author" content="Chenyu Wu">
-<meta property="article:tag" content="数学">
-<meta property="article:tag" content="whk">
+<meta property="article:tag" content="动态规划DP">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>【笔记】三角函数小记 - wcy&#39;s blog</title>
+  <title>【题解】UVA12594 Naming Babies - wcy&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -195,7 +194,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【笔记】三角函数小记"></span>
+            <span id="subtitle" data-typed-text="【题解】UVA12594 Naming Babies"></span>
           
         </div>
 
@@ -206,8 +205,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-26 21:14" pubdate>
-          2023年2月26日 晚上
+        <time datetime="2023-03-14 21:57" pubdate>
+          2023年3月14日 晚上
         </time>
       </span>
     
@@ -219,7 +218,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          4.9k 字
+          2.3k 字
         
       </span>
     
@@ -231,7 +230,7 @@
         
         
           <!-- compatible with older versions-->
-          41 分钟
+          19 分钟
         
       </span>
     
@@ -269,202 +268,51 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【笔记】三角函数小记</h1>
+            <h1 style="display: none">【题解】UVA12594 Naming Babies</h1>
             
             <div class="markdown-body">
               
-              <p>浅谈一些高中三角函数的基础内容(笔者很菜，轻喷)。</p>
+              <p><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA12594">题目传送门</a></p>
+<p>太久没写 DP 了，于是找了一道简单的斜率优化练手题来做。</p>
 <span id="more"></span>
-<h2 id="角的概念与弧度制">角的概念与弧度制</h2>
-<p>初中的时候，我们学过的角是一个静态的概念，即同端点的两条射线构成的图形，到了高中阶段，这个概念变得更加动态，我们定义角是一条射线绕其断点旋转形成的图形，如果是逆时针旋转，那么就成为<strong>正角</strong>，顺时针则称为<strong>负角</strong>，有了这个定义，我们就会出现一些初中阶段不可能出现的角，比如
-<span class="math inline">\(\angle A =
--30^\circ\)</span>，这样角的定义就推广到了任意角，我们定义旋转之前的那条射线称为角的<strong>始边</strong>，而旋转之后形成的那条射线称为角的<strong>终边</strong>。</p>
-<p>细心地你肯定发现了，不同度数的角可能终边相同，比如 <span
-class="math inline">\(330^\circ, -30^\circ\)</span>
-的终边就是一样的。我们稍作思考，发现终边相同相当于这条射线多旋转了若干个
-<span class="math inline">\(360^\circ\)</span>，所以我们容易得到与 <span
-class="math inline">\(\alpha\)</span> 终边相同的角的集合为 <span
-class="math inline">\(S = \{\alpha + k \cdot360^\circ | k \in \mathbb
-Z\}\)</span>、</p>
-<p>接下来我们引入象限角的概念，假设我们有一个平面直角坐标系，然后我们规定角的始边
-<span class="math inline">\(OA\)</span> 在 <span
-class="math inline">\(x\)</span> 轴非负半轴上，然后我们规定角的终边
-<span class="math inline">\(OB\)</span> 在哪个象限，就称 <span
-class="math inline">\(\angle AOB\)</span> 为第几象限角，比如 <span
-class="math inline">\(\alpha = 45^\circ\)</span> 为第一象限角。</p>
-<p>为了方便表示，引入<strong>弧度制</strong>的概念，我们规定 <span
-class="math inline">\(\pi\text{rad} = 180^\circ\)</span>，其中 <span
-class="math inline">\(\text{rad}\)</span>
-通常可省略不写，一些常见的转换：<span
-class="math inline">\(\dfrac{\pi}{2} = 90^\circ\)</span>, <span
-class="math inline">\(\dfrac{\pi}{6} = 30^\circ\)</span>
-等。我们发现弧度制在扇形中有一些很好的结论，假设扇形的弧长为 <span
-class="math inline">\(l\)</span>，半径为 <span
-class="math inline">\(r\)</span>，那我们可以得到圆心角 <span
-class="math inline">\(\alpha =
-\dfrac{l}{r}\)</span>，然后我们可以得到扇形面积 <span
-class="math inline">\(S = \dfrac{1}{2}\alpha r^2 =
-\dfrac{1}{2}lr\)</span> 这些都是很好的结论。</p>
-<h2 id="三角函数与同角三角比">三角函数与同角三角比</h2>
-<p>定义单位圆为圆心在原点，半径 <span class="math inline">\(r =
-1\)</span> 的圆。设点 <span class="math inline">\(A(1, 0)\)</span>，将
-<span class="math inline">\(OA\)</span> 绕点 <span
-class="math inline">\(O\)</span> 旋转 <span
-class="math inline">\(\alpha\)</span>，得到的射线与单位圆交于 <span
-class="math inline">\(B(x, y)\)</span>，则我们有 <span
-class="math inline">\(\sin \alpha = y, \cos \alpha = x, \tan\alpha =
-\dfrac{y}{x}\)</span>，特别地，当 $x = 0 $ 时，即 <span
-class="math inline">\(\alpha = \dfrac{2k + 1}{2}\pi(k \in \mathbb
-Z)\)</span>，<span class="math inline">\(\tan \alpha\)</span>
-不存在，不难发现这个定义和初中阶段学的大体相似。</p>
-<p>一些常见角度的三角函数 <span class="math display">\[
-\sin \dfrac{\pi}{2} = 1, \cos \dfrac{\pi}{2} = 0 \\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{3} = \dfrac{\sqrt 3}{2}, \cos \dfrac{\pi}{3} =
-\dfrac{1}{2}, \tan \dfrac{\pi}{3} = \sqrt 3\\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{4} = \dfrac{\sqrt 2}{2}，\cos \dfrac{\pi}{4} =
-\dfrac{\sqrt2}{2}, \tan \dfrac{\pi}{4} = 1 \\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{6} = \dfrac{1}{2}, \cos \dfrac{\pi}{6} =
-\dfrac{\sqrt3}{2}, \tan \dfrac{\pi}{6} = \dfrac{\sqrt3}{3}
-\]</span> 根据勾股定理的知识，我们可以得到 <span
-class="math inline">\(\sin^2 \alpha + \cos^2 \alpha =
-1\)</span>，同时根据定义可以得到 <span class="math inline">\(\tan \alpha
-= \dfrac{\sin \alpha}{\cos
-\alpha}\)</span>，根据这些关系，我们不难做到知一求二，一个常见的技巧是
-<span class="math inline">\(\sin \alpha \pm \cos \alpha = \pm k
-\Leftrightarrow 1 \pm 2 \sin\alpha\cos\alpha = k^2\)</span>。</p>
-<h2 id="诱导公式">诱导公式</h2>
-<blockquote>
-<p><strong>奇变偶不变，符号看象限</strong>。</p>
-</blockquote>
-<p>上面这句话很好地概括了诱导公式的主要内容，下面我们来介绍诱导公式的使用。</p>
-<p>假设我们要化简 <span class="math inline">\(\sin\left(\alpha
-\pm\dfrac{k}{2}\pi\right)\)</span> 或 <span
-class="math inline">\(\cos\left(\alpha
-\pm\dfrac{k}{2}\pi\right)\)</span>，可以使用诱导公式，比如 <span
-class="math inline">\(\sin\left(\dfrac{\pi}{2} - \alpha\right) =
-\cos(\alpha)\)</span>，<span class="math inline">\(\cos\left(\pi -
-\alpha\right) =
--\cos\alpha\)</span>。首先先解释前半句话，这里的奇偶指的是 <span
-class="math inline">\(k\)</span> 的奇偶，即如果 <span
-class="math inline">\(k\)</span> 为奇数，三角函数名称发生变化，<span
-class="math inline">\(\sin \rightarrow \cos, \cos \rightarrow
-\sin\)</span>，反之则不变。而后半句话我们可以这样实操，我们假设 <span
-class="math inline">\(\alpha \in \left(0,
-\dfrac{\pi}{2}\right)\)</span>，我们在单位圆上表示出 <span
-class="math inline">\(\alpha \pm
-\dfrac{k}{2}\pi\)</span>，然后看它的象限，再用原函数在此象限的符号给结果定号。For
-example，我们要计算 <span class="math inline">\(\sin\left(\alpha -
-\dfrac{\pi}{2}\right)\)</span>，首先这里 <span
-class="math inline">\(k\)</span> 是奇数，所以最后的结果肯定是 <span
-class="math inline">\(\cos\)</span>，然后假设 <span
-class="math inline">\(\alpha \in \left(0,
-\dfrac{\pi}{2}\right)\)</span>，那么 <span class="math inline">\(\alpha
-- \dfrac{\pi}{2}\)</span> 为第四象限角，<span
-class="math inline">\(\sin\)</span> 在此象限为负，所以最终的结果为 <span
-class="math inline">\(-\cos \alpha\)</span>。</p>
-<h2 id="三角恒等变换">三角恒等变换</h2>
-<p>多公式预警！！！ <span class="math display">\[
-\sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta\\
-\]</span> <span class="math display">\[
-\cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta\\
-\]</span> <span class="math display">\[
-\tan(\alpha \pm \beta) = \dfrac{\tan\alpha \pm \tan\beta}{1 \mp
-\tan\alpha\tan\beta}
-\]</span>
-上述是最基础的两角和差公式，经常在一些推式子题中出现，由两角和的特殊形式还可以推导出倍角公式。
+<h2 id="分析">分析</h2>
+<p>观察每个字符的花费 <span class="math inline">\((i - pos_i) \cdot
+pos_i = i \cdot pos_i - pos_i \cdot pos_i\)</span>，后面的 <span
+class="math inline">\(pos_i \cdot pos_i\)</span>
+无论如何划分都不会改变，所以我们只需要求划分后 <span
+class="math inline">\(\sum_{i} i\cdot pos_i\)</span> 的最小值即可。</p>
+<p>考虑对每一段划分的花费进行拆分，即如果我们把 <span
+class="math inline">\([l, r]\)</span> 化为一组，那么这一组的花费为 <span
+class="math inline">\(\sum_{i = l}^r (i - l)pos_i\)</span>，我们记 <span
+class="math inline">\(a_i = \sum_{j = 1}^i j\cdot pos_j\)</span>，<span
+class="math inline">\(b_i = \sum_{j = 1}^i pos_j\)</span>。这样我们就有
+<span class="math inline">\(\sum_{i = l}^r(i - l)pos_i = a_r - a_{l - 1}
+- l\cdot b_r + l\cdot b_{l - 1}\)</span>，这样方便我们 DP。</p>
+<p>设 <span class="math inline">\(f_{j, i}\)</span> 为前 <span
+class="math inline">\(i\)</span> 个数划分为 <span
+class="math inline">\(j\)</span> 段的最小值，根据上式，我们容易得到
 <span class="math display">\[
-\sin2\alpha = 2\sin\alpha\cos\alpha
-\]</span></p>
-<p><span class="math display">\[
-\cos2\alpha = \cos^2\alpha - \sin^2\alpha = 2\cos^2\alpha - 1 = 1 -
-2\sin^2\alpha
-\]</span></p>
-<p><span class="math display">\[
-\tan2\alpha = \dfrac{2\tan\alpha}{1 - \tan^2\alpha}
-\]</span></p>
-<p>在做题的过程中，这些公式一般有两种用法，一种是正用，也就是知道前面的，把它展开成后面那样；另一种则是逆用，通过诱导公式把式子化成上述公式的形式，使得式子易于计算，需要做题训练。</p>
-<p>倍角公式有一些重要的推论，在实际题目中有很大的作用。 <span
+f_{j, i} = \min_k f_{j - 1, k} + a_i - a_k - (k + 1)b_i + (k + 1)b_k
+\]</span>
+这是一个斜率优化的式子，因为这是斜率优化入门题，所以讲一下具体如何优化。</p>
+<p>设 <span class="math inline">\(k_1 &lt; k_2\)</span> 且 <span
+class="math inline">\(k_2\)</span> 优于 <span
+class="math inline">\(k_1\)</span>，那么我们就有 <span
 class="math display">\[
-1 \pm \sin2\alpha = (\sin\alpha\pm\cos\alpha)^2
-\]</span></p>
-<p><span class="math display">\[
-\cos^2\alpha = \dfrac{1}{2}(1 + \cos2\alpha)
-\]</span></p>
-<p><span class="math display">\[
-\sin^2\alpha = \dfrac{1}{2}(1 - \cos2\alpha)
-\]</span></p>
-<p>其中第二条和第三条可以在一些需要降幂或者带根号的式子中使用。</p>
-<p>此外，倍角公式还有一个额外的 trick，就是求解 <span
-class="math inline">\(\cos\alpha\cos2\alpha\cos4\alpha\cdots\)</span>，以求解
-<span class="math inline">\(\cos\alpha\cos2\alpha\cos4\alpha\)</span>
-为例，我们先上下同乘 <span class="math inline">\(\sin\alpha\)</span>
-得到 <span
-class="math inline">\(\dfrac{\sin\alpha\cos\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}\)</span>，然后我们惊奇的发现了一个和正弦二倍角公式长得差不多的东西，于是我们把式子变成
-<span
-class="math inline">\(\dfrac{\frac{1}{2}\sin2\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}\)</span>，然后这个式子又可以同上进行转化，最终我们可以化简为
-<span
-class="math inline">\(\dfrac{1}{8}\dfrac{\sin8\alpha}{\sin\alpha}\)</span>，这样就会简单一些。</p>
-<p>二倍角有一个重要的推论，即半角公式。 <span class="math display">\[
-\sin\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1-\cos\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\cos\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1+\cos\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\tan\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1-\cos\alpha}{1+\cos\alpha}}
-\]</span></p>
-<p>倍角公式除了二倍角还有三倍角，虽然不常见，但还是看一下。 <span
-class="math display">\[
-\sin3\alpha = 3\sin\alpha - 4\sin^3\alpha =
-\sin\alpha\sin\left(\dfrac{\pi}{3} -
-\alpha\right)\sin\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p><span class="math display">\[
-\cos3\alpha = -3\cos\alpha + 4\cos^3\alpha =
-\cos\alpha\cos\left(\dfrac{\pi}{3} -
-\alpha\right)\cos\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p><span class="math display">\[
-\tan3\alpha = \dfrac{3\tan\alpha - \tan^3\alpha}{1 - 3\tan^2\alpha} =
-\tan\alpha\tan\left(\dfrac{\pi}{3} -
-\alpha\right)\tan\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p>这些式子从左往右推难度不大，在实际应用中更多的是从右边的形式化成三倍角形式。</p>
-<p>最后是万能公式，就是用含有 <span
-class="math inline">\(\tan\dfrac{\alpha}{2}\)</span>
-的式子表示三角函数。 <span class="math display">\[
-\sin\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 + \tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\cos\alpha = \dfrac{1 - \tan\dfrac{\alpha}{2}}{1 +
-\tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\tan\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 - \tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p>辅助角公式主要求解如下问题：将 <span
-class="math inline">\(a\sin\alpha + b\cos\alpha\)</span> 化为 <span
-class="math inline">\(A\sin(\omega\alpha + \varphi)\)</span>
-的形式。</p>
-<p>首先我们考虑将这个化成 <span class="math inline">\(\sin\)</span>
-和公式的形式，给 <span class="math inline">\(\sin\alpha\)</span> 和
-<span class="math inline">\(\cos\alpha\)</span> 配两个系数 <span
-class="math inline">\(x, y\)</span>，满足 <span
-class="math inline">\(x^2 + y^2 = 1\)</span>，这样我们就可以把这个化成
-<span class="math inline">\(\sin\)</span> 和的形式，观察到 <span
-class="math inline">\(a\sin\alpha + b\sin\alpha =
-\sqrt{a^2+b^2}(\dfrac{a}{\sqrt{a^2+b^2}}\sin\alpha +
-\dfrac{b}{\sqrt{a^2+b^2}}\cos\alpha)\)</span>，然后我们发现配的系数就满足我们的要求，所以我们肯定能找到一个角
-<span class="math inline">\(\varphi\)</span>，使得 <span
-class="math inline">\(\cos\varphi =
-\dfrac{a}{\sqrt{a^2+b^2}}\)</span>，<span
-class="math inline">\(\sin\varphi =
-\dfrac{b}{\sqrt{a^2+b^2}}\)</span>，然后原式就变为了 <span
-class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
-\varphi)\)</span>。</p>
+f_{j - 1, k_2} + (k_2 + 1)b_{k_2} - a_{k_2} - (k_2 + 1)b_i \le f_{j - 1,
+k_1} + (k_1 + 1)b_{k_1} - a_{k_1} - (k_1 + 1)b_i
+\]</span> 设 <span class="math inline">\(Y(j, i) = f_{j - 1, i} + (i +
+1)B_i - A_i\)</span>，<span class="math inline">\(X(i) =
+i\)</span>。</p>
+<p>化简得到 <span class="math display">\[
+b_i \ge \dfrac{Y(k_2) - Y(k_1)}{X(k_2) - X(k_1)}
+\]</span> 因为 <span class="math inline">\(X\)</span> 和 <span
+class="math inline">\(b_i\)</span>
+都是单调递增的，所以可以直接单调队列维护凸包，时间复杂度 <span
+class="math inline">\(O(nk)\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L(i, j, k) for(int i = (j); i &lt;= (k); i++)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> R(i, j, k) for(int i = (j); i &gt;= (k); i--)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> G(i, u) for (int i = h[(u)]; ~i; i = ne[i])</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ll long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ld long double</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ull unsigned long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">2e4</span> + <span class="hljs-number">10</span>, M = <span class="hljs-number">510</span>, C = <span class="hljs-number">30</span>;<br><span class="hljs-type">int</span> pos[C];<br>ll a[N], b[N], f[M][N];<br><span class="hljs-type">int</span> q[N];<br><span class="hljs-type">char</span> s[N];<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> x = <span class="hljs-number">0</span>, y = <span class="hljs-number">1</span>; <span class="hljs-type">char</span> c = <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">while</span> (c &lt; <span class="hljs-string">&#x27;0&#x27;</span> || c &gt; <span class="hljs-string">&#x27;9&#x27;</span>) &#123;<span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;-&#x27;</span>) y = <span class="hljs-number">-1</span>; c = <span class="hljs-built_in">getchar</span>();&#125;<br>    <span class="hljs-keyword">while</span> (c &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; c &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">&#x27;0&#x27;</span>, c = <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">return</span> x * y;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> ll <span class="hljs-title">Y</span><span class="hljs-params">(<span class="hljs-type">int</span> j, <span class="hljs-type">int</span> i)</span> </span>&#123;<span class="hljs-keyword">return</span> f[j - <span class="hljs-number">1</span>][i] + (i + <span class="hljs-number">1</span>) * b[i] - a[i];&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> ld <span class="hljs-title">slope</span><span class="hljs-params">(<span class="hljs-type">int</span> k, <span class="hljs-type">int</span> i, <span class="hljs-type">int</span> j)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> (<span class="hljs-built_in">Y</span>(k, j) - <span class="hljs-built_in">Y</span>(k, i)) * <span class="hljs-number">1.0</span> / (j - i);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> T = <span class="hljs-built_in">read</span>();<br>    <span class="hljs-built_in">L</span>(t, <span class="hljs-number">1</span>, T) &#123;<br>        <span class="hljs-built_in">L</span>(i, <span class="hljs-number">0</span>, <span class="hljs-number">25</span>) &#123;<br>            <span class="hljs-type">char</span> c; cin &gt;&gt; c;<br>            pos[c - <span class="hljs-string">&#x27;a&#x27;</span>] = i;<br>        &#125;<br>        <span class="hljs-type">int</span> k = <span class="hljs-built_in">read</span>();<br>        cin &gt;&gt; s + <span class="hljs-number">1</span>;<br>        <span class="hljs-type">int</span> n = <span class="hljs-built_in">strlen</span>(s + <span class="hljs-number">1</span>);<br>        <span class="hljs-built_in">L</span>(i, <span class="hljs-number">1</span>, n) a[i] = a[i - <span class="hljs-number">1</span>] + i * pos[s[i] - <span class="hljs-string">&#x27;a&#x27;</span>], b[i] = b[i - <span class="hljs-number">1</span>] + pos[s[i] - <span class="hljs-string">&#x27;a&#x27;</span>];<br>        <span class="hljs-built_in">L</span>(i, <span class="hljs-number">1</span>, n) f[<span class="hljs-number">1</span>][i] = f[<span class="hljs-number">1</span>][i - <span class="hljs-number">1</span>] + (i - <span class="hljs-number">1</span>) * pos[s[i] - <span class="hljs-string">&#x27;a&#x27;</span>];<br>        <span class="hljs-built_in">L</span>(j, <span class="hljs-number">2</span>, k) &#123;<br>            <span class="hljs-type">int</span> l = <span class="hljs-number">1</span>, r = <span class="hljs-number">1</span>;<br>            <span class="hljs-built_in">L</span>(i, <span class="hljs-number">1</span>, n) &#123;<br>                <span class="hljs-keyword">while</span> (l &lt; r &amp;&amp; <span class="hljs-built_in">slope</span>(j, q[l], q[l + <span class="hljs-number">1</span>]) &lt;= b[i]) l++;<br>                f[j][i] = a[i] + f[j - <span class="hljs-number">1</span>][q[l]] + <span class="hljs-number">1ll</span> * (q[l] + <span class="hljs-number">1</span>) * (b[q[l]] - b[i]) - a[q[l]];<br>                <span class="hljs-keyword">while</span> (l &lt; r &amp;&amp; <span class="hljs-built_in">slope</span>(j, q[r - <span class="hljs-number">1</span>], q[r]) &gt;= <span class="hljs-built_in">slope</span>(j, q[r], i)) r--;<br>                q[++r] = i;<br>            &#125;<br>        &#125;<br>        ll res = f[k][n];<br>        <span class="hljs-built_in">L</span>(i, <span class="hljs-number">1</span>, n) res -= pos[s[i] - <span class="hljs-string">&#x27;a&#x27;</span>] * pos[s[i] - <span class="hljs-string">&#x27;a&#x27;</span>];<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Case %d: %lld\n&quot;</span>, t, res);<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 
               
             </div>
@@ -482,7 +330,7 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
     
       <span class="category-chain">
         
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
@@ -497,9 +345,7 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E5%AD%A6/">#数学</a>
-      
-        <a href="/tags/whk/">#whk</a>
+        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92DP/">#动态规划DP</a>
       
     </div>
   
@@ -511,8 +357,8 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【笔记】三角函数小记</div>
-      <div>http://example.com/2023/02/26/三角函数小记/</div>
+      <div>【题解】UVA12594 Naming Babies</div>
+      <div>http://example.com/2023/03/14/UVA12594 Naming Babies/</div>
     </div>
     <div class="license-meta">
       
@@ -524,7 +370,7 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年2月26日</div>
+          <div>2023年3月14日</div>
         </div>
       
       
@@ -554,18 +400,12 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/05/CF1096G%20Lucky%20Tickets/" title="【题解】CF1096G Lucky Tickets">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【题解】CF1096G Lucky Tickets</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/24/%E5%85%AB%E4%B8%8A%E6%9C%9F%E6%9C%AB%E8%80%83%E6%B8%B8%E8%AE%B0/" title="【游记】八上期末考游记">
-                        <span class="hidden-mobile">【游记】八上期末考游记</span>
+                      <a href="/2023/03/11/%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0%E5%B0%8F%E8%AE%B0/" title="【笔记】基础函数小记">
+                        <span class="hidden-mobile">【笔记】基础函数小记</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

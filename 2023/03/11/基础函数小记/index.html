@@ -16,15 +16,15 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="浅谈一些高中三角函数的基础内容(笔者很菜，轻喷)。">
+    <meta name="description" content="浅谈高一数学中函数的学习(不包括三角函数)，笔者很菜，轻喷。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【笔记】三角函数小记">
-<meta property="og:url" content="http://example.com/2023/02/26/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%B0%8F%E8%AE%B0/index.html">
+<meta property="og:title" content="【笔记】基础函数小记">
+<meta property="og:url" content="http://example.com/2023/03/11/%E5%9F%BA%E7%A1%80%E5%87%BD%E6%95%B0%E5%B0%8F%E8%AE%B0/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="浅谈一些高中三角函数的基础内容(笔者很菜，轻喷)。">
+<meta property="og:description" content="浅谈高一数学中函数的学习(不包括三角函数)，笔者很菜，轻喷。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-02-26T13:14:36.000Z">
-<meta property="article:modified_time" content="2023-03-09T14:12:20.510Z">
+<meta property="article:published_time" content="2023-03-11T13:43:31.000Z">
+<meta property="article:modified_time" content="2023-03-14T13:57:58.497Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="whk">
@@ -32,7 +32,7 @@
   
   
   
-  <title>【笔记】三角函数小记 - wcy&#39;s blog</title>
+  <title>【笔记】基础函数小记 - wcy&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -195,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【笔记】三角函数小记"></span>
+            <span id="subtitle" data-typed-text="【笔记】基础函数小记"></span>
           
         </div>
 
@@ -206,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-26 21:14" pubdate>
-          2023年2月26日 晚上
+        <time datetime="2023-03-11 21:43" pubdate>
+          2023年3月11日 晚上
         </time>
       </span>
     
@@ -219,7 +219,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          4.9k 字
+          896 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
           <!-- compatible with older versions-->
-          41 分钟
+          8 分钟
         
       </span>
     
@@ -269,202 +269,55 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【笔记】三角函数小记</h1>
+            <h1 style="display: none">【笔记】基础函数小记</h1>
             
             <div class="markdown-body">
               
-              <p>浅谈一些高中三角函数的基础内容(笔者很菜，轻喷)。</p>
+              <p>浅谈高一数学中函数的学习(不包括三角函数)，笔者很菜，轻喷。</p>
 <span id="more"></span>
-<h2 id="角的概念与弧度制">角的概念与弧度制</h2>
-<p>初中的时候，我们学过的角是一个静态的概念，即同端点的两条射线构成的图形，到了高中阶段，这个概念变得更加动态，我们定义角是一条射线绕其断点旋转形成的图形，如果是逆时针旋转，那么就成为<strong>正角</strong>，顺时针则称为<strong>负角</strong>，有了这个定义，我们就会出现一些初中阶段不可能出现的角，比如
-<span class="math inline">\(\angle A =
--30^\circ\)</span>，这样角的定义就推广到了任意角，我们定义旋转之前的那条射线称为角的<strong>始边</strong>，而旋转之后形成的那条射线称为角的<strong>终边</strong>。</p>
-<p>细心地你肯定发现了，不同度数的角可能终边相同，比如 <span
-class="math inline">\(330^\circ, -30^\circ\)</span>
-的终边就是一样的。我们稍作思考，发现终边相同相当于这条射线多旋转了若干个
-<span class="math inline">\(360^\circ\)</span>，所以我们容易得到与 <span
-class="math inline">\(\alpha\)</span> 终边相同的角的集合为 <span
-class="math inline">\(S = \{\alpha + k \cdot360^\circ | k \in \mathbb
-Z\}\)</span>、</p>
-<p>接下来我们引入象限角的概念，假设我们有一个平面直角坐标系，然后我们规定角的始边
-<span class="math inline">\(OA\)</span> 在 <span
-class="math inline">\(x\)</span> 轴非负半轴上，然后我们规定角的终边
-<span class="math inline">\(OB\)</span> 在哪个象限，就称 <span
-class="math inline">\(\angle AOB\)</span> 为第几象限角，比如 <span
-class="math inline">\(\alpha = 45^\circ\)</span> 为第一象限角。</p>
-<p>为了方便表示，引入<strong>弧度制</strong>的概念，我们规定 <span
-class="math inline">\(\pi\text{rad} = 180^\circ\)</span>，其中 <span
-class="math inline">\(\text{rad}\)</span>
-通常可省略不写，一些常见的转换：<span
-class="math inline">\(\dfrac{\pi}{2} = 90^\circ\)</span>, <span
-class="math inline">\(\dfrac{\pi}{6} = 30^\circ\)</span>
-等。我们发现弧度制在扇形中有一些很好的结论，假设扇形的弧长为 <span
-class="math inline">\(l\)</span>，半径为 <span
-class="math inline">\(r\)</span>，那我们可以得到圆心角 <span
-class="math inline">\(\alpha =
-\dfrac{l}{r}\)</span>，然后我们可以得到扇形面积 <span
-class="math inline">\(S = \dfrac{1}{2}\alpha r^2 =
-\dfrac{1}{2}lr\)</span> 这些都是很好的结论。</p>
-<h2 id="三角函数与同角三角比">三角函数与同角三角比</h2>
-<p>定义单位圆为圆心在原点，半径 <span class="math inline">\(r =
-1\)</span> 的圆。设点 <span class="math inline">\(A(1, 0)\)</span>，将
-<span class="math inline">\(OA\)</span> 绕点 <span
-class="math inline">\(O\)</span> 旋转 <span
-class="math inline">\(\alpha\)</span>，得到的射线与单位圆交于 <span
-class="math inline">\(B(x, y)\)</span>，则我们有 <span
-class="math inline">\(\sin \alpha = y, \cos \alpha = x, \tan\alpha =
-\dfrac{y}{x}\)</span>，特别地，当 $x = 0 $ 时，即 <span
-class="math inline">\(\alpha = \dfrac{2k + 1}{2}\pi(k \in \mathbb
-Z)\)</span>，<span class="math inline">\(\tan \alpha\)</span>
-不存在，不难发现这个定义和初中阶段学的大体相似。</p>
-<p>一些常见角度的三角函数 <span class="math display">\[
-\sin \dfrac{\pi}{2} = 1, \cos \dfrac{\pi}{2} = 0 \\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{3} = \dfrac{\sqrt 3}{2}, \cos \dfrac{\pi}{3} =
-\dfrac{1}{2}, \tan \dfrac{\pi}{3} = \sqrt 3\\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{4} = \dfrac{\sqrt 2}{2}，\cos \dfrac{\pi}{4} =
-\dfrac{\sqrt2}{2}, \tan \dfrac{\pi}{4} = 1 \\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{6} = \dfrac{1}{2}, \cos \dfrac{\pi}{6} =
-\dfrac{\sqrt3}{2}, \tan \dfrac{\pi}{6} = \dfrac{\sqrt3}{3}
-\]</span> 根据勾股定理的知识，我们可以得到 <span
-class="math inline">\(\sin^2 \alpha + \cos^2 \alpha =
-1\)</span>，同时根据定义可以得到 <span class="math inline">\(\tan \alpha
-= \dfrac{\sin \alpha}{\cos
-\alpha}\)</span>，根据这些关系，我们不难做到知一求二，一个常见的技巧是
-<span class="math inline">\(\sin \alpha \pm \cos \alpha = \pm k
-\Leftrightarrow 1 \pm 2 \sin\alpha\cos\alpha = k^2\)</span>。</p>
-<h2 id="诱导公式">诱导公式</h2>
-<blockquote>
-<p><strong>奇变偶不变，符号看象限</strong>。</p>
-</blockquote>
-<p>上面这句话很好地概括了诱导公式的主要内容，下面我们来介绍诱导公式的使用。</p>
-<p>假设我们要化简 <span class="math inline">\(\sin\left(\alpha
-\pm\dfrac{k}{2}\pi\right)\)</span> 或 <span
-class="math inline">\(\cos\left(\alpha
-\pm\dfrac{k}{2}\pi\right)\)</span>，可以使用诱导公式，比如 <span
-class="math inline">\(\sin\left(\dfrac{\pi}{2} - \alpha\right) =
-\cos(\alpha)\)</span>，<span class="math inline">\(\cos\left(\pi -
-\alpha\right) =
--\cos\alpha\)</span>。首先先解释前半句话，这里的奇偶指的是 <span
-class="math inline">\(k\)</span> 的奇偶，即如果 <span
-class="math inline">\(k\)</span> 为奇数，三角函数名称发生变化，<span
-class="math inline">\(\sin \rightarrow \cos, \cos \rightarrow
-\sin\)</span>，反之则不变。而后半句话我们可以这样实操，我们假设 <span
-class="math inline">\(\alpha \in \left(0,
-\dfrac{\pi}{2}\right)\)</span>，我们在单位圆上表示出 <span
-class="math inline">\(\alpha \pm
-\dfrac{k}{2}\pi\)</span>，然后看它的象限，再用原函数在此象限的符号给结果定号。For
-example，我们要计算 <span class="math inline">\(\sin\left(\alpha -
-\dfrac{\pi}{2}\right)\)</span>，首先这里 <span
-class="math inline">\(k\)</span> 是奇数，所以最后的结果肯定是 <span
-class="math inline">\(\cos\)</span>，然后假设 <span
-class="math inline">\(\alpha \in \left(0,
-\dfrac{\pi}{2}\right)\)</span>，那么 <span class="math inline">\(\alpha
-- \dfrac{\pi}{2}\)</span> 为第四象限角，<span
-class="math inline">\(\sin\)</span> 在此象限为负，所以最终的结果为 <span
-class="math inline">\(-\cos \alpha\)</span>。</p>
-<h2 id="三角恒等变换">三角恒等变换</h2>
-<p>多公式预警！！！ <span class="math display">\[
-\sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta\\
-\]</span> <span class="math display">\[
-\cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta\\
-\]</span> <span class="math display">\[
-\tan(\alpha \pm \beta) = \dfrac{\tan\alpha \pm \tan\beta}{1 \mp
-\tan\alpha\tan\beta}
-\]</span>
-上述是最基础的两角和差公式，经常在一些推式子题中出现，由两角和的特殊形式还可以推导出倍角公式。
-<span class="math display">\[
-\sin2\alpha = 2\sin\alpha\cos\alpha
-\]</span></p>
-<p><span class="math display">\[
-\cos2\alpha = \cos^2\alpha - \sin^2\alpha = 2\cos^2\alpha - 1 = 1 -
-2\sin^2\alpha
-\]</span></p>
-<p><span class="math display">\[
-\tan2\alpha = \dfrac{2\tan\alpha}{1 - \tan^2\alpha}
-\]</span></p>
-<p>在做题的过程中，这些公式一般有两种用法，一种是正用，也就是知道前面的，把它展开成后面那样；另一种则是逆用，通过诱导公式把式子化成上述公式的形式，使得式子易于计算，需要做题训练。</p>
-<p>倍角公式有一些重要的推论，在实际题目中有很大的作用。 <span
-class="math display">\[
-1 \pm \sin2\alpha = (\sin\alpha\pm\cos\alpha)^2
-\]</span></p>
-<p><span class="math display">\[
-\cos^2\alpha = \dfrac{1}{2}(1 + \cos2\alpha)
-\]</span></p>
-<p><span class="math display">\[
-\sin^2\alpha = \dfrac{1}{2}(1 - \cos2\alpha)
-\]</span></p>
-<p>其中第二条和第三条可以在一些需要降幂或者带根号的式子中使用。</p>
-<p>此外，倍角公式还有一个额外的 trick，就是求解 <span
-class="math inline">\(\cos\alpha\cos2\alpha\cos4\alpha\cdots\)</span>，以求解
-<span class="math inline">\(\cos\alpha\cos2\alpha\cos4\alpha\)</span>
-为例，我们先上下同乘 <span class="math inline">\(\sin\alpha\)</span>
-得到 <span
-class="math inline">\(\dfrac{\sin\alpha\cos\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}\)</span>，然后我们惊奇的发现了一个和正弦二倍角公式长得差不多的东西，于是我们把式子变成
-<span
-class="math inline">\(\dfrac{\frac{1}{2}\sin2\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}\)</span>，然后这个式子又可以同上进行转化，最终我们可以化简为
-<span
-class="math inline">\(\dfrac{1}{8}\dfrac{\sin8\alpha}{\sin\alpha}\)</span>，这样就会简单一些。</p>
-<p>二倍角有一个重要的推论，即半角公式。 <span class="math display">\[
-\sin\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1-\cos\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\cos\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1+\cos\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\tan\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1-\cos\alpha}{1+\cos\alpha}}
-\]</span></p>
-<p>倍角公式除了二倍角还有三倍角，虽然不常见，但还是看一下。 <span
-class="math display">\[
-\sin3\alpha = 3\sin\alpha - 4\sin^3\alpha =
-\sin\alpha\sin\left(\dfrac{\pi}{3} -
-\alpha\right)\sin\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p><span class="math display">\[
-\cos3\alpha = -3\cos\alpha + 4\cos^3\alpha =
-\cos\alpha\cos\left(\dfrac{\pi}{3} -
-\alpha\right)\cos\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p><span class="math display">\[
-\tan3\alpha = \dfrac{3\tan\alpha - \tan^3\alpha}{1 - 3\tan^2\alpha} =
-\tan\alpha\tan\left(\dfrac{\pi}{3} -
-\alpha\right)\tan\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p>这些式子从左往右推难度不大，在实际应用中更多的是从右边的形式化成三倍角形式。</p>
-<p>最后是万能公式，就是用含有 <span
-class="math inline">\(\tan\dfrac{\alpha}{2}\)</span>
-的式子表示三角函数。 <span class="math display">\[
-\sin\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 + \tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\cos\alpha = \dfrac{1 - \tan\dfrac{\alpha}{2}}{1 +
-\tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\tan\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 - \tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p>辅助角公式主要求解如下问题：将 <span
-class="math inline">\(a\sin\alpha + b\cos\alpha\)</span> 化为 <span
-class="math inline">\(A\sin(\omega\alpha + \varphi)\)</span>
-的形式。</p>
-<p>首先我们考虑将这个化成 <span class="math inline">\(\sin\)</span>
-和公式的形式，给 <span class="math inline">\(\sin\alpha\)</span> 和
-<span class="math inline">\(\cos\alpha\)</span> 配两个系数 <span
-class="math inline">\(x, y\)</span>，满足 <span
-class="math inline">\(x^2 + y^2 = 1\)</span>，这样我们就可以把这个化成
-<span class="math inline">\(\sin\)</span> 和的形式，观察到 <span
-class="math inline">\(a\sin\alpha + b\sin\alpha =
-\sqrt{a^2+b^2}(\dfrac{a}{\sqrt{a^2+b^2}}\sin\alpha +
-\dfrac{b}{\sqrt{a^2+b^2}}\cos\alpha)\)</span>，然后我们发现配的系数就满足我们的要求，所以我们肯定能找到一个角
-<span class="math inline">\(\varphi\)</span>，使得 <span
-class="math inline">\(\cos\varphi =
-\dfrac{a}{\sqrt{a^2+b^2}}\)</span>，<span
-class="math inline">\(\sin\varphi =
-\dfrac{b}{\sqrt{a^2+b^2}}\)</span>，然后原式就变为了 <span
-class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
-\varphi)\)</span>。</p>
+<h2 id="函数的定义和表示">函数的定义和表示</h2>
+<p>初中的时候我们学习了基本的一次函数和二次函数，下面我们给出集合论中函数的定义，函数的本质其实是一种<strong>映射</strong>关系，如果我们有一个集合
+<span class="math inline">\(A\)</span>，一个集合 <span
+class="math inline">\(B\)</span>，对于 <span
+class="math inline">\(\forall x \in
+A\)</span>，都有<strong>唯一</strong>一个 <span class="math inline">\(y
+\in B\)</span> 使得 <span class="math inline">\(f(x) =
+y\)</span>，那么称 <span class="math inline">\(f: A \rightarrow
+B\)</span> 是一个函数。</p>
+<p>函数的定义域其实就是函数中自变量的取值范围，比如 <span
+class="math inline">\(f(x) = \dfrac{2}{x - 1}\)</span> 的定义域为 <span
+class="math inline">\((-\infty, 1) \cup (1,
++\infty)\)</span>，这是好理解的，而函数的值域就是因变量的取值范围，比如
+<span class="math inline">\(f(x) = x^2 - 2x + 1\)</span> 的值域为 <span
+class="math inline">\([0, +\infty)\)</span>，这都是好理解的。</p>
+<p>判断两个函数是否是同一函数需要两步，一是判断定义域是否相同，二是判断映射关系是否相同。比如都定义在
+<span class="math inline">\(\{1, 2\}\)</span> 上的两个函数 <span
+class="math inline">\(f(x) = x^2\)</span> 和 <span
+class="math inline">\(g(x) = 3x - 2\)</span> 是一个函数因为 <span
+class="math inline">\(f(x)\)</span> 和 <span
+class="math inline">\(g(x)\)</span> 的定义域相同，而且 <span
+class="math inline">\(f(x)\)</span> 和 <span
+class="math inline">\(g(x)\)</span> 都让 <span class="math inline">\(1
+\rightarrow 1\)</span>，<span class="math inline">\(2 \rightarrow
+4\)</span>，所以判断相等。</p>
+<p>更加常见的题是求函数的定义域和值域，求定义域只要根据函数中的特殊部分如分式、根式进行计算。而求值域比较复杂，可能需要应用单调性和不等式的知识。</p>
+<h2 id="函数的单调性">函数的单调性</h2>
+<p>初中时我们知道 <span class="math inline">\(y = kx + b\)</span> 在
+<span class="math inline">\(k &gt; 0\)</span> 时单调递增，在 <span
+class="math inline">\(k &lt; 0\)</span>
+时单调递减，对于函数的单调性，在高中阶段有更严谨的定义。</p>
+<p>对于一个函数 <span class="math inline">\(f(x)\)</span>
+来说，若对其定义域内的某个区间 <span
+class="math inline">\(D\)</span>，<span class="math inline">\(\forall
+x_1 &lt; x_2 \in D\)</span>，都有 <span class="math inline">\(f(x_1)
+&lt; f(x_2)\)</span>，那我们称函数 <span
+class="math inline">\(f(x)\)</span> 在 <span
+class="math inline">\(D\)</span>
+上是增函数，减函数的定义与其类似，只需将 <span
+class="math inline">\(f(x_1) &lt; f(x_2)\)</span> 改为 <span
+class="math inline">\(f(x_1) &gt; f(x_2)\)</span> 即可。特别地，如果
+<span class="math inline">\(f(x)\)</span> 在其定义域上有单调性，则称
+<span class="math inline">\(f(x)\)</span> 为增函数/减函数。</p>
 
               
             </div>
@@ -511,8 +364,8 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【笔记】三角函数小记</div>
-      <div>http://example.com/2023/02/26/三角函数小记/</div>
+      <div>【笔记】基础函数小记</div>
+      <div>http://example.com/2023/03/11/基础函数小记/</div>
     </div>
     <div class="license-meta">
       
@@ -524,7 +377,7 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年2月26日</div>
+          <div>2023年3月11日</div>
         </div>
       
       
@@ -554,9 +407,9 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/05/CF1096G%20Lucky%20Tickets/" title="【题解】CF1096G Lucky Tickets">
+                      <a href="/2023/03/14/UVA12594%20Naming%20Babies/" title="【题解】UVA12594 Naming Babies">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【题解】CF1096G Lucky Tickets</span>
+                        <span class="hidden-mobile">【题解】UVA12594 Naming Babies</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -564,8 +417,8 @@ class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/24/%E5%85%AB%E4%B8%8A%E6%9C%9F%E6%9C%AB%E8%80%83%E6%B8%B8%E8%AE%B0/" title="【游记】八上期末考游记">
-                        <span class="hidden-mobile">【游记】八上期末考游记</span>
+                      <a href="/2023/03/08/CF1613F%20Tree%20Coloring/" title="【题解】CF1613F Tree Coloring">
+                        <span class="hidden-mobile">【题解】CF1613F Tree Coloring</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
