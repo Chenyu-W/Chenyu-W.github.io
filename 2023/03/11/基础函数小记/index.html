@@ -24,7 +24,7 @@
 <meta property="og:description" content="浅谈高一数学中函数的学习(不包括三角函数)，笔者很菜，轻喷。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-11T13:43:31.000Z">
-<meta property="article:modified_time" content="2023-03-18T12:58:18.318Z">
+<meta property="article:modified_time" content="2023-04-23T14:42:08.400Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="数学">
 <meta property="article:tag" content="whk">
@@ -219,7 +219,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.6k 字
+          2k 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
           <!-- compatible with older versions-->
-          14 分钟
+          18 分钟
         
       </span>
     
@@ -342,13 +342,37 @@ class="math inline">\(f_1(x), f_2(x), \ldots, f_n(x)\)</span>
 都在定义域上单调，那么对于函数 <span
 class="math inline">\(f_1(f_2(\cdots f_n(x))\)</span>，其单调性取决于这
 <span class="math inline">\(n\)</span>
-个函数中减函数的奇偶，如果有奇数个，则这个函数为减函数，否则为增函数，对
+个函数中减函数个数的奇偶，如果有奇数个，则这个函数为减函数，否则为增函数，对
 <span class="math inline">\(n\)</span>
 应用归纳容易证明。复合函数的单调性有时能带给我们很大的帮助，比如已知
 <span class="math inline">\(f(x)\)</span> 是减函数，要求 <span
 class="math inline">\(f(g(x))\)</span>
 的单调递增区间，那么问题就等价于求 <span
 class="math inline">\(g(x)\)</span> 的单调递减区间。</p>
+<p>还有一些抽象函数的单调性需要我们巧妙运用定义证明，比如已知 <span
+class="math inline">\(f(x) + f(y) = f(x + y)\)</span>，并且 <span
+class="math inline">\(x &gt; 0, f(x) &gt; 0\)</span>，那么我们就可以得到
+<span class="math inline">\(f(x_2) - f(x_1) = f(x_2 - x_1) &gt;
+0\)</span>，得到 <span class="math inline">\(f(x)\)</span>
+是增函数。</p>
+<p>最后是分段函数，我们只需要保证 <span
+class="math inline">\(f(x)\)</span>
+在每一段单调递增，然后特判一下端点即可。</p>
+<h2 id="函数的奇偶性">函数的奇偶性</h2>
+<p>如果对于函数 <span
+class="math inline">\(f(x)\)</span>，任意一个定义域上的 <span
+class="math inline">\(x\)</span> 都有 <span class="math inline">\(f(x) =
+f(-x)\)</span>，那么 <span class="math inline">\(f(x)\)</span>
+是偶函数。</p>
+<p>如果对于函数 <span
+class="math inline">\(f(x)\)</span>，任意一个定义域上的 <span
+class="math inline">\(x\)</span> 都有 <span class="math inline">\(f(x) =
+-f(x)\)</span>，那么 <span class="math inline">\(f(x)\)</span>
+是奇函数。</p>
+<p>容易得到，偶函数关于 <span class="math inline">\(y\)</span>
+轴对称，奇函数关于原点对称，它们的定义域都关于 <span
+class="math inline">\(y\)</span> 轴对称。</p>
+<p>如果知道偶函数半边的单调性，那么另一边和它相反，如果知道奇函数半边的单调性，那另外半边和它相同。</p>
 
               
             </div>

@@ -16,22 +16,23 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="题目传送门 简单的数位 DP。">
+    <meta name="description" content="题目传送门 本来想练线段树分治的，稍微想了一下发现了一个线段树套 01-Trie 的在线做法，好写一发过了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【题解】CF628D Magic Numbers">
-<meta property="og:url" content="http://example.com/2023/04/08/CF628D%20Magic%20Numbers/index.html">
+<meta property="og:title" content="【题解】P4585 火星商店问题">
+<meta property="og:url" content="http://example.com/2023/05/01/P4585%20%E7%81%AB%E6%98%9F%E5%95%86%E5%BA%97%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="题目传送门 简单的数位 DP。">
+<meta property="og:description" content="题目传送门 本来想练线段树分治的，稍微想了一下发现了一个线段树套 01-Trie 的在线做法，好写一发过了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-08T13:16:47.000Z">
-<meta property="article:modified_time" content="2023-04-22T13:48:05.815Z">
+<meta property="article:published_time" content="2023-05-01T15:08:01.000Z">
+<meta property="article:modified_time" content="2023-05-01T15:19:34.615Z">
 <meta property="article:author" content="Chenyu Wu">
-<meta property="article:tag" content="数位DP">
+<meta property="article:tag" content="题解">
+<meta property="article:tag" content="线段树">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>【题解】CF628D Magic Numbers - wcy&#39;s blog</title>
+  <title>【题解】P4585 火星商店问题 - wcy&#39;s blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -194,7 +195,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【题解】CF628D Magic Numbers"></span>
+            <span id="subtitle" data-typed-text="【题解】P4585 火星商店问题"></span>
           
         </div>
 
@@ -205,8 +206,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-04-08 21:16" pubdate>
-          2023年4月8日 晚上
+        <time datetime="2023-05-01 23:08" pubdate>
+          2023年5月1日 晚上
         </time>
       </span>
     
@@ -218,7 +219,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2k 字
+          2.3k 字
         
       </span>
     
@@ -230,7 +231,7 @@
         
         
           <!-- compatible with older versions-->
-          17 分钟
+          20 分钟
         
       </span>
     
@@ -268,23 +269,28 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【题解】CF628D Magic Numbers</h1>
+            <h1 style="display: none">【题解】P4585 火星商店问题</h1>
             
             <div class="markdown-body">
               
-              <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF628D">题目传送门</a></p>
-<p>简单的数位 DP。</p>
+              <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4585">题目传送门</a></p>
+<p>本来想练线段树分治的，稍微想了一下发现了一个线段树套 01-Trie
+的在线做法，好写一发过了。</p>
 <span id="more"></span>
 <h2 id="分析">分析</h2>
-<p>记 <span class="math inline">\(f_{i, j, 0/1}\)</span>
-表示不顶上界，无前导零，填到第 <span class="math inline">\(i\)</span>
-个，当前的数除以 <span class="math inline">\(m\)</span> 的余数为 <span
-class="math inline">\(j\)</span>，当前要填奇数/偶数位的方案数。</p>
-<p>枚举下一个数不难写出转移</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-built_in">L</span>(i, <span class="hljs-number">0</span>, up) &#123;<br>        <span class="hljs-keyword">if</span> (lead &amp;&amp; !i) res += <span class="hljs-built_in">dfs</span>(pos - <span class="hljs-number">1</span>, mod, now, lim &amp;&amp; i == up, <span class="hljs-literal">true</span>);<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">if</span> ((now &amp;&amp; (i != d)) || (!now &amp;&amp; (i == d))) <span class="hljs-keyword">continue</span>;<br>            res = (res + <span class="hljs-built_in">dfs</span>(pos - <span class="hljs-number">1</span>, (mod * <span class="hljs-number">10</span> + i) % m, now ^ <span class="hljs-number">1</span>, lim &amp;&amp; i == up, <span class="hljs-literal">false</span>)) % MOD;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
-<p>然后直接记忆化搜索即可。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L(i, j, k) for(int i = (j); i &lt;= (k); i++)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> R(i, j, k) for(int i = (j); i &gt;= (k); i--)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> G(i, u) for (int i = h[(u)]; ~i; i = ne[i])</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ll long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ld long double</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ull unsigned long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">2010</span>, MOD = <span class="hljs-number">1e9</span> + <span class="hljs-number">7</span>;<br><span class="hljs-type">int</span> m, d, a[N], f[N][N][<span class="hljs-number">2</span>];<br>string l, r;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> x = <span class="hljs-number">0</span>, y = <span class="hljs-number">1</span>; <span class="hljs-type">char</span> c = <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">while</span> (c &lt; <span class="hljs-string">&#x27;0&#x27;</span> || c &gt; <span class="hljs-string">&#x27;9&#x27;</span>) &#123;<span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;-&#x27;</span>) y = <span class="hljs-number">-1</span>; c = <span class="hljs-built_in">getchar</span>();&#125;<br>    <span class="hljs-keyword">while</span> (c &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; c &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">&#x27;0&#x27;</span>, c = <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">return</span> x * y;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> pos, <span class="hljs-type">int</span> mod, <span class="hljs-type">int</span> now, <span class="hljs-type">bool</span> lim, <span class="hljs-type">bool</span> lead)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (!pos) <span class="hljs-keyword">return</span> !lead &amp;&amp; !mod;<br>    <span class="hljs-keyword">if</span> (!lead &amp;&amp; !lim &amp;&amp; ~f[pos][mod][now]) <span class="hljs-keyword">return</span> f[pos][mod][now];<br>    <span class="hljs-type">int</span> up = lim ? a[pos] : <span class="hljs-number">9</span>;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">L</span>(i, <span class="hljs-number">0</span>, up) &#123;<br>        <span class="hljs-keyword">if</span> (lead &amp;&amp; !i) res += <span class="hljs-built_in">dfs</span>(pos - <span class="hljs-number">1</span>, mod, now, lim &amp;&amp; i == up, <span class="hljs-literal">true</span>);<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">if</span> ((now &amp;&amp; (i != d)) || (!now &amp;&amp; (i == d))) <span class="hljs-keyword">continue</span>;<br>            res = (res + <span class="hljs-built_in">dfs</span>(pos - <span class="hljs-number">1</span>, (mod * <span class="hljs-number">10</span> + i) % m, now ^ <span class="hljs-number">1</span>, lim &amp;&amp; i == up, <span class="hljs-literal">false</span>)) % MOD;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (!lead &amp;&amp; !lim) f[pos][mod][now] = res;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-built_in">memset</span>(f, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> f);<br>    m = <span class="hljs-built_in">read</span>(), d = <span class="hljs-built_in">read</span>();<br>    cin &gt;&gt; l &gt;&gt; r;<br>    <span class="hljs-built_in">L</span>(i, <span class="hljs-number">1</span>, r.<span class="hljs-built_in">size</span>()) a[i] = r[i - <span class="hljs-number">1</span>] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>    <span class="hljs-type">int</span> len = r.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-built_in">reverse</span>(a + <span class="hljs-number">1</span>, a + len + <span class="hljs-number">1</span>);<br>    <span class="hljs-type">int</span> res = <span class="hljs-built_in">dfs</span>(len, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);<br>    <span class="hljs-built_in">memset</span>(f, <span class="hljs-number">-1</span>, <span class="hljs-keyword">sizeof</span> f);<br>    len = l.<span class="hljs-built_in">size</span>();<br>    <span class="hljs-built_in">L</span>(i, <span class="hljs-number">1</span>, l.<span class="hljs-built_in">size</span>()) a[i] = l[i - <span class="hljs-number">1</span>] - <span class="hljs-string">&#x27;0&#x27;</span>;<br>    a[l.<span class="hljs-built_in">size</span>()]--;<br>    <span class="hljs-built_in">R</span>(i, l.<span class="hljs-built_in">size</span>(), <span class="hljs-number">2</span>)<br>        <span class="hljs-keyword">if</span> (a[i] &gt;= <span class="hljs-number">0</span>) <span class="hljs-keyword">break</span>;<br>        <span class="hljs-keyword">else</span> a[i] += <span class="hljs-number">10</span>, a[i - <span class="hljs-number">1</span>]--;<br>    <span class="hljs-keyword">if</span> (!a[<span class="hljs-number">1</span>]) &#123;len--; <span class="hljs-built_in">L</span>(i, <span class="hljs-number">1</span>, l.<span class="hljs-built_in">size</span>() - <span class="hljs-number">1</span>) a[i] = a[i + <span class="hljs-number">1</span>];&#125;;<br>    <span class="hljs-built_in">reverse</span>(a + <span class="hljs-number">1</span>, a + len + <span class="hljs-number">1</span>);<br>    res = (res - <span class="hljs-built_in">dfs</span>(len, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>) + MOD) % MOD;<br>    <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, res);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p><a href=""></a></p>
+<p>首先考虑没有时间限制怎么做，显然是对序列开一棵线段树，然后每个节点开一棵
+01-Trie，存当前区间所有数，修改和查询都是 trivial 的。</p>
+<p>现在有一个时间的限制，我们考虑类似可持久化 01-Trie 的处理，对每一个
+Trie 上的节点，维护一个 <span class="math inline">\(last\)</span>
+值，来表示子树中最大的时间戳，在查询时，如果该节点的 <span
+class="math inline">\(last\)</span>
+值小于我们的时间限制，就跳到另一棵子树。特别地，对于每一个特殊商品，我们把它的时间戳设为
+<span
+class="math inline">\(+\infty\)</span>，这样保证它能被考虑到，时间复杂度
+<span class="math inline">\(O(n\log^2 n)\)</span>。</p>
+<p>注意空间开大！</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;bits/stdc++.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> L(i, j, k) for (int i = (j); i &lt;= (k); i++)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> R(i, j, k) for (int i = (j); i &gt;= (k); i--)</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ll long long</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ld long double</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> ull unsigned long long</span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> N = <span class="hljs-number">1e5</span> + <span class="hljs-number">10</span>, M = <span class="hljs-number">5e7</span> + <span class="hljs-number">10</span>, INF = <span class="hljs-number">1</span> &lt;&lt; <span class="hljs-number">30</span>;<br><span class="hljs-type">int</span> a[N], tr[M][<span class="hljs-number">2</span>], last[M][<span class="hljs-number">2</span>], tot, cnt;<br><span class="hljs-keyword">struct</span> <span class="hljs-title class_">Sgt</span> &#123;<br>    <span class="hljs-type">int</span> l, r, root;<br>&#125; t[N &lt;&lt; <span class="hljs-number">2</span>];<br><br><span class="hljs-function"><span class="hljs-keyword">template</span>&lt;<span class="hljs-keyword">class</span> T </span>= <span class="hljs-type">int</span>&gt; <span class="hljs-function">T <span class="hljs-title">read</span><span class="hljs-params">()</span> </span>&#123;<br>    T x = <span class="hljs-number">0</span>, y = <span class="hljs-number">1</span>; <span class="hljs-type">char</span> c = <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">while</span> (c &lt; <span class="hljs-string">&#x27;0&#x27;</span> || c &gt; <span class="hljs-string">&#x27;9&#x27;</span>) &#123;<span class="hljs-keyword">if</span> (c == <span class="hljs-string">&#x27;-&#x27;</span>) y = <span class="hljs-number">-1</span>; c = <span class="hljs-built_in">getchar</span>();&#125;<br>    <span class="hljs-keyword">while</span> (c &gt;= <span class="hljs-string">&#x27;0&#x27;</span> &amp;&amp; c &lt;= <span class="hljs-string">&#x27;9&#x27;</span>) x = x * <span class="hljs-number">10</span> + c - <span class="hljs-string">&#x27;0&#x27;</span>, c = <span class="hljs-built_in">getchar</span>();<br>    <span class="hljs-keyword">return</span> x * y;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">insert</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> t)</span> </span>&#123;<br>    <span class="hljs-built_in">R</span>(i, <span class="hljs-number">18</span>, <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-type">int</span> c = x &gt;&gt; i &amp; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (!tr[p][c]) tr[p][c] = ++tot;<br>        last[p][c] = <span class="hljs-built_in">max</span>(last[p][c], t), p = tr[p][c];<br>    &#125;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">ask</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> t)</span> </span>&#123;<br>    <span class="hljs-type">int</span> res = <span class="hljs-number">0</span>;<br>    <span class="hljs-built_in">R</span>(i, <span class="hljs-number">18</span>, <span class="hljs-number">0</span>) &#123;<br>        <span class="hljs-type">int</span> c = x &gt;&gt; i &amp; <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">if</span> (tr[p][c ^ <span class="hljs-number">1</span>] &amp;&amp; last[p][c ^ <span class="hljs-number">1</span>] &gt;= t) res += <span class="hljs-number">1</span> &lt;&lt; i, p = tr[p][c ^ <span class="hljs-number">1</span>];<br>        <span class="hljs-keyword">else</span> p = tr[p][c];<br>    &#125;<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">build</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r)</span> </span>&#123;<br>    t[p].l = l, t[p].r = r, t[p].root = ++tot;<br>    <span class="hljs-built_in">L</span>(i, l, r) <span class="hljs-built_in">insert</span>(t[p].root, a[i], INF);<br>    <span class="hljs-keyword">if</span> (l == r) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-type">int</span> mid = (l + r) &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-built_in">build</span>(p &lt;&lt; <span class="hljs-number">1</span>, l, mid), <span class="hljs-built_in">build</span>(p &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>, mid + <span class="hljs-number">1</span>, r);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">void</span> <span class="hljs-title">modify</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> v)</span> </span>&#123;<br>    <span class="hljs-built_in">insert</span>(t[p].root, v, cnt);<br>    <span class="hljs-keyword">if</span> (t[p].l == t[p].r) <span class="hljs-keyword">return</span>;<br>    <span class="hljs-type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="hljs-number">1</span>;<br>    <span class="hljs-keyword">if</span> (x &lt;= mid) <span class="hljs-built_in">modify</span>(p &lt;&lt; <span class="hljs-number">1</span>, x, v);<br>    <span class="hljs-keyword">else</span> <span class="hljs-built_in">modify</span>(p &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>, x, v);<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">inline</span> <span class="hljs-type">int</span> <span class="hljs-title">query</span><span class="hljs-params">(<span class="hljs-type">int</span> p, <span class="hljs-type">int</span> l, <span class="hljs-type">int</span> r, <span class="hljs-type">int</span> x, <span class="hljs-type">int</span> d)</span> </span>&#123;<br>    <span class="hljs-keyword">if</span> (l &lt;= t[p].l &amp;&amp; t[p].r &lt;= r) <span class="hljs-keyword">return</span> <span class="hljs-built_in">ask</span>(t[p].root, x, d);<br>    <span class="hljs-type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="hljs-number">1</span>, res = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (l &lt;= mid) res = <span class="hljs-built_in">max</span>(res, <span class="hljs-built_in">query</span>(p &lt;&lt; <span class="hljs-number">1</span>, l, r, x, d));<br>    <span class="hljs-keyword">if</span> (r &gt; mid) res = <span class="hljs-built_in">max</span>(res, <span class="hljs-built_in">query</span>(p &lt;&lt; <span class="hljs-number">1</span> | <span class="hljs-number">1</span>, l, r, x, d));<br>    <span class="hljs-keyword">return</span> res;<br>&#125;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-type">int</span> n = <span class="hljs-built_in">read</span>(), m = <span class="hljs-built_in">read</span>();<br>    <span class="hljs-built_in">L</span>(i, <span class="hljs-number">1</span>, n) a[i] = <span class="hljs-built_in">read</span>();<br>    <span class="hljs-built_in">build</span>(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, n);<br>    <span class="hljs-keyword">while</span> (m--) &#123;<br>        <span class="hljs-type">int</span> op = <span class="hljs-built_in">read</span>();<br>        <span class="hljs-keyword">if</span> (!op) &#123;<br>            cnt++;<br>            <span class="hljs-type">int</span> x = <span class="hljs-built_in">read</span>(), v = <span class="hljs-built_in">read</span>();<br>            <span class="hljs-built_in">modify</span>(<span class="hljs-number">1</span>, x, v);<br>        &#125;<br>        <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-type">int</span> l = <span class="hljs-built_in">read</span>(), r = <span class="hljs-built_in">read</span>(), x = <span class="hljs-built_in">read</span>(), d = <span class="hljs-built_in">read</span>();<br>            <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;%d\n&quot;</span>, <span class="hljs-built_in">query</span>(<span class="hljs-number">1</span>, l, r, x, cnt - d + <span class="hljs-number">1</span>));<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;   <br>&#125;<br></code></pre></td></tr></table></figure>
 
               
             </div>
@@ -317,7 +323,9 @@ class="math inline">\(j\)</span>，当前要填奇数/偶数位的方案数。</
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E6%95%B0%E4%BD%8DDP/">#数位DP</a>
+        <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+      
+        <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">#线段树</a>
       
     </div>
   
@@ -329,8 +337,8 @@ class="math inline">\(j\)</span>，当前要填奇数/偶数位的方案数。</
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【题解】CF628D Magic Numbers</div>
-      <div>http://example.com/2023/04/08/CF628D Magic Numbers/</div>
+      <div>【题解】P4585 火星商店问题</div>
+      <div>http://example.com/2023/05/01/P4585 火星商店问题/</div>
     </div>
     <div class="license-meta">
       
@@ -342,7 +350,7 @@ class="math inline">\(j\)</span>，当前要填奇数/偶数位的方案数。</
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年4月8日</div>
+          <div>2023年5月1日</div>
         </div>
       
       
@@ -372,18 +380,12 @@ class="math inline">\(j\)</span>，当前要填奇数/偶数位的方案数。</
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/05/01/P4585%20%E7%81%AB%E6%98%9F%E5%95%86%E5%BA%97%E9%97%AE%E9%A2%98/" title="【题解】P4585 火星商店问题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【题解】P4585 火星商店问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/24/CF660F%20Bear%20and%20Bowling%204/" title="【题解】CF660F Bear and Bowling 4">
-                        <span class="hidden-mobile">【题解】CF660F Bear and Bowling 4</span>
+                      <a href="/2023/04/08/CF628D%20Magic%20Numbers/" title="【题解】CF628D Magic Numbers">
+                        <span class="hidden-mobile">【题解】CF628D Magic Numbers</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
