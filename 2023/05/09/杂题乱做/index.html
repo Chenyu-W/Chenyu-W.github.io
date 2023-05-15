@@ -28,7 +28,7 @@
 <meta property="og:description" content="You and me, chasing down forever after.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-09T14:27:51.000Z">
-<meta property="article:modified_time" content="2023-05-14T14:01:16.681Z">
+<meta property="article:modified_time" content="2023-05-15T14:50:46.728Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary">
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1256e-beautiful-mirrors"><span class="nav-number">1.</span> <span class="nav-text">CF1256E Beautiful Mirrors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf14d-two-paths"><span class="nav-number">2.</span> <span class="nav-text">CF14D Two Paths</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf459e-pashmak-and-graph"><span class="nav-number">3.</span> <span class="nav-text">CF459E Pashmak and Graph</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf900d-unusual-sequences"><span class="nav-number">4.</span> <span class="nav-text">CF900D Unusual Sequences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf797e-array-queries"><span class="nav-number">5.</span> <span class="nav-text">CF797E Array Queries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf109c-lucky-tree"><span class="nav-number">6.</span> <span class="nav-text">CF109C Lucky Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#luogu3760-%E5%BC%82%E6%88%96%E5%92%8C"><span class="nav-number">7.</span> <span class="nav-text">Luogu3760 异或和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E8%B5%9Bt1-%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="nav-number">8.</span> <span class="nav-text">20230514模拟赛T1 最大公约数</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1256e-beautiful-mirrors"><span class="nav-number">1.</span> <span class="nav-text">CF1256E Beautiful Mirrors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf14d-two-paths"><span class="nav-number">2.</span> <span class="nav-text">CF14D Two Paths</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf459e-pashmak-and-graph"><span class="nav-number">3.</span> <span class="nav-text">CF459E Pashmak and Graph</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf900d-unusual-sequences"><span class="nav-number">4.</span> <span class="nav-text">CF900D Unusual Sequences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf797e-array-queries"><span class="nav-number">5.</span> <span class="nav-text">CF797E Array Queries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf109c-lucky-tree"><span class="nav-number">6.</span> <span class="nav-text">CF109C Lucky Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#luogu3760-%E5%BC%82%E6%88%96%E5%92%8C"><span class="nav-number">7.</span> <span class="nav-text">Luogu3760 异或和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E8%B5%9Bt1-%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="nav-number">8.</span> <span class="nav-text">20230514模拟赛T1 最大公约数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1082e-increasing-frequency"><span class="nav-number">9.</span> <span class="nav-text">CF1082E Increasing Frequency</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -217,7 +217,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-14 22:01:16" itemprop="dateModified" datetime="2023-05-14T22:01:16+08:00">2023-05-14</time>
+      <time title="修改时间：2023-05-15 22:50:46" itemprop="dateModified" datetime="2023-05-15T22:50:46+08:00">2023-05-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -353,6 +353,26 @@ class="math inline">\(\left\lfloor\dfrac{m}{x}\right\rfloor^n\)</span>，然后�
 \]</span> 直接对着式子写即可，时间复杂度 <span
 class="math inline">\(O(m\log m)\)</span>。<a
 target="_blank" rel="noopener" href="https://loj.ac/s/1776428">Code</a></p>
+<h2 id="cf1082e-increasing-frequency">CF1082E Increasing Frequency</h2>
+<p>简单题，设 <span class="math inline">\(pre_i\)</span> 表示上一个和
+<span class="math inline">\(a_i\)</span> 相同的位置，<span
+class="math inline">\(f_i\)</span> 表示 <span class="math inline">\([1,
+i]\)</span> 中有多少和 <span class="math inline">\(a_i\)</span>
+相同的数，<span class="math inline">\(g_i\)</span> 表示 <span
+class="math inline">\([1, i]\)</span> 中有多少个 <span
+class="math inline">\(c\)</span>。然后我们考虑枚举 <span
+class="math inline">\(i\)</span>，统计操作右端点为 <span
+class="math inline">\(i\)</span>
+时的答案，显然地，我们会贪心的把左端点选在和 <span
+class="math inline">\(a_i\)</span> 相同的位置上，我们设这个位置是 <span
+class="math inline">\(j\)</span>，那么此时的答案即为 <span
+class="math inline">\(g_n + (f_i - f_{pre_j}) - (g_i - g_{j -
+1})\)</span>（这里是通过计算增加的贡献来统计答案），然后我们发现其实只要求
+<span class="math inline">\(f_{pre_j} - g_{j - 1}\)</span>
+的最小值即可，我们对于每一个 <span class="math inline">\(a_i\)</span>
+都开桶维护最小值即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n)\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/1082/submission/205997781">Code</a></p>
 
     </div>
 
