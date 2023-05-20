@@ -1,25 +1,21 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="https://files.catbox.moe/76xaod.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://files.catbox.moe/76xaod.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://files.catbox.moe/76xaod.png">
-  <link rel="mask-icon" href="https://files.catbox.moe/76xaod.png" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-
+  <link rel="apple-touch-icon" sizes="76x76" href="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
+  <link rel="icon" href="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chenyu Wu">
+  <meta name="keywords" content="">
+  
     <meta name="description" content="You and me, chasing down forever after.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】杂题乱做">
@@ -31,333 +27,907 @@
 <meta property="article:modified_time" content="2023-05-20T23:16:46.965Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="笔记">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>【笔记】杂题乱做 - wcy&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-<link rel="canonical" href="http://example.com/2023/05/09/%E6%9D%82%E9%A2%98%E4%B9%B1%E5%81%9A/">
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/05/09/%E6%9D%82%E9%A2%98%E4%B9%B1%E5%81%9A/","path":"2023/05/09/杂题乱做/","title":"【笔记】杂题乱做"}</script>
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>【笔记】杂题乱做 | wcy's blog</title>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
 
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
 
-  <div class="site-meta">
+<body>
+  
 
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">wcy's blog</p>
-      <i class="logo-line"></i>
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WuChenyu&#39;s blog</strong>
     </a>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
-  </ul>
 </nav>
 
+  
 
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【笔记】杂题乱做"></span>
+          
+        </div>
 
-
-</div>
         
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-05-09 22:27" pubdate>
+          2023年5月9日 晚上
+        </time>
+      </span>
+    
   </div>
 
-  <aside class="sidebar">
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          3.2k 字
+        
+      </span>
+    
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          27 分钟
+        
+      </span>
+    
 
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1256E-Beautiful-Mirrors"><span class="nav-number">1.</span> <span class="nav-text">CF1256E Beautiful Mirrors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF14D-Two-Paths"><span class="nav-number">2.</span> <span class="nav-text">CF14D Two Paths</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF459E-Pashmak-and-Graph"><span class="nav-number">3.</span> <span class="nav-text">CF459E Pashmak and Graph</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF900D-Unusual-Sequences"><span class="nav-number">4.</span> <span class="nav-text">CF900D Unusual Sequences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF797E-Array-Queries"><span class="nav-number">5.</span> <span class="nav-text">CF797E Array Queries</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF109C-Lucky-Tree"><span class="nav-number">6.</span> <span class="nav-text">CF109C Lucky Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu3760-%E5%BC%82%E6%88%96%E5%92%8C"><span class="nav-number">7.</span> <span class="nav-text">Luogu3760 异或和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20230514%E6%A8%A1%E6%8B%9F%E8%B5%9BT1-%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="nav-number">8.</span> <span class="nav-text">20230514模拟赛T1 最大公约数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1082E-Increasing-Frequency"><span class="nav-number">9.</span> <span class="nav-text">CF1082E Increasing Frequency</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF859C-Square-Subsets"><span class="nav-number">10.</span> <span class="nav-text">CF859C Square Subsets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF662A-Gambling-Nim"><span class="nav-number">11.</span> <span class="nav-text">CF662A Gambling Nim</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF883I-Photo-Processing"><span class="nav-number">12.</span> <span class="nav-text">CF883I Photo Processing</span></a></li></ol></div>
-        </div>
-        <!--/noindex-->
+    
+    
+  </div>
 
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Chenyu Wu"
-      src="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
-  <p class="site-author-name" itemprop="name">Chenyu Wu</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">82</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
+
+        
       </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">6</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">30</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
 
-
-
-        </div>
-      </div>
+      
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
-
-    </header>
-
-    
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
   </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner post posts-expand">
-
-
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2023/05/09/%E6%9D%82%E9%A2%98%E4%B9%B1%E5%81%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://s2.loli.net/2022/08/17/BxPDtAhoeEM9bKF.jpg">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="【笔记】杂题乱做 | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          【笔记】杂题乱做
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2023-05-09 22:27:51" itemprop="dateCreated datePublished" datetime="2023-05-09T22:27:51+08:00">2023-05-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-05-21 07:16:46" itemprop="dateModified" datetime="2023-05-21T07:16:46+08:00">2023-05-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
-        </span>
-    </span>
-
-  
 </div>
 
-        </div>
-      </header>
+</div>
 
+  </header>
+
+  <main>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <blockquote>
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【笔记】杂题乱做</h1>
+            
+            <div class="markdown-body">
+              
+              <blockquote>
 <p>You and me, chasing down forever after.</p>
 </blockquote>
 <span id="more"></span>
-<h2 id="CF1256E-Beautiful-Mirrors"><a href="#CF1256E-Beautiful-Mirrors" class="headerlink" title="CF1256E Beautiful Mirrors"></a>CF1256E Beautiful Mirrors</h2><p>期望 DP，倒着不行就正过来，设 $f_i$ 为从 $1$ 走到 $i$ 且 $i$ 通过了的期望，显然地，有</p>
-<script type="math/tex; mode=display">
-f_i = \dfrac{p_i}{100}(f_{i - 1} + 1) + \dfrac{100 - p_i}{100}(f_{i - 1} + 1 + f_i)\\
-f_i = \dfrac{100}{p_i}(f_{i - 1} + 1)</script><p>$O(n)$ 递推即可。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1265/submission/205237873">Code</a></p>
-<h2 id="CF14D-Two-Paths"><a href="#CF14D-Two-Paths" class="headerlink" title="CF14D Two Paths"></a>CF14D Two Paths</h2><p>枚举断开边，求两个连通块的直径之积即可。</p>
-<p>时间复杂度 $O(n^2)$。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/14/submission/205338585">Code</a></p>
-<h2 id="CF459E-Pashmak-and-Graph"><a href="#CF459E-Pashmak-and-Graph" class="headerlink" title="CF459E Pashmak and Graph"></a>CF459E Pashmak and Graph</h2><p>考虑按边权进行排序，若非严格递增，则有 $f_v = \max(f_v, f_u + 1)$，严格递增只需将边权一样的放一起 dp 即可。</p>
-<p>时间复杂度 $O(n\log n)$。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/459/submission/205340294">Code</a></p>
-<h2 id="CF900D-Unusual-Sequences"><a href="#CF900D-Unusual-Sequences" class="headerlink" title="CF900D Unusual Sequences"></a>CF900D Unusual Sequences</h2><p>首先显然 $x | y$ 才有解，令 $n = \dfrac{y}{x}$，那么问题就变为了使 $\gcd(a_1, \ldots, a_x) = 1$，$\sum_ia_i = n$。</p>
-<p>先不考虑 $\gcd = 1$ 的限制，用插板法方案为 $f(n) = \sum<em>x\binom{n - 1}{x - 1} = 2^{n - 1}$，然后容斥得到答案为 $\sum</em>{d | n}\mu(d)f(d)$，于是对 $n$  的所有质因子做容斥即可。</p>
-<p>时间复杂度 $O(\sqrt n)$。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/900/submission/205440415">Code</a></p>
-<h2 id="CF797E-Array-Queries"><a href="#CF797E-Array-Queries" class="headerlink" title="CF797E Array Queries"></a>CF797E Array Queries</h2><p>这玩意长得就像根号分治。考虑对于 $k \le \sqrt{n}$，我们可以 dp 出所有 $p, k$ 的答案，这是 $O(n\sqrt{n})$ 的。</p>
-<p>对于 $k &gt; \sqrt{n}$，答案显然不超过 $\sqrt{n}$，直接暴力即可。</p>
-<p>时间复杂度 $O(n\sqrt{n})$。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/797/submission/205545763">Code</a></p>
-<h2 id="CF109C-Lucky-Tree"><a href="#CF109C-Lucky-Tree" class="headerlink" title="CF109C Lucky Tree"></a>CF109C Lucky Tree</h2><p>考虑把关键边断掉，然后对于每一个大小为 $m$ 的连通块，其贡献为 $m(n - m)(n - m - 1)$，把所有贡献加起来即可。</p>
-<p>时间复杂度 $O(n)$。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/109/submission/205554714">Code</a></p>
-<h2 id="Luogu3760-异或和"><a href="#Luogu3760-异或和" class="headerlink" title="Luogu3760 异或和"></a>Luogu3760 异或和</h2><p>首先求出前缀和，然后就是转化为求 $\oplus_{0 &lt; l &lt; r \le n} s_r - s_l$，于是我们可以拆位，这样就变为对于每一个二进制位 $k$，求有多少个 $s_r - s_l$ 的第 $k$ 位为 $1$。</p>
-<p>我们考虑枚举右端点，假设当前枚举到 $s_i$，我们分两种情况讨论。</p>
-<p>如果 $s_i$ 的第 $k$ 位为 $1$，那么能造成贡献的 $s_j$ 肯定要满足 $s_j$ 的第 $k$ 位为 $1$，$s_j$ 第 $k$ 位后面的数小于 $s_i$ 第 $k$ 位后面的数；或 $s_j$ 的第 $k$ 位为 $0$，$s_j$ 第 $k$ 位后面的数大于 $s_i$ 第 $k$ 位后面的数。$s_i$ 的第 $k$ 位同理，于是我们开两个树状数组维护即可。</p>
-<p>时间复杂度 $O(n\log \sum a\log n)$。<a target="_blank" rel="noopener" href="https://loj.ac/s/1776411">Code</a></p>
-<h2 id="20230514模拟赛T1-最大公约数"><a href="#20230514模拟赛T1-最大公约数" class="headerlink" title="20230514模拟赛T1 最大公约数"></a>20230514模拟赛T1 最大公约数</h2><blockquote>
-<p>给定 $n, m, l, r$，求有多少 $a_1, a_2, \ldots, a_n$，满足 $a_i \in [1, m]$，且 $\gcd(a_1, a_2,\ldots, a_n) \in [l, r]$。$1 \le n, m, l, r \le 10^6$</p>
+<h2 id="cf1256e-beautiful-mirrors">CF1256E Beautiful Mirrors</h2>
+<p>期望 DP，倒着不行就正过来，设 <span
+class="math inline">\(f_i\)</span> 为从 <span
+class="math inline">\(1\)</span> 走到 <span
+class="math inline">\(i\)</span> 且 <span
+class="math inline">\(i\)</span> 通过了的期望，显然地，有 <span
+class="math display">\[
+f_i = \dfrac{p_i}{100}(f_{i - 1} + 1) + \dfrac{100 - p_i}{100}(f_{i - 1}
++ 1 + f_i)\\
+f_i = \dfrac{100}{p_i}(f_{i - 1} + 1)
+\]</span> <span class="math inline">\(O(n)\)</span> 递推即可。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/1265/submission/205237873">Code</a></p>
+<h2 id="cf14d-two-paths">CF14D Two Paths</h2>
+<p>枚举断开边，求两个连通块的直径之积即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^2)\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/14/submission/205338585">Code</a></p>
+<h2 id="cf459e-pashmak-and-graph">CF459E Pashmak and Graph</h2>
+<p>考虑按边权进行排序，若非严格递增，则有 <span
+class="math inline">\(f_v = \max(f_v, f_u +
+1)\)</span>，严格递增只需将边权一样的放一起 dp 即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n\log n)\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/459/submission/205340294">Code</a></p>
+<h2 id="cf900d-unusual-sequences">CF900D Unusual Sequences</h2>
+<p>首先显然 <span class="math inline">\(x | y\)</span> 才有解，令 <span
+class="math inline">\(n = \dfrac{y}{x}\)</span>，那么问题就变为了使
+<span class="math inline">\(\gcd(a_1, \ldots, a_x) = 1\)</span>，<span
+class="math inline">\(\sum_ia_i = n\)</span>。</p>
+<p>先不考虑 <span class="math inline">\(\gcd = 1\)</span>
+的限制，用插板法方案为 <span class="math inline">\(f(n) = \sum_x\binom{n
+- 1}{x - 1} = 2^{n - 1}\)</span>，然后容斥得到答案为 <span
+class="math inline">\(\sum_{d | n}\mu(d)f(d)\)</span>，于是对 <span
+class="math inline">\(n\)</span> 的所有质因子做容斥即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(\sqrt n)\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/900/submission/205440415">Code</a></p>
+<h2 id="cf797e-array-queries">CF797E Array Queries</h2>
+<p>这玩意长得就像根号分治。考虑对于 <span class="math inline">\(k \le
+\sqrt{n}\)</span>，我们可以 dp 出所有 <span class="math inline">\(p,
+k\)</span> 的答案，这是 <span
+class="math inline">\(O(n\sqrt{n})\)</span> 的。</p>
+<p>对于 <span class="math inline">\(k &gt;
+\sqrt{n}\)</span>，答案显然不超过 <span
+class="math inline">\(\sqrt{n}\)</span>，直接暴力即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n\sqrt{n})\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/797/submission/205545763">Code</a></p>
+<h2 id="cf109c-lucky-tree">CF109C Lucky Tree</h2>
+<p>考虑把关键边断掉，然后对于每一个大小为 <span
+class="math inline">\(m\)</span> 的连通块，其贡献为 <span
+class="math inline">\(m(n - m)(n - m -
+1)\)</span>，把所有贡献加起来即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n)\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/109/submission/205554714">Code</a></p>
+<h2 id="luogu3760-异或和">Luogu3760 异或和</h2>
+<p>首先求出前缀和，然后就是转化为求 <span
+class="math inline">\(\oplus_{0 &lt; l &lt; r \le n} s_r -
+s_l\)</span>，于是我们可以拆位，这样就变为对于每一个二进制位 <span
+class="math inline">\(k\)</span>，求有多少个 <span
+class="math inline">\(s_r - s_l\)</span> 的第 <span
+class="math inline">\(k\)</span> 位为 <span
+class="math inline">\(1\)</span>。</p>
+<p>我们考虑枚举右端点，假设当前枚举到 <span
+class="math inline">\(s_i\)</span>，我们分两种情况讨论。</p>
+<p>如果 <span class="math inline">\(s_i\)</span> 的第 <span
+class="math inline">\(k\)</span> 位为 <span
+class="math inline">\(1\)</span>，那么能造成贡献的 <span
+class="math inline">\(s_j\)</span> 肯定要满足 <span
+class="math inline">\(s_j\)</span> 的第 <span
+class="math inline">\(k\)</span> 位为 <span
+class="math inline">\(1\)</span>，<span
+class="math inline">\(s_j\)</span> 第 <span
+class="math inline">\(k\)</span> 位后面的数小于 <span
+class="math inline">\(s_i\)</span> 第 <span
+class="math inline">\(k\)</span> 位后面的数；或 <span
+class="math inline">\(s_j\)</span> 的第 <span
+class="math inline">\(k\)</span> 位为 <span
+class="math inline">\(0\)</span>，<span
+class="math inline">\(s_j\)</span> 第 <span
+class="math inline">\(k\)</span> 位后面的数大于 <span
+class="math inline">\(s_i\)</span> 第 <span
+class="math inline">\(k\)</span> 位后面的数。<span
+class="math inline">\(s_i\)</span> 的第 <span
+class="math inline">\(k\)</span>
+位同理，于是我们开两个树状数组维护即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n\log \sum a\log
+n)\)</span>。<a target="_blank" rel="noopener" href="https://loj.ac/s/1776411">Code</a></p>
+<h2 id="模拟赛t1-最大公约数">20230514模拟赛T1 最大公约数</h2>
+<blockquote>
+<p>给定 <span class="math inline">\(n, m, l, r\)</span>，求有多少 <span
+class="math inline">\(a_1, a_2, \ldots, a_n\)</span>，满足 <span
+class="math inline">\(a_i \in [1, m]\)</span>，且 <span
+class="math inline">\(\gcd(a_1, a_2,\ldots, a_n) \in [l,
+r]\)</span>。<span class="math inline">\(1 \le n, m, l, r \le
+10^6\)</span></p>
 </blockquote>
-<p><del>求单次 $O(\sqrt{m})$ 做法。</del></p>
-<p>因为 $r - l$ 不大，所以我们考虑枚举 $\gcd$，假设我们现在要算 $\gcd = x$ 的方案数。那就相当于 $a_i \in \left[1, \left\lfloor\dfrac{m}{x}\right\rfloor\right]$，且 $\gcd = 1$，我们先不考虑 $\gcd = 1$ 的限制，得到此时答案为 $\left\lfloor\dfrac{m}{x}\right\rfloor^n$，然后依旧是利用莫比乌斯函数容斥一下即可，最终我们可以得到答案为</p>
-<script type="math/tex; mode=display">
-\sum_{i = l}^r\sum_{d = 1}^{\lfloor\frac{m}{i}\rfloor} \mu(d)\left\lfloor\dfrac{m}{id}\right\rfloor^n</script><p>直接对着式子写即可，时间复杂度 $O(m\log m)$。<a target="_blank" rel="noopener" href="https://loj.ac/s/1776428">Code</a></p>
-<h2 id="CF1082E-Increasing-Frequency"><a href="#CF1082E-Increasing-Frequency" class="headerlink" title="CF1082E Increasing Frequency"></a>CF1082E Increasing Frequency</h2><p>简单题，设 $pre<em>i$ 表示上一个和 $a_i$ 相同的位置，$f_i$ 表示 $[1, i]$ 中有多少和 $a_i$ 相同的数，$g_i$ 表示 $[1, i]$ 中有多少个 $c$。然后我们考虑枚举 $i$，统计操作右端点为 $i$ 时的答案，显然地，我们会贪心的把左端点选在和 $a_i$ 相同的位置上，我们设这个位置是 $j$，那么此时的答案即为 $g_n + (f_i - f</em>{pre<em>j}) - (g_i - g</em>{j - 1})$（这里是通过计算增加的贡献来统计答案），然后我们发现其实只要求 $f<em>{pre_j} - g</em>{j - 1}$ 的最小值即可，我们对于每一个 $a_i$ 都开桶维护最小值即可。</p>
-<p>时间复杂度 $O(n)$。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/1082/submission/205997781">Code</a></p>
-<h2 id="CF859C-Square-Subsets"><a href="#CF859C-Square-Subsets" class="headerlink" title="CF859C Square Subsets"></a>CF859C Square Subsets</h2><p>观察到 $[1, 70]$ 只有 $18$ 个质数，于是考虑状压，用一个状态 $b_i$ 来表示 $a_i$，$b_i$ 的第 $j$ 位为 $1$ 当且仅当 $a_i$ 被分解后第 $j$ 个质数的指数为奇数。这样子集积为平方数就等价于在 $b$ 中求异或和为 $0$ 的子集，直接线性基即可。</p>
-<p>时间复杂度 $O(\pi(a)n)$。</p>
-<h2 id="CF662A-Gambling-Nim"><a href="#CF662A-Gambling-Nim" class="headerlink" title="CF662A Gambling Nim"></a>CF662A Gambling Nim</h2><p>一个挺巧妙的转化。</p>
-<p>假设我们这次随机到了 $a<em>{p_1}, \ldots, a</em>{p<em>m}$ 和 $b</em>{p<em>{m + 1}}, \ldots, b</em>{p_n}$，那么根据 Nim 游戏的结论，先手必败当且仅当</p>
-<script type="math/tex; mode=display">
-a_{p_1} \oplus \cdots \oplus a_{p_m} \oplus b_{p_{m + 1}} \oplus \cdots b_{p_n} = 0</script><p>这个式子变化的量太多了，不是很好处理，所以我们考虑左右两边同时异或上 $\oplus_{i = 1}^n a_i$，这样式子就变为</p>
-<script type="math/tex; mode=display">
-(b_{p_{m + 1}} \oplus a_{p_{m + 1}}) \oplus \cdots \oplus (b_{p_n} \oplus a_{p_n}) = \oplus_{i = 1}^n a_i</script><p>我们记 $A = \oplus_{i = 1}^n a_i$，$S = {a_i \oplus b_i}$，这样我们的问题就变为了从 $S$ 中选一个子集异或和为 $A$ 的概率。</p>
-<p>显然把线性基搞出来，记线性基大小为 $sz$，那么如果 $A$ 不能被表示出来，概率显然为 $1$，如果 $A$ 能被表示出来，概率为 $1 - \dfrac{2^{n - sz}}{2^n} = \dfrac{2^{sz} - 1}{2^{sz}}$。</p>
-<p>时间复杂度 $O(n\log V)$。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/662/submission/206617173">Code</a></p>
-<h2 id="CF883I-Photo-Processing"><a href="#CF883I-Photo-Processing" class="headerlink" title="CF883I Photo Processing"></a>CF883I Photo Processing</h2><p>首先二分答案转为判定。</p>
-<p>我们记当前二分的值为 $x$，考虑一个 dp 的判定，首先将 $a$ 进行排序，然后记 $f<em>i$ 表示以 $i$ 结尾是否合法，那么我们显然有转移 $f_i = [\sum</em>{j \in [0, i - m], a_{j + 1} \ge a_i - x} f_j &gt; 0]$。这样直接转移是 $O(n^2)$ 的。观察到对于每一个 $i$，转移的 $j$ 是一个连续的区间，所以可以使用树状数组优化至 $O(n\log^2n)$。<a target="_blank" rel="noopener" href="https://codeforces.com/contest/883/submission/206656244">Code</a></p>
+<p><del>求单次 <span class="math inline">\(O(\sqrt{m})\)</span>
+做法。</del></p>
+<p>因为 <span class="math inline">\(r - l\)</span>
+不大，所以我们考虑枚举 <span
+class="math inline">\(\gcd\)</span>，假设我们现在要算 <span
+class="math inline">\(\gcd = x\)</span> 的方案数。那就相当于 <span
+class="math inline">\(a_i \in \left[1,
+\left\lfloor\dfrac{m}{x}\right\rfloor\right]\)</span>，且 <span
+class="math inline">\(\gcd = 1\)</span>，我们先不考虑 <span
+class="math inline">\(\gcd = 1\)</span> 的限制，得到此时答案为 <span
+class="math inline">\(\left\lfloor\dfrac{m}{x}\right\rfloor^n\)</span>，然后依旧是利用莫比乌斯函数容斥一下即可，最终我们可以得到答案为
+<span class="math display">\[
+\sum_{i = l}^r\sum_{d = 1}^{\lfloor\frac{m}{i}\rfloor}
+\mu(d)\left\lfloor\dfrac{m}{id}\right\rfloor^n
+\]</span> 直接对着式子写即可，时间复杂度 <span
+class="math inline">\(O(m\log m)\)</span>。<a
+target="_blank" rel="noopener" href="https://loj.ac/s/1776428">Code</a></p>
+<h2 id="cf1082e-increasing-frequency">CF1082E Increasing Frequency</h2>
+<p>简单题，设 <span class="math inline">\(pre_i\)</span> 表示上一个和
+<span class="math inline">\(a_i\)</span> 相同的位置，<span
+class="math inline">\(f_i\)</span> 表示 <span class="math inline">\([1,
+i]\)</span> 中有多少和 <span class="math inline">\(a_i\)</span>
+相同的数，<span class="math inline">\(g_i\)</span> 表示 <span
+class="math inline">\([1, i]\)</span> 中有多少个 <span
+class="math inline">\(c\)</span>。然后我们考虑枚举 <span
+class="math inline">\(i\)</span>，统计操作右端点为 <span
+class="math inline">\(i\)</span>
+时的答案，显然地，我们会贪心的把左端点选在和 <span
+class="math inline">\(a_i\)</span> 相同的位置上，我们设这个位置是 <span
+class="math inline">\(j\)</span>，那么此时的答案即为 <span
+class="math inline">\(g_n + (f_i - f_{pre_j}) - (g_i - g_{j -
+1})\)</span>（这里是通过计算增加的贡献来统计答案），然后我们发现其实只要求
+<span class="math inline">\(f_{pre_j} - g_{j - 1}\)</span>
+的最小值即可，我们对于每一个 <span class="math inline">\(a_i\)</span>
+都开桶维护最小值即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(n)\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/1082/submission/205997781">Code</a></p>
+<h2 id="cf859c-square-subsets">CF859C Square Subsets</h2>
+<p>观察到 <span class="math inline">\([1, 70]\)</span> 只有 <span
+class="math inline">\(18\)</span> 个质数，于是考虑状压，用一个状态 <span
+class="math inline">\(b_i\)</span> 来表示 <span
+class="math inline">\(a_i\)</span>，<span
+class="math inline">\(b_i\)</span> 的第 <span
+class="math inline">\(j\)</span> 位为 <span
+class="math inline">\(1\)</span> 当且仅当 <span
+class="math inline">\(a_i\)</span> 被分解后第 <span
+class="math inline">\(j\)</span>
+个质数的指数为奇数。这样子集积为平方数就等价于在 <span
+class="math inline">\(b\)</span> 中求异或和为 <span
+class="math inline">\(0\)</span> 的子集，直接线性基即可。</p>
+<p>时间复杂度 <span class="math inline">\(O(\pi(a)n)\)</span>。</p>
+<h2 id="cf662a-gambling-nim">CF662A Gambling Nim</h2>
+<p>一个挺巧妙的转化。</p>
+<p>假设我们这次随机到了 <span class="math inline">\(a_{p_1}, \ldots,
+a_{p_m}\)</span> 和 <span class="math inline">\(b_{p_{m + 1}}, \ldots,
+b_{p_n}\)</span>，那么根据 Nim 游戏的结论，先手必败当且仅当 <span
+class="math display">\[
+a_{p_1} \oplus \cdots \oplus a_{p_m} \oplus b_{p_{m + 1}} \oplus \cdots
+b_{p_n} = 0
+\]</span>
+这个式子变化的量太多了，不是很好处理，所以我们考虑左右两边同时异或上
+<span class="math inline">\(\oplus_{i = 1}^n
+a_i\)</span>，这样式子就变为 <span class="math display">\[
+(b_{p_{m + 1}} \oplus a_{p_{m + 1}}) \oplus \cdots \oplus (b_{p_n}
+\oplus a_{p_n}) = \oplus_{i = 1}^n a_i
+\]</span> 我们记 <span class="math inline">\(A = \oplus_{i = 1}^n
+a_i\)</span>，<span class="math inline">\(S = \{a_i \oplus
+b_i\}\)</span>，这样我们的问题就变为了从 <span
+class="math inline">\(S\)</span> 中选一个子集异或和为 <span
+class="math inline">\(A\)</span> 的概率。</p>
+<p>显然把线性基搞出来，记线性基大小为 <span
+class="math inline">\(sz\)</span>，那么如果 <span
+class="math inline">\(A\)</span> 不能被表示出来，概率显然为 <span
+class="math inline">\(1\)</span>，如果 <span
+class="math inline">\(A\)</span> 能被表示出来，概率为 <span
+class="math inline">\(1 - \dfrac{2^{n - sz}}{2^n} = \dfrac{2^{sz} -
+1}{2^{sz}}\)</span>。</p>
+<p>时间复杂度 <span class="math inline">\(O(n\log V)\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/662/submission/206617173">Code</a></p>
+<h2 id="cf883i-photo-processing">CF883I Photo Processing</h2>
+<p>首先二分答案转为判定。</p>
+<p>我们记当前二分的值为 <span class="math inline">\(x\)</span>，考虑一个
+dp 的判定，首先将 <span class="math inline">\(a\)</span>
+进行排序，然后记 <span class="math inline">\(f_i\)</span> 表示以 <span
+class="math inline">\(i\)</span> 结尾是否合法，那么我们显然有转移 <span
+class="math inline">\(f_i = [\sum_{j \in [0, i - m], a_{j + 1} \ge a_i -
+x} f_j &gt; 0]\)</span>。这样直接转移是 <span
+class="math inline">\(O(n^2)\)</span> 的。观察到对于每一个 <span
+class="math inline">\(i\)</span>，转移的 <span
+class="math inline">\(j\)</span>
+是一个连续的区间，所以可以使用树状数组优化至 <span
+class="math inline">\(O(n\log^2n)\)</span>。<a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/883/submission/206656244">Code</a></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
 
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2023/05/03/P4069%20%E6%B8%B8%E6%88%8F/" rel="prev" title="【题解】P4069 游戏">
-                  <i class="fa fa-chevron-left"></i> 【题解】P4069 游戏
-                </a>
-            </div>
-            <div class="post-nav-item">
-            </div>
-          </div>
-    </footer>
-  </article>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+      
+    </div>
+  
 </div>
 
 
+              
+  
 
-
-
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Chenyu Wu</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【笔记】杂题乱做</div>
+      <div>http://example.com/2023/05/09/杂题乱做/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Chenyu Wu</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年5月9日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
   </div>
 
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/05/03/P4069%20%E6%B8%B8%E6%88%8F/" title="【题解】P4069 游戏">
+                        <span class="hidden-mobile">【题解】P4069 游戏</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"t245Q4YItEYBqdExI2GfUndq-gzGzoHsz","appKey":"D8HNtH7dDtivbfU4E2ltCD6y","path":"window.location.pathname","placeholder":"来说点什么吧...","avatar":"mp","meta":["mail"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
     </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
   </footer>
 
+  <!-- Scripts -->
   
-  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
 
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        MathJax = {
+          tex    : {
+            inlineMath: { '[+]': [['$', '$']] }
+          },
+          loader : {
+            load: ['ui/lazy']
+          },
+          options: {
+            renderActions: {
+              findScript    : [10, doc => {
+                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                  const display = !!node.type.match(/; *mode=display/);
+                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                  const text = document.createTextNode('');
+                  node.parentNode.replaceChild(text, node);
+                  math.start = { node: text, delim: '', n: 0 };
+                  math.end = { node: text, delim: '', n: 0 };
+                  doc.math.push(math);
+                });
+              }, '', false],
+              insertedScript: [200, () => {
+                document.querySelectorAll('mjx-container').forEach(node => {
+                  let target = node.parentNode;
+                  if (target.nodeName.toLowerCase() === 'li') {
+                    target.parentNode.classList.add('has-jax');
+                  }
+                });
+              }, '', false]
+            }
+          }
+        };
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
 
   
 
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://npm.elemecdn.com/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
-
-
-
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
