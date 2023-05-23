@@ -24,7 +24,7 @@
 <meta property="og:description" content="You and me, chasing down forever after.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-09T14:27:51.000Z">
-<meta property="article:modified_time" content="2023-05-20T23:16:46.965Z">
+<meta property="article:modified_time" content="2023-05-23T15:00:58.848Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -218,7 +218,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3.2k 字
+          4.4k 字
         
       </span>
     
@@ -230,7 +230,7 @@
         
         
           <!-- compatible with older versions-->
-          27 分钟
+          37 分钟
         
       </span>
     
@@ -462,6 +462,62 @@ class="math inline">\(j\)</span>
 是一个连续的区间，所以可以使用树状数组优化至 <span
 class="math inline">\(O(n\log^2n)\)</span>。<a
 target="_blank" rel="noopener" href="https://codeforces.com/contest/883/submission/206656244">Code</a></p>
+<h2 id="模拟赛t2-表达式求值">20230524模拟赛T2 表达式求值</h2>
+<blockquote>
+<p>给定 <span class="math inline">\(a_1, \ldots, a_n\)</span>，对于
+<span class="math inline">\(\forall i \in [1, n)\)</span>，在 <span
+class="math inline">\(a_i\)</span> 和 <span class="math inline">\(a_{i +
+1}\)</span> 放一个运算符号 <span class="math inline">\(opt_i \in \{+, -,
+\times\}\)</span>，你可以任意指定运算顺序，求这个表达式的值，两次运算不同当且仅当某一次选取的两个数不同，求所有情况得到的结果之和。<span
+class="math inline">\(1 \le n \le 500\)</span></p>
+</blockquote>
+<p>显然的区间 dp。设 <span class="math inline">\(f_{l, r}\)</span>
+表示区间 <span class="math inline">\([l, r]\)</span>
+所有情况下的结果之和，不难得到转移 <span class="math display">\[
+f_{l, r} = \sum_{k = l}^{r - 1}
+\begin{cases}
+\binom{r - l - 1}{k - l}[f_{l, k}(r - k - 1)! + f_{k + 1, r}(k - l)!]
+&amp; opt_k = + \\
+\binom{r - l - 1}{k - l}[f_{l, k}(r - k - 1)! - f_{k + 1, r}(k - l)!]
+&amp; opt_k = - \\
+\binom{r - l - 1}{k - l}f_{l, k}f_{k + 1, r} &amp; opt_k = \times
+\end{cases}
+\]</span> 稍微解释一下，我们计算 <span class="math inline">\(f_{l,
+r}\)</span> 的时候，考虑枚举中间所有的符号 <span
+class="math inline">\(k\)</span>，然后钦定 <span
+class="math inline">\(opt_k\)</span>
+是最后一个计算的，然后我们考虑对于每一个 <span
+class="math inline">\(k\)</span> 如何计算答案。</p>
+<p>对于 <span class="math inline">\(opt_k =
+\times\)</span>，左右的贡献显然是 <span class="math inline">\(f_{l,
+k}f_{k +1, r}\)</span>。</p>
+<p>对于 <span class="math inline">\(opt_k = +\)</span>，我们直接 <span
+class="math inline">\(f_{l, k} + f_{k + 1, r}\)</span>
+显然是错的，左右和的个数都不一样肯定不行，左边的每个和都要和右边的和做一次加法，而右边每个一共有
+<span class="math inline">\((r - k - 1)!\)</span>
+个和，同理，右边的每个和重复出现了 <span class="math inline">\((k -
+l)!\)</span> 次，所以答案为 <span class="math inline">\(f_{l, k}(r - k -
+1)! + f_{k + 1, r}(k - l)!\)</span>。</p>
+<p>对于 <span class="math inline">\(opt_k = -\)</span> 本质和 <span
+class="math inline">\(opt_k = +\)</span> 一致。</p>
+<p>但是这样我们会漏考虑一些东西，因为计算的顺序不同会重复贡献多次答案，而我们只统计了一次，所以我们每次再乘上
+<span class="math inline">\(\binom{r - l - 1}{k - l}\)</span>。</p>
+<p>时间复杂度 <span class="math inline">\(O(n^3)\)</span>。</p>
+<h2 id="hdu6125-free-from-square">HDU6125 Free from square</h2>
+<p>称 <span class="math inline">\(\le 19\)</span>
+的质数为小质数，其余为大质数。</p>
+<p>没有平方因子本质上就是每个素因子最多出现一次，所以我们考虑状压，设
+<span class="math inline">\(st_i\)</span> 表示第 <span
+class="math inline">\(i\)</span> 个数所代表的状态，<span
+class="math inline">\(f_{i, S}\)</span> 表示选了 <span
+class="math inline">\(i\)</span> 个，状态集合为 <span
+class="math inline">\(S\)</span> 的方案数，容易得到转移 <span
+class="math display">\[
+f_{i + 1, S | st_j} = f_{i + 1, s| st_j} + f_{j, S}[S \&amp; st_j = 0]
+\]</span>
+但这样显然是会寄的，观察到每个数分解完最多只会有一个大质数，所以我们可以对小质数状压，对大指数进行分组背包，这样就可以了。</p>
+<p>时间复杂度 <span class="math inline">\(O(2^8nk)\)</span>。<a
+target="_blank" rel="noopener" href="https://vjudge.net/solution/43082710">Code</a></p>
 
               
             </div>
