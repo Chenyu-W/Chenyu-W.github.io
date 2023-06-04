@@ -16,12 +16,12 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="前言 比赛策略巨大失误，连 F 都没来得及看就结束了。">
+    <meta name="description" content="前言比赛策略巨大失误，连 F 都没来得及看就结束了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【比赛】ABC276">
 <meta property="og:url" content="http://example.com/2022/11/06/ABC276/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="前言 比赛策略巨大失误，连 F 都没来得及看就结束了。">
+<meta property="og:description" content="前言比赛策略巨大失误，连 F 都没来得及看就结束了。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-06T01:05:43.000Z">
 <meta property="article:modified_time" content="2022-11-06T05:21:18.849Z">
@@ -219,7 +219,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          615 字
+          565 字
         
       </span>
     
@@ -231,7 +231,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          5 分钟
         
       </span>
     
@@ -273,47 +273,13 @@
             
             <div class="markdown-body">
               
-              <h2 id="前言">前言</h2>
-<p>比赛策略巨大失误，连 F 都没来得及看就结束了。</p>
+              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>比赛策略巨大失误，连 F 都没来得及看就结束了。</p>
 <span id="more"></span>
-<h2 id="思路-题解">思路 &amp; 题解</h2>
-<h3 id="a-b">A &amp;&amp; B</h3>
-<p>不解释。</p>
-<h3 id="c">C</h3>
-<p>一开始以为要用康拓展开，但是 <span
-class="math inline">\(100!\)</span>
-太大了很显然是不能的，所以我们可以把原题转换一下，输出比 <span
-class="math inline">\(A\)</span>
-字典序小中字典序最大的排列，那我们就想如何构造这个排列 <span
-class="math inline">\(B\)</span>，首先肯定有一个分界点 <span
-class="math inline">\(i\)</span>，使得 <span
-class="math inline">\((A_1,\ldots,A_{i-1})=(B_1,\ldots,B_{i-1})\)</span>
-因为要让 <span class="math inline">\(B\)</span>
-的字典序尽量大，所以我们的 <span class="math inline">\(i\)</span>
-也要大，那么什么样的 <span class="math inline">\(i\)</span>
-符合条件呢，观察到，如果 <span class="math inline">\(\exists j \in [i
-+1, n],A_j &lt; A_i\)</span>，那么我们就可以通过交换 <span
-class="math inline">\(A_i, A_j\)</span>
-来让字典序变小，然后我们从后往前扫描即可。找到这个位置后，因为我们要字典序最大，所以我们在
-<span class="math inline">\([i + 1, n]\)</span> 中找到 <span
-class="math inline">\(A_i\)</span> 的前驱，让它和 <span
-class="math inline">\(A_i\)</span>
-换一下位置，随后将剩下的部分排序即可。</p>
-<h3 id="d">D</h3>
-<p>预处理每个数 <span class="math inline">\(2\)</span> 的次数和 <span
-class="math inline">\(3\)</span> 的次数，记为 <span
-class="math inline">\(s2_i\)</span> 和 <span
-class="math inline">\(s3_i\)</span>，那么显然我们要把每个数的 <span
-class="math inline">\(2\)</span> 的次数变为 <span
-class="math inline">\(\min(s2_1,\ldots_,s2_n)\)</span>，<span
-class="math inline">\(3\)</span>
-的次数同理，然后暴力一下判断是否相等即可。</p>
-<h3 id="e">E</h3>
-<p>容易发现等价题目等价于有没有经过 <span
-class="math inline">\(S\)</span> 且长度 <span class="math inline">\(\ge
-4\)</span> 的环，于是把图建出来跑 e-DCC 缩点即可。</p>
-<h2 id="总结">总结</h2>
-<p>C 和 D 这种简单题花的时间太多了，下次要先理清思路再开码。</p>
+<h2 id="思路-amp-题解"><a href="#思路-amp-题解" class="headerlink" title="思路 &amp; 题解"></a>思路 &amp; 题解</h2><h3 id="A-amp-amp-B"><a href="#A-amp-amp-B" class="headerlink" title="A &amp;&amp; B"></a>A &amp;&amp; B</h3><p>不解释。</p>
+<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>一开始以为要用康拓展开，但是 $100!$ 太大了很显然是不能的，所以我们可以把原题转换一下，输出比 $A$ 字典序小中字典序最大的排列，那我们就想如何构造这个排列 $B$，首先肯定有一个分界点 $i$，使得 $(A<em>1,\ldots,A</em>{i-1})=(B<em>1,\ldots,B</em>{i-1})$ 因为要让 $B$ 的字典序尽量大，所以我们的 $i$ 也要大，那么什么样的 $i$ 符合条件呢，观察到，如果 $\exists j \in [i +1, n],A_j &lt; A_i$，那么我们就可以通过交换 $A_i, A_j$ 来让字典序变小，然后我们从后往前扫描即可。找到这个位置后，因为我们要字典序最大，所以我们在 $[i + 1, n]$ 中找到 $A_i$ 的前驱，让它和 $A_i$ 换一下位置，随后将剩下的部分排序即可。</p>
+<h3 id="D"><a href="#D" class="headerlink" title="D"></a>D</h3><p>预处理每个数 $2$ 的次数和 $3$ 的次数，记为 $s2<em>i$ 和 $s3_i$，那么显然我们要把每个数的 $2$ 的次数变为 $\min(s2_1,\ldots</em>,s2_n)$，$3$ 的次数同理，然后暴力一下判断是否相等即可。</p>
+<h3 id="E"><a href="#E" class="headerlink" title="E"></a>E</h3><p>容易发现等价题目等价于有没有经过 $S$ 且长度 $\ge 4$ 的环，于是把图建出来跑 e-DCC 缩点即可。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>C 和 D 这种简单题花的时间太多了，下次要先理清思路再开码。</p>
 
               
             </div>
