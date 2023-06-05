@@ -16,12 +16,12 @@
   <meta name="author" content="Chenyu Wu">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Day -???whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。">
+    <meta name="description" content="Day -??? whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【游记】2022国庆集训游记">
 <meta property="og:url" content="http://example.com/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="Day -???whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。">
+<meta property="og:description" content="Day -??? whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-10-02T23:08:49.000Z">
 <meta property="article:modified_time" content="2022-10-10T11:48:04.967Z">
@@ -218,7 +218,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          625 字
+          653 字
         
       </span>
     
@@ -272,15 +272,38 @@
             
             <div class="markdown-body">
               
-              <h2 id="Day"><a href="#Day" class="headerlink" title="Day -???"></a>Day -???</h2><p>whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。</p>
+              <h2 id="day--">Day -???</h2>
+<p>whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。</p>
 <span id="more"></span>
-<h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>打的是NOIP的场，花十分钟看了一眼四题题面：T1纯数学，T2有点一眼，T3和T4不在我的能力范围，考虑T2图论题我比较擅长，于是先去推T1的式子，然后推着推着发现好像有容斥的做法，随便打了一下发现过不了样例，然后发现 <code>k</code> 打成 <code>k + 1</code> 了，改掉就过样例了，又拍上了小数据，感觉问题不大。然后看T2发现是个tarjan的一眼题，花了 $10$ 分钟口胡了一个 tarjan + 拓扑排序的做法，感觉能A，剩下的时间就在上拍了。估分 $100 + 100 + 0 + 0 = 200$，中午出分，发现只有 $100 + 70 + 0 + 0 = 170$，一看T2三个点T掉，原来是XJB去重边多了个 $\log$，改掉就过了，wssb。</p>
-<h3 id="Day1-题解"><a href="#Day1-题解" class="headerlink" title="Day1 题解"></a>Day1 题解</h3><h4 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h4><p>考虑容斥，全集大小 $|U| = \binom{m - 1}{n - 1}$，所以我们考虑用全集大小减去至少有一个数大于 $k$ 的情况，不难发现求解恰有 $j$ 个数大于 $k$ 就相当于求解方程</p>
-<script type="math/tex; mode=display">
-\sum_{i=1}^n x_i = m - jk</script><p>的正整数解个数，加上容斥即可知答案为</p>
-<script type="math/tex; mode=display">
-\sum_{i=0}^{n} (-1)^i\binom{n}{i}\binom{m - ik - 1}{n - 1}</script><h4 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h4><p>考虑什么情况下会出现 $i$ 和 $j$ 至少能有一方可达，不难发现用tarjan缩点过后新图中的一段链满足要求，所以直接tarjan+拓扑排序即可通过。</p>
-<h2 id="Day2-amp-amp-Day3"><a href="#Day2-amp-amp-Day3" class="headerlink" title="Day2 &amp;&amp; Day3"></a>Day2 &amp;&amp; Day3</h2><p>两天合起来挂了170分，不想写了。</p>
+<h2 id="day-1">Day 1</h2>
+<p>打的是NOIP的场，花十分钟看了一眼四题题面：T1纯数学，T2有点一眼，T3和T4不在我的能力范围，考虑T2图论题我比较擅长，于是先去推T1的式子，然后推着推着发现好像有容斥的做法，随便打了一下发现过不了样例，然后发现
+<code>k</code> 打成 <code>k + 1</code>
+了，改掉就过样例了，又拍上了小数据，感觉问题不大。然后看T2发现是个tarjan的一眼题，花了
+<span class="math inline">\(10\)</span> 分钟口胡了一个 tarjan +
+拓扑排序的做法，感觉能A，剩下的时间就在上拍了。估分 <span
+class="math inline">\(100 + 100 + 0 + 0 =
+200\)</span>，中午出分，发现只有 <span class="math inline">\(100 + 70 +
+0 + 0 = 170\)</span>，一看T2三个点T掉，原来是XJB去重边多了个 <span
+class="math inline">\(\log\)</span>，改掉就过了，wssb。</p>
+<h3 id="day1-题解">Day1 题解</h3>
+<h4 id="t1">T1</h4>
+<p>考虑容斥，全集大小 <span class="math inline">\(|U| = \binom{m - 1}{n
+- 1}\)</span>，所以我们考虑用全集大小减去至少有一个数大于 <span
+class="math inline">\(k\)</span> 的情况，不难发现求解恰有 <span
+class="math inline">\(j\)</span> 个数大于 <span
+class="math inline">\(k\)</span> 就相当于求解方程 <span
+class="math display">\[
+\sum_{i=1}^n x_i = m - jk
+\]</span> 的正整数解个数，加上容斥即可知答案为 <span
+class="math display">\[
+\sum_{i=0}^{n} (-1)^i\binom{n}{i}\binom{m - ik - 1}{n - 1}
+\]</span></p>
+<h4 id="t2">T2</h4>
+<p>考虑什么情况下会出现 <span class="math inline">\(i\)</span> 和 <span
+class="math inline">\(j\)</span>
+至少能有一方可达，不难发现用tarjan缩点过后新图中的一段链满足要求，所以直接tarjan+拓扑排序即可通过。</p>
+<h2 id="day2-day3">Day2 &amp;&amp; Day3</h2>
+<p>两天合起来挂了170分，不想写了。</p>
 
               
             </div>
