@@ -1,786 +1,457 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-  <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="Chenyu Wu">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="前言偶然发现去年寒假给的计数题题单还没有做，所以补一波题。">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言 偶然发现去年寒假给的计数题题单还没有做，所以补一波题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】简单计数题乱做">
 <meta property="og:url" content="http://example.com/2022/11/03/%E7%AE%80%E5%8D%95%E8%AE%A1%E6%95%B0%E9%A2%98%E4%B9%B1%E5%81%9A/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="前言偶然发现去年寒假给的计数题题单还没有做，所以补一波题。">
+<meta property="og:description" content="前言 偶然发现去年寒假给的计数题题单还没有做，所以补一波题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-03T05:05:37.000Z">
 <meta property="article:modified_time" content="2023-05-09T14:27:09.186Z">
 <meta property="article:author" content="Chenyu Wu">
 <meta property="article:tag" content="笔记">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>【笔记】简单计数题乱做 - wcy&#39;s blog</title>
+<meta name="twitter:card" content="summary">
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+<link rel="canonical" href="http://example.com/2022/11/03/%E7%AE%80%E5%8D%95%E8%AE%A1%E6%95%B0%E9%A2%98%E4%B9%B1%E5%81%9A/">
 
 
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/11/03/%E7%AE%80%E5%8D%95%E8%AE%A1%E6%95%B0%E9%A2%98%E4%B9%B1%E5%81%9A/","path":"2022/11/03/简单计数题乱做/","title":"【笔记】简单计数题乱做"}</script>
 
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【笔记】简单计数题乱做 | wcy's blog</title>
   
 
 
 
 
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-
-  
-<meta name="generator" content="Hexo 6.2.0"></head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>WuChenyu&#39;s blog</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                首页
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                归档
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                分类
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                标签
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                关于
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="【笔记】简单计数题乱做"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-03 13:05" pubdate>
-          2022年11月3日 下午
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          <!-- compatible with older versions-->
-          2.2k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          <!-- compatible with older versions-->
-          18 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">【笔记】简单计数题乱做</h1>
-            
-            <div class="markdown-body">
-              
-              <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>偶然发现去年寒假给的计数题题单还没有做，所以补一波题。</p>
-<span id="more"></span>
-<h2 id="CF1462E2-Close-Tuples-hard-version"><a href="#CF1462E2-Close-Tuples-hard-version" class="headerlink" title="CF1462E2 Close Tuples (hard version)"></a>CF1462E2 Close Tuples (hard version)</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1462E2">题目传送门</a></p>
-<p>观察到极差和数组顺序是无关的，所以题目中子序列的要求其实是假的。</p>
-<p>然后我们把 $a$ 数组排序，对每一个 $i$ 枚举当 $a<em>i$ 为最小值的贡献。观察到当左端点 $i$ 固定时，如果 $j$ 是一个满足条件的右端点，那么 $(i, j)$ 中的点也必定是满足条件的最大值，我们可以在 $a$ 中二分出 $a_i + k$ 的前驱，假设这个前驱的下标为 $j$，那么这个左端点 $i$ 的贡献即为 $\sum</em>{k=1}^{j - i - 1} \binom{k}{m - 2}$ (中间的每个数都可以和点 $i$ 匹配，所以要计算中间每个点的贡献)，预处理组合数的前缀和即可做到预处理 $O(nm)$，查询 $O(n\log n)$。</p>
-<h2 id="CF1442B-Identify-the-Operations"><a href="#CF1442B-Identify-the-Operations" class="headerlink" title="CF1442B Identify the Operations"></a>CF1442B Identify the Operations</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1442B">题目传送门</a></p>
-<p>对于每一个 $b_i$，我们考虑它被加入进去的过程，显然是分为 $t - 1$ 被删和 $t + 1$ 被删这两种情况，所以答案肯定是 $2$ 的次幂。</p>
-<p>对于每一个 $b_i$，我们考虑删去左边和删去右边的合法性，我们设当前要删去的数为 $x$，那么删去 $x$ 合法当且仅当 $x$ 不存在 $b$ 中或 $x$ 在 $b$ 中出现的更早，最后把所有贡献乘在一起即可，时间复杂度 $O(n)$。</p>
-<h2 id="CF1444B-Divide-and-Sum"><a href="#CF1444B-Divide-and-Sum" class="headerlink" title="CF1444B Divide and Sum"></a>CF1444B Divide and Sum</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1444B">题目传送门</a></p>
-<p>手玩了几组发现每一个划分的值都是相等的，所以我们不妨来证明一下这个结论。</p>
-<p>结论:每个划分的值都为 $a$ 中较大的 $n$ 个数减去 $a$ 中较小的 $n$ 个数。</p>
-<p>证明过程是轻松的，首先我们看到绝对值符号，考虑分正负进行讨论，然后我们发现结论成立当且仅当不会有在一个部分的数被分为一组，那这个是很显然的，因为根据题设，对于每个 $i$ 来说，$p_i$ 都至多为原序列的第 $i$ 大，而 $q_i$ 都至多为原序列的第 $i$ 小，所以不会出现前文所述的情况，然后因为我们要统计所有贡献，我们乘上一个 $\binom{2n}{n}$ 即可。</p>
-<h2 id="CF1422C-Bargain"><a href="#CF1422C-Bargain" class="headerlink" title="CF1422C Bargain"></a>CF1422C Bargain</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1422C">题目传送门</a></p>
-<p>考虑 DP，用 $f_i$ 表示 $[1, i]$ 的总价值，转移时进行分类讨论。</p>
-<p>我们令 $k_i$ 表示 $[1, i]$ 拼成的数，然后我们就可以对 $f_i$ 进行转移。</p>
-<ol>
-<li>如果我们删去 $i$，那么此时的价值为 $\sum_{j=1}^{i - 1}k_i$</li>
-<li>如果我们不删去 $i$，那么 $a<em>i$ 肯定会出现在当前结果的末尾，处理完前 $i - 1$ 位时，一共有 $\frac{i(i - 1)}{2}$ 可能的结果，所以价值为 $10f</em>{i-1} + \frac{i(i - 1)}{2}a_i$</li>
-</ol>
-<p>综上，我们得到转移</p>
-<script type="math/tex; mode=display">
-f_i = \sum_{j=1}^{i-1}k_i + 10f_{i - 1} + \frac{i(i - 1)}{2}a_i</script><p>但我们不难发现我们的 $f_i$ 包含一个都不删的贡献，减去即可，然后我们预处理 $k$ 的前缀和即可做到 $O(n)$。</p>
-<h2 id="CF1420D-Rescue-Nibel"><a href="#CF1420D-Rescue-Nibel" class="headerlink" title="CF1420D Rescue Nibel!"></a>CF1420D Rescue Nibel!</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1420D">题目传送门</a></p>
-<p>一个朴素的做法是，离散化之后差分一下，统计出覆盖每个位置的线段数量，然后直接组合数统计，但是这样显然是会算重的，为什么呢？显然，对于一个可能的交集，他的贡献被交集中的每个点都算了一遍，那如何解决呢？显然，对于一个可能的交集，我们只选取其中的一个点来计算它的贡献即可，所以我们不难想到只统计每一个点 $x$ 作为交集左端点时的贡献，根据容斥原理，我们可以得到 $x$ 这个点的贡献为</p>
-<script type="math/tex; mode=display">
-\binom{s}{k} - \binom{s - t}{k}</script><p>其中 $s$ 代表覆盖点 $x$ 的线段数量， $t$ 代表以 $x$ 为左端点的线段数量，然后我们就有了这个 $O(n\log n)$ 做法。</p>
-<h2 id="CF1400D-Zigzags"><a href="#CF1400D-Zigzags" class="headerlink" title="CF1400D Zigzags"></a>CF1400D Zigzags</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1400D">题目传送门</a></p>
-<p>比较一眼，令 $s_{i, j}$ 为前 $i$ 个数中 $j$ 的出现次数，我们显然枚举中间的两个数，易得答案为</p>
-<script type="math/tex; mode=display">
-\sum_{i=2}^n\sum_{j=i+1}^n s_{i - 1,a_i}(s_{n,a_i} - s_{j, a_i})</script><p>时间复杂度 $O(n ^ 2)$。</p>
-<h2 id="CF1239D-Dreamoon-Likes-Sequences"><a href="#CF1239D-Dreamoon-Likes-Sequences" class="headerlink" title="CF1239D Dreamoon Likes Sequences"></a>CF1239D Dreamoon Likes Sequences</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1329B">题目传送门</a></p>
-<p>暑假模拟赛原题，当时推了许久的结论，被 cjw 神仙的 $O(\log^3d)$ DP 但好想的方法薄纱。</p>
-<p>结论，设 $c_1, c_2, \ldots,c_n$ 分别为 $a_1, a_2,\ldots,a_n$ 二进制下的位数，则有 $c_1 &lt; c_2 &lt; \cdots &lt; c_n$。</p>
-<p>证明：首先有 $c<em>1 \le c_2 \le \cdots \le c_n$，所以我们只需证不能取等即可，观察到如果有任意的 $c_i = c</em>{i + 1}$，根据异或的性质，我们必定有 $b<em>i &lt; b</em>{i + 1}$，所以结论成立，那么知道结论后，一位一位算贡献即可，时间复杂度 $O(\log d)$。</p>
-<h2 id="CF1279D-Santa’s-Bot"><a href="#CF1279D-Santa’s-Bot" class="headerlink" title="CF1279D Santa’s Bot"></a>CF1279D Santa’s Bot</h2><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1279D">题目传送门</a></p>
-<p>依旧是暑假模拟赛原题，比较入门的一道概率题，首先我们考虑怎么算单个 $y \in a_x$ 合法的概率，首先，我们抽到这个 $y$ 的概率为 $\frac{1}{nk_x}$，我们令 $s_x$ 表示含有 $x$ 的集合个数，这时抽到合法的 $z$ 的概率就是 $\frac{s_y}{n}$，然后我们把所有 $y \in a_x$ 的可能全部算一遍即可得到答案为</p>
-<script type="math/tex; mode=display">
-\sum_{x=1}^n\sum_{y\in a_x} \frac{s_y}{n^2k_x}</script>
-              
-            </div>
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/%E7%AC%94%E8%AE%B0/" class="category-chain-item">笔记</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>【笔记】简单计数题乱做</div>
-      <div>http://example.com/2022/11/03/简单计数题乱做/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>Chenyu Wu</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2022年11月3日</div>
-        </div>
-      
-      
-      <div class="license-meta-item">
-        <div>许可协议</div>
-        <div>
-          
-            
-            
-              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-              <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                <i class="iconfont icon-by"></i>
-              </span>
-              </a>
-            
-          
-        </div>
-      </div>
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/11/05/AT-HHKB2020-E%20Lamps/" title="【题解】AT_HHKB2020_E Lamps">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【题解】AT_HHKB2020_E Lamps</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/11/02/CF1062E%20Company/" title="【题解】CF1062E Company">
-                        <span class="hidden-mobile">【题解】CF1062E Company</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-  <article id="comments" lazyload>
-    
-  <div id="valine"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#valine', function() {
-      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
-        var options = Object.assign(
-          {"appId":"t245Q4YItEYBqdExI2GfUndq-gzGzoHsz","appKey":"D8HNtH7dDtivbfU4E2ltCD6y","path":"window.location.pathname","placeholder":"来说点什么吧...","avatar":"mp","meta":["mail"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
-          {
-            el: "#valine",
-            path: window.location.pathname
-          }
-        )
-        new Valine(options);
-        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
-          var imgSelector = '#valine .vcontent img:not(.vemoji)';
-          Fluid.plugins.imageCaption(imgSelector);
-          Fluid.plugins.fancyBox(imgSelector);
-        })
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
-
-
-  </article>
-
-
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-  
-  
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
-<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      collapseDepth   : CONFIG.toc.collapseDepth || 0,
-      scrollSmooth    : true,
-      headingsOffset  : -boardTop
-    });
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-  });
-</script>
-
-
-  <script>
-  (function() {
-    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
-    var enableCopy = CONFIG.copy_btn;
-    if (!enableLang && !enableCopy) {
-      return;
-    }
-
-    function getBgClass(ele) {
-      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
-    }
-
-    var copyTmpl = '';
-    copyTmpl += '<div class="code-widget">';
-    copyTmpl += 'LANG';
-    copyTmpl += '</div>';
-    jQuery('.markdown-body pre').each(function() {
-      var $pre = jQuery(this);
-      if ($pre.find('code.mermaid').length > 0) {
-        return;
-      }
-      if ($pre.find('span.line').length > 0) {
-        return;
-      }
-
-      var lang = '';
-
-      if (enableLang) {
-        lang = CONFIG.code_language.default;
-        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
-          lang = $pre[0].children[0].classList[1];
-        } else if ($pre[0].getAttribute('data-language')) {
-          lang = $pre[0].getAttribute('data-language');
-        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
-          lang = $pre[0].children[0].classList[1];
-          $pre.parent().addClass('code-wrapper');
-        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
-          $pre.wrap('<div class="code-wrapper"></div>');
-        }
-        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
-      }
-      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
-        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
-
-      if (enableCopy) {
-        Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js', function() {
-          var clipboard = new window.ClipboardJS('.copy-btn', {
-            target: function(trigger) {
-              var nodes = trigger.parentNode.childNodes;
-              for (var i = 0; i < nodes.length; i++) {
-                if (nodes[i].tagName === 'CODE') {
-                  return nodes[i];
-                }
-              }
-            }
-          });
-          clipboard.on('success', function(e) {
-            e.clearSelection();
-            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
-            setTimeout(function() {
-              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
-            }, 2000);
-          });
-        });
-      }
-    });
-  })();
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        MathJax = {
-          tex    : {
-            inlineMath: { '[+]': [['$', '$']] }
-          },
-          loader : {
-            load: ['ui/lazy']
-          },
-          options: {
-            renderActions: {
-              findScript    : [10, doc => {
-                document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-                  const display = !!node.type.match(/; *mode=display/);
-                  const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-                  const text = document.createTextNode('');
-                  node.parentNode.replaceChild(text, node);
-                  math.start = { node: text, delim: '', n: 0 };
-                  math.end = { node: text, delim: '', n: 0 };
-                  doc.math.push(math);
-                });
-              }, '', false],
-              insertedScript: [200, () => {
-                document.querySelectorAll('mjx-container').forEach(node => {
-                  let target = node.parentNode;
-                  if (target.nodeName.toLowerCase() === 'li') {
-                    target.parentNode.classList.add('has-jax');
-                  }
-                });
-              }, '', false]
-            }
-          }
-        };
-      </script>
-    
-
-  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" ></script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
 
   <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+    <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">wcy's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1462e2-close-tuples-hard-version"><span class="nav-number">2.</span> <span class="nav-text">CF1462E2 Close Tuples (hard
+version)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1442b-identify-the-operations"><span class="nav-number">3.</span> <span class="nav-text">CF1442B Identify the
+Operations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1444b-divide-and-sum"><span class="nav-number">4.</span> <span class="nav-text">CF1444B Divide and Sum</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1422c-bargain"><span class="nav-number">5.</span> <span class="nav-text">CF1422C Bargain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1420d-rescue-nibel"><span class="nav-number">6.</span> <span class="nav-text">CF1420D Rescue Nibel!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1400d-zigzags"><span class="nav-number">7.</span> <span class="nav-text">CF1400D Zigzags</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1239d-dreamoon-likes-sequences"><span class="nav-number">8.</span> <span class="nav-text">CF1239D Dreamoon Likes
+Sequences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1279d-santas-bot"><span class="nav-number">9.</span> <span class="nav-text">CF1279D Santa&#39;s Bot</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chenyu Wu"
+      src="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <p class="site-author-name" itemprop="name">Chenyu Wu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/03/%E7%AE%80%E5%8D%95%E8%AE%A1%E6%95%B0%E9%A2%98%E4%B9%B1%E5%81%9A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+      <meta itemprop="name" content="Chenyu Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【笔记】简单计数题乱做 | wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【笔记】简单计数题乱做
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-03 13:05:37" itemprop="dateCreated datePublished" datetime="2022-11-03T13:05:37+08:00">2022-11-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-05-09 22:27:09" itemprop="dateModified" datetime="2023-05-09T22:27:09+08:00">2023-05-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="前言">前言</h2>
+<p>偶然发现去年寒假给的计数题题单还没有做，所以补一波题。</p>
+<span id="more"></span>
+<h2 id="cf1462e2-close-tuples-hard-version">CF1462E2 Close Tuples (hard
+version)</h2>
+<p><a
+target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1462E2">题目传送门</a></p>
+<p>观察到极差和数组顺序是无关的，所以题目中子序列的要求其实是假的。</p>
+<p>然后我们把 <span class="math inline">\(a\)</span> 数组排序，对每一个
+<span class="math inline">\(i\)</span> 枚举当 <span
+class="math inline">\(a_i\)</span> 为最小值的贡献。观察到当左端点 <span
+class="math inline">\(i\)</span> 固定时，如果 <span
+class="math inline">\(j\)</span> 是一个满足条件的右端点，那么 <span
+class="math inline">\((i, j)\)</span>
+中的点也必定是满足条件的最大值，我们可以在 <span
+class="math inline">\(a\)</span> 中二分出 <span
+class="math inline">\(a_i + k\)</span> 的前驱，假设这个前驱的下标为
+<span class="math inline">\(j\)</span>，那么这个左端点 <span
+class="math inline">\(i\)</span> 的贡献即为 <span
+class="math inline">\(\sum_{k=1}^{j - i - 1} \binom{k}{m - 2}\)</span>
+(中间的每个数都可以和点 <span class="math inline">\(i\)</span>
+匹配，所以要计算中间每个点的贡献)，预处理组合数的前缀和即可做到预处理
+<span class="math inline">\(O(nm)\)</span>，查询 <span
+class="math inline">\(O(n\log n)\)</span>。</p>
+<h2 id="cf1442b-identify-the-operations">CF1442B Identify the
+Operations</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1442B">题目传送门</a></p>
+<p>对于每一个 <span
+class="math inline">\(b_i\)</span>，我们考虑它被加入进去的过程，显然是分为
+<span class="math inline">\(t - 1\)</span> 被删和 <span
+class="math inline">\(t + 1\)</span> 被删这两种情况，所以答案肯定是
+<span class="math inline">\(2\)</span> 的次幂。</p>
+<p>对于每一个 <span
+class="math inline">\(b_i\)</span>，我们考虑删去左边和删去右边的合法性，我们设当前要删去的数为
+<span class="math inline">\(x\)</span>，那么删去 <span
+class="math inline">\(x\)</span> 合法当且仅当 <span
+class="math inline">\(x\)</span> 不存在 <span
+class="math inline">\(b\)</span> 中或 <span
+class="math inline">\(x\)</span> 在 <span
+class="math inline">\(b\)</span>
+中出现的更早，最后把所有贡献乘在一起即可，时间复杂度 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h2 id="cf1444b-divide-and-sum">CF1444B Divide and Sum</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1444B">题目传送门</a></p>
+<p>手玩了几组发现每一个划分的值都是相等的，所以我们不妨来证明一下这个结论。</p>
+<p>结论:每个划分的值都为 <span class="math inline">\(a\)</span> 中较大的
+<span class="math inline">\(n\)</span> 个数减去 <span
+class="math inline">\(a\)</span> 中较小的 <span
+class="math inline">\(n\)</span> 个数。</p>
+<p>证明过程是轻松的，首先我们看到绝对值符号，考虑分正负进行讨论，然后我们发现结论成立当且仅当不会有在一个部分的数被分为一组，那这个是很显然的，因为根据题设，对于每个
+<span class="math inline">\(i\)</span> 来说，<span
+class="math inline">\(p_i\)</span> 都至多为原序列的第 <span
+class="math inline">\(i\)</span> 大，而 <span
+class="math inline">\(q_i\)</span> 都至多为原序列的第 <span
+class="math inline">\(i\)</span>
+小，所以不会出现前文所述的情况，然后因为我们要统计所有贡献，我们乘上一个
+<span class="math inline">\(\binom{2n}{n}\)</span> 即可。</p>
+<h2 id="cf1422c-bargain">CF1422C Bargain</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1422C">题目传送门</a></p>
+<p>考虑 DP，用 <span class="math inline">\(f_i\)</span> 表示 <span
+class="math inline">\([1, i]\)</span> 的总价值，转移时进行分类讨论。</p>
+<p>我们令 <span class="math inline">\(k_i\)</span> 表示 <span
+class="math inline">\([1, i]\)</span> 拼成的数，然后我们就可以对 <span
+class="math inline">\(f_i\)</span> 进行转移。</p>
+<ol type="1">
+<li>如果我们删去 <span
+class="math inline">\(i\)</span>，那么此时的价值为 <span
+class="math inline">\(\sum_{j=1}^{i - 1}k_i\)</span></li>
+<li>如果我们不删去 <span class="math inline">\(i\)</span>，那么 <span
+class="math inline">\(a_i\)</span> 肯定会出现在当前结果的末尾，处理完前
+<span class="math inline">\(i - 1\)</span> 位时，一共有 <span
+class="math inline">\(\frac{i(i - 1)}{2}\)</span> 可能的结果，所以价值为
+<span class="math inline">\(10f_{i-1} + \frac{i(i -
+1)}{2}a_i\)</span></li>
+</ol>
+<p>综上，我们得到转移 <span class="math display">\[
+f_i = \sum_{j=1}^{i-1}k_i + 10f_{i - 1} + \frac{i(i - 1)}{2}a_i
+\]</span> 但我们不难发现我们的 <span class="math inline">\(f_i\)</span>
+包含一个都不删的贡献，减去即可，然后我们预处理 <span
+class="math inline">\(k\)</span> 的前缀和即可做到 <span
+class="math inline">\(O(n)\)</span>。</p>
+<h2 id="cf1420d-rescue-nibel">CF1420D Rescue Nibel!</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1420D">题目传送门</a></p>
+<p>一个朴素的做法是，离散化之后差分一下，统计出覆盖每个位置的线段数量，然后直接组合数统计，但是这样显然是会算重的，为什么呢？显然，对于一个可能的交集，他的贡献被交集中的每个点都算了一遍，那如何解决呢？显然，对于一个可能的交集，我们只选取其中的一个点来计算它的贡献即可，所以我们不难想到只统计每一个点
+<span class="math inline">\(x\)</span>
+作为交集左端点时的贡献，根据容斥原理，我们可以得到 <span
+class="math inline">\(x\)</span> 这个点的贡献为 <span
+class="math display">\[
+\binom{s}{k} - \binom{s - t}{k}
+\]</span> 其中 <span class="math inline">\(s\)</span> 代表覆盖点 <span
+class="math inline">\(x\)</span> 的线段数量， <span
+class="math inline">\(t\)</span> 代表以 <span
+class="math inline">\(x\)</span> 为左端点的线段数量，然后我们就有了这个
+<span class="math inline">\(O(n\log n)\)</span> 做法。</p>
+<h2 id="cf1400d-zigzags">CF1400D Zigzags</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1400D">题目传送门</a></p>
+<p>比较一眼，令 <span class="math inline">\(s_{i, j}\)</span> 为前 <span
+class="math inline">\(i\)</span> 个数中 <span
+class="math inline">\(j\)</span>
+的出现次数，我们显然枚举中间的两个数，易得答案为 <span
+class="math display">\[
+\sum_{i=2}^n\sum_{j=i+1}^n s_{i - 1,a_i}(s_{n,a_i} - s_{j, a_i})
+\]</span> 时间复杂度 <span class="math inline">\(O(n ^ 2)\)</span>。</p>
+<h2 id="cf1239d-dreamoon-likes-sequences">CF1239D Dreamoon Likes
+Sequences</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1329B">题目传送门</a></p>
+<p>暑假模拟赛原题，当时推了许久的结论，被 cjw 神仙的 <span
+class="math inline">\(O(\log^3d)\)</span> DP 但好想的方法薄纱。</p>
+<p>结论，设 <span class="math inline">\(c_1, c_2, \ldots,c_n\)</span>
+分别为 <span class="math inline">\(a_1, a_2,\ldots,a_n\)</span>
+二进制下的位数，则有 <span class="math inline">\(c_1 &lt; c_2 &lt;
+\cdots &lt; c_n\)</span>。</p>
+<p>证明：首先有 <span class="math inline">\(c_1 \le c_2 \le \cdots \le
+c_n\)</span>，所以我们只需证不能取等即可，观察到如果有任意的 <span
+class="math inline">\(c_i = c_{i +
+1}\)</span>，根据异或的性质，我们必定有 <span class="math inline">\(b_i
+&lt; b_{i +
+1}\)</span>，所以结论成立，那么知道结论后，一位一位算贡献即可，时间复杂度
+<span class="math inline">\(O(\log d)\)</span>。</p>
+<h2 id="cf1279d-santas-bot">CF1279D Santa's Bot</h2>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF1279D">题目传送门</a></p>
+<p>依旧是暑假模拟赛原题，比较入门的一道概率题，首先我们考虑怎么算单个
+<span class="math inline">\(y \in a_x\)</span>
+合法的概率，首先，我们抽到这个 <span class="math inline">\(y\)</span>
+的概率为 <span class="math inline">\(\frac{1}{nk_x}\)</span>，我们令
+<span class="math inline">\(s_x\)</span> 表示含有 <span
+class="math inline">\(x\)</span> 的集合个数，这时抽到合法的 <span
+class="math inline">\(z\)</span> 的概率就是 <span
+class="math inline">\(\frac{s_y}{n}\)</span>，然后我们把所有 <span
+class="math inline">\(y \in a_x\)</span> 的可能全部算一遍即可得到答案为
+<span class="math display">\[
+\sum_{x=1}^n\sum_{y\in a_x} \frac{s_y}{n^2k_x}
+\]</span></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/11/02/CF1062E%20Company/" rel="prev" title="【题解】CF1062E Company">
+                  <i class="fa fa-chevron-left"></i> 【题解】CF1062E Company
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/05/AT-HHKB2020-E%20Lamps/" rel="next" title="【题解】AT_HHKB2020_E Lamps">
+                  【题解】AT_HHKB2020_E Lamps <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenyu Wu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://npm.elemecdn.com/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
 </body>
 </html>
