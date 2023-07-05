@@ -1,1106 +1,976 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
 <head>
   <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-  <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="icon" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chenyu Wu">
+  <meta name="keywords" content="">
+  
     <meta property="og:type" content="website">
 <meta property="og:title" content="wcy&#39;s blog">
 <meta property="og:url" content="http://example.com/page/5/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Chenyu Wu">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>wcy&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
 
-<link rel="canonical" href="http://example.com/page/5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/5/index.html","title":""}</script>
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
 
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>wcy's blog</title>
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
 
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
 
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
 
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
 
-  <div class="site-meta">
+<body>
+  
 
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">wcy's blog</h1>
-      <i class="logo-line"></i>
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>WuChenyu&#39;s blog</strong>
     </a>
-  </div>
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
   </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
-  </ul>
 </nav>
 
-
-
-
-</div>
-        
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
 
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Life Oriented Programming"></span>
+          
         </div>
-        <!--/noindex-->
 
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="Chenyu Wu"
-      src="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-  <p class="site-author-name" itemprop="name">Chenyu Wu</p>
-  <div class="site-description" itemprop="description"></div>
+        
+      </div>
+
+      
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
+      
+    </div>
+  </div>
 </div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">82</span>
-          <span class="site-state-item-name">日志</span>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/31/CSP2022%20VP%E5%AF%84/" target="_self">
+          【游记】CSP2022 VP寄
         </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">30</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
-</div>
+      </h1>
 
-
-
+      <a class="index-excerpt" href="/2022/10/31/CSP2022%20VP%E5%AF%84/" target="_self">
+        <div>
+          
+          Day -? FZ因不可抗力取消了 CSP，只能线上 VP。
         </div>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
+      </a>
 
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-31 07:48" pubdate>
+              2022-10-31
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
-    </header>
-
+<span class="category-chains">
+  
+  
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B8%B8%E8%AE%B0/" class="category-chain-item">游记</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/trick/">#trick</a>
+            
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
+            
+          </div>
+        
+      </div>
+    </article>
   </div>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner index posts-expand">
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/31/CSP2022%20VP%E5%AF%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/31/CSP2022%20VP%E5%AF%84/" class="post-title-link" itemprop="url">【游记】CSP2022 VP寄</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-31 07:48:11 / 修改时间：09:39:13" itemprop="dateCreated datePublished" datetime="2022-10-31T07:48:11+08:00">2022-10-31</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
+  <div class="row mx-auto index-card">
     
     
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Day"><a href="#Day" class="headerlink" title="Day -?"></a>Day -?</h2><p>FZ因不可抗力取消了 CSP，只能线上 VP。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/31/CSP2022%20VP%E5%AF%84/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
         
-      
-    </div>
+        <a href="/2022/10/27/SP26017%20GCDMAT/" target="_self">
+          【题解】SP26017 GCDMAT
+        </a>
+      </h1>
 
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/27/SP26017%20GCDMAT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/27/SP26017%20GCDMAT/" class="post-title-link" itemprop="url">【题解】SP26017 GCDMAT</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-27 15:34:12 / 修改时间：16:16:07" itemprop="dateCreated datePublished" datetime="2022-10-27T15:34:12+08:00">2022-10-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
+      <a class="index-excerpt" href="/2022/10/27/SP26017%20GCDMAT/" target="_self">
+        <div>
+          
+          题目传送门 前言 菜狗的第一道莫反题解。 前置芝士 莫比乌斯反演
         </div>
-      </header>
+      </a>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/SP26017">题目传送门</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>菜狗的第一道莫反题解。</p>
-<h3 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h3><p>莫比乌斯反演</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/27/SP26017%20GCDMAT/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+      <div class="index-btm post-metas">
         
-      
-    </div>
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-27 15:34" pubdate>
+              2022-10-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
 
+<span class="category-chains">
+  
+  
     
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/22/UVA12470Tribonacci/">
+      </span>
+    
+  
+</span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/22/UVA12470Tribonacci/" class="post-title-link" itemprop="url">【题解】UVA12470Tribonacci</a>
-        </h2>
-
-        <div class="post-meta-container">
+          </div>
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-22 17:14:56 / 修改时间：17:28:10" itemprop="dateCreated datePublished" datetime="2022-10-22T17:14:56+08:00">2022-10-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA12470">题目传送门</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>水题解</p>
-<h3 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h3><p>矩阵乘法。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/22/UVA12470Tribonacci/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/">#莫比乌斯反演</a>
+            
+          </div>
         
-      
-    </div>
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/22/UVA12470Tribonacci/" target="_self">
+          【题解】UVA12470Tribonacci
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/10/22/UVA12470Tribonacci/" target="_self">
+        <div>
+          
+          题目传送门 前言 水题解 前置芝士 矩阵乘法。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-22 17:14" pubdate>
+              2022-10-22
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/20/20221020%E6%A8%A1%E6%8B%9F%E8%B5%9B/">
+      </span>
+    
+  
+</span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/20/20221020%E6%A8%A1%E6%8B%9F%E8%B5%9B/" class="post-title-link" itemprop="url">【比赛】20221020模拟赛</a>
-        </h2>
-
-        <div class="post-meta-container">
+          </div>
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-20 19:35:51 / 修改时间：20:01:42" itemprop="dateCreated datePublished" datetime="2022-10-20T19:35:51+08:00">2022-10-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%AF%94%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">比赛</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>一场 TG 模拟赛，VP 打的，最终 $100 + 100 + 0 + 0 = 200$，看 sol 发现一道正解都没有。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/20/20221020%E6%A8%A1%E6%8B%9F%E8%B5%9B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/">#矩阵乘法</a>
+            
+          </div>
         
-      
-    </div>
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/20/20221020%E6%A8%A1%E6%8B%9F%E8%B5%9B/" target="_self">
+          【比赛】20221020模拟赛
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/10/20/20221020%E6%A8%A1%E6%8B%9F%E8%B5%9B/" target="_self">
+        <div>
+          
+          前言 一场 TG 模拟赛，VP 打的，最终 \(100 + 100 + 0 + 0 &#x3D; 200\)，看 sol 发现一道正解都没有。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-20 19:35" pubdate>
+              2022-10-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%AF%94%E8%B5%9B/" class="category-chain-item">比赛</a>
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/16/20221016%E6%A8%A1%E6%8B%9F%E8%B5%9B/">
+      </span>
+    
+  
+</span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/16/20221016%E6%A8%A1%E6%8B%9F%E8%B5%9B/" class="post-title-link" itemprop="url">【比赛】20221016模拟赛</a>
-        </h2>
-
-        <div class="post-meta-container">
+          </div>
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-16 21:42:38" itemprop="dateCreated datePublished" datetime="2022-10-16T21:42:38+08:00">2022-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-17 21:11:19" itemprop="dateModified" datetime="2022-10-17T21:11:19+08:00">2022-10-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%AF%94%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">比赛</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于太菜，只能在PJ组混着，估分 $100 + 100 + 100 + 100 = 400$，实际 T3 写正解但写挂 $100 + 100 + 81 + 100 = 381$ 大寄特寄。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/16/20221016%E6%A8%A1%E6%8B%9F%E8%B5%9B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AF%94%E8%B5%9B/">#比赛</a>
+            
+              <a href="/tags/trick/">#trick</a>
+            
+          </div>
         
-      
-    </div>
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/16/20221016%E6%A8%A1%E6%8B%9F%E8%B5%9B/" target="_self">
+          【比赛】20221016模拟赛
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/10/16/20221016%E6%A8%A1%E6%8B%9F%E8%B5%9B/" target="_self">
+        <div>
+          
+          前言 由于太菜，只能在PJ组混着，估分 \(100 + 100 + 100 + 100 &#x3D; 400\)，实际 T3 写正解但写挂 \(100 + 100 + 81 + 100 &#x3D; 381\) 大寄特寄。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-16 21:42" pubdate>
+              2022-10-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%AF%94%E8%B5%9B/" class="category-chain-item">比赛</a>
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/10/P7834%20Peaks/">
+      </span>
+    
+  
+</span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/10/P7834%20Peaks/" class="post-title-link" itemprop="url">【题解】P7834 Peaks</a>
-        </h2>
-
-        <div class="post-meta-container">
+          </div>
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-10-10 19:37:53 / 修改时间：19:55:53" itemprop="dateCreated datePublished" datetime="2022-10-10T19:37:53+08:00">2022-10-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P7834">题目传送门</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>发现社区分开始掉就开始写水题题解的屑。</p>
-<h3 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h3><p>Kruscal 重构树，主席树。</p>
-<p>不会重构树的可以去看一下日报。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/10/P7834%20Peaks/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AF%94%E8%B5%9B/">#比赛</a>
+            
+              <a href="/tags/trick/">#trick</a>
+            
+          </div>
         
-      
-    </div>
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/10/P7834%20Peaks/" target="_self">
+          【题解】P7834 Peaks
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/10/10/P7834%20Peaks/" target="_self">
+        <div>
+          
+          题目传送门 前言 发现社区分开始掉就开始写水题题解的屑。 前置芝士 Kruscal 重构树，主席树。 不会重构树的可以去看一下日报。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-10 19:37" pubdate>
+              2022-10-10
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/">
+      </span>
+    
+  
+</span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/" class="post-title-link" itemprop="url">【游记】2022国庆集训游记</a>
-        </h2>
-
-        <div class="post-meta-container">
+          </div>
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-03 07:08:49" itemprop="dateCreated datePublished" datetime="2022-10-03T07:08:49+08:00">2022-10-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-10-10 19:48:04" itemprop="dateModified" datetime="2022-10-10T19:48:04+08:00">2022-10-10</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Day"><a href="#Day" class="headerlink" title="Day -???"></a>Day -???</h2><p>whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/">#图论</a>
+            
+              <a href="/tags/%E4%B8%BB%E5%B8%AD%E6%A0%91/">#主席树</a>
+            
+          </div>
         
-      
-    </div>
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/" target="_self">
+          【游记】2022国庆集训游记
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/10/03/2022%E5%9B%BD%E5%BA%86%E9%9B%86%E8%AE%AD%E6%B8%B8%E8%AE%B0/" target="_self">
+        <div>
+          
+          Day -??? whk垫底了，被校内一车人吊打，只能先去学一下OI来缓解一下。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-10-03 07:08" pubdate>
+              2022-10-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%B8%B8%E8%AE%B0/" class="category-chain-item">游记</a>
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/26/%E8%BF%91%E6%9C%9F%E6%89%93%E8%BF%87%E7%9A%84PJ%E9%9A%BE%E5%BA%A6%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/">
+      </span>
+    
+  
+</span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/26/%E8%BF%91%E6%9C%9F%E6%89%93%E8%BF%87%E7%9A%84PJ%E9%9A%BE%E5%BA%A6%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">【比赛】近期打过的PJ难度比赛总结</a>
-        </h2>
-
-        <div class="post-meta-container">
+          </div>
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-09-26 19:54:31" itemprop="dateCreated datePublished" datetime="2022-09-26T19:54:31+08:00">2022-09-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-09-29 20:01:13" itemprop="dateModified" datetime="2022-09-29T20:01:13+08:00">2022-09-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%AF%94%E8%B5%9B/" itemprop="url" rel="index"><span itemprop="name">比赛</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这位选手因为太菜只配参加 PJ 组比赛。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/09/26/%E8%BF%91%E6%9C%9F%E6%89%93%E8%BF%87%E7%9A%84PJ%E9%9A%BE%E5%BA%A6%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%B8%B8%E8%AE%B0/">#游记</a>
+            
+          </div>
         
-      
-    </div>
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/26/%E8%BF%91%E6%9C%9F%E6%89%93%E8%BF%87%E7%9A%84PJ%E9%9A%BE%E5%BA%A6%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/" target="_self">
+          【比赛】近期打过的PJ难度比赛总结
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/09/26/%E8%BF%91%E6%9C%9F%E6%89%93%E8%BF%87%E7%9A%84PJ%E9%9A%BE%E5%BA%A6%E6%AF%94%E8%B5%9B%E6%80%BB%E7%BB%93/" target="_self">
+        <div>
+          
+          前言 这位选手因为太菜只配参加 PJ 组比赛。
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-26 19:54" pubdate>
+              2022-09-26
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+      <span class="category-chain">
+        
+  <a href="/categories/%E6%AF%94%E8%B5%9B/" class="category-chain-item">比赛</a>
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/15/CF498C%20Array%20and%20Operations/">
+      </span>
+    
+  
+</span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/15/CF498C%20Array%20and%20Operations/" class="post-title-link" itemprop="url">【题解】CF498C Array and Operations</a>
-        </h2>
-
-        <div class="post-meta-container">
+          </div>
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-09-15 19:39:40 / 修改时间：19:56:56" itemprop="dateCreated datePublished" datetime="2022-09-15T19:39:40+08:00">2022-09-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/CF498C">题目传送门</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>暑假的一道集训题目，今天想起来补一发题解。</p>
-<h3 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h3><p>网络流</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/09/15/CF498C%20Array%20and%20Operations/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E6%AF%94%E8%B5%9B/">#比赛</a>
+            
+              <a href="/tags/trick/">#trick</a>
+            
+          </div>
         
-      
-    </div>
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/15/CF498C%20Array%20and%20Operations/" target="_self">
+          【题解】CF498C Array and Operations
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/09/15/CF498C%20Array%20and%20Operations/" target="_self">
+        <div>
+          
+          题目传送门 前言 暑假的一道集训题目，今天想起来补一发题解。 前置芝士 网络流
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-15 19:39" pubdate>
+              2022-09-15
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
     
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/03/P3489%20WIE-Hexer/">
+      </span>
+    
+  
+</span>
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
-      <meta itemprop="name" content="Chenyu Wu">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | wcy's blog">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/09/03/P3489%20WIE-Hexer/" class="post-title-link" itemprop="url">【题解】P3489 WIE-Hexer</a>
-        </h2>
-
-        <div class="post-meta-container">
+          </div>
+        
+        
           <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-09-03 20:14:57 / 修改时间：21:39:51" itemprop="dateCreated datePublished" datetime="2022-09-03T20:14:57+08:00">2022-09-03</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3489">题目传送门</a></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>感觉和孤岛营救问题完全一致，建图好像还更简单一点。</p>
-<h3 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h3><p>最短路，状压</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/09/03/P3489%20WIE-Hexer/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/">#网络流</a>
+            
+          </div>
         
-      
-    </div>
+      </div>
+    </article>
+  </div>
 
+  <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2022/09/03/P3489%20WIE-Hexer/" target="_self">
+          【题解】P3489 WIE-Hexer
+        </a>
+      </h1>
+
+      <a class="index-excerpt" href="/2022/09/03/P3489%20WIE-Hexer/" target="_self">
+        <div>
+          
+          题目传送门 前言 感觉和孤岛营救问题完全一致，建图好像还更简单一点。 前置芝士 最短路，状压
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2022-09-03 20:14" pubdate>
+              2022-09-03
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
+  
     
+      <span class="category-chain">
+        
+  <a href="/categories/%E9%A2%98%E8%A7%A3/" class="category-chain-item">题解</a>
+  
+  
 
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+      </span>
+    
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E9%A2%98%E8%A7%A3/">#题解</a>
+            
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/">#图论</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
 
 
 
-
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/4/#board"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/#board">3</a><a class="page-number" href="/page/4/#board">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/#board">6</a><a class="page-number" href="/page/7/#board">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#board">9</a><a class="extend next" rel="next" href="/page/6/#board"><i class="iconfont icon-arrowright"></i></a>
+    </span>
   </nav>
 
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+    
+
+    
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Chenyu Wu</span>
-</div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
-
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
     </div>
+  
+  
+  
+  
+</div>
+
   </footer>
 
+  <!-- Scripts -->
   
-  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
 
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
 
 
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
 
   
 
-
-
-
-  
-
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://npm.elemecdn.com/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
-<script src="/js/third-party/math/mathjax.js"></script>
-
-
-
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
 </body>
 </html>
