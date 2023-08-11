@@ -13,19 +13,19 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CFira+Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言 过于相信 T4 的大样例导致 \(100 \rightarrow 25\)，痛失 \(300+\)。赛时切了 T1 和 T2，T4 改个小错误就过了，我是傻逼。">
+    <meta name="description" content="前言过于相信 T4 的大样例导致 $100 \rightarrow 25$，痛失 $300+$。赛时切了 T1 和 T2，T4 改个小错误就过了，我是傻逼。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【比赛】20221113模拟赛">
 <meta property="og:url" content="http://example.com/2022/11/15/20221113%E6%A8%A1%E6%8B%9F%E8%B5%9B/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="前言 过于相信 T4 的大样例导致 \(100 \rightarrow 25\)，痛失 \(300+\)。赛时切了 T1 和 T2，T4 改个小错误就过了，我是傻逼。">
+<meta property="og:description" content="前言过于相信 T4 的大样例导致 $100 \rightarrow 25$，痛失 $300+$。赛时切了 T1 和 T2，T4 改个小错误就过了，我是傻逼。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-11-15T00:24:09.000Z">
 <meta property="article:modified_time" content="2023-05-28T13:50:52.542Z">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#t1-maya"><span class="nav-number">2.</span> <span class="nav-text">T1 (maya)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#t2-chino"><span class="nav-number">3.</span> <span class="nav-text">T2 (chino)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#t4-chimame"><span class="nav-number">4.</span> <span class="nav-text">T4 (chimame)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T1-maya"><span class="nav-number">2.</span> <span class="nav-text">T1 (maya)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T2-chino"><span class="nav-number">3.</span> <span class="nav-text">T2 (chino)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#T4-chimame"><span class="nav-number">4.</span> <span class="nav-text">T4 (chimame)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -240,96 +240,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言">前言</h2>
-<p>过于相信 T4 的大样例导致 <span class="math inline">\(100 \rightarrow
-25\)</span>，痛失 <span class="math inline">\(300+\)</span>。赛时切了 T1
-和 T2，T4 改个小错误就过了，我是傻逼。</p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>过于相信 T4 的大样例导致 $100 \rightarrow 25$，痛失 $300+$。赛时切了 T1 和 T2，T4 改个小错误就过了，我是傻逼。</p>
 <span id="more"></span>
-<h2 id="t1-maya">T1 (maya)</h2>
-<p>典题，设 <span class="math inline">\(n! = m\)</span>，然后变成 <span
-class="math inline">\((x - m)(y - m) = m^2\)</span>，求出 <span
-class="math inline">\(m^2\)</span>
-的因数个数即可，这里用到阶乘分解的一个经典 trick，即质因子 <span
-class="math inline">\(p_i\)</span> 的指数 <span
-class="math inline">\(k_i = \sum_{j\ge1}
-\lfloor\dfrac{n}{p_i^j}\rfloor\)</span>，最终的结果即 <span
-class="math inline">\(\prod_i (2k_i +1)\)</span>，时间复杂度 <span
-class="math inline">\(O(n\log n)\)</span>。</p>
-<h2 id="t2-chino">T2 (chino)</h2>
-<p>结论题，由对称性，我们只考虑从一个点 <span
-class="math inline">\(i\)</span>
-向编号大的点，一个很显然的结论是走到编号最大的那个点是最优的，下面我们来证一下这个结论。</p>
-<p>我们只考虑从 <span class="math inline">\(i\)</span>
-往编号大的连边，那么我们点 <span class="math inline">\(i\)</span>
-显然是不能同时作为最大值和最小值和右边的点匹配，我们设点 <span
-class="math inline">\(j\)</span> 是点 <span
-class="math inline">\(i\)</span>
-走到的最大编号点，由对称性，我们只考虑当 <span
-class="math inline">\(a_i\)</span> 为最小值的情况，假设 <span
-class="math inline">\(i\)</span> 可以达到的另一个点为 <span
-class="math inline">\(k\)</span>，根据题设 <span
-class="math inline">\(a_k\)</span> 为 <span class="math inline">\([i,
-k]\)</span> 的最大值，<span class="math inline">\(a_j\)</span> 为 <span
-class="math inline">\([i, j]\)</span> 的最大值，如果 <span
-class="math inline">\(k\)</span> 以最大值去匹配 <span
-class="math inline">\([k, j]\)</span> 之间的点，因为 <span
-class="math inline">\(a_j &gt;a_k\)</span>，那么这个点 <span
-class="math inline">\(j\)</span> 也能匹配到，如果 <span
-class="math inline">\(k\)</span> 以最小值去匹配 <span
-class="math inline">\([j, n]\)</span> 之间的点，那么由于 <span
-class="math inline">\(a_i &lt; a_k\)</span>，这个点 <span
-class="math inline">\(i\)</span> 能匹配到，和 <span
-class="math inline">\(j\)</span> 为最大点矛盾，所以 <span
-class="math inline">\(k\)</span> 能走到的点 <span
-class="math inline">\(j\)</span> 都能到，所以 <span
-class="math inline">\(k\)</span> 就是个没用的点，<span
-class="math inline">\(a_i\)</span>
-为最大值同理。(证明好废话，我是傻逼。)</p>
-<p>有了结论这个题就很 simple
-了，我们只需处理每个点能到的最大点即可，首先对于一个点 <span
-class="math inline">\(i \in [1, n - 1]\)</span>，如果 <span
-class="math inline">\(a_{i } &gt; a_{i +1}\)</span>，那么 <span
-class="math inline">\(i\)</span>
-只能作为最大值，反之就只能做最小值。我们用单调栈处理出 <span
-class="math inline">\(i\)</span> 右边第一个比 <span
-class="math inline">\(a_i\)</span> 大的下标和 <span
-class="math inline">\(i\)</span> 右边第一个比 <span
-class="math inline">\(a_i\)</span> 小的下标，记为 <span
-class="math inline">\(p_i\)</span> 和 <span
-class="math inline">\(q_i\)</span>。当 <span
-class="math inline">\(i\)</span> 为最大值时，能匹配到的最远点即 <span
-class="math inline">\([i + 1, p_i - 1]\)</span> 的最小值的下标，当 <span
-class="math inline">\(i\)</span> 为最小值时，能最远匹配到的点即 <span
-class="math inline">\([i + 1, q_i - 1]\)</span> 的最大值的下标，随便来个
-RMQ 维护一下即可，时间复杂度 <span class="math inline">\(O(n\log
-n)\)</span>。</p>
-<h2 id="t4-chimame">T4 (chimame)</h2>
-<p>由于做过区间 <span class="math inline">\(\operatorname{mex}\)</span>
-的题，所以感觉这道比 T2 简单（大雾。</p>
-<p>做过回滚莫队的我们知道，<span
-class="math inline">\(\operatorname{mex}\)</span>
-在区间缩小时单调不增，所以我们考虑拆成前缀/后缀 <span
-class="math inline">\(\operatorname{mex}\)</span> 进行计算。</p>
-<p>我们可以先 <span class="math inline">\(O(n)\)</span> 求出 <span
-class="math inline">\(\operatorname{mex}(1, n), \operatorname{mex}(1, n
-- 1),\ldots,\operatorname{mex}(1,
-1)\)</span>，然后我们把这些数扔进线段树里面，然后我们考虑删去 <span
-class="math inline">\(a_1\)</span>
-对后面的答案有什么影响，首先我们处理每个数的下一次出现的下标，记为<span
-class="math inline">\(next_i\)</span>，那么我们删去 <span
-class="math inline">\(a_1\)</span>，显然是不会对 <span
-class="math inline">\([next_1, n]\)</span> 的 <span
-class="math inline">\(\operatorname{mex}\)</span>
-值产生影响的，然后我们就可以在线段树上二分出 <span
-class="math inline">\([2, next_1 - 1]\)</span> 中第一个 $ &gt; a_1$ 的
-<span class="math inline">\(\operatorname{mex}\)</span> 位置，记为 <span
-class="math inline">\(p\)</span>，最后将 <span class="math inline">\([p,
-next_1 - 1]\)</span> 这个区间推平成 <span
-class="math inline">\(a_1\)</span>
-即可，然后我们重复这个过程，就变为了一个区间推平区间求和的问题，线段树可以
-<span class="math inline">\(O(n\log n)\)</span> 解决。</p>
-<h2 id="总结">总结</h2>
-<p>不要再相信任何比赛的大样例！！！</p>
+<h2 id="T1-maya"><a href="#T1-maya" class="headerlink" title="T1 (maya)"></a>T1 (maya)</h2><p>典题，设 $n! = m$，然后变成 $(x - m)(y - m) = m^2$，求出 $m^2$ 的因数个数即可，这里用到阶乘分解的一个经典 trick，即质因子 $p<em>i$ 的指数 $k_i = \sum</em>{j\ge1} \lfloor\dfrac{n}{p_i^j}\rfloor$，最终的结果即 $\prod_i (2k_i +1)$，时间复杂度 $O(n\log n)$。</p>
+<h2 id="T2-chino"><a href="#T2-chino" class="headerlink" title="T2 (chino)"></a>T2 (chino)</h2><p>结论题，由对称性，我们只考虑从一个点 $i$ 向编号大的点，一个很显然的结论是走到编号最大的那个点是最优的，下面我们来证一下这个结论。</p>
+<p>我们只考虑从 $i$ 往编号大的连边，那么我们点 $i$ 显然是不能同时作为最大值和最小值和右边的点匹配，我们设点 $j$ 是点 $i$ 走到的最大编号点，由对称性，我们只考虑当 $a_i$ 为最小值的情况，假设 $i$ 可以达到的另一个点为 $k$，根据题设 $a_k$ 为 $[i, k]$ 的最大值，$a_j$ 为 $[i, j]$ 的最大值，如果 $k$ 以最大值去匹配 $[k, j]$ 之间的点，因为 $a_j &gt;a_k$，那么这个点 $j$ 也能匹配到，如果 $k$ 以最小值去匹配 $[j, n]$ 之间的点，那么由于 $a_i &lt; a_k$，这个点 $i$ 能匹配到，和 $j$ 为最大点矛盾，所以 $k$ 能走到的点 $j$ 都能到，所以 $k$ 就是个没用的点，$a_i$ 为最大值同理。(证明好废话，我是傻逼。)</p>
+<p>有了结论这个题就很 simple 了，我们只需处理每个点能到的最大点即可，首先对于一个点 $i \in [1, n - 1]$，如果 $a<em>{i } &gt; a</em>{i +1}$，那么 $i$ 只能作为最大值，反之就只能做最小值。我们用单调栈处理出 $i$ 右边第一个比 $a_i$ 大的下标和 $i$ 右边第一个比 $a_i$ 小的下标，记为 $p_i$ 和 $q_i$。当 $i$ 为最大值时，能匹配到的最远点即 $[i + 1, p_i - 1]$ 的最小值的下标，当 $i$ 为最小值时，能最远匹配到的点即 $[i + 1, q_i - 1]$ 的最大值的下标，随便来个 RMQ 维护一下即可，时间复杂度 $O(n\log n)$。</p>
+<h2 id="T4-chimame"><a href="#T4-chimame" class="headerlink" title="T4 (chimame)"></a>T4 (chimame)</h2><p>由于做过区间 $\operatorname{mex}$ 的题，所以感觉这道比 T2 简单（大雾。</p>
+<p>做过回滚莫队的我们知道，$\operatorname{mex}$ 在区间缩小时单调不增，所以我们考虑拆成前缀/后缀 $\operatorname{mex}$ 进行计算。</p>
+<p>我们可以先 $O(n)$ 求出 $\operatorname{mex}(1, n), \operatorname{mex}(1, n - 1),\ldots,\operatorname{mex}(1, 1)$，然后我们把这些数扔进线段树里面，然后我们考虑删去 $a_1$ 对后面的答案有什么影响，首先我们处理每个数的下一次出现的下标，记为$next_i$，那么我们删去 $a_1$，显然是不会对 $[next_1, n]$ 的 $\operatorname{mex}$ 值产生影响的，然后我们就可以在线段树上二分出 $[2, next_1 - 1]$ 中第一个 $ &gt; a_1$ 的 $\operatorname{mex}$ 位置，记为 $p$，最后将 $[p, next_1 - 1]$ 这个区间推平成 $a_1$ 即可，然后我们重复这个过程，就变为了一个区间推平区间求和的问题，线段树可以 $O(n\log n)$ 解决。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>不要再相信任何比赛的大样例！！！</p>
 
     </div>
 

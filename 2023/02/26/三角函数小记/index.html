@@ -13,7 +13,7 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CFira+Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
@@ -246,373 +246,146 @@
     <div class="post-body" itemprop="articleBody">
         <p>浅谈一些高中三角函数的基础内容(笔者很菜，轻喷)。</p>
 <span id="more"></span>
-<h2 id="角的概念与弧度制">角的概念与弧度制</h2>
-<p>初中的时候，我们学过的角是一个静态的概念，即同端点的两条射线构成的图形，到了高中阶段，这个概念变得更加动态，我们定义角是一条射线绕其断点旋转形成的图形，如果是逆时针旋转，那么就成为<strong>正角</strong>，顺时针则称为<strong>负角</strong>，有了这个定义，我们就会出现一些初中阶段不可能出现的角，比如
-<span class="math inline">\(\angle A =
--30^\circ\)</span>，这样角的定义就推广到了任意角，我们定义旋转之前的那条射线称为角的<strong>始边</strong>，而旋转之后形成的那条射线称为角的<strong>终边</strong>。</p>
-<p>细心地你肯定发现了，不同度数的角可能终边相同，比如 <span
-class="math inline">\(330^\circ, -30^\circ\)</span>
-的终边就是一样的。我们稍作思考，发现终边相同相当于这条射线多旋转了若干个
-<span class="math inline">\(360^\circ\)</span>，所以我们容易得到与 <span
-class="math inline">\(\alpha\)</span> 终边相同的角的集合为 <span
-class="math inline">\(S = \{\alpha + k \cdot360^\circ | k \in \mathbf
-Z\}\)</span>、</p>
-<p>接下来我们引入象限角的概念，假设我们有一个平面直角坐标系，然后我们规定角的始边
-<span class="math inline">\(OA\)</span> 在 <span
-class="math inline">\(x\)</span> 轴非负半轴上，然后我们规定角的终边
-<span class="math inline">\(OB\)</span> 在哪个象限，就称 <span
-class="math inline">\(\angle AOB\)</span> 为第几象限角，比如 <span
-class="math inline">\(\alpha = 45^\circ\)</span> 为第一象限角。</p>
-<p>为了方便表示，引入<strong>弧度制</strong>的概念，我们规定 <span
-class="math inline">\(\pi\text{rad} = 180^\circ\)</span>，其中 <span
-class="math inline">\(\text{rad}\)</span>
-通常可省略不写，一些常见的转换：<span
-class="math inline">\(\dfrac{\pi}{2} = 90^\circ\)</span>, <span
-class="math inline">\(\dfrac{\pi}{6} = 30^\circ\)</span>
-等。我们发现弧度制在扇形中有一些很好的结论，假设扇形的弧长为 <span
-class="math inline">\(l\)</span>，半径为 <span
-class="math inline">\(r\)</span>，那我们可以得到圆心角 <span
-class="math inline">\(\alpha =
-\dfrac{l}{r}\)</span>，然后我们可以得到扇形面积 <span
-class="math inline">\(S = \dfrac{1}{2}\alpha r^2 =
-\dfrac{1}{2}lr\)</span> 这些都是很好的结论。</p>
-<h2 id="三角函数与同角三角比">三角函数与同角三角比</h2>
-<p>定义单位圆为圆心在原点，半径 <span class="math inline">\(r =
-1\)</span> 的圆。设点 <span class="math inline">\(A(1, 0)\)</span>，将
-<span class="math inline">\(OA\)</span> 绕点 <span
-class="math inline">\(O\)</span> 旋转 <span
-class="math inline">\(\alpha\)</span>，得到的射线与单位圆交于 <span
-class="math inline">\(B(x, y)\)</span>，则我们有 <span
-class="math inline">\(\sin \alpha = y, \cos \alpha = x, \tan\alpha =
-\dfrac{y}{x}\)</span>，特别地，当 $x = 0 $ 时，即 <span
-class="math inline">\(\alpha = \dfrac{2k + 1}{2}\pi(k \in \mathbf
-Z)\)</span>，<span class="math inline">\(\tan \alpha\)</span>
-不存在，不难发现这个定义和初中阶段学的大体相似。</p>
-<p>一些常见角度的三角函数 <span class="math display">\[
-\sin \dfrac{\pi}{2} = 1, \cos \dfrac{\pi}{2} = 0 \\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{3} = \dfrac{\sqrt 3}{2}, \cos \dfrac{\pi}{3} =
-\dfrac{1}{2}, \tan \dfrac{\pi}{3} = \sqrt 3\\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{4} = \dfrac{\sqrt 2}{2}，\cos \dfrac{\pi}{4} =
-\dfrac{\sqrt2}{2}, \tan \dfrac{\pi}{4} = 1 \\
-\]</span> <span class="math display">\[
-\sin \dfrac{\pi}{6} = \dfrac{1}{2}, \cos \dfrac{\pi}{6} =
-\dfrac{\sqrt3}{2}, \tan \dfrac{\pi}{6} = \dfrac{\sqrt3}{3}
-\]</span> 根据勾股定理的知识，我们可以得到 <span
-class="math inline">\(\sin^2 \alpha + \cos^2 \alpha =
-1\)</span>，同时根据定义可以得到 <span class="math inline">\(\tan \alpha
-= \dfrac{\sin \alpha}{\cos
-\alpha}\)</span>，根据这些关系，我们不难做到知一求二，一个常见的技巧是
-<span class="math inline">\(\sin \alpha \pm \cos \alpha = \pm k
-\Leftrightarrow 1 \pm 2 \sin\alpha\cos\alpha = k^2\)</span>。</p>
-<h2 id="诱导公式">诱导公式</h2>
-<blockquote>
+<h2 id="角的概念与弧度制"><a href="#角的概念与弧度制" class="headerlink" title="角的概念与弧度制"></a>角的概念与弧度制</h2><p>初中的时候，我们学过的角是一个静态的概念，即同端点的两条射线构成的图形，到了高中阶段，这个概念变得更加动态，我们定义角是一条射线绕其断点旋转形成的图形，如果是逆时针旋转，那么就成为<strong>正角</strong>，顺时针则称为<strong>负角</strong>，有了这个定义，我们就会出现一些初中阶段不可能出现的角，比如 $\angle A = -30^\circ$，这样角的定义就推广到了任意角，我们定义旋转之前的那条射线称为角的<strong>始边</strong>，而旋转之后形成的那条射线称为角的<strong>终边</strong>。</p>
+<p>细心地你肯定发现了，不同度数的角可能终边相同，比如 $330^\circ, -30^\circ$ 的终边就是一样的。我们稍作思考，发现终边相同相当于这条射线多旋转了若干个 $360^\circ$，所以我们容易得到与 $\alpha$ 终边相同的角的集合为 $S = {\alpha + k \cdot360^\circ | k \in \mathbf Z}$、</p>
+<p>接下来我们引入象限角的概念，假设我们有一个平面直角坐标系，然后我们规定角的始边 $OA$ 在 $x$ 轴非负半轴上，然后我们规定角的终边 $OB$ 在哪个象限，就称 $\angle AOB$ 为第几象限角，比如 $\alpha = 45^\circ$ 为第一象限角。</p>
+<p>为了方便表示，引入<strong>弧度制</strong>的概念，我们规定 $\pi\text{rad} = 180^\circ$，其中 $\text{rad}$ 通常可省略不写，一些常见的转换：$\dfrac{\pi}{2} = 90^\circ$, $\dfrac{\pi}{6} = 30^\circ$ 等。我们发现弧度制在扇形中有一些很好的结论，假设扇形的弧长为 $l$，半径为 $r$，那我们可以得到圆心角 $\alpha = \dfrac{l}{r}$，然后我们可以得到扇形面积 $S = \dfrac{1}{2}\alpha r^2 = \dfrac{1}{2}lr$ 这些都是很好的结论。</p>
+<h2 id="三角函数与同角三角比"><a href="#三角函数与同角三角比" class="headerlink" title="三角函数与同角三角比"></a>三角函数与同角三角比</h2><p>定义单位圆为圆心在原点，半径 $r = 1$ 的圆。设点 $A(1, 0)$，将 $OA$ 绕点 $O$ 旋转 $\alpha$，得到的射线与单位圆交于 $B(x, y)$，则我们有 $\sin \alpha = y, \cos \alpha = x, \tan\alpha = \dfrac{y}{x}$，特别地，当 $x = 0 $ 时，即 $\alpha = \dfrac{2k + 1}{2}\pi(k \in \mathbf Z)$，$\tan \alpha$ 不存在，不难发现这个定义和初中阶段学的大体相似。 </p>
+<p>一些常见角度的三角函数</p>
+<script type="math/tex; mode=display">
+\sin \dfrac{\pi}{2} = 1, \cos \dfrac{\pi}{2} = 0 \\</script><script type="math/tex; mode=display">
+\sin \dfrac{\pi}{3} = \dfrac{\sqrt 3}{2}, \cos \dfrac{\pi}{3} = \dfrac{1}{2}, \tan \dfrac{\pi}{3} = \sqrt 3\\</script><script type="math/tex; mode=display">
+\sin \dfrac{\pi}{4} = \dfrac{\sqrt 2}{2}，\cos \dfrac{\pi}{4} = \dfrac{\sqrt2}{2}, \tan \dfrac{\pi}{4} = 1 \\</script><script type="math/tex; mode=display">
+\sin \dfrac{\pi}{6} = \dfrac{1}{2}, \cos \dfrac{\pi}{6} = \dfrac{\sqrt3}{2}, \tan \dfrac{\pi}{6} = \dfrac{\sqrt3}{3}</script><p>根据勾股定理的知识，我们可以得到 $\sin^2 \alpha + \cos^2 \alpha = 1$，同时根据定义可以得到 $\tan \alpha = \dfrac{\sin \alpha}{\cos \alpha}$，根据这些关系，我们不难做到知一求二，一个常见的技巧是 $\sin \alpha \pm \cos \alpha = \pm k \Leftrightarrow 1 \pm 2 \sin\alpha\cos\alpha = k^2$。</p>
+<h2 id="诱导公式"><a href="#诱导公式" class="headerlink" title="诱导公式"></a>诱导公式</h2><blockquote>
 <p><strong>奇变偶不变，符号看象限</strong>。</p>
 </blockquote>
 <p>上面这句话很好地概括了诱导公式的主要内容，下面我们来介绍诱导公式的使用。</p>
-<p>假设我们要化简 <span class="math inline">\(\sin\left(\alpha
-\pm\dfrac{k}{2}\pi\right)\)</span> 或 <span
-class="math inline">\(\cos\left(\alpha
-\pm\dfrac{k}{2}\pi\right)\)</span>，可以使用诱导公式，比如 <span
-class="math inline">\(\sin\left(\dfrac{\pi}{2} - \alpha\right) =
-\cos(\alpha)\)</span>，<span class="math inline">\(\cos\left(\pi -
-\alpha\right) =
--\cos\alpha\)</span>。首先先解释前半句话，这里的奇偶指的是 <span
-class="math inline">\(k\)</span> 的奇偶，即如果 <span
-class="math inline">\(k\)</span> 为奇数，三角函数名称发生变化，<span
-class="math inline">\(\sin \rightarrow \cos, \cos \rightarrow
-\sin\)</span>，反之则不变。而后半句话我们可以这样实操，我们假设 <span
-class="math inline">\(\alpha \in \left(0,
-\dfrac{\pi}{2}\right)\)</span>，我们在单位圆上表示出 <span
-class="math inline">\(\alpha \pm
-\dfrac{k}{2}\pi\)</span>，然后看它的象限，再用原函数在此象限的符号给结果定号。For
-example，我们要计算 <span class="math inline">\(\sin\left(\alpha -
-\dfrac{\pi}{2}\right)\)</span>，首先这里 <span
-class="math inline">\(k\)</span> 是奇数，所以最后的结果肯定是 <span
-class="math inline">\(\cos\)</span>，然后假设 <span
-class="math inline">\(\alpha \in \left(0,
-\dfrac{\pi}{2}\right)\)</span>，那么 <span class="math inline">\(\alpha
-- \dfrac{\pi}{2}\)</span> 为第四象限角，<span
-class="math inline">\(\sin\)</span> 在此象限为负，所以最终的结果为 <span
-class="math inline">\(-\cos \alpha\)</span>。</p>
-<h2 id="三角恒等变换">三角恒等变换</h2>
-<p>多公式预警！！！ <span class="math display">\[
-\sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta\\
-\]</span> <span class="math display">\[
-\cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta\\
-\]</span> <span class="math display">\[
-\tan(\alpha \pm \beta) = \dfrac{\tan\alpha \pm \tan\beta}{1 \mp
-\tan\alpha\tan\beta}
-\]</span>
-上述是最基础的两角和差公式，经常在一些推式子题中出现，由两角和的特殊形式还可以推导出倍角公式。
-<span class="math display">\[
-\sin2\alpha = 2\sin\alpha\cos\alpha
-\]</span></p>
-<p><span class="math display">\[
-\cos2\alpha = \cos^2\alpha - \sin^2\alpha = 2\cos^2\alpha - 1 = 1 -
-2\sin^2\alpha
-\]</span></p>
-<p><span class="math display">\[
-\tan2\alpha = \dfrac{2\tan\alpha}{1 - \tan^2\alpha}
-\]</span></p>
-<p>在做题的过程中，这些公式一般有两种用法，一种是正用，也就是知道前面的，把它展开成后面那样；另一种则是逆用，通过诱导公式把式子化成上述公式的形式，使得式子易于计算，需要做题训练。</p>
-<p>倍角公式有一些重要的推论，在实际题目中有很大的作用。 <span
-class="math display">\[
-1 \pm \sin2\alpha = (\sin\alpha\pm\cos\alpha)^2
-\]</span></p>
-<p><span class="math display">\[
-\cos^2\alpha = \dfrac{1}{2}(1 + \cos2\alpha)
-\]</span></p>
-<p><span class="math display">\[
-\sin^2\alpha = \dfrac{1}{2}(1 - \cos2\alpha)
-\]</span></p>
-<p>其中第二条和第三条可以在一些需要降幂或者带根号的式子中使用。</p>
-<p>此外，倍角公式还有一个额外的 trick，就是求解 <span
-class="math inline">\(\cos\alpha\cos2\alpha\cos4\alpha\cdots\)</span>，以求解
-<span class="math inline">\(\cos\alpha\cos2\alpha\cos4\alpha\)</span>
-为例，我们先上下同乘 <span class="math inline">\(\sin\alpha\)</span>
-得到 <span
-class="math inline">\(\dfrac{\sin\alpha\cos\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}\)</span>，然后我们惊奇的发现了一个和正弦二倍角公式长得差不多的东西，于是我们把式子变成
-<span
-class="math inline">\(\dfrac{\frac{1}{2}\sin2\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}\)</span>，然后这个式子又可以同上进行转化，最终我们可以化简为
-<span
-class="math inline">\(\dfrac{1}{8}\dfrac{\sin8\alpha}{\sin\alpha}\)</span>，这样就会简单一些。</p>
-<p>二倍角有一个重要的推论，即半角公式。 <span class="math display">\[
-\sin\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1-\cos\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\cos\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1+\cos\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\tan\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1-\cos\alpha}{1+\cos\alpha}}
-\]</span></p>
-<p>倍角公式除了二倍角还有三倍角，虽然不常见，但还是看一下。 <span
-class="math display">\[
-\sin3\alpha = 3\sin\alpha - 4\sin^3\alpha =
-\sin\alpha\sin\left(\dfrac{\pi}{3} -
-\alpha\right)\sin\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p><span class="math display">\[
-\cos3\alpha = -3\cos\alpha + 4\cos^3\alpha =
-\cos\alpha\cos\left(\dfrac{\pi}{3} -
-\alpha\right)\cos\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p><span class="math display">\[
-\tan3\alpha = \dfrac{3\tan\alpha - \tan^3\alpha}{1 - 3\tan^2\alpha} =
-\tan\alpha\tan\left(\dfrac{\pi}{3} -
-\alpha\right)\tan\left(\dfrac{\pi}{3} + \alpha\right)
-\]</span></p>
-<p>这些式子从左往右推难度不大，在实际应用中更多的是从右边的形式化成三倍角形式。</p>
-<p>最后是万能公式，就是用含有 <span
-class="math inline">\(\tan\dfrac{\alpha}{2}\)</span>
-的式子表示三角函数。 <span class="math display">\[
-\sin\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 + \tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\cos\alpha = \dfrac{1 - \tan\dfrac{\alpha}{2}}{1 +
-\tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p><span class="math display">\[
-\tan\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 - \tan^2\dfrac{\alpha}{2}}
-\]</span></p>
-<p>辅助角公式主要求解如下问题：将 <span
-class="math inline">\(a\sin\alpha + b\cos\alpha\)</span> 化为 <span
-class="math inline">\(A\sin(\omega\alpha + \varphi)\)</span>
-的形式。</p>
-<p>首先我们考虑将这个化成 <span class="math inline">\(\sin\)</span>
-和公式的形式，给 <span class="math inline">\(\sin\alpha\)</span> 和
-<span class="math inline">\(\cos\alpha\)</span> 配两个系数 <span
-class="math inline">\(x, y\)</span>，满足 <span
-class="math inline">\(x^2 + y^2 = 1\)</span>，这样我们就可以把这个化成
-<span class="math inline">\(\sin\)</span> 和的形式，观察到 <span
-class="math inline">\(a\sin\alpha + b\sin\alpha =
-\sqrt{a^2+b^2}(\dfrac{a}{\sqrt{a^2+b^2}}\sin\alpha +
-\dfrac{b}{\sqrt{a^2+b^2}}\cos\alpha)\)</span>，然后我们发现配的系数就满足我们的要求，所以我们肯定能找到一个角
-<span class="math inline">\(\varphi\)</span>，使得 <span
-class="math inline">\(\cos\varphi =
-\dfrac{a}{\sqrt{a^2+b^2}}\)</span>，<span
-class="math inline">\(\sin\varphi =
-\dfrac{b}{\sqrt{a^2+b^2}}\)</span>，然后原式就变为了 <span
-class="math inline">\(\sqrt{a^2+b^2}\sin(\alpha +
-\varphi)\)</span>。</p>
-<p>有时候我们会处理一些三角函数和差的问题，这时候我们的和差化积公式就显示出了作用。
-<span class="math display">\[
-\sin\alpha +\sin \beta = 2\sin\dfrac{\alpha + \beta}{2}\cos
-\dfrac{\alpha - \beta}{2}
-\]</span></p>
-<p><span class="math display">\[
-\sin\alpha - \sin\beta = 2\sin\dfrac{\alpha - \beta}{2}\cos\dfrac{\alpha
-+ \beta}{2}
-\]</span></p>
-<p><span class="math display">\[
-\cos\alpha + \cos\beta = 2\cos\dfrac{\alpha + \beta}{2}\cos\dfrac{\alpha
-- \beta}{2}
-\]</span></p>
-<p><span class="math display">\[
-\cos\alpha - \cos\beta = -2\sin\dfrac{\alpha +
-\beta}{2}\sin\dfrac{\alpha - \beta}{2}
-\]</span></p>
-<p>以上的四个公式由和差角公式衍生而来，同样地，我们还有积化和差公式。
-<span class="math display">\[
-\sin\alpha\cos\beta = \dfrac{1}{2}[\sin(\alpha + \beta) - \sin(\alpha -
-\beta)]
-\]</span></p>
-<p><span class="math display">\[
-\cos\alpha\cos\beta = \dfrac{1}{2}[\cos(\alpha + \beta) + \cos(\alpha -
-\beta)]
-\]</span></p>
-<p><span class="math display">\[
-\sin\alpha\sin\beta = \dfrac{1}{2}[\cos(\alpha - \beta) - \cos(\alpha +
-\beta)]
-\]</span></p>
-<p>这些都是 trivial 的内容。</p>
-<h2 id="三角函数图像">三角函数图像</h2>
-<p>话不多说，放表(以下默认 <span class="math inline">\(k \in \mathbf
-Z\)</span>)。</p>
+<p>假设我们要化简 $\sin\left(\alpha \pm\dfrac{k}{2}\pi\right)$ 或 $\cos\left(\alpha \pm\dfrac{k}{2}\pi\right)$，可以使用诱导公式，比如 $\sin\left(\dfrac{\pi}{2} - \alpha\right) = \cos(\alpha)$，$\cos\left(\pi - \alpha\right) = -\cos\alpha$。首先先解释前半句话，这里的奇偶指的是 $k$ 的奇偶，即如果 $k$ 为奇数，三角函数名称发生变化，$\sin \rightarrow \cos, \cos \rightarrow \sin$，反之则不变。而后半句话我们可以这样实操，我们假设 $\alpha \in \left(0, \dfrac{\pi}{2}\right)$，我们在单位圆上表示出 $\alpha \pm \dfrac{k}{2}\pi$，然后看它的象限，再用原函数在此象限的符号给结果定号。For example，我们要计算 $\sin\left(\alpha - \dfrac{\pi}{2}\right)$，首先这里 $k$ 是奇数，所以最后的结果肯定是 $\cos$，然后假设 $\alpha \in \left(0, \dfrac{\pi}{2}\right)$，那么 $\alpha - \dfrac{\pi}{2}$ 为第四象限角，$\sin$ 在此象限为负，所以最终的结果为 $-\cos \alpha$。</p>
+<h2 id="三角恒等变换"><a href="#三角恒等变换" class="headerlink" title="三角恒等变换"></a>三角恒等变换</h2><p>多公式预警！！！</p>
+<script type="math/tex; mode=display">
+\sin(\alpha \pm \beta) = \sin\alpha\cos\beta \pm \cos\alpha\sin\beta\\</script><script type="math/tex; mode=display">
+\cos(\alpha \pm \beta) = \cos\alpha\cos\beta \mp \sin\alpha\sin\beta\\</script><script type="math/tex; mode=display">
+\tan(\alpha \pm \beta) = \dfrac{\tan\alpha \pm \tan\beta}{1 \mp \tan\alpha\tan\beta}</script><p>上述是最基础的两角和差公式，经常在一些推式子题中出现，由两角和的特殊形式还可以推导出倍角公式。</p>
+<script type="math/tex; mode=display">
+\sin2\alpha = 2\sin\alpha\cos\alpha</script><script type="math/tex; mode=display">
+\cos2\alpha = \cos^2\alpha - \sin^2\alpha = 2\cos^2\alpha - 1 = 1 - 2\sin^2\alpha</script><script type="math/tex; mode=display">
+\tan2\alpha = \dfrac{2\tan\alpha}{1 - \tan^2\alpha}</script><p>在做题的过程中，这些公式一般有两种用法，一种是正用，也就是知道前面的，把它展开成后面那样；另一种则是逆用，通过诱导公式把式子化成上述公式的形式，使得式子易于计算，需要做题训练。</p>
+<p>倍角公式有一些重要的推论，在实际题目中有很大的作用。</p>
+<script type="math/tex; mode=display">
+1 \pm \sin2\alpha = (\sin\alpha\pm\cos\alpha)^2</script><script type="math/tex; mode=display">
+\cos^2\alpha = \dfrac{1}{2}(1 + \cos2\alpha)</script><script type="math/tex; mode=display">
+\sin^2\alpha = \dfrac{1}{2}(1 - \cos2\alpha)</script><p>其中第二条和第三条可以在一些需要降幂或者带根号的式子中使用。</p>
+<p>此外，倍角公式还有一个额外的 trick，就是求解 $\cos\alpha\cos2\alpha\cos4\alpha\cdots$，以求解 $\cos\alpha\cos2\alpha\cos4\alpha$ 为例，我们先上下同乘 $\sin\alpha$ 得到 $\dfrac{\sin\alpha\cos\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}$，然后我们惊奇的发现了一个和正弦二倍角公式长得差不多的东西，于是我们把式子变成 $\dfrac{\frac{1}{2}\sin2\alpha\cos2\alpha\cos4\alpha}{\sin\alpha}$，然后这个式子又可以同上进行转化，最终我们可以化简为 $\dfrac{1}{8}\dfrac{\sin8\alpha}{\sin\alpha}$，这样就会简单一些。</p>
+<p>二倍角有一个重要的推论，即半角公式。</p>
+<script type="math/tex; mode=display">
+\sin\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1-\cos\alpha}{2}}</script><script type="math/tex; mode=display">
+\cos\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1+\cos\alpha}{2}}</script><script type="math/tex; mode=display">
+\tan\dfrac{\alpha}{2} = \pm\sqrt{\dfrac{1-\cos\alpha}{1+\cos\alpha}}</script><p>倍角公式除了二倍角还有三倍角，虽然不常见，但还是看一下。</p>
+<script type="math/tex; mode=display">
+\sin3\alpha = 3\sin\alpha - 4\sin^3\alpha = \sin\alpha\sin\left(\dfrac{\pi}{3} - \alpha\right)\sin\left(\dfrac{\pi}{3} + \alpha\right)</script><script type="math/tex; mode=display">
+\cos3\alpha = -3\cos\alpha + 4\cos^3\alpha = \cos\alpha\cos\left(\dfrac{\pi}{3} - \alpha\right)\cos\left(\dfrac{\pi}{3} + \alpha\right)</script><script type="math/tex; mode=display">
+\tan3\alpha = \dfrac{3\tan\alpha - \tan^3\alpha}{1 - 3\tan^2\alpha} = \tan\alpha\tan\left(\dfrac{\pi}{3} - \alpha\right)\tan\left(\dfrac{\pi}{3} + \alpha\right)</script><p>这些式子从左往右推难度不大，在实际应用中更多的是从右边的形式化成三倍角形式。</p>
+<p>最后是万能公式，就是用含有 $\tan\dfrac{\alpha}{2}$ 的式子表示三角函数。</p>
+<script type="math/tex; mode=display">
+\sin\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 + \tan^2\dfrac{\alpha}{2}}</script><script type="math/tex; mode=display">
+\cos\alpha = \dfrac{1 - \tan\dfrac{\alpha}{2}}{1 + \tan^2\dfrac{\alpha}{2}}</script><script type="math/tex; mode=display">
+\tan\alpha = \dfrac{2\tan\dfrac{\alpha}{2}}{1 - \tan^2\dfrac{\alpha}{2}}</script><p>辅助角公式主要求解如下问题：将 $a\sin\alpha + b\cos\alpha$ 化为 $A\sin(\omega\alpha + \varphi)$ 的形式。</p>
+<p>首先我们考虑将这个化成 $\sin$ 和公式的形式，给 $\sin\alpha$ 和 $\cos\alpha$ 配两个系数 $x, y$，满足 $x^2 + y^2 = 1$，这样我们就可以把这个化成 $\sin$ 和的形式，观察到 $a\sin\alpha + b\sin\alpha = \sqrt{a^2+b^2}(\dfrac{a}{\sqrt{a^2+b^2}}\sin\alpha + \dfrac{b}{\sqrt{a^2+b^2}}\cos\alpha)$，然后我们发现配的系数就满足我们的要求，所以我们肯定能找到一个角 $\varphi$，使得 $\cos\varphi = \dfrac{a}{\sqrt{a^2+b^2}}$，$\sin\varphi = \dfrac{b}{\sqrt{a^2+b^2}}$，然后原式就变为了 $\sqrt{a^2+b^2}\sin(\alpha + \varphi)$。</p>
+<p>有时候我们会处理一些三角函数和差的问题，这时候我们的和差化积公式就显示出了作用。</p>
+<script type="math/tex; mode=display">
+\sin\alpha +\sin \beta = 2\sin\dfrac{\alpha + \beta}{2}\cos \dfrac{\alpha - \beta}{2}</script><script type="math/tex; mode=display">
+\sin\alpha - \sin\beta = 2\sin\dfrac{\alpha - \beta}{2}\cos\dfrac{\alpha + \beta}{2}</script><script type="math/tex; mode=display">
+\cos\alpha + \cos\beta = 2\cos\dfrac{\alpha + \beta}{2}\cos\dfrac{\alpha - \beta}{2}</script><script type="math/tex; mode=display">
+\cos\alpha - \cos\beta = -2\sin\dfrac{\alpha + \beta}{2}\sin\dfrac{\alpha - \beta}{2}</script><p>以上的四个公式由和差角公式衍生而来，同样地，我们还有积化和差公式。</p>
+<script type="math/tex; mode=display">
+\sin\alpha\cos\beta = \dfrac{1}{2}[\sin(\alpha + \beta) - \sin(\alpha - \beta)]</script><script type="math/tex; mode=display">
+\cos\alpha\cos\beta = \dfrac{1}{2}[\cos(\alpha + \beta) + \cos(\alpha - \beta)]</script><script type="math/tex; mode=display">
+\sin\alpha\sin\beta = \dfrac{1}{2}[\cos(\alpha - \beta) - \cos(\alpha + \beta)]</script><p>这些都是 trivial 的内容。</p>
+<h2 id="三角函数图像"><a href="#三角函数图像" class="headerlink" title="三角函数图像"></a>三角函数图像</h2><p>话不多说，放表(以下默认 $k \in \mathbf Z$)。</p>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 6%" />
-<col style="width: 46%" />
-<col style="width: 46%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: center;">性质</th>
-<th style="text-align: center;"><span class="math inline">\(f(x) = \sin
-x\)</span></th>
-<th style="text-align: center;"><span class="math inline">\(f(x) = \cos
-x\)</span></th>
+<tr>
+<th style="text-align:center">性质</th>
+<th style="text-align:center">$f(x) = \sin x$</th>
+<th style="text-align:center">$f(x) = \cos x$</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">图像</td>
-<td
-style="text-align: center;"><img src="https://i.328888.xyz./2023/03/26/iDYzAb.png"  /></td>
-<td
-style="text-align: center;"><img src="https://i.328888.xyz/2023/04/06/iNU31V.png"  /></td>
+<tr>
+<td style="text-align:center">图像</td>
+<td style="text-align:center"><img src="https://i.328888.xyz./2023/03/26/iDYzAb.png"  /></td>
+<td style="text-align:center"><img src="https://i.328888.xyz/2023/04/06/iNU31V.png"  /></td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">定义域</td>
-<td style="text-align: center;"><span class="math inline">\(\mathbf
-R\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(\mathbf
-R\)</span></td>
+<tr>
+<td style="text-align:center">定义域</td>
+<td style="text-align:center">$\mathbf R$</td>
+<td style="text-align:center">$\mathbf R$</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">值域</td>
-<td style="text-align: center;"><span class="math inline">\([-1,
-1]\)</span></td>
-<td style="text-align: center;"><span class="math inline">\([-1,
-1]\)</span></td>
+<tr>
+<td style="text-align:center">值域</td>
+<td style="text-align:center">$[-1, 1]$</td>
+<td style="text-align:center">$[-1, 1]$</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">周期</td>
-<td style="text-align: center;"><span
-class="math inline">\(2\pi\)</span></td>
-<td style="text-align: center;"><span
-class="math inline">\(2\pi\)</span></td>
+<tr>
+<td style="text-align:center">周期</td>
+<td style="text-align:center">$2\pi$</td>
+<td style="text-align:center">$2\pi$</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">单调性</td>
-<td style="text-align: center;">在 <span
-class="math inline">\(\left(-\dfrac{\pi}{2} + 2k\pi, \dfrac{\pi}{2} +
-2k\pi\right)\)</span> 上单调递增<br />在 <span
-class="math inline">\(\left(\dfrac{\pi}{2} + 2k\pi, \dfrac{3\pi}{2} +
-2k\pi\right)\)</span> 上单调递减</td>
-<td style="text-align: center;">在 <span class="math inline">\((\pi
-+2k\pi, 2\pi + 2k\pi)\)</span> 上单调递增<br />在 <span
-class="math inline">\((2k\pi, \pi + 2k\pi)\)</span> 上单调递减</td>
+<tr>
+<td style="text-align:center">单调性</td>
+<td style="text-align:center">在 $\left(-\dfrac{\pi}{2} + 2k\pi, \dfrac{\pi}{2} + 2k\pi\right)$ 上单调递增<br />在 $\left(\dfrac{\pi}{2} + 2k\pi, \dfrac{3\pi}{2} + 2k\pi\right)$ 上单调递减</td>
+<td style="text-align:center">在 $(\pi +2k\pi, 2\pi + 2k\pi)$ 上单调递增<br />在 $(2k\pi, \pi + 2k\pi)$ 上单调递减</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">对称轴</td>
-<td style="text-align: center;"><span class="math inline">\(x =
-\dfrac{\pi}{2} + k\pi\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(x =
-k\pi\)</span></td>
+<tr>
+<td style="text-align:center">对称轴</td>
+<td style="text-align:center">$x = \dfrac{\pi}{2} + k\pi$</td>
+<td style="text-align:center">$x = k\pi$</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">对称中心</td>
-<td style="text-align: center;"><span class="math inline">\(x = (k\pi,
-0)\)</span></td>
-<td style="text-align: center;"><span class="math inline">\(x =
-\left(\dfrac{\pi}{2} + k\pi, 0\right)\)</span></td>
+<tr>
+<td style="text-align:center">对称中心</td>
+<td style="text-align:center">$x = (k\pi, 0)$</td>
+<td style="text-align:center">$x = \left(\dfrac{\pi}{2} + k\pi, 0\right)$</td>
 </tr>
 </tbody>
 </table>
-<p>观察上表，我们发现这两个函数有非常多相似之处，比如我们发现 <span
-class="math inline">\(f(x) = \cos x\)</span> 的对称轴和对称中心都可以由
-<span class="math inline">\(f(x) = \sin x\)</span> 的向右平移 <span
-class="math inline">\(\dfrac{\pi}{2}\)</span> 得出。这本质上是因为 <span
-class="math inline">\(\sin\left(\dfrac{\pi}{2} + x\right) = \cos
-x\)</span>，所以其实这两个函数图像可以互相通过平移得到。</p>
-<p>了解完了最简单的三角函数，接下来我们来看一类正弦型三角函数的图像，即
-<span class="math inline">\(f(x) = A\sin(\omega x +
-\varphi)\)</span>。</p>
-<p>对于函数 <span class="math inline">\(f(x) = A\sin(\omega x +
-\varphi)\)</span>，<span class="math inline">\(A\)</span>
-被称为振幅，<span class="math inline">\(\omega\)</span>
-被称为频率，<span class="math inline">\(\varphi\)</span>
-被称为初相。学过函数图像变换的我们很容易得到这个图像相当于是 <span
-class="math inline">\(f(x) = \sin x\)</span> 的图像纵向伸缩 <span
-class="math inline">\(A\)</span> 倍，横向伸缩 <span
-class="math inline">\(\dfrac{1}{\omega}\)</span> 倍，然后向左/右平移
-<span
-class="math inline">\(\left|\dfrac{\varphi}{\omega}\right|\)</span>
-得到的，这样我们就很容易画出这个的函数的图像了，同时如果 <span
-class="math inline">\(f(x)\)</span> 的最小正周期为 <span
-class="math inline">\(T\)</span>，我们不难得到 <span
-class="math inline">\(\omega = \dfrac{2\pi}{T}\)</span></p>
-<p>下面给出 <span class="math inline">\(f(x) = 3\sin(4x +
-\dfrac{\pi}{3})\)</span> 的图像。</p>
-<p><img src="https://i.328888.xyz/2023/04/07/irKqPL.png" /></p>
+</div>
+<p>观察上表，我们发现这两个函数有非常多相似之处，比如我们发现 $f(x) = \cos x$ 的对称轴和对称中心都可以由 $f(x) = \sin x$ 的向右平移 $\dfrac{\pi}{2}$ 得出。这本质上是因为 $\sin\left(\dfrac{\pi}{2} + x\right) = \cos x$，所以其实这两个函数图像可以互相通过平移得到。</p>
+<p>了解完了最简单的三角函数，接下来我们来看一类正弦型三角函数的图像，即 $f(x) = A\sin(\omega x + \varphi)$。</p>
+<p>对于函数 $f(x) = A\sin(\omega x + \varphi)$，$A$ 被称为振幅，$\omega$ 被称为频率，$\varphi$ 被称为初相。学过函数图像变换的我们很容易得到这个图像相当于是 $f(x) = \sin x$ 的图像纵向伸缩 $A$ 倍，横向伸缩 $\dfrac{1}{\omega}$ 倍，然后向左/右平移 $\left|\dfrac{\varphi}{\omega}\right|$ 得到的，这样我们就很容易画出这个的函数的图像了，同时如果 $f(x)$ 的最小正周期为 $T$，我们不难得到 $\omega = \dfrac{2\pi}{T}$</p>
+<p>下面给出 $f(x) = 3\sin(4x + \dfrac{\pi}{3})$ 的图像。</p>
+<p><img src="https://i.328888.xyz/2023/04/07/irKqPL.png" alt=""></p>
 <p>接下来我们来了解一下这个函数的性质，还是上表。</p>
+<div class="table-container">
 <table>
-<colgroup>
-<col style="width: 22%" />
-<col style="width: 77%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th style="text-align: center;">性质</th>
-<th style="text-align: center;"><span class="math inline">\(f(x) =
-A\sin(\omega x + \varphi)\)</span></th>
+<tr>
+<th style="text-align:center">性质</th>
+<th style="text-align:center">$f(x) = A\sin(\omega x + \varphi)$</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td style="text-align: center;">最小正周期</td>
-<td style="text-align: center;"><span
-class="math inline">\(\dfrac{2\pi}{\omega}\)</span></td>
+<tr>
+<td style="text-align:center">最小正周期</td>
+<td style="text-align:center">$\dfrac{2\pi}{\omega}$</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">对称轴</td>
-<td style="text-align: center;"><span class="math inline">\(\omega x +
-\varphi = \dfrac{\pi}{2} + k\pi\)</span>，<span class="math inline">\(x
-= \dfrac{1}{\omega}\left(\dfrac{\pi}{2} + k\pi -
-\varphi\right)\)</span></td>
+<tr>
+<td style="text-align:center">对称轴</td>
+<td style="text-align:center">$\omega x + \varphi = \dfrac{\pi}{2} + k\pi$，$x = \dfrac{1}{\omega}\left(\dfrac{\pi}{2} + k\pi - \varphi\right)$</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">对称中心</td>
-<td style="text-align: center;"><span class="math inline">\(\omega x +
-\varphi = k\pi\)</span>，对称中心为 <span
-class="math inline">\(\left(\dfrac{k\pi - \varphi}{\omega},
-0\right)\)</span></td>
+<tr>
+<td style="text-align:center">对称中心</td>
+<td style="text-align:center">$\omega x + \varphi = k\pi$，对称中心为 $\left(\dfrac{k\pi - \varphi}{\omega}, 0\right)$</td>
 </tr>
-<tr class="even">
-<td style="text-align: center;">单调性（<span class="math inline">\(A
-&gt; 0\)</span>）</td>
-<td style="text-align: center;">在 <span class="math inline">\(\omega x
-+ \varphi \in \left(-\dfrac{\pi}{2} + 2k\pi, \dfrac{\pi}{2} +
-2k\pi\right)\)</span> 的解集上单调递增<br />在 <span
-class="math inline">\(\omega x + \varphi \in \left(\dfrac{\pi}{2} +
-2k\pi, \dfrac{3\pi}{2} + 2k\pi\right)\)</span> 的解集上单调递减</td>
+<tr>
+<td style="text-align:center">单调性（$A &gt; 0$）</td>
+<td style="text-align:center">在 $\omega x + \varphi \in \left(-\dfrac{\pi}{2} + 2k\pi, \dfrac{\pi}{2} + 2k\pi\right)$ 的解集上单调递增<br />在 $\omega x + \varphi \in \left(\dfrac{\pi}{2} + 2k\pi, \dfrac{3\pi}{2} + 2k\pi\right)$ 的解集上单调递减</td>
 </tr>
 </tbody>
 </table>
-<h2 id="后记">后记</h2>
-<p>写得挺水的，如果有什么建议补充的内容欢迎联系。</p>
+</div>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>写得挺水的，如果有什么建议补充的内容欢迎联系。</p>
 
     </div>
 
