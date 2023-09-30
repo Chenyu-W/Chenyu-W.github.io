@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="I had a dream and I make it beautiful This is a love just like chemical And you now take my breath away">
+    <meta name="description" content="I had a dream and I make it beautiful This is a love just like chemical And you now take my breath away">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【题解】Solutions-8.24(重构树，高消，笛卡尔树，线段树)">
 <meta property="og:url" content="http://example.com/2023/08/24/Solutions-8-24/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="I had a dream and I make it beautiful This is a love just like chemical And you now take my breath away">
+<meta property="og:description" content="I had a dream and I make it beautiful This is a love just like chemical And you now take my breath away">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-24T12:45:20.000Z">
 <meta property="article:modified_time" content="2023-08-29T11:25:51.458Z">
@@ -116,7 +116,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#luogu4899"><span class="nav-number">1.</span> <span class="nav-text">Luogu4899</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#luogu3232"><span class="nav-number">2.</span> <span class="nav-text">Luogu3232</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#luogu7492"><span class="nav-number">3.</span> <span class="nav-text">Luogu7492</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#luogu9196"><span class="nav-number">4.</span> <span class="nav-text">Luogu9196</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#luogu6453"><span class="nav-number">5.</span> <span class="nav-text">Luogu6453</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf997e"><span class="nav-number">6.</span> <span class="nav-text">CF997E</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1117g"><span class="nav-number">7.</span> <span class="nav-text">CF1117G</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu4899"><span class="nav-number">1.</span> <span class="nav-text">Luogu4899</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu3232"><span class="nav-number">2.</span> <span class="nav-text">Luogu3232</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu7492"><span class="nav-number">3.</span> <span class="nav-text">Luogu7492</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu9196"><span class="nav-number">4.</span> <span class="nav-text">Luogu9196</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Luogu6453"><span class="nav-number">5.</span> <span class="nav-text">Luogu6453</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF997E"><span class="nav-number">6.</span> <span class="nav-text">CF997E</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1117G"><span class="nav-number">7.</span> <span class="nav-text">CF1117G</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -245,109 +245,36 @@
 <p>And you now take my breath away</p>
 </blockquote>
 <span id="more"></span>
-<h2 id="luogu4899">Luogu4899</h2>
-<p>难度：自己想出来了。</p>
-<p>我们建两棵重构树，一棵按照 <span class="math inline">\(\min(u_i,
-v_i)\)</span> 从大到小排序见，一棵按照 <span
-class="math inline">\(\max(u_i, v_i)\)</span>
-从小到大建，对于第一棵树的节点 <span class="math inline">\(u\)</span>，
-它的叶子节点就是走编号 <span class="math inline">\(\ge val_u\)</span>
-点能到的点，第二棵同理，对于一个询问 <span class="math inline">\((u, v,
-l, r)\)</span>，我们先倍增出 <span class="math inline">\(u\)</span> 和
-<span class="math inline">\(v\)</span>
-深度最小的祖先，然后就变成了查询两棵子树是否有相同的叶子节点，转到 dfs
-序上，主席树数点即可。</p>
-<p><a target="_blank" rel="noopener" href="https://loj.ac/s/1871908">Code</a></p>
-<h2 id="luogu3232">Luogu3232</h2>
-<p>难度：一眼。</p>
+<h2 id="Luogu4899"><a href="#Luogu4899" class="headerlink" title="Luogu4899"></a>Luogu4899</h2><p>难度：自己想出来了。</p>
+<p>我们建两棵重构树，一棵按照 $\min(u_i, v_i)$ 从大到小排序见，一棵按照 $\max(u_i, v_i)$ 从小到大建，对于第一棵树的节点 $u$， 它的叶子节点就是走编号 $\ge val_u$ 点能到的点，第二棵同理，对于一个询问 $(u, v, l, r)$，我们先倍增出 $u$ 和 $v$ 深度最小的祖先，然后就变成了查询两棵子树是否有相同的叶子节点，转到 dfs 序上，主席树数点即可。</p>
+<p><a target="_blank" rel="noopener" href="https://loj.ac/s/1871908">Code</a> </p>
+<h2 id="Luogu3232"><a href="#Luogu3232" class="headerlink" title="Luogu3232"></a>Luogu3232</h2><p>难度：一眼。</p>
 <p>根据排序不等式，显然经过次数越多的边赋的值越小，所以只要求出每条边的期望经过次数即可。</p>
-<p>记 <span class="math inline">\(f_u\)</span> 表示 <span
-class="math inline">\(u\)</span> 的期望经过次数，显然有 <span
-class="math display">\[
-f_{u} = \sum_{(u, v) \in E, v \neq n} \dfrac{f_v}{d_v}
-\]</span> 特别地，<span class="math inline">\(f_1\)</span> 的右侧加上
-<span class="math inline">\(1\)</span>。</p>
-<p>对于一条边 <span class="math inline">\((u,
-v)\)</span>，它的期望经过次数为 <span
-class="math inline">\(\dfrac{f_u}{d_u} +
-\dfrac{f_v}{d_v}\)</span>。高斯消元求出 <span
-class="math inline">\(f\)</span> 即可。</p>
+<p>记 $f_u$ 表示 $u$ 的期望经过次数，显然有</p>
+<script type="math/tex; mode=display">
+f_{u} = \sum_{(u, v) \in E, v \neq n} \dfrac{f_v}{d_v}</script><p>特别地，$f_1$ 的右侧加上 $1$。</p>
+<p>对于一条边 $(u, v)$，它的期望经过次数为 $\dfrac{f_u}{d_u} + \dfrac{f_v}{d_v}$。高斯消元求出 $f$ 即可。</p>
 <p><a target="_blank" rel="noopener" href="https://loj.ac/s/1871935">Code</a></p>
-<h2 id="luogu7492">Luogu7492</h2>
-<p>难度：一眼。</p>
-<p>我们维护一个按位与和，暴力修改，然后线段树维护最大子段和即可。由于一个数只会被修改
-<span class="math inline">\(O(\log V)\)</span> 次，所以时间复杂度为
-<span class="math inline">\(O(n\log n \log V)\)</span>。</p>
+<h2 id="Luogu7492"><a href="#Luogu7492" class="headerlink" title="Luogu7492"></a>Luogu7492</h2><p> 难度：一眼。</p>
+<p>我们维护一个按位与和，暴力修改，然后线段树维护最大子段和即可。由于一个数只会被修改 $O(\log V)$ 次，所以时间复杂度为 $O(n\log n \log V)$。</p>
 <p><a target="_blank" rel="noopener" href="https://loj.ac/s/1871940">Code</a></p>
-<h2 id="luogu9196">Luogu9196</h2>
-<p>难度：一眼。</p>
-<p>前缀的限制转为 Trie
-树上一个子树的叶子节点，后缀倒着插和前缀一样，于是就是求有几个点在两棵子树内，主席树数点即可。</p>
+<h2 id="Luogu9196"><a href="#Luogu9196" class="headerlink" title="Luogu9196"></a>Luogu9196</h2><p>难度：一眼。</p>
+<p>前缀的限制转为 Trie 树上一个子树的叶子节点，后缀倒着插和前缀一样，于是就是求有几个点在两棵子树内，主席树数点即可。</p>
 <p><a target="_blank" rel="noopener" href="https://loj.ac/s/1871945">Code</a></p>
-<h2 id="luogu6453">Luogu6453</h2>
-<p>难度：想了很久会了。</p>
-<p>我们考虑对于 <span class="math inline">\((i, h_i)\)</span>
-建立小根堆笛卡尔树，对于一个点 <span
-class="math inline">\(u\)</span>，其实就对应了一个长度为 <span
-class="math inline">\(sz_u\)</span>，高度为 <span
-class="math inline">\(h_u - h_{fa_u}\)</span> 的矩形，记 <span
-class="math inline">\(f_{i, j}\)</span> 表示在 <span
-class="math inline">\(i\)</span> 的子树内填 <span
-class="math inline">\(j\)</span>
-个数的方案数，对于儿子之间的合并，我们可以直接树形背包，关键在于怎么处理在
-<span class="math inline">\(i\)</span> 代表的举行填数。</p>
-<p>众所周知，在 <span class="math inline">\(n \times m\)</span>
-的举行内填 <span class="math inline">\(k\)</span> 个互不攻击的车一共有
-<span class="math inline">\(\binom{n}{k}\binom{m}{k}k!\)</span>
-中方案，所以我们枚举在当前点填的个数 <span
-class="math inline">\(j\)</span> 与在子树内填的个数 <span
-class="math inline">\(k\)</span>，转移系数即为 <span
-class="math inline">\(\binom{sz_i - k}{j}\binom{h_i -
-h_{fa_i}}{j}j!\)</span>。</p>
+<h2 id="Luogu6453"><a href="#Luogu6453" class="headerlink" title="Luogu6453"></a>Luogu6453</h2><p>难度：想了很久会了。</p>
+<p>我们考虑对于 $(i, h<em>i)$ 建立小根堆笛卡尔树，对于一个点 $u$，其实就对应了一个长度为 $sz_u$，高度为 $h_u - h</em>{fa<em>u}$ 的矩形，记 $f</em>{i, j}$ 表示在 $i$ 的子树内填 $j$ 个数的方案数，对于儿子之间的合并，我们可以直接树形背包，关键在于怎么处理在 $i$ 代表的举行填数。</p>
+<p>众所周知，在 $n \times m$ 的举行内填 $k$ 个互不攻击的车一共有 $\binom{n}{k}\binom{m}{k}k!$ 中方案，所以我们枚举在当前点填的个数 $j$ 与在子树内填的个数 $k$，转移系数即为 $\binom{sz<em>i - k}{j}\binom{h_i - h</em>{fa_i}}{j}j!$。</p>
 <p><a target="_blank" rel="noopener" href="https://loj.ac/s/1871956">Code</a></p>
-<h2 id="cf997e">CF997E</h2>
-<p>难度：独立做了弱化版，没想到把贡献当成标记去做，好题。</p>
-<p>首先考虑求全局的怎么做，限制等价于 <span class="math inline">\(\max -
-\min = r - l\)</span>，所以 <span class="math inline">\(\max - \min + l
-= r\)</span>，我们考虑对 <span class="math inline">\(r\)</span>
-做扫描线，然后我们发现 <span class="math inline">\(\max - \min + l \ge
-r\)</span>，所以其实就是求左边最小值的个数，考虑加入 <span
-class="math inline">\(a_r\)</span>
-会产生什么影响，显然会改变前面一段区间的最大值和最小值，我们区间覆盖
-<span class="math inline">\(\max\)</span> 和 <span
-class="math inline">\(\min\)</span>
-显然不好做，所以我们可以拆成若干个最大值/最小值相等的连续段，对这些连续段做区间加，这样就能做了，根据单调栈，这样的区间个数是
-<span class="math inline">\(O(n)\)</span> 的，所以复杂度很对。</p>
-<p>然后我们考虑怎么区间查，我们现在统计的是子区间的个数，所以对于一个区间
-<span class="math inline">\([l, r]\)</span>，我们在 <span
-class="math inline">\(r\)</span> 处统计贡献时，其实是求 <span
-class="math inline">\([l, r]\)</span>
-在历史版本最小值出现次数之和，我们考虑线段树上每个节点上存一个值 <span
-class="math inline">\(t\)</span>，表示该区间当前版本最小值对答案的贡献次数。我们在更新完
-<span class="math inline">\(r\)</span> 带来的影响时，就让 <span
-class="math inline">\(t_{root} \gets t_{root} +
-1\)</span>，然后更新答案即 <span class="math inline">\(res_u \gets res_u
-+ t_u \times c_u\)</span>，其中 <span class="math inline">\(c_u\)</span>
-表示最小值出现次数。这样我们就只需要求一个区间 <span
-class="math inline">\(res\)</span> 的和即可。</p>
-<p><a
-target="_blank" rel="noopener" href="https://codeforces.com/contest/997/submission/220128168">Code</a></p>
-<h2 id="cf1117g">CF1117G</h2>
-<p>难度：简单。</p>
-<p>不难发现答案就是把 <span class="math inline">\([l, r]\)</span>
-拉出来建笛卡尔树后每个点的子树大小之和。</p>
-<p>考虑建立笛卡尔树的过程，不难发现对于 <span
-class="math inline">\(p_i\)</span> 来说 <span
-class="math inline">\([\max(l, L_i + 1), \min(r, R_i - 1)]\)</span>
-这一段区间都是它的子树，其中 <span class="math inline">\(L_i,
-R_i\)</span> 分别表示 <span class="math inline">\(i\)</span>
-左右第一个大于它的下标，于是我们要求的就是 <span class="math display">\[
-\sum_{i = l}^r [\min(r, R_i - 1) - \max(l, L_i + 1) + 1]
-\]</span> 将 <span class="math inline">\(\max\)</span> 和 <span
-class="math inline">\(\min\)</span> 拆开来变成二维偏序形式，即可 <span
-class="math inline">\(O(n\log n)\)</span> 解决。</p>
-<p><a
-target="_blank" rel="noopener" href="https://codeforces.com/contest/1117/submission/220340792">Code</a></p>
+<h2 id="CF997E"><a href="#CF997E" class="headerlink" title="CF997E"></a>CF997E</h2><p>难度：独立做了弱化版，没想到把贡献当成标记去做，好题。</p>
+<p>首先考虑求全局的怎么做，限制等价于 $\max - \min = r - l$，所以 $\max - \min + l = r$，我们考虑对 $r$ 做扫描线，然后我们发现 $\max - \min + l \ge r$，所以其实就是求左边最小值的个数，考虑加入 $a_r$ 会产生什么影响，显然会改变前面一段区间的最大值和最小值，我们区间覆盖 $\max$ 和 $\min$ 显然不好做，所以我们可以拆成若干个最大值/最小值相等的连续段，对这些连续段做区间加，这样就能做了，根据单调栈，这样的区间个数是 $O(n)$ 的，所以复杂度很对。</p>
+<p>然后我们考虑怎么区间查，我们现在统计的是子区间的个数，所以对于一个区间 $[l, r]$，我们在 $r$ 处统计贡献时，其实是求 $[l, r]$ 在历史版本最小值出现次数之和，我们考虑线段树上每个节点上存一个值 $t$，表示该区间当前版本最小值对答案的贡献次数。我们在更新完 $r$ 带来的影响时，就让 $t<em>{root} \gets t</em>{root} + 1$，然后更新答案即 $res_u \gets res_u + t_u \times c_u$，其中 $c_u$ 表示最小值出现次数。这样我们就只需要求一个区间 $res$ 的和即可。</p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/997/submission/220128168">Code</a></p>
+<h2 id="CF1117G"><a href="#CF1117G" class="headerlink" title="CF1117G"></a>CF1117G</h2><p>难度：简单。</p>
+<p>不难发现答案就是把 $[l, r]$ 拉出来建笛卡尔树后每个点的子树大小之和。</p>
+<p>考虑建立笛卡尔树的过程，不难发现对于 $p_i$ 来说 $[\max(l, L_i + 1), \min(r, R_i - 1)]$ 这一段区间都是它的子树，其中 $L_i, R_i$ 分别表示 $i$ 左右第一个大于它的下标，于是我们要求的就是</p>
+<script type="math/tex; mode=display">
+\sum_{i = l}^r [\min(r, R_i - 1) - \max(l, L_i + 1) + 1]</script><p>将 $\max$ 和 $\min$ 拆开来变成二维偏序形式，即可 $O(n\log n)$ 解决。</p>
+<p><a target="_blank" rel="noopener" href="https://codeforces.com/contest/1117/submission/220340792">Code</a></p>
 
     </div>
 
