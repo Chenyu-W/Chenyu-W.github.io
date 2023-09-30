@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="前言这一场算是我人生中的第一场 CF，由于被人催着去睡觉，赛时只切了 ABC，赛后也懒得补题。">
+    <meta name="description" content="前言 这一场算是我人生中的第一场 CF，由于被人催着去睡觉，赛时只切了 ABC，赛后也懒得补题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【比赛】 CF Edu Round 134">
 <meta property="og:url" content="http://example.com/2022/08/29/CF%20Edu%20Round%20134/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="前言这一场算是我人生中的第一场 CF，由于被人催着去睡觉，赛时只切了 ABC，赛后也懒得补题。">
+<meta property="og:description" content="前言 这一场算是我人生中的第一场 CF，由于被人催着去睡觉，赛时只切了 ABC，赛后也懒得补题。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-29T05:35:53.000Z">
 <meta property="article:modified_time" content="2022-08-29T05:52:51.814Z">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E8%AE%B0%E5%BD%95-amp-%E9%A2%98%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">赛时记录 &amp; 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A"><span class="nav-number">2.1.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#B"><span class="nav-number">2.2.</span> <span class="nav-text">B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C"><span class="nav-number">2.3.</span> <span class="nav-text">C</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%9B%E6%97%B6%E8%AE%B0%E5%BD%95-%E9%A2%98%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">赛时记录 &amp; 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a"><span class="nav-number">2.1.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b"><span class="nav-number">2.2.</span> <span class="nav-text">B</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c"><span class="nav-number">2.3.</span> <span class="nav-text">C</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -234,11 +234,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这一场算是我人生中的第一场 CF，由于被人催着去睡觉，赛时只切了 ABC，赛后也懒得补题。</p>
+        <h2 id="前言">前言</h2>
+<p>这一场算是我人生中的第一场 CF，由于被人催着去睡觉，赛时只切了
+ABC，赛后也懒得补题。</p>
 <span id="more"></span>
-<h2 id="赛时记录-amp-题解"><a href="#赛时记录-amp-题解" class="headerlink" title="赛时记录 &amp; 题解"></a>赛时记录 &amp; 题解</h2><h3 id="A"><a href="#A" class="headerlink" title="A"></a>A</h3><p>进场先开A，发现直接依题意分类讨论即可，5min 切掉。</p>
-<h3 id="B"><a href="#B" class="headerlink" title="B"></a>B</h3><p>然后看 B 的题面第一眼感觉 bfs，看了数据范围很快放弃了这个想法，然后发现题目中不可经过的点构成的形状是一个十字里面套一个正方形，所以显然不会影响 $(1, 1)$ 到 $(n, m)$ 的最短路，所以只需要判断不能到达的情况即可，发现性质之后 5min 切了。</p>
-<h3 id="C"><a href="#C" class="headerlink" title="C"></a>C</h3><p>C 感觉是一个二合一的题目，显然每一个 $a<em>i$ 都只能变成大于等于它的 $b_j$，所以最小值 <code>lower_bound</code> 一下就出来了，然后想着最小值是二分得出就考虑能不能二分出最大值，想了 10min 发现不是很会做，于是转变一下思路，每个 $d_i$ 要取最大值也就相当于要给当前 $a_i$ 找到一个最大的 $b_j$，于是考虑这个最大的 $b_j$ 有什么性质。然后发现如果一个位置 $i$ 满足 $a_i &gt;b</em>{i - 1}$，那么 $[1, i - 1]$ 的数肯定配不到 $[i, n]$ 的数(用抽屉原理感性理解)，然后我们就找到了 $b_j$ 的最大值，然后就轻松切了。</p>
+<h2 id="赛时记录-题解">赛时记录 &amp; 题解</h2>
+<h3 id="a">A</h3>
+<p>进场先开A，发现直接依题意分类讨论即可，5min 切掉。</p>
+<h3 id="b">B</h3>
+<p>然后看 B 的题面第一眼感觉
+bfs，看了数据范围很快放弃了这个想法，然后发现题目中不可经过的点构成的形状是一个十字里面套一个正方形，所以显然不会影响
+<span class="math inline">\((1, 1)\)</span> 到 <span
+class="math inline">\((n, m)\)</span>
+的最短路，所以只需要判断不能到达的情况即可，发现性质之后 5min 切了。</p>
+<h3 id="c">C</h3>
+<p>C 感觉是一个二合一的题目，显然每一个 <span
+class="math inline">\(a_i\)</span> 都只能变成大于等于它的 <span
+class="math inline">\(b_j\)</span>，所以最小值 <code>lower_bound</code>
+一下就出来了，然后想着最小值是二分得出就考虑能不能二分出最大值，想了
+10min 发现不是很会做，于是转变一下思路，每个 <span
+class="math inline">\(d_i\)</span> 要取最大值也就相当于要给当前 <span
+class="math inline">\(a_i\)</span> 找到一个最大的 <span
+class="math inline">\(b_j\)</span>，于是考虑这个最大的 <span
+class="math inline">\(b_j\)</span> 有什么性质。然后发现如果一个位置
+<span class="math inline">\(i\)</span> 满足 <span
+class="math inline">\(a_i &gt;b_{i - 1}\)</span>，那么 <span
+class="math inline">\([1, i - 1]\)</span> 的数肯定配不到 <span
+class="math inline">\([i, n]\)</span>
+的数(用抽屉原理感性理解)，然后我们就找到了 <span
+class="math inline">\(b_j\)</span> 的最大值，然后就轻松切了。</p>
 
     </div>
 

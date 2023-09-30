@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。 (该小记中没有具体例题，请谨慎服用)">
+    <meta name="description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。 (该小记中没有具体例题，请谨慎服用)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【笔记】数列小记">
 <meta property="og:url" content="http://example.com/2023/02/04/%E6%95%B0%E5%88%97%E5%B0%8F%E8%AE%B0/index.html">
 <meta property="og:site_name" content="wcy&#39;s blog">
-<meta property="og:description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。 (该小记中没有具体例题，请谨慎服用)">
+<meta property="og:description" content="浅谈一下数列的基础内容(笔者水平不高，轻喷)。 (该小记中没有具体例题，请谨慎服用)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-04T03:15:02.000Z">
 <meta property="article:modified_time" content="2023-02-07T22:56:18.973Z">
@@ -117,7 +117,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">等差数列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">等差数列的基本量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">等差数列的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">等比数列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">等比数列的基本量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">2.3.</span> <span class="nav-text">等比数列的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%88%97%E6%B1%82%E9%80%9A%E9%A1%B9%E5%85%AC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">数列求通项公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A0%E5%8A%A0-%E5%8F%A0%E4%B9%98%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">叠加&#x2F;叠乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E5%BD%A2%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">一阶常系数齐次线性递推形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E5%BD%A2%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">二阶常系数齐次线性递推形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E5%BD%A2%E5%BC%8F"><span class="nav-number">3.4.</span> <span class="nav-text">高阶常系数齐次线性递推形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%98%B6%E5%88%86%E5%BC%8F%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E6%95%B0%E5%88%97"><span class="nav-number">3.5.</span> <span class="nav-text">一阶分式线性递推数列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%88%97%E6%B1%82%E5%92%8C"><span class="nav-number">4.</span> <span class="nav-text">数列求和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">常用公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%B1%82%E5%92%8C%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">分组求和法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%99%E4%BD%8D%E7%9B%B8%E5%87%8F%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">错位相减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%82%E9%A1%B9%E7%9B%B8%E6%B6%88%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">裂项相消法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97"><span class="nav-number">1.</span> <span class="nav-text">等差数列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%87%8F"><span class="nav-number">1.2.</span> <span class="nav-text">等差数列的基本量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">1.3.</span> <span class="nav-text">等差数列的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97"><span class="nav-number">2.</span> <span class="nav-text">等比数列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">2.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">等比数列的基本量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97%E7%9A%84%E6%80%A7%E8%B4%A8"><span class="nav-number">2.3.</span> <span class="nav-text">等比数列的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%88%97%E6%B1%82%E9%80%9A%E9%A1%B9%E5%85%AC%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">数列求通项公式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A0%E5%8A%A0%E5%8F%A0%E4%B9%98%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">叠加&#x2F;叠乘法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E5%BD%A2%E5%BC%8F"><span class="nav-number">3.2.</span> <span class="nav-text">一阶常系数齐次线性递推形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E5%BD%A2%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">二阶常系数齐次线性递推形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AB%98%E9%98%B6%E5%B8%B8%E7%B3%BB%E6%95%B0%E9%BD%90%E6%AC%A1%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E5%BD%A2%E5%BC%8F"><span class="nav-number">3.4.</span> <span class="nav-text">高阶常系数齐次线性递推形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%98%B6%E5%88%86%E5%BC%8F%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8%E6%95%B0%E5%88%97"><span class="nav-number">3.5.</span> <span class="nav-text">一阶分式线性递推数列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%88%97%E6%B1%82%E5%92%8C"><span class="nav-number">4.</span> <span class="nav-text">数列求和</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F"><span class="nav-number">4.1.</span> <span class="nav-text">常用公式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%B1%82%E5%92%8C%E6%B3%95"><span class="nav-number">4.2.</span> <span class="nav-text">分组求和法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%99%E4%BD%8D%E7%9B%B8%E5%87%8F%E6%B3%95"><span class="nav-number">4.3.</span> <span class="nav-text">错位相减法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%82%E9%A1%B9%E7%9B%B8%E6%B6%88%E6%B3%95"><span class="nav-number">4.4.</span> <span class="nav-text">裂项相消法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">5.</span> <span class="nav-text">后记</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -243,58 +243,296 @@
         <p>浅谈一下数列的基础内容(笔者水平不高，轻喷)。</p>
 <p>(该小记中没有具体例题，请谨慎服用)</p>
 <span id="more"></span>
-<h2 id="等差数列"><a href="#等差数列" class="headerlink" title="等差数列"></a>等差数列</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>如果数列 ${a<em>n}$ 满足 $a</em>{n + 1} - a_n$ 是常数，那么则称数列 ${a_n}$ 是一个等差数列，等差数列还可以写作 $\text{A.P}$。</p>
-<h3 id="等差数列的基本量"><a href="#等差数列的基本量" class="headerlink" title="等差数列的基本量"></a>等差数列的基本量</h3><p>$a<em>1$ 称为首项，$a</em>{n + 1} - a_n$ 这个常数称为公差，一般用 $d$ 表示。</p>
-<p>有了以上定义，我们可以容易得到等差数列的通项公式 $a_n = a_1 + (n - 1)d$。</p>
-<p>我们还可以发现把一个等差数列的头尾两两配对，它们的和是一样的，这也是高斯计算等差数列和的原理，从中我们可以推出等差数列的前 $n$ 项和公式 $S_n = \dfrac{n(a_1 + a_n)}{2}$，有时也用通项公式换掉 $a_n$ 来方便计算。</p>
-<h3 id="等差数列的性质"><a href="#等差数列的性质" class="headerlink" title="等差数列的性质"></a>等差数列的性质</h3><p>等差数列在 $d \neq 0$ 时是单调的，看起来十分废话，但是这条结论在一类求 $S_n$ 的最值问题可以应用，我们只需找到 $a_n$ 和 $0$ 的分界点即可。</p>
-<p>等差数列的通项公式有一个弊端，那就是只能从 $a_1$ 推 $a_n$，好在我们可以把通项公式变形一下，这样就可以得到 $a_n = a_m + (n - m)d$ 这样比较普适的结论。</p>
-<p>由等差数列求和公式推导的过程我们容易发现 $m + n = p + q \Rightarrow a<em>m + a_n = a_p + a_q$，这样得到了第二个性质，当 $d \neq 0$ 时，我们也容易由右边推左边，这个结论还有一个特别的形式，即 $m + n = 2p \Rightarrow a_m + a_n = 2a_p$，这样我们就可以发现一种全新的等差数列求和方法，就是当项数 $n$ 为奇数时，$S_n = na</em>{\frac{n + 1}{2}}$，这个结论可以帮助我们化简一些式子。</p>
-<p>上述那个求和方式还可以逆用，比如 $a<em>n = \dfrac{S</em>{2n - 1}}{2n - 1}$，这一条性质可以解决一类问题，即给定等差数列 ${a<em>n}$ 和 ${b_n}$ 前 $n$ 项和 $S_n$ 和 $T_n$ 的比值 $\dfrac{S_n}{T_n}$，求 $\dfrac{a_n}{b_n}$，这时候我们就可以利用 $\dfrac{a_n}{b_n} = \dfrac{S</em>{2n - 1}}{T_{2n - 1}}$ 来进行计算。</p>
-<p>等差数列的前 $n$ 项和 $S_n$ 也有一些很好的性质，下面我们来介绍一下。</p>
-<p>首先根据 $S_n = \dfrac{n(a_1 + a_n)}{2}$，我们可以得到 $\dfrac{S_n}{n} = \dfrac{a_1 + a_n}{2} = \dfrac{2a_1 + (n - 1)d}{2} = a_1 + \dfrac{n - 1}{2}d$，也即 $\left{\dfrac{S_n}{n}\right}$ 是一个公差为 $\dfrac{d}{2}$ 的等差数列。</p>
-<p>还有一个广为流传的结论是等差数列的片段和也是等差数列。形式化地，即 ${S<em>{nm} - S</em>{(n - 1)m}}$ 也是个等差数列，现在我们不妨来研究一下这个等差数列的公差是什么。</p>
-<script type="math/tex; mode=display">
-S_{(n + 1)m} - S_{nm} = \sum_{i={nm + 1}}^{(n + 1)m} a_i = \sum_{i={nm + 1}}^{(n + 1)m} a_{i - m} + md = m^2d + \sum_{i = (n - 1)m + 1}^{nm}a_i = m^2d + S_{nm} - S_{(n - 1)m}</script><p>所以 ${S<em>{nm} - S</em>{(n - 1)m}}$ 是个公差为 $m^2d$ 的等差数列。</p>
-<h2 id="等比数列"><a href="#等比数列" class="headerlink" title="等比数列"></a>等比数列</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>如果数列 ${a<em>n}$ 满足 $a_n \neq 0$，$\dfrac{a</em>{n + 1}}{a_n}$ 为常数，那么则称 ${a_n}$ 是一个等比数列，等比数列还可以写作 $\text{G.P}$。</p>
-<h3 id="等比数列的基本量"><a href="#等比数列的基本量" class="headerlink" title="等比数列的基本量"></a>等比数列的基本量</h3><p>$a<em>1$ 称为首项，$\dfrac{a</em>{n + 1}}{a_n}$ 这个常数称为公比，一般用 $q$ 表示。</p>
-<p>和等差数列相似，我们容易得到等比数列的通项公式 $a_n = a_1 \cdot q^{n - 1}$。</p>
-<p>等比数列的求和公式推导要用到一个错位相减的经典 trick，具体地，我们要求等比数列的前 $n$ 项和 $S<em>n = \sum</em>{i = 1}^n a<em>i$，这个式子不是很好直接算，于是考虑消去求和式子中的一部分，考虑 $qS_n = \sum</em>{i = 2}^{n + 1}a<em>i$，两式相减，我们就可以得到 $(1 - q)S_n = a_1 - a</em>{n + 1}$，所以 $S<em>n = \dfrac{a_1 - a</em>{n + 1}}{1 - q} = \dfrac{(1 - q^n)a_1}{1 - q}(q \neq 1)$。</p>
-<h3 id="等比数列的性质"><a href="#等比数列的性质" class="headerlink" title="等比数列的性质"></a>等比数列的性质</h3><p>等比数列的单调性不像等差数列那么直接，首先当 $q \in (-\infty, 0)$ 时，这个数列肯定是摆动的。接下来我们分为 $q \in (0, 1)$ 和 $q \in (1, +\infty)$ 来进行讨论。首先当 $q \in (0, 1)$ 时，若 $a_1 &gt; 0$，则单调递减，反之单调递增。当 $q \in (1, +\infty)$ 时，若 $a_1 &gt; 0$，则单调递增，反之单调递减。</p>
-<p>同等差数列相似，我们也可以对等比数列的通项公式进行变形，得到 $a_n = a_m \cdot q^{n - m}$。</p>
-<p>还是同等差数列相似，$m + n = p + q \Rightarrow a_ma_n = a_pa_q$，特别地，$m + n = 2p \Rightarrow a_ma_n = a_p^2$。</p>
-<p>对于等比数列的前 $n$ 项和 $S<em>n$ 来说，我们也有片段和为等比数列的性质，具体地，${S</em>{nm} - S_{(n - 1)m}}$ 为等比数列，其公比为 $q^m$，该性质的证明与等差数列相似，读者可以自行研究。</p>
-<h2 id="数列求通项公式"><a href="#数列求通项公式" class="headerlink" title="数列求通项公式"></a>数列求通项公式</h2><p><del>终于到了重头戏。</del></p>
-<h3 id="叠加-叠乘法"><a href="#叠加-叠乘法" class="headerlink" title="叠加/叠乘法"></a>叠加/叠乘法</h3><p>这两种方法属于数列求通项里面最 simple 的，并没有涉及什么巧妙地变换。</p>
-<p>叠加法解决的是一种递推式形如 $a<em>{n + 1} = a_n + f(n)$ 的数列通项，假设我们现在要求 $a_n$，那么第一步显然是变为 $a_n = a</em>{n - 1} + f(n - 1)$ 的形式，然后我们再把 $a<em>{n - 1}$ 以同样的形式拆开。以此类推，我们可以得到 $a_n = a_1 + \sum</em>{i = 1}^{n - 1} f(i)$ 的结论，所以我们只要对 $f$ 求和即可，大多数题目的 $f$ 通常是易于求和的，如果遇到更困难的可以参考数列求和部分。</p>
-<p>当然 $a<em>{n + 1} = a_n + f(n)$ 还有一种解决方式，就是构造 $g(n + 1) - g(n) = f(n)$，然后我们就会得到 $a</em>{n + 1} - g(n + 1) = a_n - g(n)$，这样我们就可以得到 ${a_n - g(n)}$ 是常数数列，根据 $a_1 - g(1)$ 的值进行计算，不难发现 $g(n + 1) - g(n) = f(n)$ 和有限微积分中差分的定义相似，有兴趣的读者可以进行了解。</p>
-<p>叠乘法和叠加法异曲同工，解决的是形如 $a<em>{n + 1} = a_n \cdot f(n)$ 的数列通项，不难发现它就是把变化从加法变为乘法，容易得到 $a_n = a_1 \cdot \prod</em>{i = 1}^{n - 1} f(i)$，对 $f$ 求积即可。</p>
-<p>同叠加法，我们也可以构造 $\dfrac{g(n + 1)}{g(n)} = f(n)$，然后就可以变化为 $\dfrac{a_{n + 1}}{g(n + 1)} = \dfrac{a_n}{g(n)}$，然后得到 $\left{\dfrac{a_n}{g(n)}\right}$ 为常数数列，利用 $\dfrac{a_1}{g(1)}$ 进行计算即可。</p>
-<h3 id="一阶常系数齐次线性递推形式"><a href="#一阶常系数齐次线性递推形式" class="headerlink" title="一阶常系数齐次线性递推形式"></a>一阶常系数齐次线性递推形式</h3><p>题目看着很长，实际上就是解决形如 $a_{n + 1} = pa_n + f(n)$ 的问题。</p>
-<p>让我们先从最简单的 $a_{n + 1} = pa_n + q$ 入手。通常在遇到数列通项问题时，我们都会想办法把原数列变换为易于处理的形式，这里也是一样，我们有两种处理方法。</p>
-<p>第一种，我们可以把式子变为 $\dfrac{a_{n + 1}}{p^{n + 1}} = \dfrac{a_n}{p^n} + \dfrac{q}{p^{n + 1}}$，这样数列 $\left{\dfrac{a_n}{p^n}\right}$ 就是一个叠加形的数列，后面的部分其实就是一个等比数列求和，可以用上面讲的方法计算。</p>
-<p>第二种，也是更普适的方法，我们想办法构造一个等比数列。具体地，设 $a_{n + 1} + \lambda = p(a_n + \lambda)$，这个方程在 $p \neq 1$ 的时有解 $\lambda = \dfrac{q}{p - 1}$，然后我们就可以得到 ${a_n + \lambda}$ 是一个公比为 $p$ 的等比数列，可以直接计算通项公式。</p>
-<p>研究完上述情况，我们来重新看最开始的 $a<em>{n + 1} = pa_n + f(n)$，同第二种方法，我们也想构造出一个等比数列，于是我们设 $a</em>{n + 1} + g(n + 1) = p(a_n + g(n))$，这个 $g(n)$ 在 $f(n)$ 是常系数多项式时是可以待定系数求出的，这样 ${a_n + g(n)}$ 就是一个公比为 $p$ 的等比数列，可以计算。</p>
-<p>需要注意的是并不是所有形如 $a<em>{n + 1} = pa_n + f(n)$ 的问题都是用第二个方法解决，比如 $a</em>{n + 1} = 3a_n + 3^n$ 我们用第一种方法就可以直接变为一个等差数列的形式，所以具体用哪种方法还是看情况而定。</p>
-<h3 id="二阶常系数齐次线性递推形式"><a href="#二阶常系数齐次线性递推形式" class="headerlink" title="二阶常系数齐次线性递推形式"></a>二阶常系数齐次线性递推形式</h3><p>顾名思义，解决的即为 $a<em>{n + 2} = pa</em>{n + 1} + qa_n$ 的问题，比如大名鼎鼎的 Fibonacci 数列就是如此。</p>
-<p>首先根据一阶的推导，我们肯定是想往等比数列这个方向走，所以我们不妨设 $a<em>{n + 2} - \lambda_1a</em>{n + 1} = \lambda<em>2(a</em>{n + 1} - \lambda<em>1a_n)$，这样我们就可以得到 ${a</em>{n + 1} - \lambda_1a_n}$ 是一个公比为 $\lambda_2$ 的等比数列，解完这个之后我们就可以得到一个一阶的结构，也就能用学过的东西进行求解。然后我们把重点放在 $\lambda_1, \lambda_2$ 的求解，根据上面的式子，我们有 $\lambda_1 + \lambda_2 = p, \lambda_1\lambda_2 = -q$，根据韦达定理，它们正是 $x^2 - px - q = 0$ 的双根，有了这个结论，我们也就完成了二阶的求解。</p>
-<p>当你用上面的方法解了几道题后不免会发现一个问题——怎么这么麻烦！是的，上面的方法虽然普适，但是要经过两次转化，不免有些复杂，所以我们尝试从中探索规律。当你做了几道习题后，不妨观察一下最终得出的结果，紧接着就可以发现当 $\lambda_1 \neq \lambda_2$ 时，最终的结果 $a_n$ 一定是一个 $a_n = A\lambda_1^n + B\lambda_2^n$ 的形式，所以我们只需解出 $A, B$ 即可，这可以用 $a_1, a_2$ 的值来待定系数求解。但当 $\lambda_1 = \lambda_2$ 时，结论稍有变化，这时的 $a_n$ 满足 $a_n = An\lambda_1^n + B\lambda_2^n$，我们依旧可以用 $a_1, a_2$ 的值来待定系数求解。有了以上两个结论，我们就可以大大简少计算量了。</p>
-<h3 id="高阶常系数齐次线性递推形式"><a href="#高阶常系数齐次线性递推形式" class="headerlink" title="高阶常系数齐次线性递推形式"></a>高阶常系数齐次线性递推形式</h3><p>对于二阶式子，我们有 $x^2 - px - q = 0$ 这样的结构，那么推广到更高阶时是否存在这样的结构呢？答案是肯定的。</p>
-<p>具体地，我们要解决形如 $a<em>n = \sum</em>{i = 1}^k p<em>ia</em>{n - i}$ 这样的问题，其中 $p<em>i$ 给定，那么我们就有一个这样的方程 $x^k = \sum</em>{i = 1}^k p<em>ix^{k - i}$ 叫做数列 ${a_n}$ 的特征方程。关于特征方程，有一个十分重要的结论，假设特征方程有 $m$ 个互不相同的根 $\lambda_1, \lambda_2, \ldots, \lambda_m$，它们的出现次数分别为 $n_1, n_2, \ldots, n_m$，那么我们可以得到 $a_n$ 一定满足 $a_n = \sum</em>{i = 1}^m f_i(n)\lambda_i^n$，其中 $f_i(n)$ 是一个次数为 $n_i - 1$ 的多项式，所有 $f_i$ 的系数我们不难通过 $a_1, a_2, \ldots, a_k$ 的值来待定系数解出。</p>
-<h3 id="一阶分式线性递推数列"><a href="#一阶分式线性递推数列" class="headerlink" title="一阶分式线性递推数列"></a>一阶分式线性递推数列</h3><p>现在我们来讨论一种全新的递推形式，即 $a_{n + 1} = \dfrac{Aa_n + B}{Ca_n +D}$。</p>
-<p>对于这一类型的递推式，有一种通用的解法，就是求出 $x = \dfrac{Ax + B}{Cx + D}$ 的两根 $x_1, x_2$，当 $x_1 \neq x_2$ 时，我们有结论 $\left{\dfrac{a_n - x_1}{a_n - x_2}\right}$ 是等比数列，当 $x_1 = x_2$ 时，我们有 $\left{\dfrac{1}{a_n - x_1}\right}$ 是等差数列。这种十分精妙的解法叫做不动点法，关于不动点法，推荐一篇讲的不错的<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104544760">文章</a>。</p>
-<h2 id="数列求和"><a href="#数列求和" class="headerlink" title="数列求和"></a>数列求和</h2><h3 id="常用公式"><a href="#常用公式" class="headerlink" title="常用公式"></a>常用公式</h3><script type="math/tex; mode=display">
-\sum_{i = 1}^n i = \dfrac{n(n + 1)}{2}</script><script type="math/tex; mode=display">
-\sum_{i = 1}^n i^2 = \dfrac{n(n + 1)(2n + 1)}{6}</script><script type="math/tex; mode=display">
-\sum_{i = 1}^n i^3 = \dfrac{n^2(n+1)^2}{4}</script><p><del>以上结论均可以用有限微积分推，以后可能会写。</del></p>
-<script type="math/tex; mode=display">
-\dfrac{1}{n(n + k)} = \dfrac{1}{k}\left(\dfrac{1}{n} - \dfrac{1}{n +k}\right)</script><h3 id="分组求和法"><a href="#分组求和法" class="headerlink" title="分组求和法"></a>分组求和法</h3><p>如果一个数列直接求和不好算，但是可以把这个数列分成几部分，使得这几部分的和都很好计算，那么我们就可以直接对数列进行分组，计算出每组的和然后相加，这种方法就叫分组求和法。</p>
-<p>分组求和法的常见应用是在一些带绝对值或整除符号的数列的求和，一个很典型的例子是对数列 ${\lfloor \lg n\rfloor}$ 求和。</p>
-<h3 id="错位相减法"><a href="#错位相减法" class="headerlink" title="错位相减法"></a>错位相减法</h3><p>在推导等比数列求和公式时我们用到了这个方法，但错位相减法不只是来解决这一个问题的。它的实质实际上就在于通过错位相减来消去求和式子中的一些项或者使其更加容易计算。</p>
-<p>关于错位相减法，有一个经典的 trick，就是给定一个等差数列 ${a_n}$ 和一个等比数列 ${b_n}$，要求对 ${a_nb_n}$ 求和。</p>
-<p>我们不妨设 ${a<em>n}$ 的公差为 $d$，${b_n}$ 的公比为 $q$，我们要求 $S_n = \sum</em>{i = 1}^n a<em>ib_i$，我们考虑 $qS_n = \sum</em>{i = 1}^na<em>ib</em>{i + 1}$，然后这样就变成了一个错位相减的形式，即 $(1 - q)S<em>n = \sum</em>{i = 1}^n a<em>ib_i - \sum</em>{i = 1}^na<em>ib</em>{i + 1}$，把 $b<em>n$ 相同的式子拉出来合并，然后就变为 $(1 - q)S_n = a_1b_1 - a_nb</em>{n + 1} + d\sum_{i = 2}^n b_i$，这样我们就只剩下了一个等比数列求和，可以直接计算。</p>
-<h3 id="裂项相消法"><a href="#裂项相消法" class="headerlink" title="裂项相消法"></a>裂项相消法</h3><p>裂项相消的核心是利用常用公式的第四条把一类分式求和的中间项，全部抵消，比如 $\sum_{i = 1}^n \dfrac{1}{i(i +1)}$ 就可以利用第四条公式化成 $\dfrac{n}{n + 1}$，比较容易。裂项相消经常和放缩法一起搭配使用，我们只需把握放缩尺度，将不易求和的式子转为可以裂项的式子然后求和即可，注意在放缩时如果界不够紧，可以减少一些放缩的项数。</p>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>目前大概就写这么多了，如果有实施性错误或建议加入内容，欢迎联系。</p>
+<h2 id="等差数列">等差数列</h2>
+<h3 id="定义">定义</h3>
+<p>如果数列 <span class="math inline">\(\{a_n\}\)</span> 满足 <span
+class="math inline">\(a_{n + 1} - a_n\)</span> 是常数，那么则称数列
+<span class="math inline">\(\{a_n\}\)</span>
+是一个等差数列，等差数列还可以写作 <span
+class="math inline">\(\text{A.P}\)</span>。</p>
+<h3 id="等差数列的基本量">等差数列的基本量</h3>
+<p><span class="math inline">\(a_1\)</span> 称为首项，<span
+class="math inline">\(a_{n + 1} - a_n\)</span> 这个常数称为公差，一般用
+<span class="math inline">\(d\)</span> 表示。</p>
+<p>有了以上定义，我们可以容易得到等差数列的通项公式 <span
+class="math inline">\(a_n = a_1 + (n - 1)d\)</span>。</p>
+<p>我们还可以发现把一个等差数列的头尾两两配对，它们的和是一样的，这也是高斯计算等差数列和的原理，从中我们可以推出等差数列的前
+<span class="math inline">\(n\)</span> 项和公式 <span
+class="math inline">\(S_n = \dfrac{n(a_1 +
+a_n)}{2}\)</span>，有时也用通项公式换掉 <span
+class="math inline">\(a_n\)</span> 来方便计算。</p>
+<h3 id="等差数列的性质">等差数列的性质</h3>
+<p>等差数列在 <span class="math inline">\(d \neq 0\)</span>
+时是单调的，看起来十分废话，但是这条结论在一类求 <span
+class="math inline">\(S_n\)</span> 的最值问题可以应用，我们只需找到
+<span class="math inline">\(a_n\)</span> 和 <span
+class="math inline">\(0\)</span> 的分界点即可。</p>
+<p>等差数列的通项公式有一个弊端，那就是只能从 <span
+class="math inline">\(a_1\)</span> 推 <span
+class="math inline">\(a_n\)</span>，好在我们可以把通项公式变形一下，这样就可以得到
+<span class="math inline">\(a_n = a_m + (n - m)d\)</span>
+这样比较普适的结论。</p>
+<p>由等差数列求和公式推导的过程我们容易发现 <span
+class="math inline">\(m + n = p + q \Rightarrow a_m + a_n = a_p +
+a_q\)</span>，这样得到了第二个性质，当 <span class="math inline">\(d
+\neq 0\)</span>
+时，我们也容易由右边推左边，这个结论还有一个特别的形式，即 <span
+class="math inline">\(m + n = 2p \Rightarrow a_m + a_n =
+2a_p\)</span>，这样我们就可以发现一种全新的等差数列求和方法，就是当项数
+<span class="math inline">\(n\)</span> 为奇数时，<span
+class="math inline">\(S_n = na_{\frac{n +
+1}{2}}\)</span>，这个结论可以帮助我们化简一些式子。</p>
+<p>上述那个求和方式还可以逆用，比如 <span class="math inline">\(a_n =
+\dfrac{S_{2n - 1}}{2n -
+1}\)</span>，这一条性质可以解决一类问题，即给定等差数列 <span
+class="math inline">\(\{a_n\}\)</span> 和 <span
+class="math inline">\(\{b_n\}\)</span> 前 <span
+class="math inline">\(n\)</span> 项和 <span
+class="math inline">\(S_n\)</span> 和 <span
+class="math inline">\(T_n\)</span> 的比值 <span
+class="math inline">\(\dfrac{S_n}{T_n}\)</span>，求 <span
+class="math inline">\(\dfrac{a_n}{b_n}\)</span>，这时候我们就可以利用
+<span class="math inline">\(\dfrac{a_n}{b_n} = \dfrac{S_{2n - 1}}{T_{2n
+- 1}}\)</span> 来进行计算。</p>
+<p>等差数列的前 <span class="math inline">\(n\)</span> 项和 <span
+class="math inline">\(S_n\)</span>
+也有一些很好的性质，下面我们来介绍一下。</p>
+<p>首先根据 <span class="math inline">\(S_n = \dfrac{n(a_1 +
+a_n)}{2}\)</span>，我们可以得到 <span
+class="math inline">\(\dfrac{S_n}{n} = \dfrac{a_1 + a_n}{2} =
+\dfrac{2a_1 + (n - 1)d}{2} = a_1 + \dfrac{n - 1}{2}d\)</span>，也即
+<span class="math inline">\(\left\{\dfrac{S_n}{n}\right\}\)</span>
+是一个公差为 <span class="math inline">\(\dfrac{d}{2}\)</span>
+的等差数列。</p>
+<p>还有一个广为流传的结论是等差数列的片段和也是等差数列。形式化地，即
+<span class="math inline">\(\{S_{nm} - S_{(n - 1)m}\}\)</span>
+也是个等差数列，现在我们不妨来研究一下这个等差数列的公差是什么。 <span
+class="math display">\[
+S_{(n + 1)m} - S_{nm} = \sum_{i={nm + 1}}^{(n + 1)m} a_i = \sum_{i={nm +
+1}}^{(n + 1)m} a_{i - m} + md = m^2d + \sum_{i = (n - 1)m + 1}^{nm}a_i =
+m^2d + S_{nm} - S_{(n - 1)m}
+\]</span> 所以 <span class="math inline">\(\{S_{nm} - S_{(n -
+1)m}\}\)</span> 是个公差为 <span class="math inline">\(m^2d\)</span>
+的等差数列。</p>
+<h2 id="等比数列">等比数列</h2>
+<h3 id="定义-1">定义</h3>
+<p>如果数列 <span class="math inline">\(\{a_n\}\)</span> 满足 <span
+class="math inline">\(a_n \neq 0\)</span>，<span
+class="math inline">\(\dfrac{a_{n + 1}}{a_n}\)</span> 为常数，那么则称
+<span class="math inline">\(\{a_n\}\)</span>
+是一个等比数列，等比数列还可以写作 <span
+class="math inline">\(\text{G.P}\)</span>。</p>
+<h3 id="等比数列的基本量">等比数列的基本量</h3>
+<p><span class="math inline">\(a_1\)</span> 称为首项，<span
+class="math inline">\(\dfrac{a_{n + 1}}{a_n}\)</span>
+这个常数称为公比，一般用 <span class="math inline">\(q\)</span>
+表示。</p>
+<p>和等差数列相似，我们容易得到等比数列的通项公式 <span
+class="math inline">\(a_n = a_1 \cdot q^{n - 1}\)</span>。</p>
+<p>等比数列的求和公式推导要用到一个错位相减的经典
+trick，具体地，我们要求等比数列的前 <span
+class="math inline">\(n\)</span> 项和 <span class="math inline">\(S_n =
+\sum_{i = 1}^n
+a_i\)</span>，这个式子不是很好直接算，于是考虑消去求和式子中的一部分，考虑
+<span class="math inline">\(qS_n = \sum_{i = 2}^{n +
+1}a_i\)</span>，两式相减，我们就可以得到 <span class="math inline">\((1
+- q)S_n = a_1 - a_{n + 1}\)</span>，所以 <span class="math inline">\(S_n
+= \dfrac{a_1 - a_{n + 1}}{1 - q} = \dfrac{(1 - q^n)a_1}{1 - q}(q \neq
+1)\)</span>。</p>
+<h3 id="等比数列的性质">等比数列的性质</h3>
+<p>等比数列的单调性不像等差数列那么直接，首先当 <span
+class="math inline">\(q \in (-\infty, 0)\)</span>
+时，这个数列肯定是摆动的。接下来我们分为 <span class="math inline">\(q
+\in (0, 1)\)</span> 和 <span class="math inline">\(q \in (1,
++\infty)\)</span> 来进行讨论。首先当 <span class="math inline">\(q \in
+(0, 1)\)</span> 时，若 <span class="math inline">\(a_1 &gt;
+0\)</span>，则单调递减，反之单调递增。当 <span class="math inline">\(q
+\in (1, +\infty)\)</span> 时，若 <span class="math inline">\(a_1 &gt;
+0\)</span>，则单调递增，反之单调递减。</p>
+<p>同等差数列相似，我们也可以对等比数列的通项公式进行变形，得到 <span
+class="math inline">\(a_n = a_m \cdot q^{n - m}\)</span>。</p>
+<p>还是同等差数列相似，<span class="math inline">\(m + n = p + q
+\Rightarrow a_ma_n = a_pa_q\)</span>，特别地，<span
+class="math inline">\(m + n = 2p \Rightarrow a_ma_n =
+a_p^2\)</span>。</p>
+<p>对于等比数列的前 <span class="math inline">\(n\)</span> 项和 <span
+class="math inline">\(S_n\)</span>
+来说，我们也有片段和为等比数列的性质，具体地，<span
+class="math inline">\(\{S_{nm} - S_{(n - 1)m}\}\)</span>
+为等比数列，其公比为 <span
+class="math inline">\(q^m\)</span>，该性质的证明与等差数列相似，读者可以自行研究。</p>
+<h2 id="数列求通项公式">数列求通项公式</h2>
+<p><del>终于到了重头戏。</del></p>
+<h3 id="叠加叠乘法">叠加/叠乘法</h3>
+<p>这两种方法属于数列求通项里面最 simple
+的，并没有涉及什么巧妙地变换。</p>
+<p>叠加法解决的是一种递推式形如 <span class="math inline">\(a_{n + 1} =
+a_n + f(n)\)</span> 的数列通项，假设我们现在要求 <span
+class="math inline">\(a_n\)</span>，那么第一步显然是变为 <span
+class="math inline">\(a_n = a_{n - 1} + f(n - 1)\)</span>
+的形式，然后我们再把 <span class="math inline">\(a_{n - 1}\)</span>
+以同样的形式拆开。以此类推，我们可以得到 <span class="math inline">\(a_n
+= a_1 + \sum_{i = 1}^{n - 1} f(i)\)</span> 的结论，所以我们只要对 <span
+class="math inline">\(f\)</span> 求和即可，大多数题目的 <span
+class="math inline">\(f\)</span>
+通常是易于求和的，如果遇到更困难的可以参考数列求和部分。</p>
+<p>当然 <span class="math inline">\(a_{n + 1} = a_n + f(n)\)</span>
+还有一种解决方式，就是构造 <span class="math inline">\(g(n + 1) - g(n) =
+f(n)\)</span>，然后我们就会得到 <span class="math inline">\(a_{n + 1} -
+g(n + 1) = a_n - g(n)\)</span>，这样我们就可以得到 <span
+class="math inline">\(\{a_n - g(n)\}\)</span> 是常数数列，根据 <span
+class="math inline">\(a_1 - g(1)\)</span> 的值进行计算，不难发现 <span
+class="math inline">\(g(n + 1) - g(n) = f(n)\)</span>
+和有限微积分中差分的定义相似，有兴趣的读者可以进行了解。</p>
+<p>叠乘法和叠加法异曲同工，解决的是形如 <span class="math inline">\(a_{n
++ 1} = a_n \cdot f(n)\)</span>
+的数列通项，不难发现它就是把变化从加法变为乘法，容易得到 <span
+class="math inline">\(a_n = a_1 \cdot \prod_{i = 1}^{n - 1}
+f(i)\)</span>，对 <span class="math inline">\(f\)</span> 求积即可。</p>
+<p>同叠加法，我们也可以构造 <span class="math inline">\(\dfrac{g(n +
+1)}{g(n)} = f(n)\)</span>，然后就可以变化为 <span
+class="math inline">\(\dfrac{a_{n + 1}}{g(n + 1)} =
+\dfrac{a_n}{g(n)}\)</span>，然后得到 <span
+class="math inline">\(\left\{\dfrac{a_n}{g(n)}\right\}\)</span>
+为常数数列，利用 <span class="math inline">\(\dfrac{a_1}{g(1)}\)</span>
+进行计算即可。</p>
+<h3 id="一阶常系数齐次线性递推形式">一阶常系数齐次线性递推形式</h3>
+<p>题目看着很长，实际上就是解决形如 <span class="math inline">\(a_{n +
+1} = pa_n + f(n)\)</span> 的问题。</p>
+<p>让我们先从最简单的 <span class="math inline">\(a_{n + 1} = pa_n +
+q\)</span>
+入手。通常在遇到数列通项问题时，我们都会想办法把原数列变换为易于处理的形式，这里也是一样，我们有两种处理方法。</p>
+<p>第一种，我们可以把式子变为 <span class="math inline">\(\dfrac{a_{n +
+1}}{p^{n + 1}} = \dfrac{a_n}{p^n} + \dfrac{q}{p^{n +
+1}}\)</span>，这样数列 <span
+class="math inline">\(\left\{\dfrac{a_n}{p^n}\right\}\)</span>
+就是一个叠加形的数列，后面的部分其实就是一个等比数列求和，可以用上面讲的方法计算。</p>
+<p>第二种，也是更普适的方法，我们想办法构造一个等比数列。具体地，设
+<span class="math inline">\(a_{n + 1} + \lambda = p(a_n +
+\lambda)\)</span>，这个方程在 <span class="math inline">\(p \neq
+1\)</span> 的时有解 <span class="math inline">\(\lambda = \dfrac{q}{p -
+1}\)</span>，然后我们就可以得到 <span class="math inline">\(\{a_n +
+\lambda\}\)</span> 是一个公比为 <span class="math inline">\(p\)</span>
+的等比数列，可以直接计算通项公式。</p>
+<p>研究完上述情况，我们来重新看最开始的 <span class="math inline">\(a_{n
++ 1} = pa_n +
+f(n)\)</span>，同第二种方法，我们也想构造出一个等比数列，于是我们设
+<span class="math inline">\(a_{n + 1} + g(n + 1) = p(a_n +
+g(n))\)</span>，这个 <span class="math inline">\(g(n)\)</span> 在 <span
+class="math inline">\(f(n)\)</span>
+是常系数多项式时是可以待定系数求出的，这样 <span
+class="math inline">\(\{a_n + g(n)\}\)</span> 就是一个公比为 <span
+class="math inline">\(p\)</span> 的等比数列，可以计算。</p>
+<p>需要注意的是并不是所有形如 <span class="math inline">\(a_{n + 1} =
+pa_n + f(n)\)</span> 的问题都是用第二个方法解决，比如 <span
+class="math inline">\(a_{n + 1} = 3a_n + 3^n\)</span>
+我们用第一种方法就可以直接变为一个等差数列的形式，所以具体用哪种方法还是看情况而定。</p>
+<h3 id="二阶常系数齐次线性递推形式">二阶常系数齐次线性递推形式</h3>
+<p>顾名思义，解决的即为 <span class="math inline">\(a_{n + 2} = pa_{n +
+1} + qa_n\)</span> 的问题，比如大名鼎鼎的 Fibonacci 数列就是如此。</p>
+<p>首先根据一阶的推导，我们肯定是想往等比数列这个方向走，所以我们不妨设
+<span class="math inline">\(a_{n + 2} - \lambda_1a_{n + 1} =
+\lambda_2(a_{n + 1} - \lambda_1a_n)\)</span>，这样我们就可以得到 <span
+class="math inline">\(\{a_{n + 1} - \lambda_1a_n\}\)</span> 是一个公比为
+<span class="math inline">\(\lambda_2\)</span>
+的等比数列，解完这个之后我们就可以得到一个一阶的结构，也就能用学过的东西进行求解。然后我们把重点放在
+<span class="math inline">\(\lambda_1, \lambda_2\)</span>
+的求解，根据上面的式子，我们有 <span class="math inline">\(\lambda_1 +
+\lambda_2 = p, \lambda_1\lambda_2 = -q\)</span>，根据韦达定理，它们正是
+<span class="math inline">\(x^2 - px - q = 0\)</span>
+的双根，有了这个结论，我们也就完成了二阶的求解。</p>
+<p>当你用上面的方法解了几道题后不免会发现一个问题——怎么这么麻烦！是的，上面的方法虽然普适，但是要经过两次转化，不免有些复杂，所以我们尝试从中探索规律。当你做了几道习题后，不妨观察一下最终得出的结果，紧接着就可以发现当
+<span class="math inline">\(\lambda_1 \neq \lambda_2\)</span>
+时，最终的结果 <span class="math inline">\(a_n\)</span> 一定是一个 <span
+class="math inline">\(a_n = A\lambda_1^n + B\lambda_2^n\)</span>
+的形式，所以我们只需解出 <span class="math inline">\(A, B\)</span>
+即可，这可以用 <span class="math inline">\(a_1, a_2\)</span>
+的值来待定系数求解。但当 <span class="math inline">\(\lambda_1 =
+\lambda_2\)</span> 时，结论稍有变化，这时的 <span
+class="math inline">\(a_n\)</span> 满足 <span class="math inline">\(a_n
+= An\lambda_1^n + B\lambda_2^n\)</span>，我们依旧可以用 <span
+class="math inline">\(a_1, a_2\)</span>
+的值来待定系数求解。有了以上两个结论，我们就可以大大简少计算量了。</p>
+<h3 id="高阶常系数齐次线性递推形式">高阶常系数齐次线性递推形式</h3>
+<p>对于二阶式子，我们有 <span class="math inline">\(x^2 - px - q =
+0\)</span>
+这样的结构，那么推广到更高阶时是否存在这样的结构呢？答案是肯定的。</p>
+<p>具体地，我们要解决形如 <span class="math inline">\(a_n = \sum_{i =
+1}^k p_ia_{n - i}\)</span> 这样的问题，其中 <span
+class="math inline">\(p_i\)</span> 给定，那么我们就有一个这样的方程
+<span class="math inline">\(x^k = \sum_{i = 1}^k p_ix^{k - i}\)</span>
+叫做数列 <span class="math inline">\(\{a_n\}\)</span>
+的特征方程。关于特征方程，有一个十分重要的结论，假设特征方程有 <span
+class="math inline">\(m\)</span> 个互不相同的根 <span
+class="math inline">\(\lambda_1, \lambda_2, \ldots,
+\lambda_m\)</span>，它们的出现次数分别为 <span
+class="math inline">\(n_1, n_2, \ldots, n_m\)</span>，那么我们可以得到
+<span class="math inline">\(a_n\)</span> 一定满足 <span
+class="math inline">\(a_n = \sum_{i = 1}^m
+f_i(n)\lambda_i^n\)</span>，其中 <span
+class="math inline">\(f_i(n)\)</span> 是一个次数为 <span
+class="math inline">\(n_i - 1\)</span> 的多项式，所有 <span
+class="math inline">\(f_i\)</span> 的系数我们不难通过 <span
+class="math inline">\(a_1, a_2, \ldots, a_k\)</span>
+的值来待定系数解出。</p>
+<h3 id="一阶分式线性递推数列">一阶分式线性递推数列</h3>
+<p>现在我们来讨论一种全新的递推形式，即 <span class="math inline">\(a_{n
++ 1} = \dfrac{Aa_n + B}{Ca_n +D}\)</span>。</p>
+<p>对于这一类型的递推式，有一种通用的解法，就是求出 <span
+class="math inline">\(x = \dfrac{Ax + B}{Cx + D}\)</span> 的两根 <span
+class="math inline">\(x_1, x_2\)</span>，当 <span
+class="math inline">\(x_1 \neq x_2\)</span> 时，我们有结论 <span
+class="math inline">\(\left\{\dfrac{a_n - x_1}{a_n -
+x_2}\right\}\)</span> 是等比数列，当 <span class="math inline">\(x_1 =
+x_2\)</span> 时，我们有 <span class="math inline">\(\left\{\dfrac{1}{a_n
+- x_1}\right\}\)</span>
+是等差数列。这种十分精妙的解法叫做不动点法，关于不动点法，推荐一篇讲的不错的<a
+target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104544760">文章</a>。</p>
+<h2 id="数列求和">数列求和</h2>
+<h3 id="常用公式">常用公式</h3>
+<p><span class="math display">\[
+\sum_{i = 1}^n i = \dfrac{n(n + 1)}{2}
+\]</span></p>
+<p><span class="math display">\[
+\sum_{i = 1}^n i^2 = \dfrac{n(n + 1)(2n + 1)}{6}
+\]</span></p>
+<p><span class="math display">\[
+\sum_{i = 1}^n i^3 = \dfrac{n^2(n+1)^2}{4}
+\]</span></p>
+<p><del>以上结论均可以用有限微积分推，以后可能会写。</del> <span
+class="math display">\[
+\dfrac{1}{n(n + k)} = \dfrac{1}{k}\left(\dfrac{1}{n} - \dfrac{1}{n
++k}\right)
+\]</span></p>
+<h3 id="分组求和法">分组求和法</h3>
+<p>如果一个数列直接求和不好算，但是可以把这个数列分成几部分，使得这几部分的和都很好计算，那么我们就可以直接对数列进行分组，计算出每组的和然后相加，这种方法就叫分组求和法。</p>
+<p>分组求和法的常见应用是在一些带绝对值或整除符号的数列的求和，一个很典型的例子是对数列
+<span class="math inline">\(\{\lfloor \lg n\rfloor\}\)</span> 求和。</p>
+<h3 id="错位相减法">错位相减法</h3>
+<p>在推导等比数列求和公式时我们用到了这个方法，但错位相减法不只是来解决这一个问题的。它的实质实际上就在于通过错位相减来消去求和式子中的一些项或者使其更加容易计算。</p>
+<p>关于错位相减法，有一个经典的 trick，就是给定一个等差数列 <span
+class="math inline">\(\{a_n\}\)</span> 和一个等比数列 <span
+class="math inline">\(\{b_n\}\)</span>，要求对 <span
+class="math inline">\(\{a_nb_n\}\)</span> 求和。</p>
+<p>我们不妨设 <span class="math inline">\(\{a_n\}\)</span> 的公差为
+<span class="math inline">\(d\)</span>，<span
+class="math inline">\(\{b_n\}\)</span> 的公比为 <span
+class="math inline">\(q\)</span>，我们要求 <span
+class="math inline">\(S_n = \sum_{i = 1}^n a_ib_i\)</span>，我们考虑
+<span class="math inline">\(qS_n = \sum_{i = 1}^na_ib_{i +
+1}\)</span>，然后这样就变成了一个错位相减的形式，即 <span
+class="math inline">\((1 - q)S_n = \sum_{i = 1}^n a_ib_i - \sum_{i =
+1}^na_ib_{i + 1}\)</span>，把 <span class="math inline">\(b_n\)</span>
+相同的式子拉出来合并，然后就变为 <span class="math inline">\((1 - q)S_n
+= a_1b_1 - a_nb_{n + 1} + d\sum_{i = 2}^n
+b_i\)</span>，这样我们就只剩下了一个等比数列求和，可以直接计算。</p>
+<h3 id="裂项相消法">裂项相消法</h3>
+<p>裂项相消的核心是利用常用公式的第四条把一类分式求和的中间项，全部抵消，比如
+<span class="math inline">\(\sum_{i = 1}^n \dfrac{1}{i(i +1)}\)</span>
+就可以利用第四条公式化成 <span class="math inline">\(\dfrac{n}{n +
+1}\)</span>，比较容易。裂项相消经常和放缩法一起搭配使用，我们只需把握放缩尺度，将不易求和的式子转为可以裂项的式子然后求和即可，注意在放缩时如果界不够紧，可以减少一些放缩的项数。</p>
+<h2 id="后记">后记</h2>
+<p>目前大概就写这么多了，如果有实施性错误或建议加入内容，欢迎联系。</p>
 
     </div>
 
