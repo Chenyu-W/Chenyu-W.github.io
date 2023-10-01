@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CFira+Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="我无法用镜头刻画圆满的月 也无法用言语形容严重的你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Solutions-10.1">
+<meta property="og:url" content="http://example.com/2023/10/01/Solutions-10-1/index.html">
+<meta property="og:site_name" content="wcy&#39;s blog">
+<meta property="og:description" content="我无法用镜头刻画圆满的月 也无法用言语形容严重的你">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-01T13:42:04.000Z">
+<meta property="article:modified_time" content="2023-10-01T14:15:57.031Z">
+<meta property="article:author" content="Chenyu Wu">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/10/01/Solutions-10-1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/10/01/Solutions-10-1/","path":"2023/10/01/Solutions-10-1/","title":"Solutions-10.1"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Solutions-10.1 | wcy's blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">wcy's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#cf914e"><span class="nav-number">1.</span> <span class="nav-text">CF914E</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#arc126c"><span class="nav-number">2.</span> <span class="nav-text">ARC126C</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lg3722"><span class="nav-number">3.</span> <span class="nav-text">LG3722</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1681e"><span class="nav-number">4.</span> <span class="nav-text">CF1681E</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lg9481"><span class="nav-number">5.</span> <span class="nav-text">LG9481</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cf1777f"><span class="nav-number">6.</span> <span class="nav-text">CF1777F</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chenyu Wu"
+      src="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <p class="site-author-name" itemprop="name">Chenyu Wu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/10/01/Solutions-10-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+      <meta itemprop="name" content="Chenyu Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Solutions-10.1 | wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Solutions-10.1
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-10-01 21:42:04 / 修改时间：22:15:57" itemprop="dateCreated datePublished" datetime="2023-10-01T21:42:04+08:00">2023-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>我无法用镜头刻画圆满的月</p>
+<p>也无法用言语形容严重的你</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="cf914e">CF914E</h2>
+<p>考虑淀粉质，设 <span class="math inline">\(r\)</span>
+为当前分治中心，重排为回文相当于至多一个奇数，所以可以想到状态压缩后维护路径异或和，再用桶计数，统计每个点答案用树上差分，注意分治中心路径数单独计算。</p>
+<p><a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/914/submission/223100114">Code</a></p>
+<h2 id="arc126c">ARC126C</h2>
+<p>首先考虑 <span class="math inline">\(k\)</span>
+很大的情况，这时候我们显然是把所有数先加到最大值然后再一轮一轮加，这个直接算即可。</p>
+<p>剩下的情况不难发现有 <span class="math inline">\(\gcd \le
+\max\)</span>，于是我们可以枚举最终的 <span
+class="math inline">\(\gcd\)</span>，这样我们就知道每个数至少被加到多少，可以在值域上做前缀和维护，最后看操作数是否
+<span class="math inline">\(\le k\)</span> 即可。</p>
+<p><a
+target="_blank" rel="noopener" href="https://atcoder.jp/contests/arc126/submissions/45467559">Code</a></p>
+<h2 id="lg3722">LG3722</h2>
+<p>直接枚举 <span class="math inline">\([l, r]\)</span> 计算贡献至少是
+<span class="math inline">\(O(n^2)\)</span> 的，换个角度，计算每个 <span
+class="math inline">\(k_i\)</span> 作为中间最大值的贡献。</p>
+<p>考虑对于每一个 <span class="math inline">\(k_i\)</span>
+计算出它左边第一个比它大和它右边第一个比它大的下标 <span
+class="math inline">\(L_i, R_i\)</span>。</p>
+<p>不难发现 <span class="math inline">\([L_i, R_i]\)</span> 会造成 <span
+class="math inline">\(p_1\)</span> 的贡献。</p>
+<p>左端点在 <span class="math inline">\((L_i, i)\)</span>，右端点为
+<span class="math inline">\(R_i\)</span> 会造成 <span
+class="math inline">\(p_2\)</span> 的贡献。</p>
+<p>左端点为 <span class="math inline">\(L_i\)</span>，右端点在 <span
+class="math inline">\((i, R_i)\)</span> 会造成 <span
+class="math inline">\(p_2\)</span> 的贡献。</p>
+<p>二维数点即可。</p>
+<p><a target="_blank" rel="noopener" href="https://loj.ac/s/1900661">Code</a></p>
+<h2 id="cf1681e">CF1681E</h2>
+<p>显然当两点同层时答案为曼哈顿距离。</p>
+<p>考虑不同层时，一定是先走到了前一层的门，然后到达终点，所以我们只需考虑到每层门的最短路即可。</p>
+<p>记 <span class="math inline">\(f_{i, 0/1}\)</span> 表示到第 <span
+class="math inline">\(i\)</span>
+层两个门的最短路长度，相邻层之间转移方程容易得到，且转移方程固定，于是可以
+ddp，没有修改，倍增维护即可。</p>
+<p><a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/1681/submission/224164263">Code</a></p>
+<h2 id="lg9481">LG9481</h2>
+<p>考虑在 <span class="math inline">\(\text{LCA}\)</span>
+处统计答案，我们记 <span class="math inline">\(x, y\)</span>
+为左右子树的两个点。</p>
+<p>不难发现 <span class="math inline">\(x \to y\)</span> 可以拆成 <span
+class="math inline">\(x \to \text{LCA}\)</span> 和 <span
+class="math inline">\(\text{LCA} \to y\)</span>
+两部分，前面一个部分只会走一类边，可以树形 dp
+计算，后面的部分就是对子树中每个点跑最短路，一个细节是跑 <span
+class="math inline">\(u\)</span> 到 <span
+class="math inline">\(u\)</span>
+子树内的最短路时可以让最短路先继承父亲的，这样就只用考虑子树内的边了。</p>
+<p><a target="_blank" rel="noopener" href="https://loj.ac/s/1900669">Code</a></p>
+<h2 id="cf1777f">CF1777F</h2>
+<p>考虑分治，记当前分治区间为 <span class="math inline">\([l,
+r]\)</span>，首先我们记 <span class="math inline">\(m\)</span> 为 <span
+class="math inline">\([l, r]\)</span> 中最大值位置，现在我们要求的就是
+<span class="math inline">\(\max_{i \in [l, m], j \in[m, r]} \{a_m
+\oplus s_{i - 1} \oplus s_j\}\)</span>，其中 <span
+class="math inline">\(s\)</span> 为前缀异或和。我们枚举 <span
+class="math inline">\(i, j\)</span> 其中一个都可以用可持久化 Trie 做到
+<span class="math inline">\(O(\log V)\)</span>
+计算，如果我们随机枚举一半可能会被卡成 <span
+class="math inline">\(O(n^2\log V)\)</span>
+的，在这里我们每次枚举长度较小的区间就能做到 <span
+class="math inline">\(O(n\log n\log V)\)</span>。</p>
+<p><a
+target="_blank" rel="noopener" href="https://codeforces.com/contest/1777/submission/224307434">Code</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"><i class="fa fa-tag"></i> 题解</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/09/28/%E5%9C%86%E9%94%A5%E6%9B%B2%E7%BA%BF%E5%B0%8F%E8%AE%B0/" rel="prev" title="【笔记】圆锥曲线小记">
+                  <i class="fa fa-chevron-left"></i> 【笔记】圆锥曲线小记
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenyu Wu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://npm.elemecdn.com/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
