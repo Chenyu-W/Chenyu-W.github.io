@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <link rel="mask-icon" href="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.loli.net/css?family=Noto+Serif+SC:300,300italic,400,400italic,700,700italic%7CFira+Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://npm.elemecdn.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="多项式的学习笔记，以后应该会不定时更新算法笔记和做题记录（flag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【笔记】从零开始的多项式学习">
+<meta property="og:url" content="http://example.com/2024/04/07/poly/index.html">
+<meta property="og:site_name" content="wcy&#39;s blog">
+<meta property="og:description" content="多项式的学习笔记，以后应该会不定时更新算法笔记和做题记录（flag">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-04-07T12:20:22.000Z">
+<meta property="article:modified_time" content="2024-04-20T02:27:44.530Z">
+<meta property="article:author" content="Chenyu Wu">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024/04/07/poly/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/04/07/poly/","path":"2024/04/07/poly/","title":"【笔记】从零开始的多项式学习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>【笔记】从零开始的多项式学习 | wcy's blog</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">wcy's blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%B7%E7%A7%AFfftnttmtt"><span class="nav-number">1.</span> <span class="nav-text">卷积（FFT&amp;NTT&amp;MTT）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E6%A0%B9"><span class="nav-number">1.2.</span> <span class="nav-text">单位根</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dft"><span class="nav-number">1.3.</span> <span class="nav-text">DFT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#idft"><span class="nav-number">1.4.</span> <span class="nav-text">IDFT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ntt"><span class="nav-number">1.5.</span> <span class="nav-text">NTT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mtt"><span class="nav-number">1.6.</span> <span class="nav-text">MTT</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E7%89%9B%E9%A1%BF%E8%BF%AD%E4%BB%A3"><span class="nav-number">2.</span> <span class="nav-text">多项式牛顿迭代</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%B1%82%E9%80%86"><span class="nav-number">2.2.</span> <span class="nav-text">多项式求逆</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E5%BC%80%E6%96%B9"><span class="nav-number">2.3.</span> <span class="nav-text">多项式开方</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E9%99%A4%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">多项式除法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E9%A1%B9%E5%BC%8F%E6%8C%87%E5%AF%B9%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">多项式指对函数</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Chenyu Wu"
+      src="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+  <p class="site-author-name" itemprop="name">Chenyu Wu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">89</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/04/07/poly/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://cdn.luogu.com.cn/upload/image_hosting/i202pvga.png?x-oss-process=image/resize,m_lfit,h_170,w_225">
+      <meta itemprop="name" content="Chenyu Wu">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="【笔记】从零开始的多项式学习 | wcy's blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【笔记】从零开始的多项式学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-04-07 20:20:22" itemprop="dateCreated datePublished" datetime="2024-04-07T20:20:22+08:00">2024-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-04-20 10:27:44" itemprop="dateModified" datetime="2024-04-20T10:27:44+08:00">2024-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/%E5%A4%9A%E9%A1%B9%E5%BC%8F/" itemprop="url" rel="index"><span itemprop="name">多项式</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>多项式的学习笔记，以后应该会不定时更新算法笔记和做题记录（flag</p>
+<span id="more"></span>
+<h2 id="卷积fftnttmtt">卷积（FFT&amp;NTT&amp;MTT）</h2>
+<h3 id="基本思路">基本思路</h3>
+<p>先将多项式转化为点值表达，点值对应相乘后再插值回系数表达。</p>
+<h3 id="单位根">单位根</h3>
+<p>首先引入 <span class="math inline">\(n\)</span>
+次单位根，即在复平面上满足 <span class="math inline">\(x^n = 1\)</span>
+的 <span class="math inline">\(n\)</span> 个根，记第 <span
+class="math inline">\(k\)</span> 个根为 <span
+class="math inline">\(w_n^k = \cos(\frac{2k\pi}{n}) +
+i\sin(\frac{2k\pi}{n})\)</span>。</p>
+<p><span class="math inline">\(n\)</span> 次单位根有一些重要的性质。</p>
+<ol type="1">
+<li><span class="math inline">\(w_n^1, w_n^2, \ldots, w_n^n\)</span>
+两两不同（每一个 <span class="math inline">\(w\)</span>
+可以看做前一个旋转了 <span
+class="math inline">\(\dfrac{2\pi}{n}\)</span>）。</li>
+<li><span class="math inline">\(w_{2n}^{2k} = w_{n}^k\)</span>。</li>
+<li><span class="math inline">\(w_{n}^{k + n / 2} =
+-w_{n}^k\)</span>（可看作旋转了 <span
+class="math inline">\(\pi\)</span>）。</li>
+<li><span class="math inline">\((w_{n}^{k})^2 = w_{n/2}^k\)</span></li>
+</ol>
+<p>这些性质是单位根能被利用于处理多项式卷积的关键。</p>
+<h3 id="dft">DFT</h3>
+<p>这一步把多项式转化为点值表达，朴素的多点求值时间复杂度为 <span
+class="math inline">\(O(n^2)\)</span>，我们尝试在单位根处求值以降低时间复杂度。</p>
+<p>首先考虑次数为 <span class="math inline">\(n = 2^m - 1\)</span>
+的多项式 (不够在最高次补 <span class="math inline">\(0\)</span>）<span
+class="math inline">\(f(x) = \sum a_ix^i\)</span>，我们要计算的即为
+<span class="math inline">\(f(w_n^1),\ldots,f(w_n^n)\)</span>。我们将
+<span class="math inline">\(f(x)\)</span> 作以下变形。 <span
+class="math display">\[
+f(x) = \sum_{i = 0}^n a_ix^i = (a_0 + \cdots + a_{n - 1}x^{n - 1}) +
+(a_1x + \cdots + a_nx^n)\\
+f_0(x) = (a_0 + a_2x + \cdots + a_{n - 1}x^{(n - 1)/2})\\
+f_1(x) = (a_1 + a_3x + \cdots + a_{n}x^{(n - 2) / 2})\\
+f(x) = f_0(x^2)+xf_1(x^2)
+\]</span> 将 <span class="math inline">\(n\)</span>
+个单位根带入，我们可以得到 <span class="math display">\[
+f(w_n^k) = f_0(w_{n/2}^k) + w_n^kf_1(w_{n/2}^k)\\
+f(w_n^{k + n / 2}) = f_0(w_{n/2}^k) - w_n^kf_1(w_{n/2}^k)
+\]</span> 于是我们只要递归下去分别求 <span
+class="math inline">\(f_0(x)\)</span> 与 <span
+class="math inline">\(f_1(x)\)</span> 的点值就可以得到一个 <span
+class="math inline">\(O(n\log n)\)</span> 的算法了。</p>
+<p>但递归下去常数过大，我们考虑非递归的时限，我们把递归树建出来，可以得到类似如下的变化
+<span class="math display">\[
+(0, 1, 2, 3) \to (0, 2), (1, 3) \to (0),(2),(1),(3)
+\]</span>
+我们发现每个数所处的最终位置是他二进制位的逆序，所以我们可以预处理每个位置最终在递归树的位置，然后自底向上合并即可。</p>
+<h3 id="idft">IDFT</h3>
+<p>得到点值表达后，我们需要将其插值为系数表达，IDFT
+完成的就是这一步。</p>
+<p>我们用矩阵乘法来刻画 DFT
+的过程，发现实质上我们在做一个这样的矩阵乘法。 <span
+class="math display">\[
+\begin{bmatrix}
+1 &amp; w_n^1 &amp; \cdots &amp; (w_n^1)^n\\
+1 &amp; w_n^2 &amp; \cdots &amp; w_n^2 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; w_n^n &amp; \cdots &amp; (w_n^n)^n
+\end{bmatrix}
+\begin{bmatrix}
+a_0\\
+a_1\\
+\vdots\\
+a_n
+\end{bmatrix}
+=
+\begin{bmatrix}
+y_0\\
+y_1\\
+\vdots\\
+y_n
+\end{bmatrix}
+\]</span> 于是我们想要还原，只需要得到最左侧单位根矩阵的逆矩阵即可。</p>
+<p>我们发现左侧是一个范德蒙德矩阵，其逆矩阵为每一项取倒数再乘 <span
+class="math inline">\(\dfrac{1}{n}\)</span>，于是我们只要将单位根 <span
+class="math inline">\(w_n^k\)</span> 换成 <span
+class="math inline">\((w_n^k)^{-1}\)</span>，再做一遍
+DFT，即可得到原多项式的系数表达。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFT</span><span class="params">(<span class="type">int</span> f, vector&lt;<span class="type">int</span>&gt; &amp;rev)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lim = a.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; rev[i]) &#123;</span><br><span class="line">            <span class="built_in">swap</span>(a[i], a[rev[i]]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">2</span>; len &lt;= lim; len &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i += len) &#123;</span><br><span class="line">            <span class="function">complex&lt;<span class="type">double</span>&gt; <span class="title">wn</span><span class="params">(cos(<span class="number">2</span> * PI / len), f * sin(<span class="number">2</span> * PI / len))</span>, <span class="title">cur</span><span class="params">(<span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; i + len / <span class="number">2</span>; j++, cur *= wn) &#123;</span><br><span class="line">                <span class="keyword">auto</span> x = a[j], y = cur * a[j + len / <span class="number">2</span>];</span><br><span class="line">                a[j] = x + y, a[j + len / <span class="number">2</span>] = x - y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (f == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">            a[i].<span class="built_in">real</span>((<span class="type">int</span>)(a[i].<span class="built_in">real</span>() / lim + <span class="number">.5</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">friend</span> poly <span class="keyword">operator</span>*(poly a, poly b) &#123;</span><br><span class="line">    <span class="type">int</span> n = a.<span class="built_in">deg</span>(), m = b.<span class="built_in">deg</span>();</span><br><span class="line">    <span class="type">int</span> lim = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (lim &lt;= n + m) &#123;</span><br><span class="line">        lim &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">rev</span><span class="params">(lim)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">        rev[i] = (rev[i / <span class="number">2</span>] / <span class="number">2</span>) | ((i &amp; <span class="number">1</span>) * (lim / <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    a.<span class="built_in">resize</span>(lim), b.<span class="built_in">resize</span>(lim);</span><br><span class="line">    a.<span class="built_in">DFT</span>(<span class="number">1</span>, rev), b.<span class="built_in">DFT</span>(<span class="number">1</span>, rev);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">        a[i] *= b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    a.<span class="built_in">DFT</span>(<span class="number">-1</span>, rev), a.<span class="built_in">resize</span>(n + m + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="ntt">NTT</h3>
+<p>FFT 的精度和常数显然不是很好，对于取模 <span class="math inline">\(p
+= q \times 2^k + 1\)</span>（<span class="math inline">\(k\)</span>
+足够大）的情况下，我们可以使用 NTT 解决。</p>
+<p>我们记 <span class="math inline">\(g\)</span> 为原根，<span
+class="math inline">\(w_n^k = g^{(p-1)k/n} \bmod p\)</span>，用 <span
+class="math inline">\(w_n^k\)</span>
+来代替单位根即可做到同样的效果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">DFT</span><span class="params">(<span class="type">int</span> f, vector&lt;<span class="type">int</span>&gt; &amp;rev)</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> lim = a.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; rev[i]) &#123;</span><br><span class="line">            <span class="built_in">swap</span>(a[i], a[rev[i]]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> len = <span class="number">2</span>; len &lt;= lim; len &lt;&lt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="type">int</span> wn = <span class="built_in">qpow</span>(G, (mod - <span class="number">1</span>) / len);</span><br><span class="line">        <span class="keyword">if</span> (f == <span class="number">-1</span>) &#123;</span><br><span class="line">            wn = <span class="built_in">qpow</span>(wn, mod - <span class="number">2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i += len) &#123;</span><br><span class="line">            <span class="type">int</span> w = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = i; j &lt; i + len / <span class="number">2</span>; j++, w = (LL)w * wn % mod) &#123;</span><br><span class="line">                <span class="type">int</span> x = a[j], y = (LL)w * a[j + len / <span class="number">2</span>] % mod;</span><br><span class="line">                a[j] = <span class="built_in">inc</span>(x, y), a[j + len / <span class="number">2</span>] = <span class="built_in">dec</span>(x, y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (f == <span class="number">-1</span>) &#123;</span><br><span class="line">        <span class="type">int</span> inv = <span class="built_in">qpow</span>(lim, mod - <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">            a[i] = (LL)a[i] * inv % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">friend</span> poly <span class="keyword">operator</span>*(poly a, poly b) &#123;</span><br><span class="line">    <span class="type">int</span> n = a.<span class="built_in">deg</span>(), m = b.<span class="built_in">deg</span>();</span><br><span class="line">    <span class="type">int</span> lim = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (lim &lt;= n + m) &#123;</span><br><span class="line">        lim &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">rev</span><span class="params">(lim)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">        rev[i] = (rev[i / <span class="number">2</span>] / <span class="number">2</span>) | ((i &amp; <span class="number">1</span>) * (lim / <span class="number">2</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    a.<span class="built_in">resize</span>(lim), b.<span class="built_in">resize</span>(lim);</span><br><span class="line">    a.<span class="built_in">DFT</span>(<span class="number">1</span>, rev), b.<span class="built_in">DFT</span>(<span class="number">1</span>, rev);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">        a[i] = (LL)a[i] * b[i] % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    a.<span class="built_in">DFT</span>(<span class="number">-1</span>, rev), a.<span class="built_in">resize</span>(n + m + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="mtt">MTT</h3>
+<p>NTT 只能处理模数固定的多项式乘法，如果模数为任意值就要使用 MTT
+了。</p>
+<p>设模数为 <span class="math inline">\(p\)</span>，我们取一个在 <span
+class="math inline">\(\sqrt p\)</span> 左右的阈值 <span
+class="math inline">\(q\)</span>，将多项式的每一项拆成 <span
+class="math inline">\(aq + b\)</span>
+的形式，最后把几个结果拼起来即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">friend</span> poly <span class="keyword">operator</span>*(poly a, poly b, <span class="type">int</span> mod) &#123;</span><br><span class="line">    <span class="type">int</span> n = a.<span class="built_in">deg</span>(), m = b.<span class="built_in">deg</span>(), lim = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (lim &lt;= n + m) &#123;</span><br><span class="line">        lim &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">rev</span><span class="params">(lim)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">        rev[i] = (rev[i / <span class="number">2</span>] / <span class="number">2</span>) | ((i &amp; <span class="number">1</span>) * (lim / <span class="number">2</span>));</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="function">poly <span class="title">A</span><span class="params">(lim)</span>, <span class="title">B</span><span class="params">(lim)</span>, <span class="title">C</span><span class="params">(lim)</span>, <span class="title">D</span><span class="params">(lim)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="type">int</span> x = (<span class="type">int</span>)a[i].<span class="built_in">real</span>() % mod;</span><br><span class="line">        A[i].<span class="built_in">real</span>(x &gt;&gt; <span class="number">15</span>);</span><br><span class="line">        B[i].<span class="built_in">real</span>(x &amp; <span class="number">32767</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="type">int</span> x = (<span class="type">int</span>)b[i].<span class="built_in">real</span>() % mod;</span><br><span class="line">        C[i].<span class="built_in">real</span>(x &gt;&gt; <span class="number">15</span>);</span><br><span class="line">        D[i].<span class="built_in">real</span>(x &amp; <span class="number">32767</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    A.<span class="built_in">DFT</span>(<span class="number">1</span>, rev), B.<span class="built_in">DFT</span>(<span class="number">1</span>, rev), C.<span class="built_in">DFT</span>(<span class="number">1</span>, rev), D.<span class="built_in">DFT</span>(<span class="number">1</span>, rev);</span><br><span class="line">    <span class="function">poly <span class="title">E</span><span class="params">(lim)</span>, <span class="title">F</span><span class="params">(lim)</span>, <span class="title">G</span><span class="params">(lim)</span>, <span class="title">H</span><span class="params">(lim)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">        E[i] = A[i] * C[i], F[i] = B[i] * C[i];</span><br><span class="line">        G[i] = A[i] * D[i], H[i] = B[i] * D[i];</span><br><span class="line">    &#125;</span><br><span class="line">    E.<span class="built_in">DFT</span>(<span class="number">-1</span>, rev), F.<span class="built_in">DFT</span>(<span class="number">-1</span>, rev), G.<span class="built_in">DFT</span>(<span class="number">-1</span>, rev), H.<span class="built_in">DFT</span>(<span class="number">-1</span>, rev);</span><br><span class="line">    <span class="function">poly <span class="title">c</span><span class="params">(n + m + <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n + m; i++) &#123;</span><br><span class="line">        LL e = (LL)E[i].<span class="built_in">real</span>() % mod, f = (LL)F[i].<span class="built_in">real</span>() % mod, </span><br><span class="line">            g = (LL)G[i].<span class="built_in">real</span>() % mod, h = (LL)H[i].<span class="built_in">real</span>() % mod;</span><br><span class="line">        c[i].<span class="built_in">real</span>(((e &lt;&lt; <span class="number">30</span>) + (f &lt;&lt; <span class="number">15</span>) + (g &lt;&lt; <span class="number">15</span>) + h) % mod);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多项式牛顿迭代">多项式牛顿迭代</h2>
+<h3 id="基本原理">基本原理</h3>
+<p>众所周知，<span class="math inline">\(f(x) = 0\)</span>
+的近似根可以通过牛顿迭代求得，那么 <span class="math inline">\(g(f(x))
+\equiv 0 \pmod{x^n}\)</span> 的根如何求呢？</p>
+<p>我们考虑倍增法求解，首先求出 <span class="math inline">\(g(f(x))
+\equiv 0\pmod{x^1}\)</span> 的根 <span
+class="math inline">\(f_0(x)\)</span>，然后我们考虑倍增求解之后的根。</p>
+<p>假设我们知道 <span class="math inline">\(g(f(x)) \equiv
+0\pmod{x^n}\)</span> 的根 <span
+class="math inline">\(f_0(x)\)</span>，我们尝试取求出 <span
+class="math inline">\(g(f(x)) \equiv 0 \pmod{x^{2n}}\)</span> 的根 <span
+class="math inline">\(f(x)\)</span>。</p>
+<p>对 <span class="math inline">\(g(f(x))\)</span> 在 <span
+class="math inline">\(f_0(x)\)</span> 处取泰勒展开得到 <span
+class="math display">\[
+g(f(x)) \equiv \sum_{k = 0}^{\infty} \dfrac{g^{(k)}(f_0(x))}{k!}(f(x) -
+f_0(x))^k \pmod{x^{2n}}
+\]</span> 由于上述式子是在模 <span class="math inline">\(x^{2n}\)</span>
+意义下进行的，所以 <span class="math inline">\(k \ge 2\)</span>
+的项可以全部忽略，我们得到 <span class="math display">\[
+g(f(x)) \equiv g(f_0(x)) + g&#39;(f_0(x))(f(x)-f_0(x)) \equiv 0
+\pmod{x^{2n}}
+\]</span></p>
+<p>最终得到 <span class="math display">\[
+f(x) \equiv f_0(x) - \dfrac{g(f_0(x))}{g&#39;(f_0(x))} \pmod{x^{2n}}
+\]</span></p>
+<h3 id="多项式求逆">多项式求逆</h3>
+<p>给定多项式 <span class="math inline">\(h(x)\)</span>，求多项式 <span
+class="math inline">\(f(x)\)</span> 使的 <span
+class="math inline">\(f(x)h(x) \equiv 1 \pmod{x^n}\)</span>。</p>
+<p>记 <span class="math inline">\(g(f(x)) = h(x) -
+\dfrac{1}{f(x)}\)</span>，那么即求 <span class="math inline">\(g(f(x))
+\equiv 0 \pmod{x^n}\)</span> 的根。</p>
+<p>然后套用上述公式，我们得到 <span class="math display">\[
+f(x) \equiv f_0(x)(2 - f_0(x)h(x)) \pmod{x^{2n}}
+\]</span></p>
+<p>直接倍增即可。</p>
+<p>时间复杂度 <span class="math inline">\(T(n) =
+T\left(\dfrac{n}{2}\right) + O(n\log n) = O(n\log n)\)</span>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">poly <span class="title">polyinv</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="function">poly <span class="title">f</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&#123;qpow(a[<span class="number">0</span>], mod - <span class="number">2</span>)&#125;)</span></span>;</span><br><span class="line">    <span class="type">int</span> lim = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (lim &lt; n) &#123;</span><br><span class="line">        lim &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">auto</span> rev = <span class="built_in">getR</span>(lim * <span class="number">2</span>);</span><br><span class="line">        poly g = <span class="keyword">this</span>-&gt;<span class="built_in">modx</span>(lim);</span><br><span class="line">        f.<span class="built_in">resize</span>(lim * <span class="number">2</span>), g.<span class="built_in">resize</span>(lim * <span class="number">2</span>);</span><br><span class="line">        f.<span class="built_in">DFT</span>(<span class="number">1</span>, rev), g.<span class="built_in">DFT</span>(<span class="number">1</span>, rev);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim * <span class="number">2</span>; i++) &#123;</span><br><span class="line">            f[i] = (LL)f[i] * (<span class="number">2</span> - (LL)f[i] * g[i] % mod + mod) % mod;   </span><br><span class="line">        &#125;</span><br><span class="line">        f.<span class="built_in">DFT</span>(<span class="number">-1</span>, rev);</span><br><span class="line">        f.<span class="built_in">resize</span>(lim);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f.<span class="built_in">modx</span>(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="多项式开方">多项式开方</h3>
+<p>给定多项式 <span class="math inline">\(h(x)\)</span>，求多项式 <span
+class="math inline">\(f(x)\)</span> 使得 <span
+class="math inline">\(f^2(x)\equiv h(x)\pmod{x^n}\)</span>。</p>
+<p>令 <span class="math inline">\(g(f(x)) = h(x) -
+f^2(x)\)</span>，同上得到 <span class="math display">\[
+f(x)\equiv \dfrac{f_0(x) + h(x)f_0^{-1}(x)}{2} \pmod{x^{2n}}
+\]</span> 边倍增边求逆即可，初解可以用二次剩余求得，时间复杂度 <span
+class="math inline">\(O(n\log n)\)</span>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">poly <span class="title">polysqrt</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="keyword">this</span>-&gt;<span class="built_in">deg</span>();</span><br><span class="line">    <span class="function">poly <span class="title">f</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&#123;<span class="number">1</span>&#125;)</span></span>;</span><br><span class="line">    <span class="type">int</span> lim = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (lim &lt;= n) &#123;</span><br><span class="line">        lim &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        poly f1 = f.<span class="built_in">polyinv</span>(lim) * <span class="keyword">this</span>-&gt;<span class="built_in">modx</span>(lim);</span><br><span class="line">        f = (f + f1).<span class="built_in">modx</span>(lim);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; lim; i++) &#123;</span><br><span class="line">            f[i] = (LL)f[i] * inv2 % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f.<span class="built_in">modx</span>(n + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多项式除法">多项式除法</h2>
+<p>给定次数为 <span class="math inline">\(n, m (n\ge m)\)</span>
+的多项式 <span class="math inline">\(f(x),g(x)\)</span>，求多项式 <span
+class="math inline">\(q(x), r(x)\)</span>，满足 <span
+class="math inline">\(f(x) = q(x)g(x) + r(x)\)</span>，且 <span
+class="math inline">\(\deg q = n - m\)</span>，<span
+class="math inline">\(\deg r &lt; m\)</span>。</p>
+<p>我们发现如果把 <span class="math inline">\(r(x)\)</span>
+消去可以直接用多项式求逆解决，于是有一个很神奇的方法出现了。</p>
+<p>将等式两边的 <span class="math inline">\(x\)</span> 用 <span
+class="math inline">\(\dfrac{1}{x}\)</span> 代替，再乘上 <span
+class="math inline">\(x^n\)</span>，得到 <span class="math display">\[
+f\left(\dfrac{1}{x}\right)x^n =
+g\left(\dfrac{1}{x}\right)x^mq\left(\dfrac{1}{x}\right)x^{n-m}+r\left(\dfrac{1}{x}\right)x^{m
+- 1}x^{n - m + 1}
+\]</span>
+然后我们将发现上述操作实际上是将系数反转了，我们把这个多项式记为 <span
+class="math inline">\(f_R(x)\)</span>，得到 <span
+class="math display">\[
+f_R(x) = g_R(x)q_R(x) + r_R(x)x^{n - m + 1}
+\]</span> 因为 <span class="math inline">\(\deg q &lt; n - m +
+1\)</span>，所以我们可以直接把 <span class="math inline">\(r(x)\)</span>
+消去，得到 <span class="math display">\[
+q_R(x) \equiv f_R(x)g_R^{-1}(x)\pmod{x^{n - m + 1}}
+\]</span> 知道了 <span class="math inline">\(q(x)\)</span>，即可解出
+<span class="math inline">\(r(x)\)</span>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">friend</span> pair&lt;poly, poly&gt; <span class="keyword">operator</span>/(poly f, poly g) &#123;</span><br><span class="line">    <span class="type">int</span> n = f.<span class="built_in">deg</span>(), m = g.<span class="built_in">deg</span>();</span><br><span class="line">    poly fR = f.<span class="built_in">polyR</span>(), gR = g.<span class="built_in">polyR</span>();</span><br><span class="line">    poly q = (fR * gR.<span class="built_in">polyinv</span>(n - m + <span class="number">1</span>)).<span class="built_in">modx</span>(n - m + <span class="number">1</span>).<span class="built_in">polyR</span>();</span><br><span class="line">    poly r = (f - g * q).<span class="built_in">modx</span>(m);</span><br><span class="line">    <span class="keyword">return</span> pair&lt;poly, poly&gt;&#123;q, r&#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多项式指对函数">多项式指对函数</h2>
+<p>首先考虑求 <span class="math inline">\(f(x) \equiv \ln h(x)
+\pmod{x^n}\)</span>，我们考虑等式两边同时求导再积分，可以得到 <span
+class="math display">\[
+f(x) \equiv \int \dfrac{h&#39;(x)}{h(x)} \pmod{x^n}
+\]</span></p>
+<p>于是多项式求逆即可 <span class="math inline">\(O(n\log n)\)</span>
+解决。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">poly <span class="title">polyln</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">this</span>-&gt;<span class="built_in">deriv</span>() * <span class="keyword">this</span>-&gt;<span class="built_in">polyinv</span>(n)).<span class="built_in">interg</span>().<span class="built_in">modx</span>(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意 <span class="math inline">\(\ln\)</span> 只在 <span
+class="math inline">\([x^0]f(x) = 1\)</span> 时有意义。</p>
+<p>然后考虑求 <span class="math inline">\(f(x) \equiv e^{h(x)}
+\pmod{x^n}\)</span>，令 <span class="math inline">\(g(f(x)) = h(x) - \ln
+f(x)\)</span>，我们用牛顿迭代可以得到 <span class="math display">\[
+f(x) \equiv f_0(x) - \dfrac{g(f_0(x))}{g&#39;(f_0(x))} = f_0(x)(1 - \ln
+f_0(x) + h(x)) \pmod{x^{2k}}
+\]</span> 于是倍增可以 <span class="math inline">\(O(n\log n)\)</span>
+求解。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">poly <span class="title">polyexp</span><span class="params">(<span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="function">poly <span class="title">f</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&#123;<span class="number">1</span>&#125;)</span></span>;</span><br><span class="line">    <span class="type">int</span> lim = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (lim &lt; n) &#123;</span><br><span class="line">        lim &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        f = (f * (<span class="built_in">poly</span>(vector&lt;<span class="type">int</span>&gt;&#123;<span class="number">1</span>&#125;) - f.<span class="built_in">polyln</span>(lim) + <span class="keyword">this</span>-&gt;<span class="built_in">modx</span>(lim))).<span class="built_in">modx</span>(lim);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f.<span class="built_in">modx</span>(n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意 <span class="math inline">\(\exp\)</span> 只在 <span
+class="math inline">\([x^0]f(x) = 0\)</span> 有意义。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/11/20/ForeverAfter/" rel="prev" title="【随笔】ForeverAfter">
+                  <i class="fa fa-chevron-left"></i> 【随笔】ForeverAfter
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenyu Wu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://npm.elemecdn.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://npm.elemecdn.com/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
